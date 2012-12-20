@@ -35,3 +35,7 @@
 
 ## SCons db
 .sconsign.dblite
+
+## gedit latex plugin
+*.ini
+
