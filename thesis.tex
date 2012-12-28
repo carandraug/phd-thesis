@@ -68,6 +68,8 @@
 %% only " To be added shortly" was displayed on the page
 
 \OnehalfSpacing % use this only while on draft to ease taking notes
+\setsecnumdepth{subsection}
+
 
 \usepackage{graphicx}
   \graphicspath{{./figs/}}
@@ -77,6 +79,13 @@
   \newcommand{\addref}[1][]{\todo[color=red!40,size=\tiny]{Add reference #1}}
   %% new command for boxes of text that need to be rewritten
   \newcommand{\rewrite}[2][]{\todo[inline,color=green!40,caption={chunk of text to be rewritten}#1]{#2}}
+
+\usepackage{siunitx}
+  \DeclareSIUnit\gn{\textit{g$_n$}} % standard gravity
+  \DeclareSIUnit\Molar{\textsc{m}}
+  \newcommand{\dc}{\degreeCelsius}
+
+\newcommand{\species}[1]{\textit{#1}}
 
 \renewcommand{\abstractname}{Summary}
 
