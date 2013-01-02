@@ -1,7 +1,33 @@
 \chapter{Introduction}
 \label{ch:intro}
 
+%% FIXME 2nd year report abstract
+%%The nucleosome is the fundamental structural unit of chromatin and the foundation
+%%of it dynamics. Certain mutants have been shown to have a large effect on the
+%%stability of the nucleosome \textit{in vitro} and to mimic chromatin remodelling
+%%complexes in yeast.
+%%
+%%Fluorescence Recovery After Photobleaching (FRAP) has been previously used to
+%%measure kinetics of endogenous histones. We are attempting to use it to measure
+%%differences between wild type histones and mutants showing unusual \textit{in vitro} dynamics.
+%%
+%%We have developed two programs on the GNU Octave programming language, CropReg and
+%%FRAPINATOR which was released under GPL. CropReg is able to track the nuclei of moving
+%%cells. FRAPINATOR is able to do all the image processing, data extraction and fitting
+%%of our FRAP experiments. These have revealed significant challenges to the determination
+%%of relevant kinetic parameters, principally due to movement of chromatin.
+
+
+
+
+
+
+
 \section{Chromatin organization}
+  Chromatin is a dynamic complex that controls access to genetic information by
+  undergoing reconfiguration of its structure. Since nucleosomes are the chromatin
+  basic structural unit, their structural properties are on the basis of such reconfigurations.
+
   \subsection{Chromatin as substrate}
   \subsection{Nucleosome structure}
   \subsection{Chromatin remodelling}
@@ -16,5 +42,37 @@
 \section{In vivo techniques for quantitative protein dynamics}
   \subsection{Fluorescent proteins}
   \subsection{FRAP}
+
+    Fluorescence Recovery After Photobleaching has been extensively used to obtain
+    qualitative and quantitative insight on the kinetic properties of proteins. Development of
+    this technique has led to complex models that are both more precise and accurate than
+    simple models based on inverse exponential decay. These take into account important
+    parameters that were previously discarded but have since been shown as important, such as
+    diffusion and the bleach spot profile shape.
+
+    However, despite the their sophistication, these models of recovery make certain
+    important assumptions:
+    \begin{itemize}
+      \item the biological system has reached equilibrium before photobleaching;
+      \item total amount of both Fluorescent Protein (FP) fusion protein and its
+            binding sites remain constant over the time course of the recovery;
+      \item the binding sites are part of a large, relatively immobile complex, at
+            least on the time- and length-scale of the recovery.
+    \end{itemize}
+
+    FRAP has been successfully used before to show that different core histones have
+    different kinetics and populations. We expect to be able to use it for \textit{in vivo}
+    validation of previously identified differences between wild type and mutant histones.
+
   \subsection{FLAP}
+
+
+
+
+
+
+
+
+
+
 
