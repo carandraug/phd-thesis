@@ -7,6 +7,7 @@ Depends(paper, ['chapters/fancy-frap.tex',
                 'chapters/histone-catalogue.tex',
                 'chapters/intro.tex',
                 'chapters/methods.tex',
-                'chapters/octave.tex',])
+                'chapters/octave.tex',
+                'chapters/appendices.tex',])
 Decider('content')  # same as MD5
 
