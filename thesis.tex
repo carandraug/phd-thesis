@@ -67,9 +67,14 @@
 %% http://www.nuigalway.ie/graduatestudies/Current_Students_2/local_guidelines.html
 %% only " To be added shortly" was displayed on the page
 
-%% TODO we really need to get another font or go back to OT1 font encoding. This
-%%      looks horrible.
+%% TODO we have to decide about the font....
 \usepackage[T1]{fontenc}
+\usepackage{palatino}
+%\usepackage{mathpazo}   % Palatino text with Pazo math
+%\usepackage{mathpple}   % Palatino text with Euler math
+%\usepackage{utopia}
+%\usepackage{euler}
+%\usepackage{lmodern}
 
 \OnehalfSpacing % use this only while on draft to ease taking notes
 \setsecnumdepth{subsection}
@@ -82,15 +87,20 @@
 
 \usepackage{todonotes}
   %% new command for box about missing references
-  \newcommand{\addref}[1][]{\todo[color=red!40,size=\tiny]{Add reference #1}}
+  \newcommand{\addref}[1][]{\todo[color=red!40,size=\tiny]{Add reference: #1}}
   %% new command for boxes of text that need to be rewritten
   \newcommand{\rewrite}[2][]{\todo[inline,color=green!40,caption={chunk of text to be rewritten}#1]{#2}}
 
+\usepackage{threeparttable} % for table notes
+
 \usepackage{siunitx}
-  \DeclareSIUnit\gn{\textit{g$_n$}} % standard gravity
-  \DeclareSIUnit\bp{bp}             % base pairs
-  \DeclareSIUnit\Molar{\textsc{m}}
-  \newcommand{\dc}{\degreeCelsius}
+  \DeclareSIUnit{\gn}{\textit{g$_n$}}   % standard gravity
+  \DeclareSIUnit{\bp}{bp}               % base pairs
+  \DeclareSIUnit{\cfu}{cfu}             % colony forming unit
+  \DeclareSIUnit{\Molar}{\textsc{m}}
+  \DeclareSIUnit{\mM}{\si{\milli}\si{\Molar}}
+  \newcommand{\dc}[1]{\SI{#1}{\degreeCelsius}}
+  \newcommand{\pcent}[1]{\SI{#1}{\percent}}
 
 \newcommand{\captionIntro}[2]{\caption[#1]{\textbf{#1} #2}}
 
@@ -112,6 +122,9 @@
 %% Does not account for the the histone cataloguing part. Plus there wasn't that much
 %% study on the structure function relationships as it was mostly methods and things not
 %% working great...
+%%
+%% the main thing behind the thesis is automation (we are not monkeys) and quantitative analysis. Those
+%% two words should probably go on the title
 
 \begin{document}
   \frontmatter
