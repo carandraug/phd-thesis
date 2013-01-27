@@ -14,12 +14,20 @@
   %%     1\% NEAA;
   %%     ...
   %% \end{description}
-  %%
-  %% or with the eqparbox package. See http://tex.stackexchange.com/questions/95397
   
-  %% Should the solutions be split into sections?
-  
-  \begin{ctabular}{>{\bfseries}l p{10cm}}
+  %% This requires the eqparbox package. It checks what LaTeX thinks is best for a column
+  %% and save that value. It will then use it to calculate what's left of \textwidth, and
+  %% use it for the other columns. See http://tex.stackexchange.com/questions/95397
+  %% It will NOT work with memoir's ctabular. Use longtable from the longtable package
+  %% if the table becomes too long and needs to span multiple pages
+  \newsavebox{\firstentrybox}
+  \newcolumntype{N}{%
+    >{\begin{lrbox}{\firstentrybox}}%
+      l%
+    <{\end{lrbox}%
+    \eqmakebox[firstentry][l]{\unhcopy\firstentrybox}}}
+
+  \begin{tabular}{>{\bfseries}N p{\dimexpr(\textwidth-\eqboxwidth{firstentry}-4\tabcolsep)}}
     \toprule
     Name & Recipe\\
     \midrule
@@ -80,7 +88,7 @@
     Transfer buffer         & \SI{1}{$\times$} TG;
                               \pcent{15} methanol ($v/v$).\\
     \bottomrule
-  \end{ctabular}
+  \end{tabular}
     
 
 \chapter{List of plasmids}
