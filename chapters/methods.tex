@@ -1,14 +1,31 @@
 \chapter{Materials and Methods}
 \label{ch:methods}
 
-\section{Chemicals, solutions and reagents used}
-  The chemicals used were obtained from Sigma unless otherwise stated. Solutions were prepared
-  according to \Aref{app:solutions} with dH$_2$O and autoclaved prior to use when appropriate.
-  
-  Restriction enzymes, T4 DNA ligase, and other DNA modifying enzymes, DNA ladders were obtained
-  from New England BioLabs. Protein ladder was SeeBlue Plus2 from Invitrogen.
-  
+\epigraph{As palavras que nunca te direi.}{Translation of ``Message in a bottle''}
+%% "The devil is in the details."
+%%
+%% "Sometimes what's not said is just as important as what is."
+%% "Sometimes it's what's not said that's important."
+
+\noindent
+The chemicals used were obtained from Sigma unless otherwise stated. Solutions were prepared
+according to \Aref{app:solutions} with dH$_2$O and autoclaved prior to use when appropriate.
+
+Restriction enzymes, T4 DNA ligase, other DNA modifying enzymes, and DNA ladders were obtained
+from New England BioLabs. Protein ladders from Invitrogen.
+
+For use in tissue culture, PBS (\SI{6.7}{\mM} PO$_4^{3-}$ without Ca$^{2+}$ and Mg$^{2+}$), FCS,
+and DMEM (without phenol red and L-glutamine) were obtained from Lonza; DMEM (supplemented with
+glucose, sodium pyruvate, L-glutamine and phenol red) and Non-Essential Amino Acid (NEAA) solution
+from Sigma; Penicillin--Streptomycin solution and Trypsin-EDTA from Gibco.
+%% FIXME double check that FCS is indeed ordered from Lonza
+
 \section{DNA methods}
+  \subsection{Bacterial cultures}
+    \species{E.~coli} cultures were prepared with either LB broth or agar at \dc{37}. For antibiotic
+    selection, ampicillin, kanamycin, and chloramphenicol, were used at concentrations of 100, 30,
+    and \SI{34}{\mg\per\l} respectively.
+
   \subsection{Preparation of competent bacteria}
     Competent \species{E.~coli} cells were prepared from a culture of Invitrogen's One Shot
     TOP10 Chemically Competent \species{E.~coli}. LB cultures of \SI{1}{\l} were set at
@@ -32,8 +49,6 @@
     and the cultures incubated at \dc{37} with vigorous shaking for 45 minutes. Samples from the cultures
     were plated onto the appropriate antibiotic containing plates, and incubated overnight at \dc{37}.
     
-    %% FIXME add concentration of antibiotic used for both agar and broth
-    
     For high concentrations of plasmid DNA (more than \SI{500}{\ng\per\ug}), smaller volumes of DNA were used,
     and the initial and final incubation steps were lowered to 10 minutes.
 
@@ -41,8 +56,7 @@
     Plasmid DNA was prepared with kits from QIAGEN (QIAprep Spin Miniprep, QIAGEN Plasmid \textit{Plus} Midi,
     QIAquick Gel Extraction and QIAquick PCR purification) following the manufacturer's instructions. Once
     prepared, DNA was stored at \dc{-20}. DNA concentrations were measured with a spectrophotometer (NanoDrop
-    1000 Spectrophotometer from Thermo Scientific).
-    %% FIXME confirm nanodrop model
+    2000c spectrophotometer from Thermo Scientific).
 
   \subsection{Ethanol precipitation}
     \label{sec:ethanol-precipitation}
@@ -53,8 +67,10 @@
     was resuspended in the desired solvent (usually H$_2$O for transfection).
 
   \subsection{Agarose gels electrophoresis}
-    Agarose gels with of concentrations ranging from \SIrange{0.6}{2.0}{\percent} were prepared with TAE buffer,
-    and supplemented with ethidium bromide. Gels were ran in chambers with \SI{1}{$\times$}~TAE buffer at
+    Agarose gels with concentrations ranging from \SIrange{0.6}{2.0}{\percent} were prepared with TAE buffer,
+    and supplemented with ethidium bromide. DNA samples were loaded into the gel with DNA loading buffer and a
+    choice of loading dyes between bromophenol blue, cresol red, orange G, or xylene cyanol, to avoid shadowing
+    the DNA bands. Electrophoresis was performed in electrophoresis chambers with \SI{1}{$\times$}~TAE buffer at
     \SIrange{80}{120}{\volt} until the required separation was achieved. Gels were visualized at a UV
     transilluminator (ChemiImager 5500 from Alpha Innotech).
 
@@ -66,6 +82,21 @@
     produced at \Aref{app:primers}.
 
   \subsection{Polimerase Chain Reaction}
+    Different types of PCR experiments were performed for different purposes, which involved using different DNA
+    polymerases. Taq DNA polymerase from and KOD Hot Start from Novagen. The use of different types for each
+    application was based on their cost-benefit for each application. For example, screening clones not only requires
+    multiple reactions, it is also not important if small mutations are introduced. So, the much cheaper Taq
+    DNA polymerase was used for screening despite its low fidelity and amplification rates. However, in PCR
+    mutagenesis the whole plasmid is synthesized anew and we have no reasonable method to verify its whole
+    sequence. As a result, KOD DNA polymerase was used instead.
+    
+    Each reaction used a different DNA template and pair of primers which means that the required salt concentrations,
+    temperature of the annealing step, and time of extension step were different. Values on \tref{tab:pcr-settings}
+    correspond to standard usage but required adjustment in many reactions. Commonly, multiple conditions
+    were set simultaneously.
+    
+    \todo[inline]{what's the PCR model we have in the lab?}
+    
     \subsubsection{Colony PCR}
       When screening multiple clones for a specific plasmid and a set of appropriate oligonucleotides was available,
       PCRs were set directly from the bacteria colonies by adding them directly to the reaction mixture
@@ -73,56 +104,62 @@
       start a small culture. Plasmid purification was performed on cultures whose sample was positive by PCR.
 
     \subsubsection{Gene amplification}
+
     \subsubsection{Mutagenesis}
+      PCR mutagenesis\footnote{In PCR mutagenesis, since the newly synthesized strands will be linear and cannot be
+      used as template, the amplification is linear rather than exponential. Because of this, the name PCR
+      mutagenesis is misleading. There is \emph{no} actual chain reaction.} was used to introduce or remove mutations
+      in\todo{in or from?} other plasmids. After amplification, \SI{1.5}{\ul} of restriction enzyme DpnI\footnote{Because
+      DpnI activity is blocked by DNA methylation, it will only digest the template DNA which was synthesized in bacteria,
+      leaving the newly \textit{in vitro} synthesized DNA intact.} was added directly to the PCR mixture, and incubated
+      overnight at \dc{37}. \SI{1}{\ul} was used for transformation and individual clones screened by sequencing.
+      
+      \todo[inline]{where should we mention care on primer design? Picking the codon with optimal usage for mutagenesis.
+                    Here or in the FRAP chapter?}
+
     \subsubsection{Screening}
     
-    \begin{table}
-      %% FIXME I should be using subcaptions here
+    \begin{sidewaystable}
+      %% FIXME use the eqparbox package to have the columns match??
       \centering
-      \captionIntro{PCR mixtures.}{}
-      \label{tab:pcr-mixture}
-      \todo[inline]{get the actual values used here}
-      \begin{tabular}{l c c c c}
+      \captionIntro{PCR mixtures and conditions used.}{}
+      \label{tab:pcr-settings}
+      \begin{tabular}{l c c c c c}
         \toprule
-        \null                                 & colony  & amplification & mutagenesis & screening \\
+        \null                                 & \begin{tabular}{@{}c@{}}amplification \\ (genomic)\end{tabular} &
+                                                \begin{tabular}{@{}c@{}}amplification \\ (plasmid)\end{tabular} &
+                                                colony & mutagenesis & screening \\
         \midrule
-        Template (\si{\ng})                   & 6       & 67            & 78          & 89    \\
-        DMSO                                  & 5       & 78            & 78          & 89    \\
-        Buffer                                & 6       &     67        & 78          & 89    \\
-        MgSO$_4$                              & 67      &   78          & 78          & 89    \\
-        dNTPs                                 & 8       &   78          & 78          & 89    \\
-        Primer (forward) (\si{\micro\Molar})  & 8       &   78          & 78          & 89    \\
-        Primer (reverse) (\si{\micro\Molar})  & 9       &   78          & 78          & 89    \\
-        DNA polymerase                        & 9       &   78          & 78          & 89    \\
+        Template (\si{\ng})                   & 1000      & 50        & n/a        & 750       &            \\
+        DMSO (\si{\ul})                       & 2         &           & 1          &           &            \\
+        Buffer ($\times$)                     & 1         & 1         & 1          & 1         & 1          \\
+        MgSO$_4$ (\si{\nmol})                 & 1.5       & 1.5       &            & 1.5       &            \\
+        dNTPs (\si{\mM} each)                 & 0.2       & 0.2       & 0.2        & 0.2       &            \\
+        Primer (forward) (\si{\micro\Molar})  & 2         & 2         & 2          & 0.4       &            \\
+        Primer (reverse) (\si{\micro\Molar})  & 2         & 2         & 2          & 0.4       &            \\
+        DNA polymerase (\si{U})               & 0.5 (KOD) & 0.5 (KOD) & 0.05 (Taq) & 0.5 (KOD) & 0.05 (Taq) \\
         \addlinespace
-        Total volume (\si{\ul})               & 25      &   78          & 78          & 89    \\
+        Total volume (\si{\ul})               & 25        & 25        & 25         & 25        & 25         \\
+      \end{tabular}
+      \newcolumntype{W}{r<{\si{\second}}}
+      \newcolumntype{T}{l<{\si{\degreeCelsius}}}
+
+      \begin{tabular}{l W@{ at }T W@{ at }T W@{ at }T W@{ at }T}
+        \midrule
+        Initialization                & 120 & 94    & 120 & 94    & 180 & 94    & 120 & 94    & 120 & 94 \\
+        Denaturation                  &  30 & 94    &  30 & 94    &  15 & 94    &  30 & 94    &  15 & 94 \\
+        Annealing                     &  20 & 58    &  20 & 94    &  15 & 58    &  20 & 58    &  15 & 62 \\
+        Extension (per \si{\kilo\bp}) &  30 & 68    &  20 & 72    &  60 & 72    &  30 & 68    &  45 & 72 \\
+        Final extension               & 300 & 62    & 300 & 72    & 300 & 72    & 300 & 94    & 300 & 72 \\
+        Final hold                    & \multicolumn{2}{c}{\dc{4}} & \multicolumn{2}{c}{\dc{4}} &
+                                        \multicolumn{2}{c}{\dc{4}} & \multicolumn{2}{c}{\dc{4}} &
+                                        \multicolumn{2}{c}{\dc{4}} \\
+        Number of cycles              & \multicolumn{2}{c}{30$\times$} & \multicolumn{2}{c}{30$\times$} &
+                                        \multicolumn{2}{c}{30$\times$} & \multicolumn{2}{c}{15$\times$} &
+                                        \multicolumn{2}{c}{20$\times$} \\
         \bottomrule
       \end{tabular}
-
-      \begin{threeparttable}
-        \captionIntro{PCR conditions.}{}
-        \label{tab:pcr-conditions}
-        \begin{tabular}{l r<{\si{\second}}@{ at }l<{\si{\degreeCelsius}} r<{\si{\second}}@{ at }l<{\si{\degreeCelsius}}
-                          r<{\si{\second}}@{ at }l<{\si{\degreeCelsius}} r<{\si{\second}}@{ at }l<{\si{\degreeCelsius}}}
-          \toprule
-          \null               & \multicolumn{2}{c}{colony}      & \multicolumn{2}{c}{amplification} &
-                                \multicolumn{2}{c}{mutagenesis} & \multicolumn{2}{c}{screening} \\
-          \midrule
-          Initialization      & 180 & 94                   & 60  & 94                   & 60  & 94                   & 60  & 94                   \\
-          Denaturation        & 15  & 94                   & 60  & 94                   & 60  & 94                   & 60  & 94                   \\
-          Annealing \tnote{1} & 15  & 94                   & 60  & 94                   & 60  & 94                   & 60  & 94                   \\
-          Extension \tnote{2} & 60  & 94                   & 60  & 94                   & 60  & 94                   & 60  & 94                   \\
-          Number of cycles    & \multicolumn{2}{c}{30}     & \multicolumn{2}{c}{30}     & \multicolumn{2}{c}{30}     & \multicolumn{2}{c}{30}     \\
-          Final extension     & 300 & 72                   & 60  & 94                   & 60  & 94                   & 60  & 94                   \\
-          Final hold          & \multicolumn{2}{c}{\dc{4}} & \multicolumn{2}{c}{\dc{4}} & \multicolumn{2}{c}{\dc{4}} & \multicolumn{2}{c}{\dc{4}} \\
-          \bottomrule
-        \end{tabular}
-        \begin{tablenotes}
-          \item [1] Temperature is primer dependent. Displayed values correspond to the typical usage.
-          \item [2] Time is dependent on sequence length. Displayed time is by \si{\kilo\bp}.
-        \end{tablenotes}
-      \end{threeparttable}
-    \end{table}
+    \end{sidewaystable}
 
 
 
