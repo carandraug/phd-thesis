@@ -14,53 +14,71 @@
   %%     1\% NEAA;
   %%     ...
   %% \end{description}
+  %%
+  %% or with the eqparbox package. See http://tex.stackexchange.com/questions/95397
   
   %% Should the solutions be split into sections?
   
-  \begin{ctabular}{>{\textbf}l p{10cm}}
+  \begin{ctabular}{>{\bfseries}l p{10cm}}
     \toprule
     Name & Recipe\\
     \midrule
+    DMEM                    & \SI{4.5}{\g\per\l}   glucose;
+                              \SI{110}{\mg\per\l}  L-glutamine;
+                              \SI{584}{\ug\per\l}  sodium pyruvate;
+                              \SI{15.9}{\mg\per\l} phenol red.\\
+    
     Freezing media          & \pcent{90} FCS;
-                              \pcent{10} DMSO. \\
+                              \pcent{10} DMSO.\\
     
-    Growth medium (HeLa)    & \pcent{87} DMEM;
-                              \pcent{10} FCS;
-                              \pcent{1}  NEAA;
-                              \pcent{1}  Penicillin/Streptomycin);
-                              \pcent{1}  L-Glutamine. \\
+    Growth medium (HeLa)    & \pcent{89}            DMEM;           % 500ml
+                              \pcent{9}             FCS;            % 50ml
+                              \SI{1}{$\times$}      NEAA solution;  % 5.5mL
+                              \SI{50}{units\per\ml} penicillin;     % 5.5mL (Pen/Strep solution)
+                              \SI{50}{\ug\per\ml}   streptomycin.\\ % 5.5mL (Pen/Strep solution)
     
-    Growth medium (horse)   & \pcent{76} DMEM;
-                              \pcent{20} FCS;
-                              \pcent{2}  NEAA;
-                              \pcent{1}  Penicillin/Streptomycin);
-                              \pcent{1}  L-Glutamine. \\
+    Growth medium (horse)   & \pcent{81}            DMEM;           % 500ml
+                              \pcent{16}            FCS;            % 100ml
+                              \SI{2}{$\times$}      NEAA solution;  %  12mL
+                              \SI{50}{units\per\ml} penicillin;     % 5.5mL (Pen/Strep solution)
+                              \SI{50}{\ug\per\ml}   streptomycin.\\ % 5.5mL (Pen/Strep solution)
     
-    LB agar                 & \pcent{2} (w/v) LB
-                              \pcent{1.5} agar. \\
+    %% TODO check exactly the LB recipes
+    LB agar                 & \pcent{2}   LB ($w/v$);
+                              \pcent{1.5} agar.\\
     
-    LB broth                & \pcent{2} (w/v) LB
-                              \pcent{1.5} agar. \\
+    LB broth                & \pcent{2} LB ($w/v$).\\
+    
+    PBS                     & \\
+    %% TODO check exact PBS recipe from the tablets
+    
+    Ponceau S solution      & \pcent{5} Ponceau-S ($w/v$);
+                              \pcent{5} Acetic acid ($v/v$).\\
+    
+    Running buffer          & \SI{1}{$\times$} TG;
+                              \pcent{0.1}      SDS ($w/v$).\\
+    
+    SSC (Saline Sodim Citrate) & \SI{150}{\mM} NaCl;
+                              \SI{15}{\mM}     Trisodium citrate.\\
     
     TAE (Tris Acetate EDTA) & \\
     %% TODO get TAE buffer recipe
     
     TBE (Tris Borate EDTA)  & \SI{89}{\mM} Tris;
-                              \SI{89}{\mM} Boric Acid;
-                              \SI{2}{\mM} EDTA. \\
+                              \SI{89}{\mM} Boric acid;
+                              \SI{2}{\mM}  EDTA.\\
     
-    TBS (Tris Buffered Saline)  & \SI{50}{\mM} Tris--HCl pH=\num{8.0};
-                              \pcent{0.9} NaCl. \\
+    TBS (Tris Buffered Saline)  & \SI{50}{\mM} Tris--HCl pH=\num{7.5};
+                              \SI{100}{\mM}    NaCl.\\
     
-    TBST (TBS-Tween)        & \pcent{99.9} TBS;
-                              \pcent{0.1} Tween20. \\
+    PBS-T (TBS-Tween)       & \pcent{99.95} PBS ($v/v$);
+                              \pcent{0.05}  Tween 20 ($v/v$).\\
     
-    TG (Tris Glycine)       & \SI{25}{\mM} Tris;
-                              \SI{192}{\mM} Glycine. \\
+    TG (Tris Glycine)       & \SI{25}{\mM}  Tris;
+                              \SI{192}{\mM} glycine.\\
     
     Transfer buffer         & \SI{1}{$\times$} TG;
-                              \pcent{20} methanol;
-                              \pcent{0.05} SDS. \\
+                              \pcent{15} methanol ($v/v$).\\
     \bottomrule
   \end{ctabular}
     
