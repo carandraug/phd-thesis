@@ -18,8 +18,7 @@
   %% This requires the eqparbox package. It checks what LaTeX thinks is best for a column
   %% and save that value. It will then use it to calculate what's left of \textwidth, and
   %% use it for the other columns. See http://tex.stackexchange.com/questions/95397
-  %% It will NOT work with memoir's ctabular. Use longtable from the longtable package
-  %% if the table becomes too long and needs to span multiple pages
+  %% It doesn't work with memoir's ctabular so we are using longtable instead
   \newsavebox{\firstentrybox}
   \newcolumntype{N}{%
     >{\begin{lrbox}{\firstentrybox}}%
@@ -27,10 +26,13 @@
     <{\end{lrbox}%
     \eqmakebox[firstentry][l]{\unhcopy\firstentrybox}}}
 
-  \begin{tabular}{>{\bfseries}N p{\dimexpr(\textwidth-\eqboxwidth{firstentry}-4\tabcolsep)}}
+  \begin{longtable}{>{\bfseries}N p{\dimexpr(\textwidth-\eqboxwidth{firstentry}-4\tabcolsep)}}
     \toprule
     Name & Recipe\\
     \midrule
+    2YT broth               & \\
+    %% FIXME get 2YT media recipe
+    
     DMEM                    & \SI{4.5}{\g\per\l}   glucose;
                               \SI{110}{\mg\per\l}  L-glutamine;
                               \SI{584}{\ug\per\l}  sodium pyruvate;
@@ -88,7 +90,7 @@
     Transfer buffer         & \SI{1}{$\times$} TG;
                               \pcent{15} methanol ($v/v$).\\
     \bottomrule
-  \end{tabular}
+  \end{longtable}
     
 
 \chapter{List of plasmids}
