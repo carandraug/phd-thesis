@@ -82,79 +82,88 @@ from Sigma; Penicillin--Streptomycin solution and Trypsin-EDTA from Gibco.
     produced at \Aref{app:primers}.
 
   \subsection{Polimerase Chain Reaction}
-    Different types of PCR experiments were performed for different purposes, which involved using different DNA
-    polymerases. Taq DNA polymerase from and KOD Hot Start from Novagen. The use of different types for each
-    application was based on their cost-benefit for each application. For example, screening clones not only requires
-    multiple reactions, it is also not important if small mutations are introduced. So, the much cheaper Taq
-    DNA polymerase was used for screening despite its low fidelity and amplification rates. However, in PCR
-    mutagenesis the whole plasmid is synthesized anew and we have no reasonable method to verify its whole
-    sequence. As a result, KOD DNA polymerase was used instead.
+    Different types of PCR experiments were performed for different purposes with different DNA polymerases
+    (\tref{tab:pcr-settings}. Taq with ThermoPol buffer was obtained from New England Biolabs. KOD Hot Start
+    with Mg$^{2+}$ free buffer was obtained from Novagen. PCRs were performed on a Mastercycler epgradient
+    thermocycler from Eppendorf.
     
-    Each reaction used a different DNA template and pair of primers which means that the required salt concentrations,
-    temperature of the annealing step, and time of extension step were different. Values on \tref{tab:pcr-settings}
-    correspond to standard usage but required adjustment in many reactions. Commonly, multiple conditions
-    were set simultaneously.
+    Use of different DNA polymerases was based on their cost-benefit for each application. For example, screening
+    clones requires a large number of reactions in simultaneous and the introduction of small mutations is of no
+    consequence. For this two reasons, the much cheaper Taq DNA polymerase was used for screening despite its
+    low fidelity and amplification rates. However, in PCR mutagenesis the whole plasmid is synthesized anew and we
+    have no reasonable method to verify its whole sequence. As a result, KOD DNA polymerase was used instead.
     
-    \todo[inline]{what's the PCR model we have in the lab?}
-    
-    \subsubsection{Colony PCR}
-      When screening multiple clones for a specific plasmid and a set of appropriate oligonucleotides was available,
-      PCRs were set directly from the bacteria colonies by adding them directly to the reaction mixture
-      (\tref{tab:pcr-settings}). Bacteria from individual colonies were used to simultaneously perform a PCR and
-      start a small culture. Plasmid purification was performed on cultures whose sample was positive by PCR.
-
-    \subsubsection{Gene amplification}
-
-    \subsubsection{Mutagenesis}
-      PCR mutagenesis\footnote{In PCR mutagenesis, since the newly synthesized strands will be linear and cannot be
-      used as template, the amplification is linear rather than exponential. Because of this, the name PCR
-      mutagenesis is misleading. There is \emph{no} actual chain reaction.} was used to introduce or remove mutations
-      in\todo{in or from?} other plasmids. After amplification, \SI{1.5}{\ul} of restriction enzyme DpnI\footnote{Because
-      DpnI activity is blocked by DNA methylation, it will only digest the template DNA which was synthesized in bacteria,
-      leaving the newly \textit{in vitro} synthesized DNA intact.} was added directly to the PCR mixture, and incubated
-      overnight at \dc{37}. \SI{1}{\ul} was used for transformation and individual clones screened by sequencing.
-      
-      \todo[inline]{where should we mention care on primer design? Picking the codon with optimal usage for mutagenesis.
-                    Here or in the FRAP chapter?}
-
-    \subsubsection{Screening}
+    A list of the designed primers is displayed on \Aref{app:primers}.
     
     \begin{sidewaystable}
       \centering
-      \captionIntro{PCR mixtures and conditions used.}{}
+      \captionIntro{PCR mixtures and conditions used.}
+                   {Since each reaction was unique, with different pair of primers and template DNA, the optimal salt
+                   concentrations, temperature of the annealing step, and time of extension step actually used were
+                   sometimes different. Listed values correspond to the standard usage and initial attempts.}
       \label{tab:pcr-settings}
-
+      
       \newcolumntype{W}{r<{\si{\second}}}
       \newcolumntype{T}{l<{\si{\degreeCelsius}}}
-
+      
       \begin{tabular}{l W@{ at }T W@{ at }T W@{ at }T W@{ at }T W@{ at }T}
         \toprule
-        \null                                 & \multicolumn{4}{c}{amplification} & \crows{colony} & \crows{mutagenesis} & \crows{screening} \\
+        \null                                 & \multicolumn{4}{c}{cloning} & \crows{colony} & \crows{mutagenesis} & \crows{screening} \\
                                                        \cmidrule(r){2-5}
         \null                                 & \crows{genomic} & \crows{plasmid} \\
         \midrule
-        Template (\si{\ng})                   & \crows{1000}      & \crows{50}        & \crows{n/a}        & \crows{750}       & \crows{ }          \\
-        DMSO (\si{\ul})                       & \crows{2}         & \crows{ }         & \crows{1}          & \crows{ }         & \crows{ }          \\
-        Buffer ($\times$)                     & \crows{1}         & \crows{1}         & \crows{1}          & \crows{1}         & \crows{1}          \\
-        MgSO$_4$ (\si{\nmol})                 & \crows{1.5}       & \crows{1.5}       & \crows{ }          & \crows{1.5}       & \crows{ }          \\
-        dNTPs (\si{\mM} each)                 & \crows{0.2}       & \crows{0.2}       & \crows{0.2}        & \crows{0.2}       & \crows{ }          \\
-        Primer (forward) (\si{\micro\Molar})  & \crows{2}         & \crows{2}         & \crows{2}          & \crows{0.4}       & \crows{ }          \\
-        Primer (reverse) (\si{\micro\Molar})  & \crows{2}         & \crows{2}         & \crows{2}          & \crows{0.4}       & \crows{ }          \\
-        DNA polymerase (\si{U})               & \crows{0.5 (KOD)} & \crows{0.5 (KOD)} & \crows{0.05 (Taq)} & \crows{0.5 (KOD)} & \crows{0.05 (Taq)} \\
+        Template (\si{\ng})                   & \crows{1000}      & \crows{50}        & \crows{n/a}       & \crows{750}       & \crows{50}        \\
+        DMSO (\si{\ul})                       & \crows{---}       & \crows{---}       & \crows{1}         & \crows{---}       & \crows{1}         \\
+        Buffer ($\times$)                     & \crows{1}         & \crows{1}         & \crows{1}         & \crows{1}         & \crows{1}         \\
+        MgSO$_4$ (\si{\nmol})                 & \crows{1.5}       & \crows{1.5}       & \crows{---}       & \crows{1.5}       & \crows{---}       \\
+        dNTPs (\si{\mM} each)                 & \crows{0.2}       & \crows{0.2}       & \crows{0.2}       & \crows{0.2}       & \crows{0.2}       \\
+        Primer (forward) (\si{\micro\Molar})  & \crows{2}         & \crows{2}         & \crows{2}         & \crows{0.4}       & \crows{2}         \\
+        Primer (reverse) (\si{\micro\Molar})  & \crows{2}         & \crows{2}         & \crows{2}         & \crows{0.4}       & \crows{2}         \\
+        DNA polymerase (\si{U})               & \crows{0.5 (KOD)} & \crows{0.5 (KOD)} & \crows{2.5 (Taq)} & \crows{0.5 (KOD)} & \crows{2.5 (Taq)} \\
         \addlinespace
         Total volume (\si{\ul})               & \crows{25}        & \crows{25}        & \crows{25}         & \crows{25}        & \crows{25}         \\
+        \addlinespace
         \midrule
         \addlinespace
         Initialization                & 120 & 94    & 120 & 94    & 180 & 94    & 120 & 94    & 120 & 94 \\
         Denaturation                  &  30 & 94    &  30 & 94    &  15 & 94    &  30 & 94    &  15 & 94 \\
         Annealing                     &  20 & 58    &  20 & 58    &  15 & 58    &  20 & 58    &  15 & 62 \\
-        Extension (per \si{\kilo\bp}) &  30 & 68    &  20 & 72    &  60 & 72    &  30 & 68    &  45 & 72 \\
+        Extension (per \si{\kilo\bp}) &  30 & 68    &  20 & 72    &  60 & 72    &  30 & 68    &  60 & 72 \\
         Final extension               & 300 & 62    & 300 & 72    & 300 & 72    & 300 & 94    & 300 & 72 \\
         Final hold                    & \crows{\dc{4}} & \crows{\dc{4}} & \crows{\dc{4}} & \crows{\dc{4}} & \crows{\dc{4}} \\
-        Number of cycles              & \crows{30$\times$} & \crows{30$\times$} & \crows{30$\times$} & \crows{30$\times$} & \crows{30$\times$} \\
+        Number of cycles              & \crows{30$\times$} & \crows{30$\times$} & \crows{30$\times$} & \crows{15$\times$} & \crows{20$\times$} \\
         \bottomrule
       \end{tabular}
     \end{sidewaystable}
+    
+    \subsubsection{Colony PCR}
+      When screening multiple clones after a transformation a set of appropriate primers was available,
+      PCRs were set directly from the bacteria colonies by adding them directly to the reaction mixture
+      (\tref{tab:pcr-settings}). Bacteria from individual colonies were used to simultaneously perform a PCR and
+      start a small culture. Plasmid purification was performed on cultures whose sample was positive by PCR.
+    
+    \subsubsection{Gene cloning}
+      PCRs were used to clone and subclone genes from genomic DNA and plasmids, into different vectors. The most
+      commonly used vectors were pBOS, pEGFP-C1, pEGFP-N1, pET3, and pET15 but a complete list is displayed on
+      \Aref{app:plasmids}. Primers were usually extended to engineer restriction sites and create DNA linkers but
+      were even longer on the 5' end to account for the minimum required \si{\bp} around the restriction sites
+      \citep{neb_catalogue_2011}.
+    
+    \subsubsection{Mutagenesis}
+      PCR mutagenesis\footnote{In PCR mutagenesis, since the newly synthesized strands will be linear and cannot be
+                               used as template, the amplification is linear rather than exponential. Because of this,
+                               the name PCR mutagenesis is misleading. There is \emph{no} actual chain reaction.}
+      was used to introduce or remove mutations in\todo{in or from?} other plasmids. The selected codon used for mutation was the one
+      with highest frequency in the expressing organism, following the codon usage database \citep{codon_usage}. After
+      amplification, \SI{1.5}{\ul} of restriction enzyme DpnI\footnote{Because DpnI activity is blocked by DNA methylation,
+                                 it will only digest the template DNA which was synthesized in bacteria, leaving the
+                                 newly \textit{in vitro} synthesized DNA intact.}
+      was added directly to the PCR mixture, and incubated overnight at \dc{37}. \SI{1}{\ul} was used for transformation
+      and individual clones screened by sequencing.
+    
+    \subsubsection{Screening plasmid}
+      PCRs were frequently used to screen plasmids for DNA sequences in the absence of opportune restriction sites
+      or even plasmid maps.
 
 \section{Protein methods}
   \subsection{Phenol:chloroform extraction}
@@ -175,7 +184,8 @@ from Sigma; Penicillin--Streptomycin solution and Trypsin-EDTA from Gibco.
     
     \subsubsection{SDS--PAGE}
       Resolving and stacking SDS--PAGE gels of \SIrange{15}{5}{\percent} respectively, both with a
-      cross-linking ratio of \num{37.5}:1. The resolving gel was poured directly after addition
+      cross-linking ratio of \num{37.5}:1 as described in \citet{harlow_electrophoresis_1988}. The
+      resolving gel was poured directly after addition
       of TEMED and it was covered with a layer of isopropanol during polymerisation
       to ensure a sharp interface between the resolving and stacking layers.
       Protein samples and markers were boiled at \dc{99} for 3 minutes and each
