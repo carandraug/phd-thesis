@@ -100,7 +100,7 @@ from Sigma; Penicillin--Streptomycin solution and Trypsin-EDTA from Gibco.
     \subsubsection{Colony PCR}
       When screening multiple clones for a specific plasmid and a set of appropriate oligonucleotides was available,
       PCRs were set directly from the bacteria colonies by adding them directly to the reaction mixture
-      (\tref{tab:pcr-mixture}). Bacteria from individual colonies were used to simultaneously perform a PCR and
+      (\tref{tab:pcr-settings}). Bacteria from individual colonies were used to simultaneously perform a PCR and
       start a small culture. Plasmid purification was performed on cultures whose sample was positive by PCR.
 
     \subsubsection{Gene amplification}
@@ -120,48 +120,41 @@ from Sigma; Penicillin--Streptomycin solution and Trypsin-EDTA from Gibco.
     \subsubsection{Screening}
     
     \begin{sidewaystable}
-      %% FIXME use the eqparbox package to have the columns match??
       \centering
       \captionIntro{PCR mixtures and conditions used.}{}
       \label{tab:pcr-settings}
-      \begin{tabular}{l c c c c c}
-        \toprule
-        \null                                 & \begin{tabular}{@{}c@{}}amplification \\ (genomic)\end{tabular} &
-                                                \begin{tabular}{@{}c@{}}amplification \\ (plasmid)\end{tabular} &
-                                                colony & mutagenesis & screening \\
-        \midrule
-        Template (\si{\ng})                   & 1000      & 50        & n/a        & 750       &            \\
-        DMSO (\si{\ul})                       & 2         &           & 1          &           &            \\
-        Buffer ($\times$)                     & 1         & 1         & 1          & 1         & 1          \\
-        MgSO$_4$ (\si{\nmol})                 & 1.5       & 1.5       &            & 1.5       &            \\
-        dNTPs (\si{\mM} each)                 & 0.2       & 0.2       & 0.2        & 0.2       &            \\
-        Primer (forward) (\si{\micro\Molar})  & 2         & 2         & 2          & 0.4       &            \\
-        Primer (reverse) (\si{\micro\Molar})  & 2         & 2         & 2          & 0.4       &            \\
-        DNA polymerase (\si{U})               & 0.5 (KOD) & 0.5 (KOD) & 0.05 (Taq) & 0.5 (KOD) & 0.05 (Taq) \\
-        \addlinespace
-        Total volume (\si{\ul})               & 25        & 25        & 25         & 25        & 25         \\
-      \end{tabular}
+
       \newcolumntype{W}{r<{\si{\second}}}
       \newcolumntype{T}{l<{\si{\degreeCelsius}}}
 
-      \begin{tabular}{l W@{ at }T W@{ at }T W@{ at }T W@{ at }T}
+      \begin{tabular}{l W@{ at }T W@{ at }T W@{ at }T W@{ at }T W@{ at }T}
+        \toprule
+        \null                                 & \multicolumn{4}{c}{amplification} & \crows{colony} & \crows{mutagenesis} & \crows{screening} \\
+                                                       \cmidrule(r){2-5}
+        \null                                 & \crows{genomic} & \crows{plasmid} \\
         \midrule
+        Template (\si{\ng})                   & \crows{1000}      & \crows{50}        & \crows{n/a}        & \crows{750}       & \crows{ }          \\
+        DMSO (\si{\ul})                       & \crows{2}         & \crows{ }         & \crows{1}          & \crows{ }         & \crows{ }          \\
+        Buffer ($\times$)                     & \crows{1}         & \crows{1}         & \crows{1}          & \crows{1}         & \crows{1}          \\
+        MgSO$_4$ (\si{\nmol})                 & \crows{1.5}       & \crows{1.5}       & \crows{ }          & \crows{1.5}       & \crows{ }          \\
+        dNTPs (\si{\mM} each)                 & \crows{0.2}       & \crows{0.2}       & \crows{0.2}        & \crows{0.2}       & \crows{ }          \\
+        Primer (forward) (\si{\micro\Molar})  & \crows{2}         & \crows{2}         & \crows{2}          & \crows{0.4}       & \crows{ }          \\
+        Primer (reverse) (\si{\micro\Molar})  & \crows{2}         & \crows{2}         & \crows{2}          & \crows{0.4}       & \crows{ }          \\
+        DNA polymerase (\si{U})               & \crows{0.5 (KOD)} & \crows{0.5 (KOD)} & \crows{0.05 (Taq)} & \crows{0.5 (KOD)} & \crows{0.05 (Taq)} \\
+        \addlinespace
+        Total volume (\si{\ul})               & \crows{25}        & \crows{25}        & \crows{25}         & \crows{25}        & \crows{25}         \\
+        \midrule
+        \addlinespace
         Initialization                & 120 & 94    & 120 & 94    & 180 & 94    & 120 & 94    & 120 & 94 \\
         Denaturation                  &  30 & 94    &  30 & 94    &  15 & 94    &  30 & 94    &  15 & 94 \\
-        Annealing                     &  20 & 58    &  20 & 94    &  15 & 58    &  20 & 58    &  15 & 62 \\
+        Annealing                     &  20 & 58    &  20 & 58    &  15 & 58    &  20 & 58    &  15 & 62 \\
         Extension (per \si{\kilo\bp}) &  30 & 68    &  20 & 72    &  60 & 72    &  30 & 68    &  45 & 72 \\
         Final extension               & 300 & 62    & 300 & 72    & 300 & 72    & 300 & 94    & 300 & 72 \\
-        Final hold                    & \multicolumn{2}{c}{\dc{4}} & \multicolumn{2}{c}{\dc{4}} &
-                                        \multicolumn{2}{c}{\dc{4}} & \multicolumn{2}{c}{\dc{4}} &
-                                        \multicolumn{2}{c}{\dc{4}} \\
-        Number of cycles              & \multicolumn{2}{c}{30$\times$} & \multicolumn{2}{c}{30$\times$} &
-                                        \multicolumn{2}{c}{30$\times$} & \multicolumn{2}{c}{15$\times$} &
-                                        \multicolumn{2}{c}{20$\times$} \\
+        Final hold                    & \crows{\dc{4}} & \crows{\dc{4}} & \crows{\dc{4}} & \crows{\dc{4}} & \crows{\dc{4}} \\
+        Number of cycles              & \crows{30$\times$} & \crows{30$\times$} & \crows{30$\times$} & \crows{30$\times$} & \crows{30$\times$} \\
         \bottomrule
       \end{tabular}
     \end{sidewaystable}
-
-
 
 \section{Protein methods}
   \subsection{Phenol:chloroform extraction}
@@ -169,8 +162,6 @@ from Sigma; Penicillin--Streptomycin solution and Trypsin-EDTA from Gibco.
     To extract proteins, an equal volume of phenol:chloroform was added and the
     mixture centrifuged at \SI{6000}{\gn} for 15 minutes. The top aqueous phase (chloroform)
     was pipetted to a new tube and the process repeated a total of 3 times.
-
-
 
   \subsection{Western blotting}
     \subsubsection{Protein concentration determination}
