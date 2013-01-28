@@ -30,8 +30,9 @@
     \toprule
     Name & Recipe\\
     \midrule
-    2YT broth               & \\
-    %% FIXME get 2YT media recipe
+    2YT broth               & \SI{16}{\g\per\l} tryptone;
+                              \SI{10}{\g\per\l} yeast extract;
+                              \SI{5}{\g\per\l}  NaCl.\\
     
     DMEM                    & \SI{4.5}{\g\per\l}   glucose;
                               \SI{110}{\mg\per\l}  L-glutamine;
@@ -42,44 +43,41 @@
                               \SI{100}{\mM}      Tris--HCl pH=\num{7.4};
                               \SI{100}{\mM}      EDTA.\\
     
-    Freezing media          & \pcent{90} FCS;
-                              \pcent{10} DMSO.\\
+    Freezing media          & \pcent{90} FCS ($v/v$);
+                              \pcent{10} DMSO ($v/v$).\\
     
-    Growth medium (HeLa)    & \pcent{89}            DMEM;           % 500ml
-                              \pcent{9}             FCS;            % 50ml
+    Growth medium (HeLa)    & \pcent{89}            DMEM ($v/v$);   % 500ml
+                              \pcent{9}             FCS ($v/v$);    % 50ml
                               \SI{1}{$\times$}      NEAA solution;  % 5.5mL
                               \SI{50}{units\per\ml} penicillin;     % 5.5mL (Pen/Strep solution)
                               \SI{50}{\ug\per\ml}   streptomycin.\\ % 5.5mL (Pen/Strep solution)
     
-    Growth medium (horse)   & \pcent{81}            DMEM;           % 500ml
-                              \pcent{16}            FCS;            % 100ml
+    Growth medium (horse)   & \pcent{81}            DMEM ($v/v$);   % 500ml
+                              \pcent{16}            FCS ($v/v$);    % 100ml
                               \SI{2}{$\times$}      NEAA solution;  %  12mL
                               \SI{50}{units\per\ml} penicillin;     % 5.5mL (Pen/Strep solution)
                               \SI{50}{\ug\per\ml}   streptomycin.\\ % 5.5mL (Pen/Strep solution)
     
-    %% TODO check exactly the LB recipes
-    LB agar                 & \pcent{2}   LB ($w/v$);
-                              \pcent{1.5} agar.\\
+    LB agar                 & \SI{20}{\g\per\l}  LB broth powder;
+                              \SI{7.5}{\g\per\l} agar.\\
     
-    LB broth                & \pcent{2} LB ($w/v$).\\
+    LB broth                & \SI{20}{\g\per\l} LB broth powder.\\
     
-    PBS                     & \\
-    %% TODO check exact PBS recipe from the tablets
-    
-    Ponceau S solution      & \pcent{5} Ponceau-S ($w/v$);
+    Ponceau S solution      & \pcent{5} Ponceau S ($w/v$);
                               \pcent{5} Acetic acid ($v/v$).\\
     
     Running buffer          & \SI{1}{$\times$} TG;
                               \pcent{0.1}      SDS ($w/v$).\\
     
     SSC (Saline Sodim Citrate) & \SI{150}{\mM} NaCl;
-                              \SI{15}{\mM}     Trisodium citrate.\\
+                              \SI{15}{\mM}     trisodium citrate.\\
     
-    TAE (Tris Acetate EDTA) & \\
-    %% TODO get TAE buffer recipe
+    TAE (Tris Acetate EDTA) & \SI{40}{\mM} Tris;
+                              \SI{20}{\mM} acetic acid;
+                              \SI{1}{\mM}  EDTA.\\
     
     TBE (Tris Borate EDTA)  & \SI{89}{\mM} Tris;
-                              \SI{89}{\mM} Boric acid;
+                              \SI{89}{\mM} boric acid;
                               \SI{2}{\mM}  EDTA.\\
     
     TBS (Tris Buffered Saline)  & \SI{50}{\mM} Tris--HCl pH=\num{7.5};
