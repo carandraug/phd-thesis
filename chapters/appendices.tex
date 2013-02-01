@@ -107,4 +107,10 @@
   %% generate this automatically from SQlite db
 
 \chapter{Documentation}
+  \label{app:pod-doc}
+  %% this setlist commands require the enumitem package and avoids that the very long item entries
+  %% on the description environment (as it happens on the examples section), do not run out of the
+  %% paper margins. See http://tex.stackexchange.com/questions/96267
+  \setlist[description]{style=unboxed}
   \input{results/bp_genbank_ref_extractor}
+  \setlist[description]{style=standard}

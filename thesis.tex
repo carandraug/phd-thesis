@@ -86,7 +86,6 @@
 %\usepackage{euler}
 %\usepackage{lmodern}
 
-
 \setsecnumdepth{subsection}
 
 \usepackage{graphicx}
@@ -101,6 +100,7 @@
   %% new command for boxes of text that need to be rewritten
   \newcommand{\rewrite}[2][]{\todo[inline,color=green!40,caption={chunk of text to be rewritten}#1]{#2}}
 
+\usepackage{enumitem}       % so we can use the unboxed style when item names are too long
 \usepackage{eqparbox}       % for adjusting size of table column (specially on appendices)
 \usepackage{longtable}      % because memoir's ctabular does not work well with eqparbox
 \usepackage{rotating}
