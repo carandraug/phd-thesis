@@ -67,37 +67,24 @@
 
 \chapterstyle{veelo}
 
-\usepackage{ifdraft}
-\ifdraft{
-  \OnehalfSpacing
-  \usepackage[final,hyperindex,hyperfootnotes,bookmarksnumbered,colorlinks]{hyperref}
-}{
-  %% colorlinks remains when printing
-  \usepackage[final,hyperindex,hyperfootnotes,bookmarksnumbered]{hyperref}
-}
+\OnehalfSpacing
+%% remove colorlinks option when ready for print
+\usepackage[final,hyperindex,hyperfootnotes,bookmarksnumbered,colorlinks]{hyperref}
 
-%% TODO we have to decide about the font....
 \usepackage[T1]{fontenc}
 \usepackage{palatino}
-%\usepackage{mathpazo}   % Palatino text with Pazo math
-%\usepackage{mathpple}   % Palatino text with Euler math
-%\usepackage{utopia}
-%\usepackage{euler}
-%\usepackage{lmodern}
+\usepackage[euler]{textgreek}
 
-\setsecnumdepth{subsection}
+\maxtocdepth{subsection}
 
 \usepackage{graphicx}
   \graphicspath{{./figs/}}
 
 \usepackage{amsmath}
-\usepackage[euler]{textgreek}
 
-\usepackage{todonotes}
+\usepackage[textsize=footnotesize]{todonotes}
   %% new command for box about missing references
   \newcommand{\addref}[1][]{\todo[color=red!40,size=\tiny]{Add reference: #1}}
-  %% new command for boxes of text that need to be rewritten
-  \newcommand{\rewrite}[2][]{\todo[inline,color=green!40,caption={chunk of text to be rewritten}#1]{#2}}
 
 \usepackage{enumitem}       % so we can use the unboxed style when item names are too long
 \usepackage{eqparbox}       % for adjusting size of table column (specially on appendices)
