@@ -1,0 +1,126 @@
+%% "University Guidelines for Research Degree Programmes - For Research Students,
+%% Supervisors and Staff"
+%% http://www.nuigalway.ie/graduatestudies/documents/university_research_guidelines.pdf
+%% Retrieved on Wed 19 Dec 2012 12:42:43 WET
+%%
+%% Excerpt from Section 6 - The Examination Process
+%%
+%%  6.3 The Thesis
+%%
+%%  Norms as to the formats of research master’s and PhD theses vary. In general,
+%%  thesis formats, structures and layouts that are consistent with readability and
+%%  compactness are required. Acceptable formats and other attributes of Master
+%%  and PhD theses are outlined in the University Regulations (Appendices 3 and 1,
+%%  respectively) and may be specified in more detail in local guidelines.
+%%  It is university policy that the practice of engaging professional editorial services
+%%  is not permitted.
+%%
+%%  6.3.1 Length of Thesis
+%%
+%%  [...] The PhD thesis should not
+%%  normally exceed 80,000 words, inclusive of appendices, footnotes, tables and
+%%  bibliography.
+%%
+%% Excerpt from Appendix 1 - Regulations for Higher Research Degrees
+%%
+%%  Submission of the Thesis
+%%
+%%  10. The candidate must follow the directions on format, layout and presentation
+%%      of a thesis, as described below. Two copies of the PhD thesis, spiral or gum-
+%%      bound, must be lodged with the Examinations Office (unless otherwise
+%%      stated). Each copy of the thesis must be accompanied by:
+%%        a) a ‘Summary of the Contents’, not exceeding 300 words in length
+%%        b) a copy of the completed form EOG 020.
+%%        c) Library Submission Form, EOG 051 signed by the candidate
+%%
+%%      Directions on Format, Layout and Presentation
+%%
+%%      There must be a title page which shall contain the following information:
+%%        a) The full title (and subtitle, if any)
+%%        b) The volume number and total number of volumes, if more than one
+%%        c) The full name of the candidate, followed, if desired, by any degree and/or
+%%           professional qualification(s)
+%%        d) The name(s) of the supervisor(s), school(s), component discipline(s),
+%%           institution
+%%        e) The month and year of submission.
+%%
+%%      Table of Contents
+%%
+%%      The ‘Table of Contents’, which should not be over-detailed, shall immediately
+%%      follow the title page.
+%%
+%%      Format and Layout
+%%
+%%      The text must be printed on good quality (110g/m2) A4 size paper with a
+%%      left-hand margin of 4 cm. A maximum of one-and-half line-spacing, left
+%%      and right justified, an easily readable layout and double sided printing are
+%%      recommended for the body text. More compact formats, with smaller font
+%%      sizes, are usually appropriate for certain sections, such as reference lists,
+%%      bibliographies and some kinds of appendices. Pages must be numbered
+%%      consecutively, with page numbers located centrally at the bottom, and chapter
+%%      headers at the top, of each page. Diagrams, graphs, photographs and tables
+%%      should be properly numbered and located in relation to the text.
+%%
+%% No local guidelines found at
+%% http://www.nuigalway.ie/graduatestudies/Current_Students_2/local_guidelines.html
+%% only " To be added shortly" was displayed on the page
+
+\chapterstyle{veelo}
+
+\usepackage{ifdraft}
+\ifdraft{
+  \OnehalfSpacing
+  \usepackage[final,hyperindex,hyperfootnotes,bookmarksnumbered,colorlinks]{hyperref}
+}{
+  %% colorlinks remains when printing
+  \usepackage[final,hyperindex,hyperfootnotes,bookmarksnumbered]{hyperref}
+}
+
+%% TODO we have to decide about the font....
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+%\usepackage{mathpazo}   % Palatino text with Pazo math
+%\usepackage{mathpple}   % Palatino text with Euler math
+%\usepackage{utopia}
+%\usepackage{euler}
+%\usepackage{lmodern}
+
+\setsecnumdepth{subsection}
+
+\usepackage{graphicx}
+  \graphicspath{{./figs/}}
+
+\usepackage{amsmath}
+\usepackage[euler]{textgreek}
+
+\usepackage{todonotes}
+  %% new command for box about missing references
+  \newcommand{\addref}[1][]{\todo[color=red!40,size=\tiny]{Add reference: #1}}
+  %% new command for boxes of text that need to be rewritten
+  \newcommand{\rewrite}[2][]{\todo[inline,color=green!40,caption={chunk of text to be rewritten}#1]{#2}}
+
+\usepackage{enumitem}       % so we can use the unboxed style when item names are too long
+\usepackage{eqparbox}       % for adjusting size of table column (specially on appendices)
+\usepackage{longtable}      % because memoir's ctabular does not work well with eqparbox
+\usepackage{rotating}
+  \newcommand{\crows}[1]{\multicolumn{2}{c}{#1}}
+
+\usepackage{natbib}
+
+\usepackage{siunitx}
+  \DeclareSIUnit{\gn}{\textit{g$_n$}}   % standard gravity
+  \DeclareSIUnit{\bp}{bp}               % base pairs
+  \DeclareSIUnit{\cfu}{cfu}             % colony forming unit
+  \DeclareSIUnit{\Molar}{\textsc{m}}
+  \DeclareSIUnit{\mM}{\si{\milli}\si{\Molar}}
+  \newcommand{\dc}[1]{\SI{#1}{\degreeCelsius}}
+  \newcommand{\pcent}[1]{\SI{#1}{\percent}}
+
+\newcommand{\captionIntro}[2]{\caption[#1]{\textbf{#1} #2}}
+
+\newcommand{\species}[1]{\textit{#1}}
+
+\newcommand{\Kon}{$K_{on}$}
+\newcommand{\Koff}{$K_{off}$}
+
+\renewcommand{\abstractname}{Summary}
