@@ -78,7 +78,7 @@
 \maxtocdepth{subsection}
 
 \usepackage{graphicx}
-  \graphicspath{{./figs/}}
+  \graphicspath{{./figs/}{./results/}}
 
 \usepackage{amsmath}
 
@@ -89,10 +89,15 @@
 \usepackage{enumitem}       % so we can use the unboxed style when item names are too long
 \usepackage{eqparbox}       % for adjusting size of table column (specially on appendices)
 \usepackage{longtable}      % because memoir's ctabular does not work well with eqparbox
-\usepackage{rotating}
+
+\usepackage{tikz}
+
+\newsubfloat{figure}        % subfigures with LaTeX
+
+\usepackage{rotating}       % for sideways tables and figures
   \newcommand{\crows}[1]{\multicolumn{2}{c}{#1}}
 
-\usepackage{natbib}
+\usepackage[round]{natbib}
 
 \usepackage{siunitx}
   \DeclareSIUnit{\gn}{\textit{g$_n$}}   % standard gravity
@@ -110,9 +115,12 @@
 \newcommand{\Kon}{$K_{on}$}
 \newcommand{\Koff}{$K_{off}$}
 
+\newcommand{\G}[1]{G$_#1$}  % for G0, G1, and G2 phases
+
 \renewcommand{\abstractname}{Summary}
 
 %% make it easy to center any dedication
 \newcommand{\dedication}[1]{
 {\clearpage\mbox{}\vfill\centering #1 \par\vfill\clearpage}}
+
 
