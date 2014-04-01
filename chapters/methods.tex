@@ -2,12 +2,12 @@
 \label{ch:methods}
 
 \epigraph{As palavras que nunca te direi.}{Translation of ``Message in a bottle''}
+\noindent
 %% "The devil is in the details."
 %%
 %% "Sometimes what's not said is just as important as what is."
 %% "Sometimes it's what's not said that's important."
 
-\noindent
 All chemicals used were purchased from Sigma unless otherwise stated. All solutions were prepared
 according to \Aref{app:solutions} with Milli-Q purified water, and autoclaved prior to use when appropriate.
 
@@ -216,7 +216,7 @@ and Trypsin-EDTA from Gibco.
       10, 60, 5, 180 and 1800 seconds which were then developed.
 
 
-\section{Tissue culture}
+\section{Cell methods}
   \subsection{Cell culture}
     HeLa and HEp-2 cells were supplied by Agnieszka Kaczmarczyk from the
     National University of Ireland, Galway, Department of Biochemistry,
@@ -261,14 +261,30 @@ and Trypsin-EDTA from Gibco.
     precipitation (\Sref{sec:ethanol-precipitation}).
 
   \subsection{Viable cells count}
-    Trypan blue was used to assess the number of viable cells. After trypsination
+    \label{sec:methods:trypan-blue}
+    Trypan blue was used to assess the number of viable cells. After trypsinization
     as usual, cells were diluted in growth medium, to a final concentration of \SI{2e5}{cells\per\ml}.
     To \SI{0.5}{\ml} of the cell suspension, was added \SI{0.1}{\ml} of \pcent{0.4} Trypan
     Blue Stain and the mixture left for 5 minutes at room temperature before counting
     the cells in an hemocytometer making a distinction between stained (non-viable)
     and non-stained (viable) cells.
 
+  \subsection{Kill curve}
+    \label{sec:methods:kill-curve}
+    Cells were trypsinized as usual and plated at \pcent{25} confluence on
+    a 24-well plate. After 24 hours, medium was replaced using different
+    concentrations of the antibiotic per well, 3 replicas for each.
+    After 3 days, medium was
+    renovated with the same antibiotic concentrations. After 4 days, total of
+    one week after addition of antibiotics, cells were trypsinized and a count
+    of viable cells was performed with Trypan Blue (\Sref{sec:methods:trypan-blue}).
+
+    The highest concentration tested with no viable cells in all replicas after
+    7 days, was used for selection of transfected cells when establishing
+    stable cell lines.
+
   \subsection{Transfection by lipofection}
+    \label{methods:lipofection}
     Cells were transfected using Lipofectamine 2000, a cationic lipid reagent, from
     Invitrogen. Cells were trypsinized as usual on the day before transfection and
     replated on 6 well plates (surface area of \SI{9.5}{\square\cm\per well}) with \SI{2.5}{\ml} of growth
@@ -283,7 +299,7 @@ and Trypsin-EDTA from Gibco.
     were incubated at \dc{37} for 6 hours after which time it was switched back to
     \SI{0.5}{\ml} of growth medium.
 
-  \subsection{Transfection by lipofection}
+  \subsection{Transfection by electroporation}
     Cells were transfected by electroporation using an Amaxa nucleofector
     device with Ingenio Electroporation solution and cuvettes from Mirus Bio.
     Cells were grown to confluence and trypsinized as usual. Growth medium was
@@ -310,26 +326,38 @@ and Trypsin-EDTA from Gibco.
     to the mounting media when needed. Coverslips were then sealed with a 1:1
     mixture of clear nail polish and acetone and stored on a dark box at \dc{4}.
 
+  \subsection{Flow citometry}
 
-\section{Microscopy}
+    Cells were trypsinized as usual and after addition of medium, centrifuged
+    at \SI{160}{\gn} for 5~minutes. The supernatant was discarded and the
+    pellet washed with PBS. The sample was centrifuged one more time at
+    \SI{160}{\gn} for 5~minutes. The supernatant was discarded and the
+    pellet resuspended in FACS buffer.
+
+    Both sample analysis and cell sorting were performed with live cells, the
+    first with a BD FACSCanto~II, and the later with a BD FACSAria~II.
+
 \section{Software used}
-  %% we probably should use a script to get the actual version when building the document
-  %% this versions numbers are the ones I'm using at the moment... 4 years ago, they didn't exist
-  %% must redo the analysis and get the new version numbers.
+  \label{sec:methods:software}
+
+  %% We probably should use a script to get the actual version when building
+  %% the thesis. On the other hand, this thesis will not be a liquid document,
+  %% since unfortunately it is only meant for evaluation of my doctoral
+  %% program :( so why bother?
   The European Molecular Biology Open Software Suite (EMBOSS) version 6.4.0
-  was used for analysis of codon usage, RNA folding, sequence alignment, reading of abi
-  files, search for restriction sites, prediction of molecular weight and
-  other trivial tasks.
+  was used for analysis of codon usage, RNA folding, and reading of
+  chromatogram files.
 
-  The Perl language and the BioPerl module version 1.6.901 was also extensively used for automation of
-  several tasks.
-  
-  GNU Octave version 3.6.2 and the image package version 2.0.0.
-  
-  ImageJ version 1.47h packaged though FIJI.
+  The Perl language, with the BioPerl, BioPerl-Run, and Bio-EUtilities
+  distributions, versions 1.6.901, 1.6.9, and 1.73, were extensively used
+  for analysis and manipulation of biological sequences, and automate searches
+  on the Entrez databases.
 
-\section{Software developed}
+  Image analysis was performed using GNU Octave version 3.8.1 and the Octave
+  Forge image, optim, and signal packages, versions 2.2.1, 1.3.0, and 1.3.0
+  respectively.
+  %% This is not an error! Both optim and signal packages are version 1.3.0
 
-
-
+  ImageJ, as distributed by the FIJI project, was routinely used for microscope
+  image visualization.
 
