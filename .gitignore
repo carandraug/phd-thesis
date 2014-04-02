@@ -37,5 +37,5 @@
 .sconsign.dblite
 
 ## gedit latex plugin
-*.ini
+\.*.ini
 
