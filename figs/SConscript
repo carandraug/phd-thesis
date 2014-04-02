@@ -5,6 +5,7 @@ Import ('env')
 
 figs = [
   'facs-stable-cell-lines.pdf',
+  'NUI_Galway_BrandMark_B.eps',
 ]
 
 Return ('figs')

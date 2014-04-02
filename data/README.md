@@ -18,7 +18,6 @@ corresponding md5sum):
 directory named `2010-04-28 H4 R45H (11h after mitosis) 20px circle and 30ms scan and laser 7 2500frames`.
 This image will be used to show the automatic identification of ROIs.
 
-
 * `Image114.lsm` (0a616796e0fbed9cd6783087947c60dc) which will be in a
 directory named `2010-04-29 H3 T45E (no cell cycle check) Laser 5 Scan 30ms Interval 0msc Frames 2500 Diameter 20`.
 This image will be used to create the FRAPINATOR plots.
@@ -57,6 +56,4 @@ of the mixed population expressing H2B EGFP.
 
 * `clone check H2B 2P3_Tube_001.fcs` (ce930978f86f7fb6f453157cc7b2dc4c) for
 the histogram of the sorted population.
-
-
 
