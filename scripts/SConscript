@@ -1,11 +1,16 @@
 ## coding: utf-8
 from os import path
 import subprocess
+import distutils.spawn
 
 Import (
   'env',
   'data_dir',
 )
+
+##
+## Build images related to the kill-frap chapter
+##
 
 ## a list of lists, each element is the source file, the second is the
 ## filename in the data directory, the third is a list with the results
@@ -48,7 +53,19 @@ Depends (kill_frap, [
   'montage_cdata.m',
 ])
 
-Return (['kill_frap'])
+##
+## Build stuff related to the histone catalogue chapter
+##
+
+catalogue = []
+
+## the manual for our program which will appear as an appendix
+catalogue.append (env.Command (
+  source = distutils.spawn.find_executable ('bp_genbank_ref_extractor'),
+  target = 'app-bp_genbank_ref_extractor-doc.tex',
+  action = "pod2latex --out $TARGET $SOURCE",
+))
+
 
 ##
 ## Check that we have all the required tools installed
@@ -79,21 +96,23 @@ conf = Configure (
   },
 )
 
-if not conf.CheckApp ("octave"):
-    print ("GNU Octave must be installed")
+apps = [
+  ["octave",    "GNU Octave must be installed"],
+  ["bfconvert", "bfconvert - Convert tool from bioformats is required"],
+  ["fiji",      "fiji - distribution of ImageJ is required"],
+  ["bp_genbank_ref_extractor", "bp_genbank_ref_extractor - BioPerl's Bio-EUtilities application"],
+  ["pod2latex", "pod2latex is required to create manual for bp_genbank_ref_extractor"],
+]
+for app in apps:
+  if not conf.CheckApp (app[0]):
+    print (app[1])
     Exit (1)
 
 if not conf.RunOctave ("Octave's image package", "pkg load image"):
-    print ("Octave's image package must be installed")
-    Exit (1)
-
-if not conf.CheckApp ("bfconvert"):
-    print ("bfconvert - Convert tool from bioformats is required")
-    Exit (1)
-
-if not conf.CheckApp ("fiji"):
-    print ("fiji - distribution of ImageJ is required")
-    Exit (1)
+  print ("Octave's image package must be installed")
+  Exit (1)
 
 env = conf.Finish ()
+
+Return (['kill_frap', 'catalogue'])
 
