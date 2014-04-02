@@ -1,363 +1,419 @@
 \chapter{Materials and Methods}
 \label{ch:methods}
 
-\epigraph{As palavras que nunca te direi.}{Translation of ``Message in a bottle''}
-\noindent
-%% "The devil is in the details."
-%%
-%% "Sometimes what's not said is just as important as what is."
-%% "Sometimes it's what's not said that's important."
+  \epigraph{As palavras que nunca te direi.}{Translation of ``Message in a bottle''}
+  \noindent
+  %% "The devil is in the details."
 
-All chemicals used were purchased from Sigma unless otherwise stated. All solutions were prepared
-according to \Aref{app:solutions} with Milli-Q purified water, and autoclaved prior to use when appropriate.
+  All chemicals used were purchased from Sigma unless otherwise stated. All
+  solutions were prepared according to \Aref{app:solutions} with Milli-Q
+  purified water, and autoclaved prior to use when appropriate.
 
-Restriction enzymes, T4 DNA ligase, other DNA modifying enzymes, and DNA ladders were obtained
-from New England BioLabs. Protein ladders from Invitrogen.
+  Restriction enzymes, T4 DNA ligase, other DNA modifying enzymes, and DNA
+  ladders were obtained from New England BioLabs. Protein ladders from Invitrogen.
 
-For use in tissue culture, FCS and DMEM (without phenol red and L-glutamine) were obtained from Lonza;
-DMEM (supplemented with glucose, sodium pyruvate, L-glutamine and phenol red), Non-Essential Amino Acid
-(NEAA) solution, and PBS (without Ca$^{2+}$ and Mg$^{2+}$) from Sigma; Penicillin--Streptomycin solution
-and Trypsin-EDTA from Gibco.
+  For use in tissue culture, FCS and DMEM (without phenol red and L-glutamine)
+  were obtained from Lonza; DMEM (supplemented with glucose, sodium pyruvate,
+  L-glutamine and phenol red), Non-Essential Amino Acid (NEAA) solution, and
+  PBS (without Ca$^{2+}$ and Mg$^{2+}$) from Sigma; Penicillin--Streptomycin
+  solution and Trypsin-EDTA from Gibco.
 
-\section{DNA methods}
-  \subsection{Bacterial cultures}
-    \species{E.~coli} cultures were prepared with either LB broth or agar at \dc{37}. For antibiotic
-    selection, ampicillin, kanamycin, and chloramphenicol, were used at concentrations of 100, 30,
-    and \SI{34}{\mg\per\l} respectively.
+  \section{DNA methods}
+    \subsection{Bacterial cultures}
+      \species{E.~coli} cultures were prepared with either LB broth or agar
+      at \dc{37}. For antibiotic selection, ampicillin, kanamycin, and
+      chloramphenicol, were used at concentrations of 100, 30,
+      and \SI{34}{\mg\per\l} respectively.
 
-  \subsection{Preparation of competent bacteria}
-    Competent \species{E.~coli} cells were prepared from a culture of Invitrogen's One Shot
-    TOP10 Chemically Competent \species{E.~coli}. LB cultures of \SI{1}{\l} were set at
-    \dc{37} until an OD$_{\SI{600}{\nm}}$ of \numrange{0.4}{0.5}. Further steps were carried
-    at \dc{4} with previously chilled equipment and solutions.
-    
-    Cultures were centrifuged at \SI{6000}{\gn} for 10 minutes, the pellet resuspended in
-    \SI{500}{\ml} of \SI{0.1}{\mM} CaCl$_2$, and incubated on ice for 30 minutes. The suspensions
-    were centrifuged again at \SI{6000}{\gn} for 10 minutes, and the new pellet resuspended in
-    \SI{100}{\ml} of CaCl$_2$ with \pcent{15} glycerol. Aliquots of competent cells were prepared
-    and stored at \dc{-80}.
-    
-    Transformation efficiencies were measured after preparation of each batch and discarded
-    if less than \SI{1d6}{\cfu\per\mg} of plasmid was obtained. Absence of antibiotic-resistant
-    contaminations was assessed by streaking the cells on selective plates.
+    \subsection{Preparation of competent bacteria}
+      Competent \species{E.~coli} cells were prepared from a culture of
+      Invitrogen's One Shot TOP10 Chemically Competent \species{E.~coli}. LB
+      cultures of \SI{1}{\l} were set at \dc{37} until an OD$_{\SI{600}{\nm}}$
+      of \numrange{0.4}{0.5}. Further steps were carried at \dc{4} with
+      previously chilled equipment and solutions.
 
-  \subsection{Transformation of competent cells}
-    Competent cells were thawed on ice and split into aliquots of \SI{50}{\ul} to pre-chilled \SI{2}{\ml}
-    tubes where \SI{1}{\ul} DNA was added. Cells were incubated on ice for 30 minutes, followed by a 60 seconds
-    heat-shock at \dc{42}, and 5 more minutes on ice. \SI{300}{\ul} of non-selective LB was added to each tube
-    and the cultures incubated at \dc{37} with vigorous shaking for 45 minutes. Samples from the cultures
-    were plated onto the appropriate antibiotic containing plates, and incubated overnight at \dc{37}.
-    
-    For high concentrations of plasmid DNA (more than \SI{500}{\ng\per\ug}), smaller volumes of DNA were used,
-    and the initial and final incubation steps were lowered to 10 minutes.
+      Cultures were centrifuged at \SI{6000}{\gn} for 10 minutes, the
+      pellet resuspended in \SI{500}{\ml} of \SI{0.1}{\mM} CaCl$_2$, and
+      incubated on ice for 30 minutes. The suspensions were centrifuged
+      again at \SI{6000}{\gn} for 10 minutes, and the new pellet resuspended in
+      \SI{100}{\ml} of CaCl$_2$ with \pcent{15} glycerol. Aliquots of
+      competent cells were prepared and stored at \dc{-80}.
 
-  \subsection{Plasmid DNA preparation}
-    Plasmid DNA was prepared with kits from QIAGEN (QIAprep Spin Miniprep, QIAGEN Plasmid \textit{Plus} Midi,
-    QIAquick Gel Extraction and QIAquick PCR purification) following the manufacturer's instructions. Once
-    prepared, DNA was stored at \dc{-20}. DNA concentrations were measured with a spectrophotometer (NanoDrop
-    2000c spectrophotometer from Thermo Scientific).
+      Transformation efficiencies were measured after preparation of each
+      batch and discarded if less than \SI{1d6}{\cfu\per\mg} of plasmid was
+      obtained. Absence of antibiotic-resistant contaminations was assessed
+      by streaking the cells on selective plates.
 
-  \subsection{Ethanol precipitation}
-    \label{sec:ethanol-precipitation}
-    The DNA solution was mixed with \num{2.5} volumes of \pcent{100} ethanol and \num{1/10} volumes of
-    Sodium Acetate (\SI{3}{\Molar}, pH=\num{5.2}), and incubated at \dc{4} for 15 minutes (overnight for
-    low DNA plasmid concentrations). Solution was centrifuged at \SI{18000}{\gn} for 30 minutes at \dc{4},
-    the supernatant discarded, and the pellet left to dry until all traces of solvent evaporated. DNA pellet
-    was resuspended in the desired solvent (usually H$_2$O for transfection).
+    \subsection{Transformation of competent cells}
+      Competent cells were thawed on ice and split into aliquots of
+      \SI{50}{\ul} to pre-chilled \SI{2}{\ml} tubes where \SI{1}{\ul} DNA
+      was added. Cells were incubated on ice for 30 minutes, followed by a
+      60 seconds heat-shock at \dc{42}, and 5 more minutes on ice.
+      \SI{300}{\ul} of non-selective LB was added to each tube and the
+      cultures incubated at \dc{37} with vigorous shaking for 45 minutes.
+      Samples from the cultures were plated onto the appropriate
+      antibiotic containing plates, and incubated overnight at \dc{37}.
 
-  \subsection{Agarose gels electrophoresis}
-    Agarose gels with concentrations ranging from \SIrange{0.6}{2.0}{\percent} were prepared with TAE buffer,
-    and supplemented with ethidium bromide. DNA samples were loaded into the gel with DNA loading buffer and a
-    choice of loading dyes between bromophenol blue, cresol red, orange G, or xylene cyanol, to avoid shadowing
-    the DNA bands. Electrophoresis was performed in electrophoresis chambers with \SI{1}{$\times$}~TAE buffer at
-    \SIrange{80}{120}{\volt} until the required separation was achieved. Gels were visualized at a UV
-    transilluminator (ChemiImager 5500 from Alpha Innotech).
+      For concentrations of plasmid DNA higher than \SI{500}{\ng\per\ug}, only
+      \SI{0.3}{\ul} of DNA was used, and both the initial and final incubation
+      steps were shorten to 10 minutes.
 
-  \subsection{DNA sequencing and oligonucleotide preparation}
-    DNA sequencing was performed by LGC Genomics after cloning for confirmation and avoid unexpected mutations.
-    
-    Oligonucleotides were ordered from Eurofins MWG operon in lyophilised format, dissolved in H$_2$O to a
-    \SI{100}{\micro\Molar} concentration, and stored at \dc{-20}. A list of all designed oligonucleotides is
-    produced at \Aref{app:primers}.
+    \subsection{Plasmid DNA preparation}
+      Plasmid DNA was prepared with kits QIAprep Spin Miniprep,
+      QIAGEN Plasmid \textit{Plus} Midi, QIAquick Gel Extraction, and QIAquick
+      PCR purification from QIAGEN following the manufacturer's instructions.
+      Once prepared, DNA was stored at \dc{-20}. DNA concentrations were measured
+      with a spectrophotometer (NanoDrop 2000c spectrophotometer from
+      Thermo Scientific).
 
-  \subsection{Polimerase Chain Reaction}
-    Different types of PCR experiments were performed for different purposes with different DNA polymerases
-    (\tref{tab:pcr-settings}. Taq with ThermoPol buffer was obtained from New England Biolabs. KOD Hot Start
-    with Mg$^{2+}$ free buffer was obtained from Novagen. PCRs were performed on a Mastercycler epgradient
-    thermocycler from Eppendorf.
-    
-    Use of different DNA polymerases was based on their cost-benefit for each application. For example, screening
-    clones requires a large number of reactions in simultaneous and the introduction of small mutations is of no
-    consequence. For this two reasons, the much cheaper Taq DNA polymerase was used for screening despite its
-    low fidelity and amplification rates. However, in PCR mutagenesis the whole plasmid is synthesized anew and we
-    have no reasonable method to verify its whole sequence. As a result, KOD DNA polymerase was used instead.
-    
-    A list of the designed primers is displayed on \Aref{app:primers}.
-    
-    \begin{sidewaystable}
-      \centering
-      \captionIntro{PCR mixtures and conditions used.}
-                   {Since each reaction was unique, with different pair of primers and template DNA, the optimal salt
-                   concentrations, temperature of the annealing step, and time of extension step actually used were
-                   sometimes different. Listed values correspond to the standard usage and initial attempts.}
-      \label{tab:pcr-settings}
-      
-      \newcolumntype{W}{r<{\si{\second}}}
-      \newcolumntype{T}{l<{\si{\degreeCelsius}}}
-      
-      \begin{tabular}{l W@{ at }T W@{ at }T W@{ at }T W@{ at }T W@{ at }T}
-        \toprule
-        \null                                 & \multicolumn{4}{c}{cloning} & \crows{colony} & \crows{mutagenesis} & \crows{screening} \\
-                                                       \cmidrule(r){2-5}
-        \null                                 & \crows{genomic} & \crows{plasmid} \\
-        \midrule
-        Template (\si{\ng})                   & \crows{1000}      & \crows{50}        & \crows{n/a}       & \crows{750}       & \crows{50}        \\
-        DMSO (\si{\ul})                       & \crows{---}       & \crows{---}       & \crows{1}         & \crows{---}       & \crows{1}         \\
-        Buffer ($\times$)                     & \crows{1}         & \crows{1}         & \crows{1}         & \crows{1}         & \crows{1}         \\
-        MgSO$_4$ (\si{\nmol})                 & \crows{1.5}       & \crows{1.5}       & \crows{---}       & \crows{1.5}       & \crows{---}       \\
-        dNTPs (\si{\mM} each)                 & \crows{0.2}       & \crows{0.2}       & \crows{0.2}       & \crows{0.2}       & \crows{0.2}       \\
-        Primer (forward) (\si{\micro\Molar})  & \crows{2}         & \crows{2}         & \crows{2}         & \crows{0.4}       & \crows{2}         \\
-        Primer (reverse) (\si{\micro\Molar})  & \crows{2}         & \crows{2}         & \crows{2}         & \crows{0.4}       & \crows{2}         \\
-        DNA polymerase (\si{U})               & \crows{0.5 (KOD)} & \crows{0.5 (KOD)} & \crows{2.5 (Taq)} & \crows{0.5 (KOD)} & \crows{2.5 (Taq)} \\
-        \addlinespace
-        Total volume (\si{\ul})               & \crows{25}        & \crows{25}        & \crows{25}         & \crows{25}        & \crows{25}         \\
-        \addlinespace
-        \midrule
-        \addlinespace
-        Initialization                & 120 & 94    & 120 & 94    & 180 & 94    & 120 & 94    & 120 & 94 \\
-        Denaturation                  &  30 & 94    &  30 & 94    &  15 & 94    &  30 & 94    &  15 & 94 \\
-        Annealing                     &  20 & 58    &  20 & 58    &  15 & 58    &  20 & 58    &  15 & 62 \\
-        Extension (per \si{\kilo\bp}) &  30 & 68    &  20 & 72    &  60 & 72    &  30 & 68    &  60 & 72 \\
-        Final extension               & 300 & 62    & 300 & 72    & 300 & 72    & 300 & 94    & 300 & 72 \\
-        Final hold                    & \crows{\dc{4}} & \crows{\dc{4}} & \crows{\dc{4}} & \crows{\dc{4}} & \crows{\dc{4}} \\
-        Number of cycles              & \crows{30$\times$} & \crows{30$\times$} & \crows{30$\times$} & \crows{15$\times$} & \crows{20$\times$} \\
-        \bottomrule
-      \end{tabular}
-    \end{sidewaystable}
-    
-    \subsubsection{Colony PCR}
-      When screening multiple clones after a transformation a set of appropriate primers was available,
-      PCRs were set directly from the bacteria colonies by adding them directly to the reaction mixture
-      (\tref{tab:pcr-settings}). Bacteria from individual colonies were used to simultaneously perform a PCR and
-      start a small culture. Plasmid purification was performed on cultures whose sample was positive by PCR.
-    
-    \subsubsection{Gene cloning}
-      PCRs were used to clone and subclone genes from genomic DNA and plasmids, into different vectors. The most
-      commonly used vectors were pBOS, pEGFP-C1, pEGFP-N1, pET3, and pET15 but a complete list is displayed on
-      \Aref{app:plasmids}. Primers were usually extended to engineer restriction sites and create DNA linkers but
-      were even longer on the 5' end to account for the minimum required \si{\bp} around the restriction sites
-      \citep{neb_catalogue_2011}.
-    
-    \subsubsection{Mutagenesis}
-      PCR mutagenesis\footnote{In PCR mutagenesis, since the newly synthesized strands will be linear and cannot be
-                               used as template, the amplification is linear rather than exponential. Because of this,
-                               the name PCR mutagenesis is misleading. There is \emph{no} actual chain reaction.}
-      was used to introduce or remove mutations in\todo{in or from?} other plasmids. The selected codon used for mutation was the one
-      with highest frequency in the expressing organism, following the codon usage database \citep{codon_usage}. After
-      amplification, \SI{1.5}{\ul} of restriction enzyme DpnI\footnote{Because DpnI activity is blocked by DNA methylation,
-                                 it will only digest the template DNA which was synthesized in bacteria, leaving the
-                                 newly \textit{in vitro} synthesized DNA intact.}
-      was added directly to the PCR mixture, and incubated overnight at \dc{37}. \SI{1}{\ul} was used for transformation
-      and individual clones screened by sequencing.
-    
-    \subsubsection{Screening plasmid}
-      PCRs were frequently used to screen plasmids for DNA sequences in the absence of opportune restriction sites
-      or even plasmid maps.
+    \subsection{Ethanol precipitation}
+      \label{sec:ethanol-precipitation}
+      The DNA solution was mixed with \num{2.5} volumes of \pcent{100} ethanol
+      and \num{1/10} volumes of Sodium Acetate (\SI{3}{\Molar}, pH=\num{5.2}),
+      and incubated at \dc{4} for 15 minutes. When DNA concentrations was below
+      \SI{50}{\ng\per\ug}, incubation was performed overnight.
+      Solution was centrifuged at
+      \SI{18000}{\gn} for 30 minutes at \dc{4}, the supernatant discarded, and
+      the pellet left to dry until all traces of solvent evaporated. DNA pellet
+      was resuspended in the desired solvent: H$_2$O when used for transfection,
+      EB~buffer from QIAGEN otherwise.
+      low DNA plasmid concentrations)
 
-\section{Protein methods}
-  \subsection{Phenol:chloroform extraction}
-    \label{sec:phenol-extraction}
-    To extract proteins, an equal volume of phenol:chloroform was added and the
-    mixture centrifuged at \SI{6000}{\gn} for 15 minutes. The top aqueous phase (chloroform)
-    was pipetted to a new tube and the process repeated a total of 3 times.
+    \subsection{Agarose gels electrophoresis}
+      Agarose gels with concentrations ranging from \SIrange{0.6}{2.0}{\percent}
+      were prepared with TAE buffer, and supplemented with ethidium bromide.
+      DNA samples were loaded into the gel with DNA loading buffer and a
+      choice of loading dyes between bromophenol blue, cresol red, orange G, or
+      xylene cyanol, to avoid shadowing of the DNA bands. Electrophoresis was
+      performed in electrophoresis chambers with \SI{1}{\X}~TAE buffer at
+      \SIrange{80}{120}{\volt} until the required separation was achieved.
+      Gels were visualized at an UV transilluminator ChemiImager 5500 from
+      Alpha Innotech.
 
-  \subsection{Western blotting}
-    \subsubsection{Protein concentration determination}
-      Concentration of protein was measured with Bradford reagent. \SI{2}{\ul} of the
-      sample after sonication (\Sref{sec:cell-extract}) was mixed with \SI{48}{\ul} of H$_2$O
-      and \SI{50}{\ul} of NaOH and incubated at \dc{65} for 8 minutes before adding
-      \SI{900}{\ul} of Bradford reagent from Pierce. The mixture was transferred to plastic
-      cuvettes and the absorvance at \SI{595}{\nm} measured in a Shimadzu spectrophotometer. The
-      values obtained were interpolated from a standard curve prepared using known concentrations
-      of BSA.
-    
-    \subsubsection{SDS--PAGE}
-      Resolving and stacking SDS--PAGE gels of \SIrange{15}{5}{\percent} respectively, both with a
-      cross-linking ratio of \num{37.5}:1 as described in \citet{harlow_electrophoresis_1988}. The
-      resolving gel was poured directly after addition
-      of TEMED and it was covered with a layer of isopropanol during polymerisation
-      to ensure a sharp interface between the resolving and stacking layers.
-      Protein samples and markers were boiled at \dc{99} for 3 minutes and each
-      was loaded twice, with volumes for \SI{3.3}{\ug} and \SI{16.5}{\ug} of protein. Gels ran at
-      \SI{180}{\volt} for 1 hour in \SI{1}{$\times$} TG buffer.
-    
-    \subsubsection{Protein transfer}
-      Protein transfer occurred through the wet transfer system. The SDS-PAGE gel
-      was placed onto pre-cut nitrocellulose transfer membrane previously soaked in
-      transfer buffer. It was then set between a pair of extra thick blotting paper and
-      cushions before being placed inside a transfer apparatus. The transfer ran at
-      \dc{4} for 60 minutes.
-    
-    \subsubsection{Probing of blot with antibody}
-      Blocking of the membrane was performed with \SI{10}{\percent} non-fat dry milk in \SI{1}{$\times$} TBST
-      at room temperature for 30 minutes. Blocking was followed by primary antibody
-      incubation which occurred in \SI{5}{\percent} non-fat dry milk in \SI{1}{$\times$} TBST overnight at
-      \dc{4}. Concentrations of antibody used were 1:500 and 1:20000 for anti-GFP
-      (catalogue number 11 814 460 001 from Roche) and anti-H3 (code ab1791 from
-      abcam). The membrane was then washed with \SI{1}{$\times$} TBST for 15 minutes 3 times
-      before the secondary antibody incubation which occurred in \SI{5}{\percent} non-fat dry
-      milk in \SI{1}{$\times$} TBST for 1 hour. The membrane was washed once more in the same
-      conditions as before for the detection. All blocking, antibody incubation and
-      washing steps occurred on a rocker.\todo{should list antibodies and their conditions on appendix}
-      
-      Detection was performed using the SuperSignal West Pico Chemiluminescent
-      Substrate from Pierce, adding 1:1 of the solutions and allowing it to incubate
-      with the membrane for 5 minutes. The membrane was exposed to x-ray films for
-      10, 60, 5, 180 and 1800 seconds which were then developed.
+    \subsection{DNA sequencing and oligonucleotide preparation}
+      DNA sequencing was performed by LGC Genomics after cloning for sequence
+      confirmation and avoiding unexpected mutations.
 
+      Oligonucleotides were ordered from Eurofins MWG operon in lyophilized
+      format, dissolved in H$_2$O to a \SI{100}{\micro\Molar} concentration,
+      and stored at \dc{-20}. A list of all designed oligonucleotides is
+      produced at \Aref{app:primers}.
 
-\section{Cell methods}
-  \subsection{Cell culture}
-    HeLa and HEp-2 cells were supplied by Agnieszka Kaczmarczyk from the
-    National University of Ireland, Galway, Department of Biochemistry,
-    and Volker D\"oring from the Leibniz Institute for Age Research -- Fritz Lipmann Institute.
-    Primary horse fibrolasts were a gift from Prof.~Elena Giulotto from the
-    University of Pavia, Department of Genetics and Microbiology.
+    \subsection{Polimerase Chain Reaction}
+      Different types of PCR experiments were performed for different purposes
+      with different DNA polymerases (\tref{tab:pcr-settings}). Taq with ThermoPol
+      buffer was obtained from New England Biolabs. KOD Hot Start with Mg$^{2+}$
+      free buffer was obtained from Novagen. PCRs were performed on a thermocycler
+      Mastercycler epgradient from Eppendorf.
 
-    All cell lines were maintained at \dc{37} and \pcent{5} CO$_2$ in \SI{10}{\cm}
-    diameter plates with \SI{10}{\ml} of their respective growth medium (see \Aref{app:solutions}).
-    Dulbecco's Phosphate Buffered
-    Saline (DPBS) and trypsin--EDTA solutions were used, respectively, to wash
-    and split the cells 1:10 once they reached a confluence of \SIrange{80}{90}{\percent}.
+      Use of different DNA polymerases was based on their cost-benefit for
+      each application. For example, screening clones requires a large number
+      of reactions in simultaneous and the introduction of small mutations
+      is of no consequence. For this two reasons, the much cheaper Taq DNA
+      polymerase was used for screening despite its low fidelity and
+      amplification rates. However, in PCR mutagenesis the whole plasmid
+      is synthesized anew and we have no reasonable method to verify its whole
+      sequence. As a result, KOD DNA polymerase was used for PCR mutagenesis.
 
-  \subsection{Cell stock storage}
-    For long-term storage of HeLa cell lines, they were grown until they reached
-    a confluence of \SIrange{80}{90}{\percent} and then trypsinized as usual. A volume of Freezing
-    Media was added, equal to the volume of trypsin--EDTA, and \SI{2}{\ml} aliquots of
-    cells transferred to cryotubes. Tubes were immediately wrapped in cotton and
-    placed at \dc{-80}.
+      \begin{sidewaystable}
+        \centering
+        \captionIntro{PCR mixtures and conditions used.}
+          {
+            Since each reaction was unique, with different pair of primers
+            and template DNA, the optimal salt concentrations, temperature
+            of the annealing step, and time of extension step actually used were
+            sometimes different. Listed values correspond to the standard
+            usage and initial attempts.
+          }
+        \label{tab:pcr-settings}
 
-  \subsection{Whole cell extract}
-    \label{sec:cell-extract}
-    To obtain whole cell extracts, HeLa cells were trypsinized as usual. Growth
-    medium added and the suspension was centrifuged at \SI{900}{\gn} for 10 minutes. Further
-    steps were carried at \dc{4} and with previously chilled reagents. The supernatant
-    was discarded and the pellet resuspended in \SI{500}{\ul} of chilled PBS before being
-    sonicated 3 times at \pcent{40} amplitude for 10 seconds. Avoiding the foam formed at
-    the top, \SI{300}{\ul} of suspension were transferred from the bottom of the tube to a
-    new eppendorf and mixed with an equal volume of Laemmli buffer before being
-    stored at \dc{-80}. \SI{2}{\ul} from the suspension was also transferred to a new tube
-    for determination of protein concentration.
+        \newcolumntype{W}{r<{\si{\second}}}
+        \newcolumntype{T}{l<{\si{\degreeCelsius}}}
 
-  \subsection{Genomic DNA extraction}
-    To extract genomic DNA of HeLa cells, they were trypsinized as usual and
-    growth medium was added in the end before counting with an hemocytometer.
-    Cells were centrifuged at \SI{1500}{\gn} for 10 minutes at \dc{4}, the supernatant discarded
-    and the pellet resuspended in TE buffer to achieve a desired concentration of
-    \SI{4e7}{cells\per\ml}. 9 volumes of Genomic lysis buffer was added and the mixture
-    incubated at \dc{37} for 90 minutes. Proteinase K was added to a final concentration of
-    \SI{100}{\ug\per\ml} and the mixture incubated at 50 °C for 3 h and swirled every 20 min.
-    DNA was then extracted by phenol:chloroform (\Sref{sec:phenol-extraction}) and purified by ethanol
-    precipitation (\Sref{sec:ethanol-precipitation}).
+        \begin{tabular}{l W@{ at }T W@{ at }T W@{ at }T W@{ at }T W@{ at }T}
+          \toprule
+          \null                        & \multicolumn{4}{c}{cloning} & \crows{colony} & \crows{mutagenesis} & \crows{screening} \\
+                                                \cmidrule(r){2-5}
+          \null                        & \crows{genomic} & \crows{plasmid} \\
+          \midrule
+          Template (\si{\ng})          & \crows{1000}      & \crows{50}        & \crows{n/a}       & \crows{750}       & \crows{50}        \\
+          DMSO (\si{\ul})              & \crows{---}       & \crows{---}       & \crows{1}         & \crows{---}       & \crows{1}         \\
+          Buffer (\si{\X})             & \crows{1}         & \crows{1}         & \crows{1}         & \crows{1}         & \crows{1}         \\
+          MgSO$_4$ (\si{\nmol})        & \crows{1.5}       & \crows{1.5}       & \crows{---}       & \crows{1.5}       & \crows{---}       \\
+          dNTPs (\si{\mM} each)        & \crows{0.2}       & \crows{0.2}       & \crows{0.2}       & \crows{0.2}       & \crows{0.2}       \\
+          Primer (forward) (\si{\uM})  & \crows{2}         & \crows{2}         & \crows{2}         & \crows{0.4}       & \crows{2}         \\
+          Primer (reverse) (\si{\uM})  & \crows{2}         & \crows{2}         & \crows{2}         & \crows{0.4}       & \crows{2}         \\
+          DNA polymerase (\si{U})      & \crows{0.5 (KOD)} & \crows{0.5 (KOD)} & \crows{2.5 (Taq)} & \crows{0.5 (KOD)} & \crows{2.5 (Taq)} \\
+          \addlinespace
+          Total volume (\si{\ul})      & \crows{25}        & \crows{25}        & \crows{25}        & \crows{25}        & \crows{25}        \\
+          \addlinespace
+          \midrule
+          \addlinespace
+          Initialization                & 120 & 94    & 120 & 94    & 180 & 94    & 120 & 94    & 120 & 94 \\
+          Denaturation                  &  30 & 94    &  30 & 94    &  15 & 94    &  30 & 94    &  15 & 94 \\
+          Annealing                     &  20 & 58    &  20 & 58    &  15 & 58    &  20 & 58    &  15 & 62 \\
+          Extension (per \si{\kilo\bp}) &  30 & 68    &  20 & 72    &  60 & 72    &  30 & 68    &  60 & 72 \\
+          Final extension               & 300 & 62    & 300 & 72    & 300 & 72    & 300 & 94    & 300 & 72 \\
+          Final hold       & \crows{\dc{4}}      & \crows{\dc{4}}      & \crows{\dc{4}}      & \crows{\dc{4}}      & \crows{\dc{4}} \\
+          Number of cycles & \crows{\SI{30}{\X}} & \crows{\SI{30}{\X}} & \crows{\SI{30}{\X}} & \crows{\SI{15}{\X}} & \crows{\SI{20}{\X}} \\
+          \bottomrule
+        \end{tabular}
+      \end{sidewaystable}
 
-  \subsection{Viable cells count}
-    \label{sec:methods:trypan-blue}
-    Trypan blue was used to assess the number of viable cells. After trypsinization
-    as usual, cells were diluted in growth medium, to a final concentration of \SI{2e5}{cells\per\ml}.
-    To \SI{0.5}{\ml} of the cell suspension, was added \SI{0.1}{\ml} of \pcent{0.4} Trypan
-    Blue Stain and the mixture left for 5 minutes at room temperature before counting
-    the cells in an hemocytometer making a distinction between stained (non-viable)
-    and non-stained (viable) cells.
+      \subsubsection{Colony PCR}
+        When screening multiple clones after transformation and a set of
+        appropriate primers was available, PCRs were set directly from
+        the bacteria colonies by adding them directly to the reaction mixture
+        (\tref{tab:pcr-settings}). Bacteria from individual colonies were
+        used to simultaneously perform a PCR and start a small culture.
+        Plasmid purification was performed on cultures whose sample was
+        positive by PCR.
 
-  \subsection{Kill curve}
-    \label{sec:methods:kill-curve}
-    Cells were trypsinized as usual and plated at \pcent{25} confluence on
-    a 24-well plate. After 24 hours, medium was replaced using different
-    concentrations of the antibiotic per well, 3 replicas for each.
-    After 3 days, medium was
-    renovated with the same antibiotic concentrations. After 4 days, total of
-    one week after addition of antibiotics, cells were trypsinized and a count
-    of viable cells was performed with Trypan Blue (\Sref{sec:methods:trypan-blue}).
+      \subsubsection{Gene cloning}
+        PCRs were used to clone and subclone genes from genomic DNA and
+        plasmids, into different vectors. The most commonly used vectors
+        were pEF--BOS, pEGFP-C1, pEGFP-N1, pET3, and pET15 but a complete
+        list is displayed on \Aref{app:plasmids}. Primers were usually
+        extended to engineer restriction sites and create DNA linkers but
+        were even longer on the 5' end to account for the minimum
+        required \si{\bp} around the restriction sites \citep{neb_catalogue_2011}.
 
-    The highest concentration tested with no viable cells in all replicas after
-    7 days, was used for selection of transfected cells when establishing
-    stable cell lines.
+      \subsubsection{Mutagenesis}
+        PCR mutagenesis
+        \footnote{
+          In PCR mutagenesis, since the newly synthesized strands will
+          be linear and cannot be used as template, the amplification
+          is linear rather than exponential. Because of this, the name
+          PCR mutagenesis is misleading. There is \emph{no} actual chain reaction.
+        }
+        was used to insert or correct mutations in plasmids. When choice
+        was possible, the selected codon used for mutation was the one
+        with highest frequency in the expressing organism, following the
+        codon usage database \citep{codon_usage}. After amplification,
+        \SI{1.5}{\ul} of restriction enzyme DpnI
+        \footnote{
+          Because DpnI activity is blocked by DNA methylation, it will
+          only digest the template DNA which was synthesized in bacteria,
+          leaving the newly \textit{in vitro} synthesized DNA intact.
+        }
+        was added directly to the PCR mixture, and incubated overnight at
+        \dc{37}. \SI{1}{\ul} was used for transformation and individual
+        clones screened by sequencing.
 
-  \subsection{Transfection by lipofection}
-    \label{methods:lipofection}
-    Cells were transfected using Lipofectamine 2000, a cationic lipid reagent, from
-    Invitrogen. Cells were trypsinized as usual on the day before transfection and
-    replated on 6 well plates (surface area of \SI{9.5}{\square\cm\per well}) with \SI{2.5}{\ml} of growth
-    medium so they would be \SI{90}{\percent} confluent on the following day. For each well,
-    two tubes with \SI{250}{\ul} of transfection medium were prepared, one with \SI{7.5}{\ul}
-    of Lipofectamine 2000 and another with \SI{3750}{\ng} of DNA (ethanol precipitation
-    (\Sref{sec:ethanol-precipitation}) was used to increase the DNA concentration for values around \SI{500}{\ng\per\ul}
-    before transfection). Both tubes were incubated at room temperature for 5 minutes,
-    mixed together, and incubated again at room temperature for 20 minutes. Cells
-    were washed with DPBS during this time and growth medium switched to \SI{2}{\ml}
-    of transfection medium. The mixture was then added to the cells medium who
-    were incubated at \dc{37} for 6 hours after which time it was switched back to
-    \SI{0.5}{\ml} of growth medium.
+      \subsubsection{Screening plasmid}
+        PCRs were frequently used to screen plasmids for DNA sequences
+        in the absence of opportune restriction sites or even plasmid maps.
 
-  \subsection{Transfection by electroporation}
-    Cells were transfected by electroporation using an Amaxa nucleofector
-    device with Ingenio Electroporation solution and cuvettes from Mirus Bio.
-    Cells were grown to confluence and trypsinized as usual. Growth medium was
-    added to a total volume of \SI{8}{\ml}, and \SI{1}{\ml} aliquots (for
-    approximately \SI{10e6}{cells}) were centrifuged at \SI{160}{\gn} for 5~minutes.
-    The supernatant was discarded and a volume of \SI{2}{\ul} of plasmid at
-    a concentration of \SI{500}{\ng\per\ul} was added to the top of the pellet.
-    The cell pellet was ressuspended in \SI{100}{\ul} of Mirus Bio Ingenio
-    Electroporation solution and transferred to \SI{0.2}{\cm} cuvettes for
-    electroporation in an Amaxa nucleofector. According to the manufacturers
-    instructions, the preset programs I-013 and O-17 were used to transfect
-    HeLa and HEp-2 cells respectively.
+  \section{Protein methods}
+    \subsection{Phenol:chloroform extraction}
+      \label{sec:phenol-extraction}
+      To extract proteins, an equal volume of phenol:chloroform was
+      added and the mixture centrifuged at \SI{6000}{\gn} for 15 minutes.
+      The top aqueous phase (chloroform) was pipetted to a new tube and
+      the process repeated a total of 3 times.
+
+    \subsection{Western blotting}
+      \subsubsection{Protein concentration determination}
+        Concentration of protein was measured with Bradford reagent.
+        \SI{2}{\ul} of the sample after sonication (\Sref{sec:cell-extract})
+        was mixed with \SI{48}{\ul} of H$_2$O and \SI{50}{\ul} of NaOH and
+        incubated at \dc{65} for 8 minutes before adding \SI{900}{\ul} of
+        Bradford reagent from Pierce. The mixture was transferred to plastic
+        cuvettes and the absorbance at \SI{595}{\nm} measured in a Shimadzu
+        spectrophotometer. The values obtained were interpolated from a
+        standard curve prepared using known concentrations of BSA.
+
+      \subsubsection{SDS--PAGE}
+        Resolving and stacking SDS--PAGE gels of \SIrange{15}{5}{\percent}
+        respectively, both with a cross-linking ratio of \num{37.5}:1 as
+        described in \citet{harlow_electrophoresis_1988}. The
+        resolving gel was poured directly after addition
+        of TEMED and it was covered with a layer of isopropanol during polymerisation
+        to ensure a sharp interface between the resolving and stacking layers.
+        Protein samples and markers were boiled at \dc{99} for 3 minutes and each
+        was loaded twice, with volumes for \SI{3.3}{\ug} and \SI{16.5}{\ug} of
+        protein. Gels ran at \SI{180}{\volt} for 1 hour in \SI{1}{\X} TG buffer.
+
+      \subsubsection{Protein transfer}
+        Protein transfer occurred through the wet transfer system. The
+        SDS-PAGE gel was placed onto pre-cut nitrocellulose transfer membrane
+        previously soaked in transfer buffer. It was then set between a pair
+        of extra thick blotting paper and cushions before being placed inside
+        a transfer apparatus. The transfer ran at \dc{4} for 60 minutes.
+
+      \subsubsection{Probing of blot with antibody}
+        Blocking of the membrane was performed with \SI{10}{\percent}
+        non-fat dry milk in \SI{1}{\X} TBST
+        at room temperature for 30 minutes. Blocking was followed by
+        primary antibody incubation which occurred in \SI{5}{\percent} non-fat
+        dry milk in \SI{1}{\X} TBST overnight at \dc{4}. Concentrations of
+        antibody used were 1:500 and 1:20000 for anti-GFP (catalogue
+        number 11~814~460~001 from Roche) and anti-H3 (code ab1791 from
+        abcam). The membrane was then washed with \SI{1}{\X} TBST for
+        15 minutes 3 times before the secondary antibody incubation which
+        occurred in \SI{5}{\percent} non-fat dry milk in \SI{1}{\X} TBST for
+        1 hour. The membrane was washed once more in the same
+        conditions as before for the detection. All blocking, antibody
+        incubation and washing steps occurred on a rocker.
+
+        Detection was performed using the SuperSignal West Pico Chemiluminescent
+        Substrate from Pierce, adding 1:1 of the solutions and allowing it to incubate
+        with the membrane for 5 minutes. The membrane was exposed to x-ray films for
+        10, 60, 5, 180 and 1800 seconds which were then developed.
 
 
-  \subsection{Fixation and staining}
-    For microscopy visualization, cells grown directly on top of HCl washed coverslips since
-    HeLa cells have difficulty attaching to glass. At least 24 hours passed
-    between the plating and fixation. Growth medium was removed and the cells
-    washed with PBS once before incubation with \SI{4}{\percent} formaldehyde in PBS
-    for 4 minutes. The solution was removed and the cells washed with H$_2$O 2 more
-    times, after which coverslips were removed from the wells and left to air dry.
-    For each coverslip, \SI{2}{\ul} of SlowFade Light Antifade kit from Molecular Probes
-    was used for mounting the coverslip on a microscope slide. DAPI was added
-    to the mounting media when needed. Coverslips were then sealed with a 1:1
-    mixture of clear nail polish and acetone and stored on a dark box at \dc{4}.
+  \section{Cell methods}
+    \subsection{Cell culture}
+      HeLa and HEp-2 cells were supplied by Agnieszka Kaczmarczyk from the
+      National University of Ireland, Galway, Department of Biochemistry,
+      and Volker D\"oring from the Leibniz Institute for Age Research -- Fritz Lipmann Institute.
+      Primary horse fibrolasts were a gift from Prof.~Elena Giulotto from the
+      University of Pavia, Department of Genetics and Microbiology.
 
-  \subsection{Flow citometry}
+      All cell lines were maintained at \dc{37} and \pcent{5} CO$_2$ in \SI{10}{\cm}
+      diameter plates with \SI{10}{\ml} of their respective growth medium (see \Aref{app:solutions}).
+      Dulbecco's Phosphate Buffered
+      Saline (DPBS) and trypsin--EDTA solutions were used, respectively, to wash
+      and split the cells 1:10 once they reached a confluence of \SIrange{80}{90}{\percent}.
 
-    Cells were trypsinized as usual and after addition of medium, centrifuged
-    at \SI{160}{\gn} for 5~minutes. The supernatant was discarded and the
-    pellet washed with PBS. The sample was centrifuged one more time at
-    \SI{160}{\gn} for 5~minutes. The supernatant was discarded and the
-    pellet resuspended in FACS buffer.
+    \subsection{Cell stock storage}
+      For long-term storage of HeLa cell lines, they were grown until
+      they reached a confluence of \SIrange{80}{90}{\percent} and then
+      trypsinized as usual. A volume of Freezing Media was added, equal
+      to the volume of trypsin--EDTA, and \SI{2}{\ml} aliquots of
+      cells transferred to cryotubes. Tubes were immediately wrapped in
+      cotton and placed at \dc{-80}.
 
-    Both sample analysis and cell sorting were performed with live cells, the
-    first with a BD FACSCanto~II, and the later with a BD FACSAria~II.
+    \subsection{Whole cell extract}
+      \label{sec:cell-extract}
+      To obtain whole cell extracts, HeLa cells were trypsinized as usual. Growth
+      medium added and the suspension was centrifuged at \SI{900}{\gn}
+      for 10 minutes. Further steps were carried at \dc{4} and with previously
+      chilled reagents. The supernatant was discarded and the pellet
+      resuspended in \SI{500}{\ul} of chilled PBS before being
+      sonicated 3 times at \pcent{40} amplitude for 10 seconds. Avoiding the
+      foam formed at the top, \SI{300}{\ul} of suspension were transferred
+      from the bottom of the tube to a new eppendorf and mixed with an equal
+      volume of Laemmli buffer before being stored at \dc{-80}.
+      \SI{2}{\ul} from the suspension was also transferred to a new tube
+      for determination of protein concentration.
 
-\section{Software used}
-  \label{sec:methods:software}
+    \subsection{Genomic DNA extraction}
+      To extract genomic DNA of HeLa cells, they were trypsinized as usual and
+      growth medium was added in the end before counting with an hemocytometer.
+      Cells were centrifuged at \SI{1500}{\gn} for 10 minutes at \dc{4}, the
+      supernatant discarded and the pellet resuspended in TE buffer to achieve
+      a desired concentration of \SI{4e7}{cells\per\ml}. 9 volumes of
+      Genomic lysis buffer was added and the mixture incubated at \dc{37} for
+      90 minutes. Proteinase K was added to a final concentration of
+      \SI{100}{\ug\per\ml} and the mixture incubated at 50 °C for 3 hours and
+      swirled every 20 minutes. DNA was then extracted by
+      phenol:chloroform (\Sref{sec:phenol-extraction}) and purified by ethanol
+      precipitation (\Sref{sec:ethanol-precipitation}).
 
-  %% We probably should use a script to get the actual version when building
-  %% the thesis. On the other hand, this thesis will not be a liquid document,
-  %% since unfortunately it is only meant for evaluation of my doctoral
-  %% program :( so why bother?
-  The European Molecular Biology Open Software Suite (EMBOSS) version 6.4.0
-  was used for analysis of codon usage, RNA folding, and reading of
-  chromatogram files.
+    \subsection{Viable cells count}
+      \label{sec:methods:trypan-blue}
+      Trypan blue was used to assess the number of viable cells.
+      After trypsinization as usual, cells were diluted in growth medium,
+      to a final concentration of \SI{2e5}{cells\per\ml}.
+      To \SI{0.5}{\ml} of the cell suspension, was added \SI{0.1}{\ml}
+      of \pcent{0.4} Trypan Blue Stain and the mixture left for 5 minutes
+      at room temperature before counting
+      the cells in an hemocytometer making a distinction between
+      stained (non-viable) and non-stained (viable) cells.
 
-  The Perl language, with the BioPerl, BioPerl-Run, and Bio-EUtilities
-  distributions, versions 1.6.901, 1.6.9, and 1.73, were extensively used
-  for analysis and manipulation of biological sequences, and automate searches
-  on the Entrez databases.
+    \subsection{Kill curve}
+      \label{sec:methods:kill-curve}
+      Cells were trypsinized as usual and plated at \pcent{25} confluence on
+      a 24-well plate. After 24 hours, medium was replaced using different
+      concentrations of the antibiotic per well, 3 replicas for each.
+      After 3 days, medium was
+      renovated with the same antibiotic concentrations. After 4 days, total of
+      one week after addition of antibiotics, cells were trypsinized and a count
+      of viable cells was performed with Trypan Blue (\Sref{sec:methods:trypan-blue}).
 
-  Image analysis was performed using GNU Octave version 3.8.1 and the Octave
-  Forge image, optim, and signal packages, versions 2.2.1, 1.3.0, and 1.3.0
-  respectively.
-  %% This is not an error! Both optim and signal packages are version 1.3.0
+      The highest concentration tested with no viable cells in all replicas after
+      7 days, was used for selection of transfected cells when establishing
+      stable cell lines.
 
-  ImageJ, as distributed by the FIJI project, was routinely used for microscope
-  image visualization.
+    \subsection{Transfection by lipofection}
+      \label{methods:lipofection}
+      Cells were transfected using Lipofectamine~2000, a cationic lipid
+      reagent, from Invitrogen. Cells were trypsinized as usual on the
+      day before transfection and replated on 6 well plates (surface area
+      of \SI{9.5}{\square\cm\per well}) with \SI{2.5}{\ml} of growth
+      medium so they would be \SI{90}{\percent} confluent on the following
+      day. For each well, two tubes with \SI{250}{\ul} of transfection
+      medium were prepared, one with \SI{7.5}{\ul} of Lipofectamine~2000
+      and another with \SI{3750}{\ng} of DNA from a stock with concentration
+      of \SI{500}{\ng\per\ul} and prepared by ethanol precipitation
+      (\Sref{sec:ethanol-precipitation}).
+      Both tubes were incubated at room temperature for 5 minutes,
+      mixed together, and incubated again at room temperature for 20 minutes. Cells
+      were washed with DPBS during this time and growth medium switched to \SI{2}{\ml}
+      of transfection medium. The mixture was then added to the cells medium who
+      were incubated at \dc{37} for 6 hours after which time it was switched back to
+      \SI{0.5}{\ml} of growth medium.
+
+    \subsection{Transfection by electroporation}
+      Cells were transfected by electroporation using an Amaxa nucleofector
+      device with Ingenio Electroporation solution and cuvettes from Mirus Bio.
+      Cells were grown to confluence and trypsinized as usual. Growth medium was
+      added to a total volume of \SI{8}{\ml}, and \SI{1}{\ml} aliquots (for
+      approximately \SI{10e6}{cells}) were centrifuged at \SI{160}{\gn} for 5~minutes.
+      The supernatant was discarded and a volume of \SI{2}{\ul} of plasmid at
+      a concentration of \SI{500}{\ng\per\ul} was added to the top of the pellet.
+      The cell pellet was ressuspended in \SI{100}{\ul} of Mirus Bio Ingenio
+      Electroporation solution and transferred to \SI{0.2}{\cm} cuvettes for
+      electroporation in an Amaxa nucleofector. According to the manufacturers
+      instructions, the preset programs I-013 and O-17 were used to transfect
+      HeLa and HEp-2 cells respectively.
+
+
+    \subsection{Fixation and staining}
+      For microscopy visualization, cells grown directly on top of HCl washed coverslips since
+      HeLa cells have difficulty attaching to glass. At least 24 hours passed
+      between the plating and fixation. Growth medium was removed and the cells
+      washed with PBS once before incubation with \SI{4}{\percent} formaldehyde in PBS
+      for 4 minutes. The solution was removed and the cells washed with H$_2$O 2 more
+      times, after which coverslips were removed from the wells and left to air dry.
+      For each coverslip, \SI{2}{\ul} of SlowFade Light Antifade kit from Molecular Probes
+      was used for mounting the coverslip on a microscope slide. DAPI was added
+      to the mounting media when needed. Coverslips were then sealed with a 1:1
+      mixture of clear nail polish and acetone and stored on a dark box at \dc{4}.
+
+    \subsection{Flow citometry}
+
+      Cells were trypsinized as usual and after addition of medium, centrifuged
+      at \SI{160}{\gn} for 5~minutes. The supernatant was discarded and the
+      pellet washed with PBS. The sample was centrifuged one more time at
+      \SI{160}{\gn} for 5~minutes. The supernatant was discarded and the
+      pellet resuspended in FACS buffer.
+
+      Both sample analysis and cell sorting were performed with live cells, the
+      first with a BD FACSCanto~II, and the later with a BD FACSAria~II.
+
+  \section{Software used}
+    \label{sec:methods:software}
+
+    %% We probably should use a script to get the actual version when building
+    %% the thesis. On the other hand, this thesis will not be a liquid document,
+    %% since unfortunately it is only meant for evaluation of my doctoral
+    %% program :( so why bother?
+    The European Molecular Biology Open Software Suite (EMBOSS) version 6.4.0
+    was used for analysis of codon usage, RNA folding, and reading of
+    chromatogram files.
+
+    The Perl language, with the BioPerl, BioPerl-Run, and Bio-EUtilities
+    distributions, versions 1.6.901, 1.6.9, and 1.73, were extensively used
+    for analysis and manipulation of biological sequences, and automate searches
+    on the Entrez databases.
+
+    Image analysis was performed using GNU Octave version 3.8.1 and the Octave
+    Forge image, optim, and signal packages, versions 2.2.1, 1.3.0, and 1.3.0
+    respectively.
+    %% This is not an error! Both optim and signal packages are version 1.3.0
+
+    ImageJ, as distributed by the FIJI project, was routinely used for microscope
+    image visualization.
 
