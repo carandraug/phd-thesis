@@ -39,3 +39,8 @@
 ## gedit latex plugin
 \.*.ini
 
+## do not accidentally commit the data files
+data/*.lsm
+data/*.dv
+data/*.fcs
+
