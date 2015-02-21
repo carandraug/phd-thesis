@@ -1,0 +1,21 @@
+- got all H2A sequences
+- found stem-loops for all H2A except his-35
+- searched in his-35 for a stem-loop until the start of the following gene
+- checked in all frames for all H2A from the stop codon until the end of the stem-loop
+- only his-35 had SQ sites
+- his-35 had no SQE sites but one SQD site (SQDH)
+- the residue following the SQD site is NOT hidrophobic
+- the SQDH site is 225bp after the stop codon (in other histones, the stem-loop finishes around 60bp after the stop codon)
+- the SQDH is in the same frame as the gene and after 4 stop codons
+- his-35 has one intron
+- his-35 is in a kind of histone cluster (there's only two other histones there, His-37 (H4) and his-41(H2B))
+- his-37 (H4) and his-41 (H2B) are the closest histones to his-35 and they both have introns
+- searched for S.Q and S.D in all frames of all h2a from the stop codon until the end of the stem-loop
+- his-35 has a SAEL site in frame 3 around 78bp after the stop codon
+- his-35 has a SYQ- site in frame 3 around 117bp after the stop codon
+- his-53 and his-19 have a SLEP site in frame 2 around 39bp after the stop codon
+- got the sequences of all c.elegans histones
+- compared all H4's (DNA and protein sequences) and saw nothing special in his-37 (the only one with a intron)
+- compared all H2A's (DNA and protein sequences) and saw nothing special in his-35 (the only one with a intron)
+- compared all H2B's (protein sequences). His-4, his-52 and his-54 have an extra 19 amino acid at the start (but it's probably just an error in the database). His-48, his-58, his-66 and his-62 had an extra amino acid at residue 18. Not counting with his-48, his-58, his-66 and his-62 (which in the database were strangely named), his-41 is the only one that encodes a different preotein sequence with 3 differences.
+- compared all H3's (protein sequences). His-70 and his-69 were the ones that looked more strange (really different). Checked their position and they are located in the chromosome III, together but isolated from other histones.

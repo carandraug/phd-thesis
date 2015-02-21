@@ -1,0 +1,136 @@
+ 
+                           DIALIGN 2.2.1 
+                           *************
+ 
+          Program code written by Burkhard Morgenstern and Said Abdeddaim 
+             e-mail contact: dialign (at) gobics (dot) de 
+ 
+          Published research assisted by DIALIGN 2 should cite:  
+ 
+             Burkhard Morgenstern (1999).
+             DIALIGN 2: improvement of the segment-to-segment
+             approach to multiple sequence alignment.
+             Bioinformatics 15, 211 - 218. 
+
+          For more information, please visit the DIALIGN home page at 
+
+             http://bibiserv.techfak.uni-bielefeld.de/dialign/ 
+ 
+         ************************************************************
+ 
+
+
+   program call:  edialign cpar1Ce+Cb.fa  
+
+ 
+   Aligned sequences:          length:
+   ==================          =======
+ 
+   1) CeCpar-1                   261
+   2) CbCpar-1                   345
+   3) CbrCBN02582                341
+   4) CrCRE13399                 328
+   5) CrHcp-3                    349
+   6) CjCJA15545                 348
+
+   Average seq. length:          328.7 
+
+
+   Please note that only upper-case letters are considered to be aligned. 
+
+
+   Alignment (DIALIGN format):
+   ===========================
+ 
+CeCpar-1           1   ---MADD-GP IIEEIAE--- ---------- ---------K NGRVARIMQR 
+CbCpar-1           1   MYH-HDS-GP HIEEVFDPPS RRTMMQ---- -----EIETH PD-----VIA 
+CbrCBN02582        1   MFH-LSD-GP TIEELVD--- ---TQQLE-- --NtaEAEFK EE-----LDV 
+CrCRE13399         1   mnrMEHN-PY LIKNENVAPS RSSSIpsyyn rnS------- -E-----MNQ 
+CrHcp-3            1   ---MHHN-GP RIEEMVDPPS RSTTNQLK-- --N------- -D-----TEY 
+CjCJA15545         1   mqrmiemgGP HIEEIVDPPS PSNSVlq--- -----EADYR QNGPSRSRPK 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000000 
+ 
+CeCpar-1          25   LQHDTQRVTS VP--GFNTSA TGYADLIALL DQYKNDLEav gf-------- 
+CbCpar-1          35   FGKKLRKIKN QPesTFLSSA DRMEEIIDAF RDQIAKWEEE EEL------- 
+CbrCBN02582       34   IKKELAAVLA IP--DIHRNR EALEKSIRIL EKAIDKWEED EEN------- 
+CrCRE13399        37   IREEIEAITS RK--NFNRDS DSMQEVIDIM TRQINKWEQL EDDYG----- 
+CrHcp-3           30   IKSEYRRISH LP--DFNRDP ELIQEVMNLT KRYIEKWLRE ER-------- 
+CjCJA15545        43   LIDQIRTLIR TP--NFNKDA VKMGQAIDLM ELQIAEWVEE QIRYGftqer 
+                                                                 
+                       0000000000 0000011111 1111111111 1111111000 0000000000 
+ 
+CeCpar-1          65   ---------- ---------- ---------- ---------- ---------- 
+CbCpar-1          78   -----NEPCE YRQLKIE--- IFTQKKIEYQ RKNNLAVDEF YKKrnlknhs 
+CbrCBN02582       75   -----QVSLE LRRQSIG--- KFKEQRRSCK QKLRDAENAF HER------- 
+CrCRE13399        80   -------PDA TRQRYIE--- AFQRKRDSWE KKKEQAERAF YER------- 
+CrHcp-3           70   -----DEPNM ERQGWIE--- RFKTKLREWE TKKETAEDEY YTR------- 
+CjCJA15545        91   edaiyQYRRK LRRQNakprp LFSRKKFQMF KKSVEea--- EER------- 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000000 
+ 
+CeCpar-1          65   ---------- NDLEQARRRA PSVDITVGSN STNLVD-YSH -----GRHDM 
+CbCpar-1         120   NRKPLEESRR REEPRDRVHE SNIDITHRGD STSLNH-YSR HHYSQRQSQS 
+CbrCBN02582      110   REREYEERTM REIPRRYSSF RDTDITRRNN TTGLYH-HSQ -----QSSSN 
+CrCRE13399       113   RDRMKREme- ---------- ---------- ----YD-NGY -----SRNQI 
+CrHcp-3          105   RDASSNEEKN REIARRRATD SQMNITGLHD STRLNQ-QSY -----SRSYE 
+CjCJA15545       131   YFEEREESRR REEARRAMSY SRGDISARDN RSKLHQsHTQ RNYGDSLDSD 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000000 
+ 
+CeCpar-1          99   PSHRRHDSSD EEITAANSHH QSPINVgnrn dtdgtngrng s--------- 
+CbCpar-1         169   SRFERERESD EEEENSQPIQ -RY------- ---------- -------RSR 
+CbrCBN02582      154   FRMQEYSSDE EIENIPSSHR DRY------- ---------- -------Rle 
+CrCRE13399       132   RRERRMDDDS DSDVMEDDRR QPLGNLdysr kdncvrgrea kpmallnRDR 
+CrHcp-3          149   NRNRRYSSDE DDDENMAPQR -RQ------- ---------- -------RSR 
+CjCJA15545       181   DENERENGYQ SYRPPPQRQQ -RL------- ---------- -------RSR 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000000 
+ 
+CeCpar-1         140   ---------- ---------- --------RA GSS------- ----SSDR-- 
+CbCpar-1         194   SPk------- ----PSYSYN QSTMQQSQRD DTNVYHRSHQ STSQP-PQ-- 
+CbrCBN02582      180   kcliivfqnl yfsyPPKKIS HSTMLQQRRD ISPVVYRSQQ QSSAGSQQ-- 
+CrCRE13399       182   SRSRSPLll- -----PRQAH PSTSLQLRRP NIP------- ----STPP-- 
+CrHcp-3          174   SPpsfah--- ---------- -----HQRRD DTGSYYRSHH TQNSSNQRth 
+CjCJA15545       206   SRSRSPMr-- ---------- -----SSYRH ESPENSRRNA SHQQT-AQ-- 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000100 
+ 
+CeCpar-1         149   ---------- ---------- --------VR MIAGRNRI-- SKTRRYRPGQ 
+CbCpar-1         230   ---------- ---------- --------VR MRSGKSRVTK THNRKFRPGQ 
+CbrCBN02582      228   ---------- ---------- --------ER MRSGKSRVTK T-TRKHRPGQ 
+CrCRE13399       213   ---------- ---------- --------VR VRPGKSRVTK SKNRKWRPGQ 
+CrHcp-3          206   ntdfsshyrg qygpstsqnv gmpsnaqnVR MRSGKSRVTK TRSRKWRPGQ 
+CjCJA15545       236   ---------- ---------- --------VR MRAGKNNV-- TKTKKWRPGQ 
+                                                                 
+                       0000000000 0000000000 0000000022 2222222222 3235999999 
+ 
+CeCpar-1         169   KALEEIRKYQ ESEDLLIPKA PFARLVREIM QTSTPFSSDL RIRSDAINAL 
+CbCpar-1         252   KALAEIRKYQ KSTDMLIQKA PFVRLVHEII REQTYKSQDY RIRADALMAL 
+CbrCBN02582      249   KALAEIRKYQ KSTDLLIQKA PFARLVHEII REATTNSGDY RVRADALLAL 
+CrCRE13399       235   KALLEIRKYQ KSTDMLIQKA PFARLVQEIL RETTNESHDY RIRADALMAL 
+CrHcp-3          256   RALEEIRKYQ KSTDMLIQKA PFARLVHEIM REATSESQDF RIRADALMAL 
+CjCJA15545       256   KALSEIRKYQ NSTDLLIQKA PFRRLVHQII QEATGFDSGF RIRADAMSAL 
+                                                                 
+                       9999999999 9999988888 8888888888 7656334446 6666666666 
+ 
+CeCpar-1         219   QEASEALLVQ MFDGSSLISA HSKRATLTTT DVQLYRRLCL PNL- 
+CbCpar-1         302   QEAAEAFMVE MFEGSVLICN HAKRVTLMPT DIQLYRRLCL RNLS 
+CbrCBN02582      299   QEGAEAFMVE MFEGSVLICN HAKRVTLMPT DIQLYRRLCL RNL- 
+CrCRE13399       285   QEGAEAFMVE MFEGSVLISN HAKRVTLMPT DVQLYRRLCL RNLS 
+CrHcp-3          306   QEAAEAFMVE MFEGSVLICN HAKRVTLMPT DIQLYRRLCL RNLS 
+CjCJA15545       306   QEAAEAFIVE MFEGSVLISN HAKRVTLMTA DIQLYRRLCL RNL- 
+                                                           
+                       6667888888 8888888877 8888888866 6666666666 6662 
+ 
+
+ 
+ 
+   Sequence tree:
+   ==============
+
+Tree constructed using UPGMA based on DIALIGN fragment weight scores
+ 
+(CeCpar-1    :0.011064((((CbCpar-1    :0.005196CrHcp-3     :0.005196):0.000746CrCRE13399  :0.005942):0.000279CbrCBN02582 :0.006221):0.001464CjCJA15545  :0.007685):0.003379);
+ 
+ 

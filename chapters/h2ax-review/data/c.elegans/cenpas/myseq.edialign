@@ -1,0 +1,167 @@
+ 
+                           DIALIGN 2.2.1 
+                           *************
+ 
+          Program code written by Burkhard Morgenstern and Said Abdeddaim 
+             e-mail contact: dialign (at) gobics (dot) de 
+ 
+          Published research assisted by DIALIGN 2 should cite:  
+ 
+             Burkhard Morgenstern (1999).
+             DIALIGN 2: improvement of the segment-to-segment
+             approach to multiple sequence alignment.
+             Bioinformatics 15, 211 - 218. 
+
+          For more information, please visit the DIALIGN home page at 
+
+             http://bibiserv.techfak.uni-bielefeld.de/dialign/ 
+ 
+         ************************************************************
+ 
+
+
+   program call:  edialign myseq  
+
+ 
+   Aligned sequences:          length:
+   ==================          =======
+ 
+   1) elegans                    288
+   2) elegans                    261
+   3) briggsae                   345
+   4) brenneri                   341
+   5) remanei                    328
+   6) remanei                    349
+   7) japanica                   348
+   8) sapiens                    140
+
+   Average seq. length:          300.0 
+
+
+   Please note that only upper-case letters are considered to be aligned. 
+
+
+   Alignment (DIALIGN format):
+   ===========================
+ 
+elegans            1   ---MADD-TP IIEEIAE--- ---------- -QNESVTRI- ---------- 
+elegans            1   ---MADD-GP IIEEIAE--- ---------- -KNGRVARI- ---------- 
+briggsae           1   MYH-HDS-GP HIEEVFDPPS RRT------- -MMQ------ ---EIETHPD 
+brenneri           1   MFH-LSD-GP TIEELVD--- ---------- -TQQLE---- NtaEAEFKEE 
+remanei            1   mnrMEHN-PY LIKNENVAPS RSS------- -Sipsyynrn S--------E 
+remanei            1   ---MHHN-GP RIEEMVDPPS RST------- -TNQLK---- N--------D 
+japanica           1   mqrmiemgGP HIEEIVDPPS PSnsvlqead yRQNGPSRS- ---------- 
+sapiens            1   ---------- ---------- ---------- ---------- ---------- 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000000 
+ 
+elegans           22   MQRLKHDMQR VTSVP--GFN TSAAGVNDLI DILNQYKKEL EDDAANDYTE 
+elegans           22   MQRLQHDTQR VTSVP--GFN TSATGYADLI ALLDQYKNDL EAVGFNDLEQ 
+briggsae          32   VIAFGKKLRK IKNQPesTFL SSADRMEEII DAFRDQIAKW EEEEEL---- 
+brenneri          31   LDVIKKELAA VLAIP--DIH RNREALEKSI RILEKAIDKW EEDEEN---- 
+remanei           34   MNQIREEIEA ITSRK--NFN RDSDSMQEVI DIMTRQINKW EQLEDDYG-- 
+remanei           27   TEYIKSEYRR ISHLP--DFN RDPELIQEVM NLTKRYIEKW LREER----- 
+japanica          40   RPKLIDQIRT LIRTP--NFN KDAVKMGQAI DLMELQIAEW VEEQIRYGft 
+sapiens            1   ---------- ---------- ---------- ---------- ---------- 
+                                                                 
+                       0000001111 1111100111 1000011111 1111000000 0000000000 
+ 
+elegans           70   Ahih------ -------KIR LV----TGKR NQYVLKLKQA EDEYHAR--- 
+elegans           70   A--------- ---------- ---------- ---------- ---------- 
+briggsae          78   --------NE PCEYRQLKIE IF----TQKK IEYQRKNNLA VDEFYKKrnl 
+brenneri          75   --------QV SLELRRQSIG KF----KEQR RSCKQKLRDA ENAFHER--- 
+remanei           80   ---------- PDATRQRYIE AF----QRKR DSWEKKKEQA ERAFYER--- 
+remanei           70   --------DE PNMERQGWIE RF----KTKL REWETKKETA EDEYYTR--- 
+japanica          88   qeredaiyQY RRKLRRQNak prplfsRKKF QMFKKSVEEA EERYFEE--- 
+sapiens            1   ---------- ---------- ---------- ---------- ---------- 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000000 
+ 
+elegans          100   ----KEQA-- ---------- RRRASSMDFT VGRN-STNLV DYSH-----G 
+elegans           71   ---------- ---------- RRRAPSVDIT VGSN-STNLV DYSH-----G 
+briggsae         116   knhsNRKPLE ESRRREEPRD RVHESNIDIT HRGD-STSLN HYSRhhysqR 
+brenneri         110   ----REREYE ERTMREIPRR YSSFRDTDIT RRNN-TTGLY HHSQ-----Q 
+remanei          113   ----RDRMKR EMEY------ ---------- ---------- DNGY-----S 
+remanei          105   ----RDASSN EEKNREIARR RATDSQMNIT GLHD-STRLN QQSY-----S 
+japanica         135   ----REESRR REEARRamsy s--------- -RGDiSARDN RSKL-----H 
+sapiens            1   ---------- ---------- ---------- ---------- ---------- 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000000 
+ 
+elegans          128   RHHMPSYRRH DSSDEENYSM ---------- ---------- -----DGTNG 
+elegans           95   RHDMPSHRRH DSSDEEITAA N--------- SHhqspinvg nrndtDGTNG 
+briggsae         165   QSQSSRFERE RESDEEEENS Q--------- PIQ-RYRS-- ---------- 
+brenneri         150   SSSNFRMQEY SSDEEIENIP S--------- SHRdRYRlek cliivfqnly 
+remanei          128   RNQIRRERRM DDDSDSDVME ---------- ---------- -----Ddrrq 
+remanei          145   RSYENRNRRY SSDEDDDENM A--------- PQR-RQRS-- ---------- 
+japanica         166   QSHTQRNYGD SLDSDDENER Engyqsyrpp PQR-QQRL-- ---------- 
+sapiens            1   ---------- ---------M G--------- PRR-RSRK-- ---------- 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000000 
+ 
+elegans          153   dg-------- ---------- ---------- ---------N RAGPSNPDRG 
+elegans          136   rn-------- ---------- ---------- ---------- ---------G 
+briggsae         193   ---------- ---------- ------RSPk P-------SY SYNQSTMQQS 
+brenneri         191   fsy------- ---------- ---------- P-------PK KISHSTMLQQ 
+remanei          153   plgnldysrk dncvrgreak pmallnRDRS RSRSPLllPR QAHPSTSLQL 
+remanei          173   ---------- ---------- ------RSPP sfah------ --------HQ 
+japanica         203   ---------- ---------- ------RSRS RSRSPMR--- --------SS 
+sapiens           10   ---------- ---------- ------PEAP RRRSPSP--- --------TP 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000000 
+ 
+elegans          166   NRTGPS---- -------SSD R--------- ---------- ---------- 
+elegans          139   SRAGSS---- -------SSD R--------- ---------- ---------- 
+briggsae         210   QRDDTNVYHR SHQSTSQP-P Q--------- ---------- ---------- 
+brenneri         207   RRDISPVVYR SQQQSSAGSQ Q--------- ---------- ---------- 
+remanei          203   RRPNIP---- -------STP P--------- ---------- ---------- 
+remanei          183   RRDDTGSYYR SHHTQNSSNQ Rthntdfssh yrgqygpsts qnvgmpsnaq 
+japanica         216   YRHESPENSR RNASHQQT-A Q--------- ---------- ---------- 
+sapiens           23   TPGPSRRGPS LGASSHQH-S Rrrqgw---- ---------- ---------- 
+                                                                 
+                       0000000000 0000000000 1000000000 0000000000 0000000000 
+ 
+elegans          176   -VRMRAGRNR V--TKTRRYR PGQKALEEIR KYQKTEDLLI QKAPFARLVR 
+elegans          149   -VRMIAGRNR I--SKTRRYR PGQKALEEIR KYQESEDLLI PKAPFARLVR 
+briggsae         230   -VRMRSGKSR VTKTHNRKFR PGQKALAEIR KYQKSTDMLI QKAPFVRLVH 
+brenneri         228   -ERMRSGKSR VTKT-TRKHR PGQKALAEIR KYQKSTDLLI QKAPFARLVH 
+remanei          213   -VRVRPGKSR VTKSKNRKWR PGQKALLEIR KYQKSTDMLI QKAPFARLVQ 
+remanei          233   nVRMRSGKSR VTKTRSRKWR PGQRALEEIR KYQKSTDMLI QKAPFARLVH 
+japanica         236   -VRMRAGKNN V--TKTKKWR PGQKALSEIR KYQNSTDLLI QKAPFRRLVH 
+sapiens           48   ---------- ---------- -----LKEIR KLQKSTHLLI RKLPFSRLAR 
+                                                                 
+                       0222222222 2112235777 7777788888 8888888888 8888888888 
+ 
+elegans          223   EIMQTSTPFG ADCRIRSDAI SALQEAAEAF LVEMFEGSSL ISTHAKRVTL 
+elegans          196   EIMQTSTPFS SDLRIRSDAI NALQEASEAL LVQMFDGSSL ISAHSKRATL 
+briggsae         279   EIIREQTYKS QDYRIRADAL MALQEAAEAF MVEMFEGSVL ICNHAKRVTL 
+brenneri         276   EIIREATTNS GDYRVRADAL LALQEGAEAF MVEMFEGSVL ICNHAKRVTL 
+remanei          262   EILRETTNES HDYRIRADAL MALQEGAEAF MVEMFEGSVL ISNHAKRVTL 
+remanei          283   EIMREATSES QDFRIRADAL MALQEAAEAF MVEMFEGSVL ICNHAKRVTL 
+japanica         283   QIIQEATGFD SGFRIRADAM SALQEAAEAF IVEMFEGSVL ISNHAKRVTL 
+sapiens           73   EIcvkftr-G VDFNWQAQAL LALQEAAEAF LVHLFEDAYL LTLHAGRVTL 
+                                                                 
+                       8876545223 3455555566 6777778888 8888888889 9778888888 
+ 
+elegans          273   MTTDIQLYRR LCLRHL--- 
+elegans          246   TTTDVQLYRR LCLPNL--- 
+briggsae         329   MPTDIQLYRR LCLRNLS-- 
+brenneri         326   MPTDIQLYRR LCLRNL--- 
+remanei          312   MPTDVQLYRR LCLRNLS-- 
+remanei          333   MPTDIQLYRR LCLRNLS-- 
+japanica         333   MTADIQLYRR LCLRNL--- 
+sapiens          122   FPKDVQLARR Irgleeglg 
+                               
+                       8777777777 765555100 
+ 
+
+ 
+ 
+   Sequence tree:
+   ==============
+
+Tree constructed using UPGMA based on DIALIGN fragment weight scores
+ 
+(((elegans     :0.004027elegans     :0.004027):0.005853((((briggsae    :0.005196remanei     :0.005196):0.000746remanei     :0.005942):0.000279brenneri    :0.006221):0.001495japanica    :0.007716):0.002163):0.011225sapiens     :0.021105);
+ 
+ 

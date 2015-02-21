@@ -1,0 +1,151 @@
+ 
+                           DIALIGN 2.2.1 
+                           *************
+ 
+          Program code written by Burkhard Morgenstern and Said Abdeddaim 
+             e-mail contact: dialign (at) gobics (dot) de 
+ 
+          Published research assisted by DIALIGN 2 should cite:  
+ 
+             Burkhard Morgenstern (1999).
+             DIALIGN 2: improvement of the segment-to-segment
+             approach to multiple sequence alignment.
+             Bioinformatics 15, 211 - 218. 
+
+          For more information, please visit the DIALIGN home page at 
+
+             http://bibiserv.techfak.uni-bielefeld.de/dialign/ 
+ 
+         ************************************************************
+ 
+
+
+   program call:  edialign  
+
+ 
+   Aligned sequences:          length:
+   ==================          =======
+ 
+   1) Homo_sapiens               143
+   2) Mus_musculus               143
+   3) Rattus_norve               143
+   4) Bos_taurus                 143
+   5) Xenopus_(Sil               143
+   6) Salmo_salar                142
+   7) Esox_lucius                142
+   8) Drosophila_m               141
+   9) Danio_rerio                142
+  10) Dictyosteliu               154
+  11) Toxoplasma_g               135
+  12) Tetrahymena_               138
+  13) HTA5_Arabido               142
+  14) HTA3_Arabido               142
+  15) H2A_beta_Sch               131
+  16) H2A_alpha_Sc               132
+  17) Hta2p_Saccha               132
+  18) Hta1p_Saccha               132
+
+   Average seq. length:          140.0 
+
+
+   Please note that only upper-case letters are considered to be aligned. 
+
+
+   Alignment (DIALIGN format):
+   ===========================
+ 
+Homo_sapiens       1   M-S-G----- -R-GK--T-- ---------- --GGKARAKA KSRSSRAGLQ 
+Mus_musculus       1   M-S-G----- -R-GK--T-- ---------- --GGKARAKA KSRSSRAGLQ 
+Rattus_norve       1   M-S-G----- -R-GK--T-- ---------- --GGKARAKA KSRSSRAGLQ 
+Bos_taurus         1   M-S-G----- -R-GK--T-- ---------- --GGKARAKA KSRSSRAGLQ 
+Xenopus_(Sil       1   M-S-G----- -R-GK--T-- ---------- --GGKTRAKA KTRSSRAGLQ 
+Salmo_salar        1   M-S-G----- -R-GK--T-- ---------- --GGKARAKA KSRSSRAGLQ 
+Esox_lucius        1   M-S-G----- -R-GK--T-- ---------- --GGKARAKA KSRSSRAGLQ 
+Drosophila_m       1   MAG-G----- -KaGK--D-- ---------- --SGKAKAKA VSRSARAGLQ 
+Danio_rerio        1   M-S-G----- -R-GK--T-- ---------- --GGKARAKA KTRSSRAGLQ 
+Dictyosteliu       1   M------SET kpasskpaaa akpkkviprv srTGEPKSKP ESRSARAGIT 
+Toxoplasma_g       1   msakG----- -A-GG--R-- ---------- --KKTSSGKK VSRSAKAGLQ 
+Tetrahymena_       1   M------STT GK-GGkaK-- ---------- --GKTASSKQ VSRSARAGLQ 
+HTA5_Arabido       1   MST-GAGSGT TK-GG--R-- ---------- --GKPKATKS VSRSSKAGLQ 
+HTA3_Arabido       1   MSS-GAGSGT TK-GG--R-- ---------- --GKPKATKS VSRSSKAGLQ 
+H2A_beta_Sch       1   MSG-G----- -K-SG--G-- ---------- --KAAVAKSA QSRSAKAGLA 
+H2A_alpha_Sc       1   MSG-G----- -K-SG--G-- ---------- --KAAVAKSA QSRSAKAGLA 
+Hta2p_Saccha       1   MSG-G----- -K-GG--K-- ---------- --AGSAAKAS QSRSAKAGLT 
+Hta1p_Saccha       1   MSG-G----- -K-GG--K-- ---------- --AGSAAKAS QSRSAKAGLT 
+                                                                 
+                       2020200000 0303300300 0000000000 0033333445 5677777777 
+ 
+Homo_sapiens      26   FPVGRVHRLL RKGHYAE-RV GAGAPVYLAA VLEYLTAEIL ELAGNAARDN 
+Mus_musculus      26   FPVGRVHRLL RKGHYAE-RV GAGAPVYLAA VLEYLTAEIL ELAGNAARDN 
+Rattus_norve      26   FPVGRVHRLL RKGHYAE-RV GAGAPVYLAA VLEYLTAEIL ELAGNAARDN 
+Bos_taurus        26   FPVGRVHRLL RKGHYAE-RV GAGAPVYLAA VLEYLTAEIL ELAGNAARDN 
+Xenopus_(Sil      26   FPVGRVHRLL RKGNYAE-RV GAGAPVYLAA VLEYLTAEIL ELAGNAARDN 
+Salmo_salar       26   FPVGRVHRLL RKGNYAH-RV GAGAPVYMAA VLEYLTAEIL ELAGNAARDN 
+Esox_lucius       26   FPVGRVHRLL RKGNYAH-RV GAGAPVYKAA VLEYLTAEIL ELAGNAARDN 
+Drosophila_m      28   FPVGRIHRHL KSRTTSHgRV GATAAVYSAA ILEYLTAEVL ELAGNASKDL 
+Danio_rerio       26   FPVGRVHRLL RKGNYAE-RV GAGAPVYLAA VLEYLTAEIL ELAGNAARDN 
+Dictyosteliu      45   FPVSRVDRLL REGRFAP-RV ESTAPVYLAA VLEYLVFEIL ELAHNTCSIS 
+Toxoplasma_g      28   FPVSRIGRYL KKGRYAK-RV GVGAPVYLAA VLEYLCAEIL ELAGNAARDH 
+Tetrahymena_      30   FPVGRISRFL KHGRYSE-RV GTGAPVYLAA VLEYLAAEVL ELAGNAAKDN 
+HTA5_Arabido      33   FPVGRIARFL KSGKYAE-RV GAGAPVYLSA VLEYLAAEVL ELAGNAARDN 
+HTA3_Arabido      33   FPVGRIARFL KAGKYAE-RV GAGAPVYLSA VLEYLAAEVL ELAGNAARDN 
+H2A_beta_Sch      27   FPVGRVHRLL RKGNYAQ-RV GAGAPVYLAA VLEYLAAEIL ELAGNAARDN 
+H2A_alpha_Sc      27   FPVGRVHRLL RKGNYAQ-RV GAGAPVYLAA VLEYLAAEIL ELAGNAARDN 
+Hta2p_Saccha      27   FPVGRVHRLL RRGNYAQ-RI GSGAPVYLTA VLEYLAAEIL ELAGNAARDN 
+Hta1p_Saccha      27   FPVGRVHRLL RRGNYAQ-RI GSGAPVYLTA VLEYLAAEIL ELAGNAARDN 
+                                                                 
+                       7777777777 7666655077 7788888888 8888888888 8888888888 
+ 
+Homo_sapiens      75   KKTRIIPRHL QLAIRNDEEL NKLLGGVTIA QGGVLPNIQA VLLPKKTSAT 
+Mus_musculus      75   KKTRIIPRHL QLAIRNDEEL NKLLGGVTIA QGGVLPNIQA VLLPKKSSAT 
+Rattus_norve      75   KKTRIIPRHL QLAIRNDEEL NKLLGGVTIA QGGVLPNIQA VLLPKKTSAT 
+Bos_taurus        75   KKTRIIPRHL QLAIRNDEEL NKLLGGVTIA QGGVLPNIQA VLLPKKTSAT 
+Xenopus_(Sil      75   KKTRIIPRHL QLAVRNDEEL NKLLGGVTIA QGGVLPNIQT VLLPKKTSAA 
+Salmo_salar       75   KKSRIIPRHL QLAVRNDEEL NKLLGGVTIA QGGVLPNIQA VLLPKKTGAA 
+Esox_lucius       75   KKSRIIPRHL QLAVRNDEEL NKLLGGVTIA QGGVLPNIQA VLLPKKTGAV 
+Drosophila_m      78   KVKRITPRHL QLAIRGDEEL DSLIK-ATIA GGGVIPHIHK SLIGKKEETV 
+Danio_rerio       75   KKTRIIPRHL QLAVRNDEEL NKLLGGVTIA QGGVLPNIQA VLLPKKTGQA 
+Dictyosteliu      94   KKTRITPQHI NWAVGNDLEL NSLFQHVTIA YGGVLPTPQQ STGEKKKKPS 
+Toxoplasma_g      77   KKTRIIPRHI QLAVRNDEEL SKFLGGVTIA NGGVMPHVHA VLLPKHSKSK 
+Tetrahymena_      79   KKTRIVPRHI LLAIRNDEEL NKLMANTTIA DGGVLPNINP MLLPSKSKKT 
+HTA5_Arabido      82   KKTRIVPRHI QLAVRNDEEL SKLLGSVTIA NGGVLPNIHQ TLLPSKVGK- 
+HTA3_Arabido      82   KKTRIVPRHI QLAVRNDEEL SKLLGSVTIA NGGVLPNIHQ TLLPSKVGK- 
+H2A_beta_Sch      76   KKTRIIPRHL QLAIRNDEEL NKLLGHVTIA QGGVVPNINA HLLPKQSGK- 
+H2A_alpha_Sc      76   KKTRIIPRHL QLAIRNDEEL NKLLGHVTIA QGGVVPNINA HLLPKTSGRT 
+Hta2p_Saccha      76   KKTRIIPRHL QLAIRNDDEL NKLLGNVTIA QGGVLPNIHQ NLLPKKSAKT 
+Hta1p_Saccha      76   KKTRIIPRHL QLAIRNDDEL NKLLGNVTIA QGGVLPNIHQ NLLPKKSAKA 
+                                                                 
+                       9888888888 7777777777 7777666666 6666666666 6666654211 
+ 
+Homo_sapiens     125   VGPKAPSGGK KATQASQEY 
+Mus_musculus     125   VGPKAPAVGK KASQASQEY 
+Rattus_norve     125   VGPKAPAGGK KASQASQEY 
+Bos_taurus       125   VGPKAPAGGK KATQASQEY 
+Xenopus_(Sil     125   PTATGKSSGK KSSQQSQEY 
+Salmo_salar      125   AAPSGK-AGK KASSQSQEY 
+Esox_lucius      125   AAPSGK-AGK KASSQSQEY 
+Drosophila_m     127   QDPQRKGNvi l--SQAY-- 
+Danio_rerio      125   AASSGK-SGK KGSSQSQEY 
+Dictyosteliu     144   KKAAE----- -GSSQIY-- 
+Toxoplasma_g     127   GKhgv----- -----SQEF 
+Tetrahymena_     129   Esr--G---- ---QASQDl 
+HTA5_Arabido     131   NKGDIG---- ---SASQEF 
+HTA3_Arabido     131   NKGDIG---- ---SASQEF 
+H2A_beta_Sch     125   GKPSQEL--- --------- 
+H2A_alpha_Sc     126   GKPSQEL--- --------- 
+Hta2p_Saccha     126   AKASQEL--- --------- 
+Hta1p_Saccha     126   TKASQEL--- --------- 
+                               
+                       1110000000 000000000 
+ 
+
+ 
+ 
+   Sequence tree:
+   ==============
+
+Tree constructed using UPGMA based on DIALIGN fragment weight scores
+ 
+((((((((Homo_sapiens:0.004613Bos_taurus  :0.004613):0.000024Rattus_norve:0.004637):0.000110Mus_musculus:0.004747):0.000686(Xenopus_(Sil:0.005400((Salmo_salar :0.004748Esox_lucius :0.004748):0.000320Danio_rerio :0.005068):0.000333):0.000033):0.002010((H2A_beta_Sch:0.005246H2A_alpha_Sc:0.005246):0.001317(Hta2p_Saccha:0.005143Hta1p_Saccha:0.005143):0.001420):0.000881):0.000950(Toxoplasma_g:0.008014(Tetrahymena_:0.007801(HTA5_Arabido:0.004728HTA3_Arabido:0.004728):0.003073):0.000213):0.000380):0.003466Drosophila_m:0.011860):0.002346Dictyosteliu:0.014206);
+ 
+ 
