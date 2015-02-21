@@ -1,0 +1,156 @@
+ 
+                           DIALIGN 2.2.1 
+                           *************
+ 
+          Program code written by Burkhard Morgenstern and Said Abdeddaim 
+             e-mail contact: dialign (at) gobics (dot) de 
+ 
+          Published research assisted by DIALIGN 2 should cite:  
+ 
+             Burkhard Morgenstern (1999).
+             DIALIGN 2: improvement of the segment-to-segment
+             approach to multiple sequence alignment.
+             Bioinformatics 15, 211 - 218. 
+
+          For more information, please visit the DIALIGN home page at 
+
+             http://bibiserv.techfak.uni-bielefeld.de/dialign/ 
+ 
+         ************************************************************
+ 
+
+
+   program call:  edialign cpar1minusHuman.fa  
+
+ 
+   Aligned sequences:          length:
+   ==================          =======
+ 
+   1) CeCpar-1                   261
+   2) CbCpar-1                   345
+   3) CeHcp-3                    288
+   4) CrHcp-3                    349
+   5) CrCRE13399                 328
+   6) CbrCBN02582                341
+   7) CjCJA15545                 348
+
+   Average seq. length:          322.9 
+
+
+   Please note that only upper-case letters are considered to be aligned. 
+
+
+   Alignment (DIALIGN format):
+   ===========================
+ 
+CeCpar-1           1   ---MADD-GP IIEEIAEKNG RV-------- ------ARIM ---------Q 
+CbCpar-1           1   MYH-HDS-GP HIEEVFDPPS RR-------- ------TMMQ ---------E 
+CeHcp-3            1   ---MADD-TP IIEEIAEQNE SV-------- ------TRIM ---------Q 
+CrHcp-3            1   ---MHHN-GP RIEEMVDPPS RS-------- ------TTNQ lk----NDTE 
+CrCRE13399         1   mnrMEHN-PY LIKNENVAPS RS-------- ------SSip syynrnSEMN 
+CbrCBN02582        1   MFH-LSD-GP TIEELVDTQQ lenta--EAE FKE------- -------ELD 
+CjCJA15545         1   mqrmiemgGP HIEEIVDPPS PSnsvlqEAD YRQngpSRSR ---------P 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000000 
+ 
+CeCpar-1          24   RLQH------ --DTQRVTSV PG--FNTSAT GYADLIALLD QY-------- 
+CbCpar-1          26   IETHpdviaf gkKLRKIKNQ PEstFLSSAD RMEEIIDAFR DQIAKWeEEE 
+CeHcp-3           24   RLKH------ --DMQRVTSV PG--FNTSAA GVNDLIDILN QYKKEL-EDD 
+CrHcp-3           29   YIKS------ --EYRRISHL PD--FNRDPE LIQEVMNLTK RYIEKW-LRE 
+CrCRE13399        36   QIRE------ --EIEAITSR KN--FNRDSD SMQEVIDIMT RQINKW-EQL 
+CbrCBN02582       33   VIKK------ --ELAAVLAI PD--IHRNRE ALEKSIRILE KAIDKW-EED 
+CjCJA15545        42   KLID------ --QIRTLIRT PN--FNKDAV KMGQAIDLME LQIAEW-VEE 
+                                                                 
+                       0111000000 0011111111 1100111000 0000000000 0000000000 
+ 
+CeCpar-1          56   ---------- ---------- ---------- ---------- ---------- 
+CbCpar-1          76   ELN------- -----EPC-E YRQLKIE--- IFTQKKIEYQ RKNNLAVDEF 
+CeHcp-3           63   AAN------- -----DYT-E AHIHKIR--- LVTGKRNQYV LKLKQAEDEY 
+CrHcp-3           68   ERD------- -----EPN-M ERQGWIE--- RFKTKLREWE TKKETAEDEY 
+CrCRE13399        75   EDDYG----- ------PD-A TRQRYIE--- AFQRKRDSWE KKKEQAERAF 
+CbrCBN02582       72   EEN------- -----QVSLE LRRQSIG--- KFKEQRRSCK QKLRDAENAF 
+CjCJA15545        81   QIRYGftqer edaiyQYRRK LRRQNakprp LFSRKKFQMF KKSVEea--- 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000000 
+ 
+CeCpar-1          56   ---------- -KNDLEAVGF NDLEQARRRA PSVDITVGSN STNLVD-YSH 
+CbCpar-1         110   YKKRNlknhs nRKPLEESRR REEPRDRVHE SNIDITHRGD STSLNH-YSR 
+CeHcp-3           97   HARKE----- --QA------ ------RRRA SSMDFTVGRN STNLVD-YSH 
+CrHcp-3          102   YTRRD----- --ASSNEEKN REIARRRATD SQMNITGLHD STRLNQ-QSY 
+CrCRE13399       110   YERRD----- --RMKREmey ---------- ---------- -----D-NGY 
+CbrCBN02582      107   HERRE----- --REYEERTM REIPRRYSSF RDTDITRRNN TTGLYH-HSQ 
+CjCJA15545       128   EERYF----- --EEREESRR REEARRAMSY SRGDISARDN RSKLHQsHTQ 
+                                                                 
+                       0000000000 0000000000 0000000000 0001111111 1111100000 
+ 
+CeCpar-1          94   G-----RHDM PSHRRHDSSD EEITAANSHh qspinvgnrn dtDGTNGrn- 
+CbCpar-1         159   HHYSQRQSQS SRFERERESD EEEENSQPIQ RY-------- ---------- 
+CeHcp-3          127   G-----RHHM PSYRRHDSSD EENYSM---- ---------- --DGTNGdg- 
+CrHcp-3          144   S-----RSYE NRNRRYSSDE DDDENMAPQR RQ-------- ---------- 
+CrCRE13399       127   S-----RNQI RRERRMDDDS DSDVME---- ---------- --Ddrrqplg 
+CbrCBN02582      149   Q-----SSSN FRMQEYSSDE EIENIPSSHR dryrlekcli ivfqnlyfsy 
+CjCJA15545       171   RNYGDSLDSD DENERENGYQ SYRPPPQRQQ RL-------- ---------- 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000000 
+ 
+CeCpar-1         138   ---------- ---------- ---------- ---------- ------GSRA 
+CbCpar-1         191   ---------- ---------- ---RSRSPkP -----SYSYN QSTMQQSQRD 
+CeHcp-3          155   ---------- ---------- ---------- ------NRAG PSNPDRGNRT 
+CrHcp-3          171   ---------- ---------- ---RSRSPps fah------- -----HQRRD 
+CrCRE13399       156   nldysrkdnc vrgreakpma llnRDRSRSR SPLllPRQAH PSTSLQLRRP 
+CbrCBN02582      194   ---------- ---------- ---------P -----PKKIS HSTMLQQRRD 
+CjCJA15545       203   ---------- ---------- ---RSRSRSR SPMr------ -----SSYRH 
+                                                                 
+                       0000000000 0000000000 0000000000 0000000000 0000000000 
+ 
+CeCpar-1         142   GSS------- ----SSDR-- ---------- ---------- --------VR 
+CbCpar-1         213   DTNVYHRSHQ STSQP-PQ-- ---------- ---------- --------VR 
+CeHcp-3          169   GPS------- ----SSDR-- ---------- ---------- --------VR 
+CrHcp-3          186   DTGSYYRSHH TQNSSNQRth ntdfsshyrg qygpstsqnv gmpsnaqnVR 
+CrCRE13399       206   NIP------- ----STPP-- ---------- ---------- --------VR 
+CbrCBN02582      210   ISPVVYRSQQ QSSAGSQQ-- ---------- ---------- --------ER 
+CjCJA15545       219   ESPENSRRNA SHQQT-AQ-- ---------- ---------- --------VR 
+                                                                 
+                       0000000000 0000001100 0000000000 0000000000 0000000023 
+ 
+CeCpar-1         151   MIAGRNRI-- SKTRRYRPGQ KALEEIRKYQ ESEDLLIPKA PFARLVREIM 
+CbCpar-1         232   MRSGKSRVTK THNRKFRPGQ KALAEIRKYQ KSTDMLIQKA PFVRLVHEII 
+CeHcp-3          178   MRAGRNRV-- TKTRRYRPGQ KALEEIRKYQ KTEDLLIQKA PFARLVREIM 
+CrHcp-3          236   MRSGKSRVTK TRSRKWRPGQ RALEEIRKYQ KSTDMLIQKA PFARLVHEIM 
+CrCRE13399       215   VRPGKSRVTK SKNRKWRPGQ KALLEIRKYQ KSTDMLIQKA PFARLVQEIL 
+CbrCBN02582      230   MRSGKSRVTK T-TRKHRPGQ KALAEIRKYQ KSTDLLIQKA PFARLVHEII 
+CjCJA15545       238   MRAGKNNV-- TKTKKWRPGQ KALSEIRKYQ NSTDLLIQKA PFRRLVHQII 
+                                                                 
+                       3333333311 3236999999 9999999998 8888888888 8888888888 
+ 
+CeCpar-1         199   QTSTPFSSDL RIRSDAINAL QEASEALLVQ MFDGSSLISA HSKRATLTTT 
+CbCpar-1         282   REQTYKSQDY RIRADALMAL QEAAEAFMVE MFEGSVLICN HAKRVTLMPT 
+CeHcp-3          226   QTSTPFGADC RIRSDAISAL QEAAEAFLVE MFEGSSLIST HAKRVTLMTT 
+CrHcp-3          286   REATSESQDF RIRADALMAL QEAAEAFMVE MFEGSVLICN HAKRVTLMPT 
+CrCRE13399       265   RETTNESHDY RIRADALMAL QEGAEAFMVE MFEGSVLISN HAKRVTLMPT 
+CbrCBN02582      279   REATTNSGDY RVRADALLAL QEGAEAFMVE MFEGSVLICN HAKRVTLMPT 
+CjCJA15545       286   QEATGFDSGF RIRADAMSAL QEAAEAFIVE MFEGSVLISN HAKRVTLMTA 
+                                                                 
+                       7555333346 6666666666 6667888888 8888888866 8888888866 
+ 
+CeCpar-1         249   DVQLYRRLCL PNL- 
+CbCpar-1         332   DIQLYRRLCL RNLS 
+CeHcp-3          276   DIQLYRRLCL RHL- 
+CrHcp-3          336   DIQLYRRLCL RNLS 
+CrCRE13399       315   DVQLYRRLCL RNLS 
+CbrCBN02582      329   DIQLYRRLCL RNL- 
+CjCJA15545       336   DIQLYRRLCL RNL- 
+                          
+                       7777777776 6661 
+ 
+
+ 
+ 
+   Sequence tree:
+   ==============
+
+Tree constructed using UPGMA based on DIALIGN fragment weight scores
+ 
+((CeCpar-1    :0.004134CeHcp-3     :0.004134):0.005775((((CbCpar-1    :0.005088CrHcp-3     :0.005088):0.000897CrCRE13399  :0.005985):0.000302CbrCBN02582 :0.006286):0.001440CjCJA15545  :0.007727):0.002182);
+ 
+ 

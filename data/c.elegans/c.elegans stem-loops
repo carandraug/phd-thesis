@@ -1,0 +1,152 @@
+>his-3 HIS1 cluster V:16040768,16041240
+atgccttcttaaaacattttaccgaacccaacggccctctttagggccacaaatat
+>his-3 Frame 1
+MPS-NILPNPTALFRATN
+>his-3 Frame 2
+CLLKTFYRTQRPSLGPQI
+>his-3 Frame 3
+AFLKHFTEPNGPL-GHKY
+
+>his-7 ?????? V:8533357,8533810
+atgccttcttaaaacaacttaccgaacccaacggccctctttagggcacaaatat
+>his-7 Frame 1
+MPS-NNLPNPTALFRAQI
+>his-7 Frame 2
+CLLKTTYRTQRPSLGHKY
+>his-7 Frame 3
+AFLKQLTEPNGPL-GTN
+
+>his-12 HIS3 cluster II:13821491,13821040 (reverse complemented)
+gcatccttcaacacacctaaccgaacccaacggccctctttagggccacaaatgt
+>his-12 Frame 1
+ASFNTPNRTQRPSLGPQM
+>his-12 Frame 2
+HPSTHLTEPNGPL-GHKC
+>his-12 Frame 3
+ILQHT-PNPTALFRATN
+
+>his-16 HIS3 cluster II:13818053,13817600 (reverse complemented)
+acactcttcaacacacctaaccgaacccaacggccctctttagggccacaaatgt
+>his-16 Frame 1
+TLFNTPNRTQRPSLGPQM
+>his-16 Frame 2
+HSSTHLTEPNGPL-GHKC
+>his-16 Frame 3
+TLQHT-PNPTALFRATN
+
+>his-19 HIS4 cluster V:8895741,8896194
+atgccttcttaaaacattttaccgaacccaacggccctctttagagccacaaatat
+>his-19 Frame 1
+MPS-NILPNPTALFRATN
+>his-19 Frame 2
+CLLKTFYRTQRPSLEPQI
+>his-19 Frame 3
+AFLKHFTEPNGPL-SHKY
+
+>his-21 ?????? V:8892242,8891789 (reverse complemented)
+atgccttcttaaaacattttaccgaacccaacggccctctttagggccacaaatat
+>his-21 Frame 1
+MPS-NILPNPTALFRATN
+>his-21 Frame 2
+CLLKTFYRTQRPSLGPQI
+>his-21 Frame 3
+AFLKHFTEPNGPL-GHKY
+
+>his-30 HIS5 cluster IV:8331648,8332100
+atacttgtctccaaataatacaaaccgaacccaacggccctctttagggccacatttac
+>his-30 Frame 1
+ILVSK-YKPNPTALFRATF
+>his-30 Frame 2
+YLSPNNTNRTQRPSLGPHL
+>his-30 Frame 3
+TCLQIIQTEPNGPL-GHIY
+
+>his-33 HIS5 cluster IV:8335700,8335247 (reverse complemented)
+atacttgtctccaaataatacaaaccgaacccaacggccctctttagggccacatttac
+>his-33 Frame 1
+ILVSK-YKPNPTALFRATF
+>his-33 Frame 2
+YLSPNNTNRTQRPSLGPHL
+>his-33 Frame 3
+TCLQIIQTEPNGPL-GHIY
+
+>his-35 ?????? V:9545263,9544578 (reverse complemented)  HAS NO STEMLOOP
+gcagtgtcacagatgaatattgcaactaaagatactccgccccgttaatttatatgtcatctgaatgtattgtttactcggctgaattgtaaatgaaataaattcatatactttgcagttatcagtaaattattttttaaaatgaaaataagaatttgttttaaatacaatttttccaggtaagaaacttcccaaaattcggatttttgaaaaaaaaactattcgcaagatcatattttcctatttttgcatgttcttgtgtccgaacatgtttccgaatgaccaaataataataaaaaatgaggctgaagaattgctgggaaaagtgtgcggcagcattgcataatgccgcgcccttgcaagtgggcgggaagacgttatttttaagatttcttcgcagtttgtttggtgacattcgataaactgtttttgtgcgaatggatttgtttgacttcccttgattgcattaaacatattattaatctctatctcaaaattcgaatcgctcactgtaatacattatgtaactgatttttttcagac
+>his-35 Frame 1
+AVSQMNIATKDTPPR-FICHLNVLFTRLNCK-NKFIYFAVISKLFFKMKIRICFKYNFSR-ETSQNSDF-KKNYSQDHIFLFLHVLVSEHVSE-PNNNKK-G-RIAGKSVRQHCIMPRPCKWAGRRYF-DFFAVCLVTFDKLFLCEWICLTSLDCIKHIINLYLKIRIAHCNTLCN-FFSD
+>his-35 Frame 2
+QCHR-ILQLKILRPVNLYVI-MYCLLG-IVNEINSYTLQLSVNYFLK-K-EFVLNTIFPGKKLPKIRIFEKKTIRKIIFSYFCMFLCPNMFPNDQIIIKNEAEELLGKVCGSIA-CRALASGREDVIFKISSQFVW-HSINCFCANGFV-LPLIALNILLISISKFESLTVIHYVTDFFQ
+>his-35 Frame 3
+SVTDEYCN-RYSAPLIYMSSECIVYSAEL-MK-IHILCSYQ-IIF-NENKNLF-IQFFQVRNFPKFGFLKKKLFARSYFPIFACSCVRTCFRMTK---KMRLKNCWEKCAAALHNAAPLQVGGKTLFLRFLRSLFGDIR-TVFVRMDLFDFP-LH-TYY-SLSQNSNRSL-YIM-LIFFR
+
+>his-43 ?????? II:13827236,13827689
+gcatccttcaacacacctaaccgaacccaacggccctctttagggccacaaatgt
+>his-43 Frame 1
+ASFNTPNRTQRPSLGPQMX
+>his-43 Frame 2
+HPSTHLTEPNGPL-GHKC
+>his-43 Frame 3
+ILQHT-PNPTALFRATN
+
+>his-47 ?????? IV:11324440,11323855 (reverse complemented)
+gaactttcttctttaaacaaacccaccgaacccaacggcctctttagggccacaaatat
+>his-47 Frame 1
+ELSSLNKPTEPNGLFRATNX
+>his-47 Frame 2
+NFLL-TNPPNPTASLGPQIX
+>his-47 Frame 3
+TFFFKQTHRTQRPL-GHKY
+
+>his-51 ?????? V:8850147,8849694 (reverse complemented)
+atgccttcttaaaacattttaccgaacccaacggccctctttagggccacaaatat
+>his-51 Frame 1
+MPS-NILPNPTALFRATNX
+>his-51 Frame 2
+CLLKTFYRTQRPSLGPQIX
+>his-51 Frame 3
+AFLKHFTEPNGPL-GHKY
+
+>his-53 ?????? V:8853646,8854099
+atgccttcttaaaacattttaccgaacccaacggccctctttagagccacaaatat
+>his-53 Frame 1
+MPS-NILPNPTALFRATNX
+>his-53 Frame 2
+CLLKTFYRTQRPSLEPQIX
+>his-53 Frame 3
+AFLKHFTEPNGPL-SHKY
+
+>his-57 ?????? IV:11340382,11340835
+gaactttcttctttaaacaaacccaccgaacccaacggccctctttagggccacaaatat
+>his-57 Frame 1
+ELSSLNKPTEPNGPL-GHKY
+>his-57 Frame 2
+NFLL-TNPPNPTALFRATN
+>his-57 Frame 3
+TFFFKQTHRTQRPSLGPQI
+
+>his-61 ?????? IV:7486201,7485732 (reverse complemented)
+gaacttttttcttaaaaacccaaccgaacccaacggccctctttagggccacaattat
+>his-61 Frame 1
+ELFS-KPNRTQRPSLGPQLX
+>his-61 Frame 2
+NFFLKNPTEPNGPL-GHNY
+>his-61 Frame 3
+TFFLKTQPNPTALFRATI
+
+>his-65 ?????? IV:11401062,11401515
+gaactttcttctttaaacaaacccaccgaacccaacggccctctttagggccacaaatat
+>his-65 Frame 1
+ELSSLNKPTEPNGPL-GHKY
+>his-65 Frame 2
+NFLL-TNPPNPTALFRATN
+>his-65 Frame 3
+TFFFKQTHRTQRPSLGPQI
+
+>his-68 ?????? I:9989090,9989674
+atatcttccgaatccaaaaacccaccgaacccaacggccctctttagagccacaatttt
+>his-68 Frame 1
+ISSESKNPPNPTALFRATIX
+>his-68 Frame 2
+YLPNPKTHRTQRPSLEPQFX
+>his-68 Frame 3
+IFRIQKPTEPNGPL-SHNF

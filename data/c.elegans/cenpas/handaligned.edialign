@@ -1,0 +1,35 @@
+ 
+                           DIALIGN 2.2.1 
+                           *************
+ 
+          Program code written by Burkhard Morgenstern and Said Abdeddaim 
+             e-mail contact: dialign (at) gobics (dot) de 
+ 
+          Published research assisted by DIALIGN 2 should cite:  
+ 
+             Burkhard Morgenstern (1999).
+             DIALIGN 2: improvement of the segment-to-segment
+             approach to multiple sequence alignment.
+             Bioinformatics 15, 211 - 218. 
+
+          For more information, please visit the DIALIGN home page at 
+
+             http://bibiserv.techfak.uni-bielefeld.de/dialign/ 
+ 
+         ************************************************************
+ 
+
+
+---------------------------------------------------------------------------------
+
+C. elegans (hcp-3)		212 IQKAPFARLV REIMQTSTPF GADCRIRSDA ISALQEAAEA
+C. elegans (his-2)		 63 IRRAPFQRLV REIAQD---F KTDLRFQSSA VMALQEAAEA
+
+C. elegans (cpar-1)		185 IPKAPFARLV REIMQTSTPF SSDLRIRSDA INALQEASEA
+C. briggsae (BP:CBP08370)	268 IQKAPFVRLV HEIIREQTYK SQDYRIRADA LMALQEAAEA
+C. brenneri (CN:CN07949)	265 IQKAPFARLV HEIIREATTN SGDYRVRADA LLALQEGAEA
+C. remanei (RP:RP14219)		251 IQKAPFARLV QEILRETTNE SHDYRIRADA LMALQEGAEA
+C. remanei (RP:RP14683)		272 IQKAPFARLV HEIMREATSE SQDFRIRADA LMALQEAAEA
+C. japanica (JA:JA30536)	272 IQKAPFRRLV HQIIQEATGF DSGFRIRADA MSALQEAAEA
+
+
