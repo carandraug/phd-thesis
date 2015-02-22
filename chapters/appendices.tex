@@ -1,8 +1,8 @@
 \appendix
 \chapter{Solutions}
   \label{app:solutions}
-  
-  %% an alternative method to make this lists is with description environment
+
+  %% An alternative method to make this lists is with description environment
   %%
   %% \begin{description}
   %%   \item[Freezing media] \hfill \\
@@ -14,19 +14,10 @@
   %%     1\% NEAA;
   %%     ...
   %% \end{description}
-  
-  %% This requires the eqparbox package. It checks what LaTeX thinks is best for a column
-  %% and save that value. It will then use it to calculate what's left of \textwidth, and
-  %% use it for the other columns. See http://tex.stackexchange.com/questions/95397
-  %% It doesn't work with memoir's ctabular so we are using longtable instead
-  \newsavebox{\firstentrybox}
-  \newcolumntype{N}{%
-    >{\begin{lrbox}{\firstentrybox}}%
-      l%
-    <{\end{lrbox}%
-    \eqmakebox[firstentry][l]{\unhcopy\firstentrybox}}}
 
-  \begin{longtable}{>{\bfseries}N p{\dimexpr(\textwidth-\eqboxwidth{firstentry}-4\tabcolsep)}}
+  %% The way we calculate the columns width (with eqparbox), doesn't work
+  %% with memoir's ctabular so we are using longtable instead
+  \begin{longtable}{>{\bfseries}\SolutionNameCol p{\dimexpr(\textwidth-\eqboxwidth{SolutionNameBox}-4\tabcolsep)}}
     \toprule
     Name & Recipe\\
     \midrule
@@ -39,7 +30,7 @@
                               \SI{584}{\ug\per\l}  sodium pyruvate;
                               \SI{15.9}{\mg\per\l} phenol red.\\
 
-    DNA loading buffer (10$\times$) & \pcent{25} Ficoll ($w/v$);
+    DNA loading buffer (\SI{10}{\X}) & \pcent{25} Ficoll ($w/v$);
                               \SI{100}{\mM}      Tris--HCl pH=\num{7.4};
                               \SI{100}{\mM}      EDTA.\\
 
@@ -53,13 +44,13 @@
 
     Growth medium (HeLa, HEp2) & \pcent{89}         DMEM ($v/v$);   % 500ml
                               \pcent{9}             FCS ($v/v$);    % 50ml
-                              \SI{1}{$\times$}      NEAA solution;  % 5.5mL
+                              \SI{1}{\X}            NEAA solution;  % 5.5mL
                               \SI{50}{units\per\ml} penicillin;     % 5.5mL (Pen/Strep solution)
                               \SI{50}{\ug\per\ml}   streptomycin.\\ % 5.5mL (Pen/Strep solution)
 
     Growth medium (horse)   & \pcent{81}            DMEM ($v/v$);   % 500ml
                               \pcent{16}            FCS ($v/v$);    % 100ml
-                              \SI{2}{$\times$}      NEAA solution;  %  12mL
+                              \SI{2}{\X}            NEAA solution;  %  12mL
                               \SI{50}{units\per\ml} penicillin;     % 5.5mL (Pen/Strep solution)
                               \SI{50}{\ug\per\ml}   streptomycin.\\ % 5.5mL (Pen/Strep solution)
 
@@ -71,8 +62,8 @@
     Ponceau S solution      & \pcent{5} Ponceau S ($w/v$);
                               \pcent{5} Acetic acid ($v/v$).\\
 
-    Running buffer          & \SI{1}{$\times$} TG;
-                              \pcent{0.1}      SDS ($w/v$).\\
+    Running buffer          & \SI{1}{\X}  TG;
+                              \pcent{0.1} SDS ($w/v$).\\
 
     SSC (Saline Sodim Citrate) & \SI{150}{\mM} NaCl;
                               \SI{15}{\mM}     trisodium citrate.\\
@@ -94,7 +85,7 @@
     TG (Tris Glycine)       & \SI{25}{\mM}  Tris;
                               \SI{192}{\mM} glycine.\\
 
-    Transfer buffer         & \SI{1}{$\times$} TG;
+    Transfer buffer         & \SI{1}{\X} TG;
                               \pcent{15} methanol ($v/v$).\\
     \bottomrule
   \end{longtable}

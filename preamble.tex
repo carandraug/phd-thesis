@@ -87,8 +87,17 @@
   \newcommand{\addref}[1]{\todo[color=red!40,size=\tiny]{Add reference: #1}}
 
 \usepackage{enumitem}       % so we can use the unboxed style when item names are too long
-\usepackage{eqparbox}       % for adjusting size of table column (specially on appendices)
 \usepackage{longtable}      % because memoir's ctabular does not work well with eqparbox
+\usepackage{eqparbox}       % for adjusting size of table column (specially on appendices)
+  %% Checks what LaTeX thinks is best for a column and save that value.
+  %% It will then use it to calculate what's left of \textwidth, and
+  %% use it for the other columns. See http://tex.stackexchange.com/questions/95397
+  \newsavebox{\SolutionNameBox}
+  \newcolumntype{\SolutionNameCol}{
+    >{\begin{lrbox}{\SolutionNameBox}}l<{\end{lrbox}
+    \eqmakebox[SolutionNameBox][l]{\unhcopy\SolutionNameBox}}
+  }
+
 
 \usepackage{tikz}
 
@@ -106,7 +115,7 @@
   \DeclareSIUnit{\Molar}{\textsc{m}}
   \DeclareSIUnit{\mM}{\si{\milli}\si{\Molar}}
   \DeclareSIUnit{\uM}{\si{\micro}\si{\Molar}}
-  \DeclareSIUnit{\X}{$\times$}
+  \DeclareSIUnit{\X}{\times}
   \newcommand{\dc}[1]{\SI{#1}{\degreeCelsius}}
   \newcommand{\pcent}[1]{\SI{#1}{\percent}}
 
@@ -124,5 +133,4 @@
 %% make it easy to center any dedication
 \newcommand{\dedication}[1]{
 {\clearpage\mbox{}\vfill\centering #1 \par\vfill\clearpage}}
-
 
