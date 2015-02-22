@@ -1,6 +1,8 @@
-## coding: utf-8
-from os import path
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import os
+import os.path
 import subprocess
 
 env = Environment ()
@@ -14,14 +16,14 @@ data_dir    = 'data'
 results_dir = 'results'
 
 results = SConscript (
-  path.join ('scripts', 'SConscript'),
+  os.path.join ('scripts', 'SConscript'),
   exports = ['env', 'data_dir'],
   variant_dir = results_dir,
   duplicate = 0,
 )
 
-figs = SConscript (path.join (figs_dir, 'SConscript'), exports = 'env')
-figs = [path.join (figs_dir, f) for f in figs]
+figs = SConscript (os.path.join (figs_dir, 'SConscript'), exports = 'env')
+figs = [os.path.join (figs_dir, f) for f in figs]
 
 Depends (thesis, [figs, results])
 
@@ -30,22 +32,18 @@ Depends (thesis, [figs, results])
 ##
 
 def CheckLaTeXPackage(context, package):
-    context.Message("Checking for LaTeX package %s..." % package)
-    is_ok = True
-    if (subprocess.call(["kpsewhich", "%s.sty" % package],
-                        stdout = open(os.devnull, "wb"))):
-      is_ok = False
-    context.Result(is_ok)
-    return is_ok
+  context.Message("Checking for LaTeX package %s..." % package)
+  is_ok = 0 == subprocess.call(["kpsewhich", package + ".sty"],
+                               stdout = open(os.devnull, "wb"))
+  context.Result(is_ok)
+  return is_ok
 
 def CheckLaTeXClass(context, doc_class):
-    context.Message("Checking for LaTeX document class %s..." % doc_class)
-    is_ok = True
-    if (subprocess.call(["kpsewhich", "%s.cls" % doc_class],
-                        stdout = open(os.devnull, "wb"))):
-      is_ok = False
-    context.Result(is_ok)
-    return is_ok
+  context.Message("Checking for LaTeX document class %s..." % doc_class)
+  is_ok = 0 == subprocess.call(["kpsewhich", doc_class + ".cls"],
+                               stdout = open(os.devnull, "wb"))
+  context.Result(is_ok)
+  return is_ok
 
 conf = Configure(
   env,
@@ -56,30 +54,15 @@ conf = Configure(
 )
 
 if not conf.CheckLaTeXClass("memoir"):
-  print "LaTeX document class memoir must be installed."
+  print "Unable to find the LaTeX document class memoir."
   Exit(1)
 
-required_packages = [
-  "graphicx",
-  "url",
-  "todonotes",
-  "natbib",
-  "palatino",
-  "seqsplit",
-  "eqparbox",
-  "capt-of",
-  "hyperref",
-  "amsmath",
-  "enumitem",
-  "eqparbox",
-  "longtable",
-  "tikz",
-  "rotating",
-  "siunitx",
-]
-for package in required_packages:
+for package in ["graphicx", "url", "todonotes", "natbib", "palatino",
+                "seqsplit", "eqparbox", "capt-of", "hyperref", "amsmath",
+                "enumitem", "eqparbox", "longtable", "tikz", "rotating",
+                "siunitx", "textgreek"]:
   if not conf.CheckLaTeXPackage(package):
-    print "LaTeX package %s must be installed." % package
+    print "Unable to find required LaTeX package %s." % package
     Exit(1)
 
 env = conf.Finish()
