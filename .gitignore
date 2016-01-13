@@ -33,16 +33,18 @@
 *.xdy
 *.tdo
 
-## SCons db
+## SCons stuff
+.sconf_temp/*
 .sconsign.dblite
+config.log
 
-## gedit latex plugin
-\.*.ini
+## byte compiled python (because of site_scons/site_tools)
+*.pyc
 
-## do not accidentally commit the data and results files
-data/*.lsm
-data/*.dv
-data/*.fcs
-results/*.png
-results/*.tex
+## Do not accidentally commit anything in data and results of any chapter.
+## data is often too large and results are generated as part of the build.
+data/
+results/
 
+## Because Andrew uses Mac
+.DS_Store
