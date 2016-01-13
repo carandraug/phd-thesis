@@ -1,5 +1,5 @@
-Figures that are not generated automatically
-============================================
+Figures NOT in chapters
+=======================
 
 Figures for most chapters will be on those chapters subdirectories,
 e.g., `histone-catalogue/figs` or `kill-frap/figs`.  Also note that
