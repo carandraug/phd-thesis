@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os.path
+
+Import('env')
+
+## Support for svg to pdf conversion via the PDF builder
+bld = env['BUILDERS']['PDF']
+bld.add_action('.svg', 'inkscape -DA $TARGET $SOURCE')
+
+figs = env.PDF(source = Glob(os.path.join("figs", "*.svg")))
+
+
+##
+## "Configure" - check that we have all the required tools installed
+##
+
+def CheckProg(context, prog_name):
+  context.Message("Checking for %s..." % prog_name)
+  is_ok = context.env.WhereIs(prog_name)
+  context.Result(is_ok)
+  return is_ok
+
+conf = Configure (
+  env,
+  custom_tests = {
+    "CheckProg" : CheckProg,
+  },
+)
+
+## How the fuck is this not the default in SCons?
+if not env.GetOption('help'):
+  progs = {
+    "inkscape"
+      : "inkscape is required to convert svg files to pdf",
+  }
+
+  for p_name, p_desc in progs.iteritems():
+    if not conf.CheckProg(p_name):
+      print p_desc
+      Exit(1)
+
+env = conf.Finish()
+
+Return (['figs'])

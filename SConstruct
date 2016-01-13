@@ -37,8 +37,9 @@ for f in ["NUI_Galway_BrandMark_B.eps"]:
 
 software = env.SConscript(dirs="software", exports=["env"])
 kill_frap = env.SConscript(dirs="kill-frap", exports=["env"])
+h2ax_review = env.SConscript(dirs="h2ax-review", exports=["env"])
 
-env.Depends(thesis, [figs, software, kill_frap])
+env.Depends(thesis, [figs, software, kill_frap, h2ax_review])
 
 
 ##
