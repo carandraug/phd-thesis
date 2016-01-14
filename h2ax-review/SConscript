@@ -9,8 +9,10 @@ Import('env')
 bld = env['BUILDERS']['PDF']
 bld.add_action('.svg', 'inkscape -DA $TARGET $SOURCE')
 
-figs = env.PDF(source = Glob(os.path.join("figs", "*.svg")))
-
+figs = [
+  env.PDF(source = Glob(os.path.join("figs", "*.svg"))),
+  env.PDF(source = Glob(os.path.join("figs", "*.eps"))),
+]
 
 ##
 ## "Configure" - check that we have all the required tools installed
@@ -43,4 +45,4 @@ if not env.GetOption('help'):
 
 env = conf.Finish()
 
-Return (['figs'])
+Return(['figs'])
