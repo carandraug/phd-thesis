@@ -224,7 +224,7 @@ study has reported the effect of DNA damage on transcription levels.
 Despite the large amount of attention paid to the DNA damage-linked serine phosphorylation by PIKKs,
 the H2AX protein itself has a number of additional unique properties.
 
-The defining feature of H2AX is considered to be the C--terminal region with the SQ[E/D]\textPhi motif
+The defining feature of H2AX is considered to be the C--terminal region with the SQ[E/D]\textPhi{} motif
 (\fref{fig:h2ax-review:H2AX-logo}). As mentioned in \Sref{subsec:h2ax-review:relation-H2A-H2AX}, the number of
 residues separating this motif from the histone fold is variable and claimed to correlate with the
 evolutionary complexity of the organism \citep{CRDP+02}. The residues responsible for this variable
@@ -252,8 +252,8 @@ In addition to the C--terminal motif, amino acid residues 6, 16, 38 and 99 of H2
 from the human H2A.1 consensus (\fref{fig:h2ax-review:H2AX-logo} and \fref{fig:h2ax-review:H2AInNucleosome}). Inspection
 of the human and \species{X.\ laevis} histone based nucleosome structures reveals that H2A residue~6 is
 located in the flexible N--terminal tail and residue~16 is located at the very base of the tail
-(\fref{fig:h2ax-review:H2AInNucleosome} and \fref{fig:h2ax-review:framed}b) which tracks the minor groove at superhelical
-location~4.5 (SHL4.5) (\fref{fig:h2ax-review:framed}a). The substitution of glutamine with threonine at
+(\fref{fig:h2ax-review:H2AInNucleosome} and \fref{fig:h2ax-review:framed:b}) which tracks the minor groove at superhelical
+location~4.5 (SHL4.5) (\fref{fig:h2ax-review:framed:a}). The substitution of glutamine with threonine at
 position~6 in H2AX introduces a potential hydroxyl site for post-translational modification that is
 not present for the glutamine in canonical H2A. In contrast, the threonine to serine substitution
 conserves the modifiable hydroxyl at position~16.
@@ -267,21 +267,41 @@ canonical H2A and H2AX\@. Image from PDB structure 1KX5 using PyMOL \protect\cit
 \end{figure}
 
 \begin{figure}
-\includegraphics{h2ax-review/figs/Fig5}
+\centering
+\subbottom[]{%
+  \includegraphics[width=0.45\textwidth]%
+  {"h2ax-review/figs/Fig 5A - H2A Ntail"}
+  \label{fig:h2ax-review:framed:a}
+}
+\subbottom[]{%
+  \includegraphics[width=0.45\textwidth]%
+  {"h2ax-review/figs/Fig 5B - 6Q + 16T"}
+  \label{fig:h2ax-review:framed:b}
+}
+\subbottom[]{%
+  \includegraphics[width=0.45\textwidth]%
+  {"h2ax-review/figs/Fig 5C - 38N"}
+  \label{fig:h2ax-review:framed:c}
+}
+\subbottom[]{%
+  \includegraphics[width=0.45\textwidth]%
+  {"h2ax-review/figs/Fig 5D - 99R"}
+  \label{fig:h2ax-review:framed:d}
+}
 \caption{Structural environment of H2A residues that differ from H2AX\@. The van der Waals surface
 of differences and all residues within \SI{5}{\angstrom} are shown as a surface of dots over bond sticks. Image
-from PDB structure 1KX5 using PyMOL \protect\citep{DeL02}. A.~H2A N--terminal tail encompassing H2AX
-residues Thr\,6 and Ser\,16 passes across minor groove at superhelical location (SHL) 4.5\@. B.~Closeup
+from PDB structure 1KX5 using PyMOL \protect\citep{DeL02}. \subcaptionref{fig:h2ax-review:framed:a}~H2A N--terminal tail encompassing H2AX
+residues Thr\,6 and Ser\,16 passes across minor groove at superhelical location (SHL) 4.5\@. \subcaptionref{fig:h2ax-review:framed:b}~Closeup
 of H2A N--terminal tail minor groove association from A showing canonical H2A Gln\,6 and Thr\,16 which
-become, respectively, Thr\,6 and Ser\,16 in H2AX\@. C.~Residues around H2A--H2A association in structure
+become, respectively, Thr\,6 and Ser\,16 in H2AX\@. \subcaptionref{fig:h2ax-review:framed:c}~Residues around H2A--H2A association in structure
 showing interaction between paired Asn\,38 sidechains and adjacent residues. Canonical H2A Asn\,38 is
-His\,38 in mammalian H2AX\@. D.~Environment around H2A Arg\,99 showing unusual absence of close packing.
+His\,38 in mammalian H2AX\@. \subcaptionref{fig:h2ax-review:framed:d}~Environment around H2A Arg\,99 showing unusual absence of close packing.
 Canonical H2A Arg\,99 is Gly\,99 in H2AX.}
 \label{fig:h2ax-review:framed}
 \end{figure}
 
 Asparagine~38 is located in the loop between the \textalpha 1 and \textalpha 2 helices of H2A within the
-nucleosome (\fref{fig:h2ax-review:H2AInNucleosome} and \fref{fig:h2ax-review:framed}c). Importantly, this residue makes
+nucleosome (\fref{fig:h2ax-review:H2AInNucleosome} and \fref{fig:h2ax-review:framed:c}). Importantly, this residue makes
 direct contact with the equivalent amino acid in the other H2A--H2B dimer in the nucleosome structure
 and has been suggested to affect both nucleosome stability and the balance between homotypic and
 heterotypic combinations (see \Sref{subsec:h2ax-review:H2AX-distribution}) of H2A types within the yeast
@@ -298,7 +318,7 @@ distribution of H2AX in chromatin (see \Sref{subsec:h2ax-review:H2AX-distributio
 The effect of the final substitution distinguishing canonical H2A and H2AX where lysine becomes
 glycine at position~99 is less clear. This residue is located in a sharp turn immediately after
 the \textalpha 3 helix and points towards the C--terminal ends of H3 and H4 but makes no direct
-interactions in the nucleosome (\fref{fig:h2ax-review:H2AInNucleosome} and \fref{fig:h2ax-review:framed}d). Nevertheless,
+interactions in the nucleosome (\fref{fig:h2ax-review:H2AInNucleosome} and \fref{fig:h2ax-review:framed:d}). Nevertheless,
 the exchange of the large, positively charged and potentially modifiable lysine for the highly
 flexible glycine in H2AX could potentially alter stability and flexibility of the nucleosome.
 
@@ -338,9 +358,9 @@ interdependence of these effects with phosphorylation has recently been reported
 not yet related to H2AX include acetylation of lysine 9 and 13 \protect\citep{ZEP+03}, phosphorylation
 of threonine 120 \protect\citep{ANY+04}, and the possible methylation of lysine 127 \protect\citep{ZEP+03}.}
 \label{tab:h2ax-review:H2AX-PTM}
-\begin{tabular}{r l l l l}
+\begin{tabularx}{\linewidth}{r l l l >{\raggedright\arraybackslash}X}
 \toprule
-Residue number & Residue indentity & PTM & Related to DSB  & Reference  \\
+\makecell{Residue\\number} & \makecell{Residue\\indentity} & PTM & \makecell{Related\\to DSB} & Reference  \\
 \midrule
 1   & Serine & phosphorylation & no  & \citet{PB81} \\
 5   & Lysine    & acetylation     & yes & \citet{PB81} and \citet{ITK+07} \\
@@ -350,7 +370,7 @@ Residue number & Residue indentity & PTM & Related to DSB  & Reference  \\
 139 & Serine  & phosphorylation & yes & \citet{EPR+98} \\
 142 & Tyrosine  & phosphorylation & yes & \citet{XLS+09} \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 Other modifications unrelated to DNA damage have been reported for H2AX, including a rather unusual
