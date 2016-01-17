@@ -1,0 +1,32 @@
+\section{Results}
+  \subsection{Development of MaryI}
+  
+  
+%About the short resume of the technique here's what I was doing at the
+%end. Basically I was using 10 iterations at 10\% laser power for PA-GFP
+%(on tandem with mRuby, what I call MaryI ) and 30 iterations at 1%
+%laser power for mEos2. The pixel-dwell for the activation was between
+%11-13µs (I can't check them now, see bottom of mail why). On the
+%bleaching settings there's a box to use a pixel dweel different than
+%the one for imaging. I was doing that. It was also only a small square
+%that I was using for activation. In your directory of data there's a
+%directory with my name. In there there is one called FancyFRAP. Look
+%at the images of the last 3 days for the best settings. By the way, I
+%did this with MaryI-CENP-S, MaryI-CENP-W and mEos2-CENP-S. It's all on
+%the names of the directory.
+
+%About optimizing the laser settings, I wrote a script for octave which
+%is at https://github.com/af-lab/scripts/blob/master/microscopy/optimal-laser-settings.m
+%On the top of that file says how to use it. The settings used will be
+%different for other microscopes, you will need something like an
+%H3-PA-GFP plasmid (Christian said he already has one) to optimize this
+%and do it in vivo since fixed samples should behave differently. For
+%my case, I didn't found that much difference between 8 and 14
+%iterations at 10\% laser power. For mEos2 I also didn't saw great
+%difference between 24 and 32 iterations at 1\% power so it's not that
+%sensitive to the settings you use just much lower than what I tried at
+%the start. I never tried to change the pixel dweel since that would be
+%1 more variable I just always used the same settings for that (but the
+%code I wrote is able to handle it, it's just more difficult to
+%interpret and I don't think it was necessary anyway).
+

@@ -1,0 +1,139 @@
+\section{Materials preparation}
+
+  \subsection{Plasmid construction}
+
+    The following plasmids were provided by Chelly van Vuuren in
+    Prof.~Kevin Sullivan laboratory at the National University of
+    Ireland Galway, and confirmed by DNA sequencing:
+
+    \begin{itemize}
+      \item mCherry--CENP-S
+      \item mCherry--CENP-T
+      \item mCherry--CENP-W
+      \item mCherry--CENP-X
+      \item mEos2--CENP-S
+      \item mEos2--CENP-W
+      \item mEos2--CENP-X
+      \item mRFP--PCNA
+      \item mEos2--C1
+      \item mCerulean3--C1
+      \item mRuby--C1
+      %% No one seems to know how the following were created.  They didn't
+      %% even knew on what terminal the PAGFP was.  Chelly's best guess was
+      %% that PAGFP from PAGFP-N1 was cloned into a gateway vector and from
+      %% there into pIC113 from Cheeseman lab:
+      %%    http://jura.wi.mit.edu/cheeseman/Plasmids.php
+      %% before having the CENPs cloned into it.
+      %% However, sequencing results show none of the TEV and S tag from
+      %% pIC113, which are the important parts of that plasmids.  There is
+      %% only a tiny bit of sequence before the CENPs and after PAGFP that
+      %% matches pIC113 but should not have any purpose (see lab notebook
+      %% dates 07/08/2012 for details).
+      \item CENP-S--PAGFP
+      \item CENP-T--PAGFP Ala269Ser
+      \item CENP-W--PAGFP
+      %% This one was specially problematic.  It looks ok in a gel, but
+      %% sequencing with EGFP-N1-R and EGFP-N1-F does not work.  The
+      %% sequencing looks good until it reaches the linker sequence at
+      %% which point stops abruptly.  Contacted Agowa who don't know why
+      %% it's not working (see notes on lab notebook between
+      %% 19/08/2012 and 23/08/2012).  In the end, the CENP-X and PAGFP
+      %% sequence look good but we have no idea about the linker.  Kevin
+      %% said Nadine had troubles with this plasmid.  For all he knows,
+      %% this might have never worked since it's not even on her thesis.
+      %% Would have been nice if they had told me at the start...
+      \item CENP-X--PAGFP
+    \end{itemize}
+
+    The plasmids with centromeric proteins tagged with mCherry, PAGFP, and
+    mEos2 were cloned on Prof.~Kevin Sullivan's laboratory.
+    The mRFP--PCNA plasmid was originally from Prof.~Ciaran Morrisson
+    laboratory at the National University of Ireland, Galway
+    \citep{cloning-mRFP-PCNA-by-Helen}.
+    The mCerulean3 and mRuby plasmids originated from Prof.~Richard Day
+    from Indiana University, School of Medicine.
+
+    \paragraph{CENP-T--PAGFP}
+      Created by correcting the Ala269Ser mutant.  Done by PCR mutagenesis
+      with the oligonucleotides AFG544 and AFG545.
+
+    %% These were created as control for MaryI or an as alternative to MaryI
+    %% by co-transfection.  We didn't use mCherry because it was weak and
+    %% mRuby had reported much better.
+    \paragraph{mRuby--CENP-S, mRuby--CENP-T, mRuby--CENP-W, mRuby--CENP-X}
+      Plasmids enconding CENP-S, T, W, and X tagged with mRuby at the
+      N-terminal were created.
+
+      the cenps were extracted from the mCherry plasmids and inserted into
+      mRuby--C1.  This adds the Kozak consensus sequence (which had been
+      removed not sure why on mcherry), adds a SGL at the start of the linker
+
+      digest with SmaI and HindIII-HF, extract from gel and ligate.
+
+
+
+    \paragraph{mCerulean3--PCNA}
+      Created by subcloning PCNA from mRFP--PCNA into into mCerulean--C1.
+      Both plasmids were digested with BamHI-HF and HindIII-HF, the fragments
+      extracted from an agarose gel, and ligated.
+
+    \paragraph{pBOS--H2B--mEos2}
+      The plasmid was created by replacing the GFP gene in pBOS--H2B--GFP
+      (\Sref{sec:kill-frap:cloning}) with an insert from pmEos2--C1.
+      The insert was prepared by PCR amplification with the oligonucleotides
+      AFG510 and AFG511, and then digested by NotI-HF and BamHI.
+      The vector was prepared by digestion with the same restriction
+      enzymes followed by extraction from an agarose gel.
+
+    \paragraph{pmEos2--CENP-T}
+      The plasmid was created by replacing mCherry in pmCherry--CENP-T
+      with mEos2 from pmEos2--C1.  Both were digested with AgeI and EcoRI,
+      the bands extracted from an agarose gel, and then ligated.
+
+
+  \subsection{Cell culture}
+
+    We used Hep2 and U2-OS cells in Jena (first time).  Second time in Jena
+    we got HeLa CCL2 from a another lab in Jena.  Also HeLa in Galway.
+
+    \subsubsection{Transfection by electroporation}
+      Transfection was always performed by electroporation, Amaxa program 0-17.
+
+
+    \subsubsection{Synchronization of cells by double thymidine block}
+
+
+  \subsection{Microscopy}
+
+    \subsubsection{Widefield microscopy}
+      Widefield fluorescence microscopy was performed in a DeltaVision Core
+      microscope from Applied Precision; fitted with the Quantifiable Laser
+      Module~(QLM) hardware module, a Xenon lamp for light source,
+      and a CoolSNAP\textsubscript{HQ\textsuperscript{2}} camera.
+
+      Cells were cultured in \SI{35}{\mm} glass-bottom MatTek dishes
+      for live-cell imaging.  Temperature and CO\textsubscript{2} levels
+      for imaging environment were controlled within an acrylic
+      environmental chamber that fully enclosed the microscope stage
+      plate and objectives.
+
+    \subsubsection{Confocal microscopy}
+      Confocal microscopy was performed with a LSM~710 from Zeiss on
+      an inverted stand Axio Observer.Z1 fitted with the Zeiss Definite Focus.
+
+      For live cell imaging, cells were cultured on top of round
+      \SI{30}{\mm} diameter glass coverslips within wider
+      plastic petri dishes.
+      Before imaging, coverslips were washed with PBS, and mounted on
+      a POC-R2 chamber system, again with PBS.
+      Temperature was controlled via a heated stage, an objective ring,
+      and a small incubator enclosing the heated staged.
+
+      For fixed samples, cells were cultured on top of round \SI{15}{\mm}
+      diameter glass coverslips within wider plastic petri dishes.
+      Coverslips were washed with \dc{37} PBS, and mounted on glass
+      slides with ProLong Gold Antifade embedding media from Invitrogen.
+      Embedding media was solidified overnight at room temperature within
+      a dark box.
+
+  \subsection{Image analysis}

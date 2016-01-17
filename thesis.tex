@@ -69,18 +69,24 @@
 
   \mainmatter
 
-  \include{./intro/intro}
-  \include{./methods/methods}
-  \include{./software/software}
-  \include{./histone-catalogue/histone-catalogue}
-  \include{./kill-frap/kill-frap}
-  \include{./fancy-frap/fancy-frap}
-  \include{./conclusion/conclusion}
-  \include{./appendices}
+  \include{intro/intro}
+  \include{methods/methods}
+  \include{software/software}
+  \include{histone-catalogue/histone-catalogue}
+  \include{kill-frap/kill-frap}
+  \include{fancy-frap/fancy-frap}
+  \include{conclusion/conclusion}
+  \include{appendices}
 
   \backmatter
 
   \bibliographystyle{plainnat}
-  \bibliography{intro/references,methods/references,kill-frap/references,h2ax-review/H2AXreview-biblio}
+  \bibliography{%
+    intro/references,%
+    methods/references,%
+    kill-frap/references,%
+    fancy-frap/references,%
+    h2ax-review/H2AXreview-biblio%
+  }
 
 \end{document}
