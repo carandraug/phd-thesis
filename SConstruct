@@ -6,7 +6,8 @@ import os.path
 import subprocess
 
 env = Environment()
-
+env.Tool('python')
+env.PrependENVPath('PYTHONPATH', 'lib-python')
 
 AddOption(
   "--verbose",
