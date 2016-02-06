@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os.path
+
+Import('env')
+
+def path4script(fname=""):
+  return os.path.join("scripts", fname)
+def path4results(fname=""):
+  return os.path.join("results", fname)
+
+versions = env.Command(
+  target=path4results("software_versions.tex"),
+  source=path4script("software_versions.sh"),
+  action="$SOURCE > $TARGET",
+)
+
+methods = [
+  versions,
+]
+
+Return(['methods'])
