@@ -9,6 +9,11 @@ env = Environment()
 env.Tool('python')
 env.PrependENVPath('PYTHONPATH', 'lib-python')
 
+vars = Variables()
+vars.Add('OCTAVE', default='octave', help='The Octave interpreter')
+vars.Update(env)
+Help(vars.GenerateHelpText(env))
+
 AddOption(
   "--verbose",
   dest    = "verbose",
