@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os.path
+
+Import('env')
+
+fancy_frap = []
+
+##
+## "Configure" - check that we have all the required tools installed
+##
+
+def CheckProg(context, prog_name):
+  context.Message("Checking for %s..." % prog_name)
+  is_ok = context.env.WhereIs(prog_name)
+  context.Result(is_ok)
+  return is_ok
+
+def CheckOctavePackage(context, pkg):
+    context.Message("Checking for Octave package %s..." % pkg)
+    is_ok = (subprocess.call(["octave", "-qf", "--eval", "pkg load " + pkg]) == 0)
+    context.Result(is_ok)
+    return is_ok
+
+conf = Configure (
+  env,
+  custom_tests = {
+    "CheckProg" : CheckProg,
+    "CheckOctavePackage" : CheckOctavePackage,
+  },
+)
+
+## How the fuck is this not the default in SCons?
+if not env.GetOption('help'):
+  progs = {
+    "octave"
+      : "GNU Octave must be installed",
+  }
+
+  for p_name, p_desc in progs.iteritems():
+    if not conf.CheckProg(p_name):
+      print p_desc
+      Exit(1)
+
+  for pkg in ['image', 'bioformats']:
+    if not conf.CheckOctavePackage(pkg):
+      print "Octave's %s package must be installed" % pkg
+      Exit(1)
+
+env = conf.Finish()
+
+Return (['fancy_frap'])
