@@ -20,6 +20,9 @@
 ## https://github.com/af-lab/scripts/blob/master/microscopy/CropReg.m
 
 pkg load image;
+pkg load statistics;
+
+pkg load imagej;
 pkg load bioformats;
 javaMethod ('enableLogging', 'loci.common.DebugTools', 'ERROR');
 
@@ -33,6 +36,11 @@ function [img] = read_lsm_series (r)
 
   ## Dimensions in the 3rd dimension are in the order [channel, z, time]
   img = reshape (img, [size(img)(1:2) r.getSizeC() r.getSizeZ() r.getSizeT()]);
+
+  ## But swap them so that Z is the third and time is the fourth.  This
+  ## gives faster access to data and less awkward singleton dimensions
+  ## for our needs.
+  img = permute (img, [1 2 4 5 3]);
 endfunction
 
 function [img, t] = read_lsm_fancy_frap (pre_fpath, post_fpath, post_series_fpath)
@@ -57,12 +65,12 @@ function [img, t] = read_lsm_fancy_frap (pre_fpath, post_fpath, post_series_fpat
   post_series_img = read_lsm_series (reader);
   timestamps(end+1) = reader.getMetadataStore ().getImageAcquisitionDate (0).asInstant ();
 
-  img = cat (5, pre_img, post_img, post_series_img);
+  img = cat (4, pre_img, post_img, post_series_img);
 
   ##
   ## Figure out time intervals
   ##
-  n_t = size (img, 5);
+  n_t = size (img, 4);
   t = zeros (n_t, 1);
 
   ## For the time difference between pre, post and t1, we don't have time
@@ -75,7 +83,7 @@ function [img, t] = read_lsm_fancy_frap (pre_fpath, post_fpath, post_series_fpat
   ## Then we have the time delta for each plane since t=1.  Despite the name,
   ## all planes (all channels and z stacks) for a single point, seem to have
   ## the same delta T.  But that does make it easier on us.
-  n_planes_by_t = prod (size (img)([3 4]));
+  n_planes_by_t = prod (size (img)([3 5]));
   m = reader.getMetadataStore ();
   for t_idx = 4:n_t
     plane_idx = n_planes_by_t * (t_idx - 3);
@@ -83,6 +91,95 @@ function [img, t] = read_lsm_fancy_frap (pre_fpath, post_fpath, post_series_fpat
     ## Do not forget to add the time from when we started
     t(t_idx) += t(3);
   endfor
+
+endfunction
+
+## Computes the transformation structure to be used in the pre bleach
+## image so that t registers with the post bleach.  PRE and POST should
+## be the channel that is being bleached (because it has more reference
+## points) but then can be used on the channel being activated.
+function [tform] = pre_bleach_transform_structure (pre, post)
+  ## cp2tform and tformfwd only work woth 2 dimensional images. That's ok
+  ## for us because the time interval between pre and post bleach is less
+  ## than 1 minute and there's little Z movement in that scale.  So we get
+  ## the Z slice with the most reference points, and use the transformation
+  ## from it on the other slices.
+
+  nZ = size (pre, 3);
+
+  thresh = ij_threshold (pre, "Yen");
+  pre_bw = im2bw (pre, thresh);
+
+  label = bwlabeln (pre_bw, 8);
+  n_obj = cellfun (@(x) numel (unique (x)), cellslices (label, 1:nZ, 1:nZ, 3));
+  [~, z_idx] = max (n_obj);
+
+  pre_cen = cell2mat ({regionprops(pre_bw(:,:,z_idx), pre(:,:,z_idx),
+                                   "WeightedCentroid").WeightedCentroid}');
+  post_cen = cell2mat ({regionprops(im2bw (post(:,:,z_idx), thresh), post(:,:,z_idx),
+                                    "WeightedCentroid").WeightedCentroid}');
+
+  dists = pdist2 (pre_cen, post_cen);
+
+  ## Hopefully this wouldn't happen but if one region dissappears
+  ## (or a new one appears), between pre and post bleach, we need
+  ## to remove the extra ones.  We do this by pairing them up to
+  ## the closest ones, and then leaving only the closest pair.
+
+  if (rows (dists) > columns (dists))
+    [min_dists, pairs] = min (dists, [], 2);
+    min_dist_pairs = accumarray (pairs(:), min_dists , [], @min);
+    [~, rows_to_keep] = max (min_dist_pairs' == min_dists, [], 1);
+
+    dists = dists(rows_to_keep, :);
+    pre_cen = pre_cen(rows_to_keep, :);
+
+  elseif (rows (dists) < columns (dists))
+    [min_dists, pairs] = min (dists, [], 1);
+    min_dist_pairs = accumarray (pairs(:), min_dists , [], @min);
+    [~, cols_to_keep] = max (min_dist_pairs == min_dists, [], 2);
+
+    dists = dists(:, cols_to_keep);
+    post_cen = post_cen(cols_to_keep, :);
+  endif
+
+  ## Place closest centroids pairs on same order (pre and post)
+  [~, post_cen_order] = min (dists, [], 1);
+  post_cen = post_cen(post_cen_order, :);
+
+  tform = cp2tform (post_cen, pre_cen, "nonreflective similarity");
+endfunction
+
+function find_bleach_spot ()
+
+  activated_c = img(:,:,:,:,1);
+  bleached_c = img(:,:,:,:,2);
+
+  ## LSM data is ridiculously noisy.  So we appy a gaussian filter
+  ## which helps to find the features and registration.  Not using
+  ## it for the actual measurements.
+  sigma = 2;
+  g = fspecial ("gaussian", 2 * ceil (2*sigma) +1, sigma);
+
+  cls = class (img);
+  pre_bleaching = cast (convn (bleached_c(:,:,:,1), g, "same"), cls);
+  post_bleaching = cast (convn (bleached_c(:,:,:,2), g, "same"), cls);
+  pre_activation = cast (convn (activated_c(:,:,:,1), g, "same"), cls);
+  post_activation = cast (convn (activated_c(:,:,:,2), g, "same"), cls);
+
+
+  ## Use channel being bleached to get the transformation, and then
+  ## transform the channel being activated.  The reason is that the
+  ## channel being bleached has loads of other stuff being bleached
+  ## due to the imaging which will appear in "pre-post".  On the other
+  ## hand, the channel being activated is "post-pre" so we really only
+  ## get the bleach spot.
+  tform = pre_bleach_transform_structure (pre_bleaching, post_bleaching);
+
+  ## Nice! imtransform() works with 3D images.  It is a bit odd though,
+  ## how size only takes the first 2 dimensions.
+  reg_pre_activation = imtransform (pre_activation, tform, "bicubic",
+                                    "size", size (pre)(1:2));
 
 endfunction
 
@@ -97,6 +194,5 @@ function main (pre_fpath, post_fpath, post_series_fpath)
 
 
 endfunction
-
 
 main (argv (){:});

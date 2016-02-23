@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os.path
+import subprocess
 
 Import('env')
 
@@ -43,7 +44,7 @@ if not env.GetOption('help'):
       print p_desc
       Exit(1)
 
-  for pkg in ['image', 'bioformats']:
+  for pkg in ['image', 'statistics', 'imagej', 'bioformats']:
     if not conf.CheckOctavePackage(pkg):
       print "Octave's %s package must be installed" % pkg
       Exit(1)
