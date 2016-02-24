@@ -94,6 +94,10 @@ function [img, t] = read_lsm_fancy_frap (pre_fpath, post_fpath, post_series_fpat
 
 endfunction
 
+function bw = im2bw_yen (img)
+  bw = im2bw (img, ij_threshold (img, "Yen"));
+endfunction
+
 ## Computes the transformation structure to be used in the pre bleach
 ## image so that t registers with the post bleach.  PRE and POST should
 ## be the channel that is being bleached (because it has more reference
@@ -150,7 +154,8 @@ function [tform] = pre_bleach_transform_structure (pre, post)
   tform = cp2tform (post_cen, pre_cen, "nonreflective similarity");
 endfunction
 
-function find_bleach_spot ()
+
+function bw_activated = find_bleach_spot (img)
 
   activated_c = img(:,:,:,:,1);
   bleached_c = img(:,:,:,:,2);
@@ -181,6 +186,26 @@ function find_bleach_spot ()
   reg_pre_activation = imtransform (pre_activation, tform, "bicubic",
                                     "size", size (pre)(1:2));
 
+  ## In theory we should only get the bleach spot.  However, it seems
+  ## there's crap, big blobs of crap, on the cytoplasm that fluorescece
+  ## on the green channel and move quite fast.  This usually means that
+  ## the cells are not very happy (no shit! They've been in PBS and in
+  ## the microscope for a while now!).  The point though is that just
+  ## subtracting the images will find these blobs.
+
+  ## While there is movement of those blobs of crap, much faster than the
+  ## rest which we use for registration, there's still a temporal overlap
+  ## of theose objects.  So we can just remove elements that have an overlap
+  ## object on the pre bleach.
+
+  bw_activation_diff = im2bw_yen (post_activation - reg_pre_activation);
+  marker = (im2bw_yen (reg_pre_activation) & bw_activation_diff);
+  bw_activated = (bw_activation_diff & ! imreconstruct (marker, bw_activation_diff));
+
+  ## Just in case there's something left, there's always a bit of speckle
+  ## noise, we pick the largest object.
+  bw_activated = bwareafilt (bw_activated, 1);
+
 endfunction
 
 function main (pre_fpath, post_fpath, post_series_fpath)
@@ -191,6 +216,8 @@ function main (pre_fpath, post_fpath, post_series_fpath)
 
   [img, t_deltas] = read_lsm_fancy_frap (pre_fpath, post_fpath,
                                          post_series_fpath);
+
+  bw_spot = find_bleach_spot (img);
 
 
 endfunction
