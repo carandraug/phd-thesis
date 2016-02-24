@@ -184,7 +184,7 @@ function bw_activated = find_bleach_spot (img)
   ## Nice! imtransform() works with 3D images.  It is a bit odd though,
   ## how size only takes the first 2 dimensions.
   reg_pre_activation = imtransform (pre_activation, tform, "bicubic",
-                                    "size", size (pre)(1:2));
+                                    "size", size (pre_activation)(1:2));
 
   ## In theory we should only get the bleach spot.  However, it seems
   ## there's crap, big blobs of crap, on the cytoplasm that fluorescece
