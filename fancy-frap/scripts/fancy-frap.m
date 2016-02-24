@@ -172,13 +172,13 @@ function bw_activated = find_bleach_spot (img)
   pre_activation = cast (convn (activated_c(:,:,:,1), g, "same"), cls);
   post_activation = cast (convn (activated_c(:,:,:,2), g, "same"), cls);
 
+  ## On the channel being activated, the signal of PAGFP is too weak
+  ## that changes in the cytoplasm are picked up sometimes.  On the
+  ## channel being bleached, the change on mRuby is also too small.
+  ## So we use the difference from both channels.
 
-  ## Use channel being bleached to get the transformation, and then
-  ## transform the channel being activated.  The reason is that the
-  ## channel being bleached has loads of other stuff being bleached
-  ## due to the imaging which will appear in "pre-post".  On the other
-  ## hand, the channel being activated is "post-pre" so we really only
-  ## get the bleach spot.
+  ## Use channel being bleached to get the transformation, since that has
+  ## more reference points.
   tform = pre_bleach_transform_structure (pre_bleaching, post_bleaching);
 
   ## Nice! imtransform() works with 3D images.  It is a bit odd though,
@@ -186,25 +186,15 @@ function bw_activated = find_bleach_spot (img)
   reg_pre_activation = imtransform (pre_activation, tform, "bicubic",
                                     "size", size (pre_activation)(1:2));
 
-  ## In theory we should only get the bleach spot.  However, it seems
-  ## there's crap, big blobs of crap, on the cytoplasm that fluorescece
-  ## on the green channel and move quite fast.  This usually means that
-  ## the cells are not very happy (no shit! They've been in PBS and in
-  ## the microscope for a while now!).  The point though is that just
-  ## subtracting the images will find these blobs.
+  reg_pre_bleaching = imtransform (pre_bleaching, tform, "bicubic",
+                                   "size", size (pre_bleaching)(1:2));
 
-  ## While there is movement of those blobs of crap, much faster than the
-  ## rest which we use for registration, there's still a temporal overlap
-  ## of theose objects.  So we can just remove elements that have an overlap
-  ## object on the pre bleach.
+  ratio_frap = (im2double (post_activation - reg_pre_activation)
+                .* im2double (reg_pre_bleaching - post_bleaching));
+  bw_ratio_frap = im2bw_yen (ratio_frap);
 
-  bw_activation_diff = im2bw_yen (post_activation - reg_pre_activation);
-  marker = (im2bw_yen (reg_pre_activation) & bw_activation_diff);
-  bw_activated = (bw_activation_diff & ! imreconstruct (marker, bw_activation_diff));
-
-  ## Just in case there's something left, there's always a bit of speckle
-  ## noise, we pick the largest object.
-  bw_activated = bwareafilt (bw_activated, 1);
+  ## Because there's always a bit of stuff, noise, we pick the largest object.
+  bw_activated = bwareafilt (bw_ratio_frap, 1);
 
 endfunction
 
