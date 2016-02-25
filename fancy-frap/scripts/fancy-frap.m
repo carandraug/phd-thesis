@@ -87,7 +87,7 @@ function [img, t] = read_lsm_fancy_frap (pre_fpath, post_fpath, post_series_fpat
   m = reader.getMetadataStore ();
   for t_idx = 4:n_t
     plane_idx = n_planes_by_t * (t_idx - 3);
-    t(t_idx) = m.getPlaneDeltaT (series_idx, plane_idx).value ();
+    t(t_idx) = m.getPlaneDeltaT (series_idx -1, plane_idx).value ();
     ## Do not forget to add the time from when we started
     t(t_idx) += t(3);
   endfor
