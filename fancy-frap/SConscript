@@ -1,12 +1,46 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 import os.path
 import subprocess
+import re
 
 Import('env')
 
+## Simple Builder to call Octave scripts.  Note that the targets are
+## all in a single command.
+def octave_script(env, script, source, target, args=[]):
+  script = env.File(script)
+  octave_path = env.Dir('lib-octave')
+  c = env.Command(target, source, SCRIPT=script, OCTAVE_PATH=octave_path,
+                  action='$OCTAVE --quiet $SCRIPT $SOURCES $TARGET')
+  env.Depends(c, [script])
+  return c
+
+env.AddMethod(octave_script, "OctaveScript")
+
 fancy_frap = []
+
+find_spot_montage = env.File("scripts/fancy-frap.m")
+for experiment in os.listdir(os.path.join('data', 'frapping')):
+  experiment_path = os.path.join('data', 'frapping', experiment)
+  if not os.path.isdir(experiment_path):
+    continue
+
+  series_dataset = env.Glob(experiment_path + '/position=1-*.lsm')[0]
+  for pre_dataset in env.Glob(experiment_path + '/*pre-bleach.lsm'):
+    post_dataset = re.sub("(?<=position=\d),t=0,0pre-bleach.lsm",
+                          ",t=0,1post-bleach.lsm",
+                          str(pre_dataset))
+
+    fancy_frap.append(env.OctaveScript(
+      script = find_spot_montage,
+      source = [pre_dataset, post_dataset, series_dataset],
+      target = os.path.join("results", str(pre_dataset) + ".png"),
+    ))
+
+
 
 ##
 ## "Configure" - check that we have all the required tools installed

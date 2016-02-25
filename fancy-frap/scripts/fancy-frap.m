@@ -198,6 +198,32 @@ function bw_activated = find_bleach_spot (img)
 
 endfunction
 
+function main_montage_log (pre_fpath, post_fpath, series_fpath, log_fpath)
+
+  if (nargin != 4)
+    error ("usage: pre_fpath post_fpath series_path log_path");
+  endif
+
+  [img] = read_lsm_fancy_frap (pre_fpath, post_fpath, series_fpath);
+  bw_spot = find_bleach_spot (img);
+  activation = img(:,:,:,1:2,1);
+  bleaching = img(:,:,:,1:2,2);
+
+  m_log = cat (4, activation, im2uint8 (bw_spot), bleaching);
+  m_log = permute (m_log, [1 2 4 3]);
+  m_log = reshape (m_log, [size(m_log)(1:2) 1 prod(size(m_log)(3:end))]);
+
+  h = figure ("visible", "off");
+  mh = montage (imadjust (m_log, stretchlim (m_log, 0)));
+
+  ## Stupid SCons.  This is ridiculous.
+  ## https://pairlist4.pair.net/pipermail/scons-users/2016-February/004670.html
+  log_fpath = strrep (log_fpath, '\(', "(");
+  log_fpath = strrep (log_fpath, '\)', ")");
+  imwrite (get (mh, "cdata"), log_fpath);
+
+endfunction
+
 function main (pre_fpath, post_fpath, post_series_fpath)
 
   if (nargin != 3)
@@ -209,7 +235,7 @@ function main (pre_fpath, post_fpath, post_series_fpath)
 
   bw_spot = find_bleach_spot (img);
 
-
 endfunction
 
-main (argv (){:});
+#main (argv (){:});
+main_montage_log (argv (){:});
