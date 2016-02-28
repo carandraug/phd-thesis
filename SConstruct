@@ -6,8 +6,11 @@ import os.path
 import subprocess
 
 env = Environment()
+
 env.Tool('python')
 env.PrependENVPath('PYTHONPATH', 'lib-python')
+
+env.Tool('no_shell')
 
 vars = Variables()
 vars.Add('OCTAVE', default='octave', help='The Octave interpreter')
