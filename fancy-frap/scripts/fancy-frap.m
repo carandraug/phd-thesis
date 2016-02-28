@@ -216,10 +216,6 @@ function main_montage_log (pre_fpath, post_fpath, series_fpath, log_fpath)
   h = figure ("visible", "off");
   mh = montage (imadjust (m_log, stretchlim (m_log, 0)));
 
-  ## Stupid SCons.  This is ridiculous.
-  ## https://pairlist4.pair.net/pipermail/scons-users/2016-February/004670.html
-  log_fpath = strrep (log_fpath, '\(', "(");
-  log_fpath = strrep (log_fpath, '\)', ")");
   imwrite (get (mh, "cdata"), log_fpath);
 
 endfunction

@@ -11,11 +11,20 @@ Import('env')
 ## Simple Builder to call Octave scripts.  Note that the targets are
 ## all in a single command.
 def octave_script(env, script, source, target, args=[]):
-  script = env.File(script)
-  octave_path = env.Dir('lib-octave')
-  c = env.Command(target, source, SCRIPT=script, OCTAVE_PATH=octave_path,
-                  action='$OCTAVE --quiet $SCRIPT $SOURCES $TARGET')
-  env.Depends(c, [script])
+  args = [env['OCTAVE'], "--quiet", script]
+  ## We don't know if source and target are a single element or a list.
+  ## I don't want to check types because 1) there's many list-type types
+  ## 2) idem for single elements (string, File, Dir, and None are the ones
+  ## I use most frequently), 3) even a string is considered an iterable.
+  ## So I just try to append them to args.
+  for f in [source, target]:
+    try:
+      args += f
+    except TypeError as e:
+      args += [f]
+
+  c = env.NoShellCommand(target, source, action=args)
+  env.Depends(c, [env.File(script)])
   return c
 
 env.AddMethod(octave_script, "OctaveScript")
@@ -33,11 +42,12 @@ for experiment in os.listdir(os.path.join('data', 'frapping')):
     post_dataset = re.sub("(?<=position=\d),t=0,0pre-bleach.lsm",
                           ",t=0,1post-bleach.lsm",
                           str(pre_dataset))
+    post_dataset = env.File(post_dataset)
 
     fancy_frap.append(env.OctaveScript(
       script = find_spot_montage,
       source = [pre_dataset, post_dataset, series_dataset],
-      target = os.path.join("results", str(pre_dataset) + ".png"),
+      target = env.File(os.path.join("results", str(pre_dataset) + ".png")),
     ))
 
 
