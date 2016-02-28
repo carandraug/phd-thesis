@@ -123,6 +123,10 @@ function [tform] = pre_bleach_transform_structure (pre, post)
   post_cen = cell2mat ({regionprops(im2bw (post(:,:,z_idx), thresh), post(:,:,z_idx),
                                     "WeightedCentroid").WeightedCentroid}');
 
+  ## In case one of them is empty, we still need two columns.
+  pre_cen = postpad (pre_cen, 2, 0, 2);
+  post_cen = postpad (post_cen, 2, 0, 2);
+
   dists = pdist2 (pre_cen, post_cen);
 
   ## Hopefully this wouldn't happen but if one region dissappears
@@ -130,20 +134,31 @@ function [tform] = pre_bleach_transform_structure (pre, post)
   ## to remove the extra ones.  We do this by pairing them up to
   ## the closest ones, and then leaving only the closest pair.
 
-  if (rows (dists) > columns (dists))
-    [min_dists, pairs] = min (dists, [], 2);
-    min_dist_pairs = accumarray (pairs(:), min_dists , [], @min);
-    [~, rows_to_keep] = max (min_dist_pairs' == min_dists, [], 1);
+  if (rows (dists) != columns (dists))
 
-    dists = dists(rows_to_keep, :);
+    if (rows (dists) > columns (dists))
+      [min_dists, col_pairs] = min (dists, [], 2);
+      min_dist_pairs = accumarray (col_pairs(:), min_dists , [], @min);
+
+      [~, rows_to_keep] = max (min_dist_pairs' == min_dists, [], 1);
+      ## remove rows without a pair at all (NaNs from accumarray)
+      rows_to_keep(isnan (min_dist_pairs')) = [];
+
+      cols_to_keep = unique (col_pairs);
+
+    elseif (rows (dists) < columns (dists))
+      [min_dists, row_pairs] = min (dists, [], 1);
+      min_dist_pairs = accumarray (row_pairs(:), min_dists , [], @min);
+
+      [~, cols_to_keep] = max (min_dist_pairs == min_dists, [], 2);
+      ## remove cols without a pair at all (NaNs from accumarray)
+      cols_to_keep(isnan (min_dist_pairs)) = [];
+
+      rows_to_keep = unique (row_pairs);
+    endif
+
+    dists = dists(rows_to_keep, cols_to_keep);
     pre_cen = pre_cen(rows_to_keep, :);
-
-  elseif (rows (dists) < columns (dists))
-    [min_dists, pairs] = min (dists, [], 1);
-    min_dist_pairs = accumarray (pairs(:), min_dists , [], @min);
-    [~, cols_to_keep] = max (min_dist_pairs == min_dists, [], 2);
-
-    dists = dists(:, cols_to_keep);
     post_cen = post_cen(cols_to_keep, :);
   endif
 
