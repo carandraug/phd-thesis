@@ -46,12 +46,30 @@ def data2results(fpath):
   path_parts[0] = "results"
   return os.path.join(*path_parts)
 
+def path4script(fname=""):
+  return os.path.join("scripts", fname)
 
+
+## Things we used while working on the thesis but are not actually
+## necessary, e.g., the split of the series file into a single tiff which
+## we used with MTrackJ, or the creation of the montage and log tif to
+## confirm the tracking and identification of spots.
+helper_results = []
+
+## The actual dependencies for the thesis.
 fancy_frap = []
 
+##
+## The scripts
+##
 
-find_spot_montage = env.File("scripts/fancy-frap.m")
+find_spot_montage = env.File(path4script("fancy-frap.m"))
+create_position_image = env.File(path4script("create_position_image.m"))
 
+
+##
+##
+##
 
 for root, dirs, files in os.walk(os.path.join('data', 'frapping')):
   if len(files) == 0:
@@ -72,11 +90,21 @@ for root, dirs, files in os.walk(os.path.join('data', 'frapping')):
     post_fpath = re.sub(",t=0,0pre-bleach.lsm$", ",t=0,1post-bleach.lsm",
                         pre_fpath)
 
+    ## The scripts that handle the images all take them in this order.
+    img_args = [env.File(f) for f in [pre_fpath, post_fpath, series_fpath]]
+
     spot_montage_fname = "position="+ position +"-spot_montage.png"
-    fancy_frap.append(env.OctaveScript(
+    helper_results.append(env.OctaveScript(
       script = find_spot_montage,
-      source = [env.File(f) for f in [pre_fpath, post_fpath, series_fpath]],
+      source = img_args,
       target = env.File(os.path.join(results_path, spot_montage_fname)),
+    ))
+
+    position_image_fname = "position="+ position +".tif"
+    helper_results.append(env.OctaveScript(
+      script = create_position_image,
+      source = img_args,
+      target = env.File(os.path.join(results_path, position_image_fname)),
     ))
 
 
