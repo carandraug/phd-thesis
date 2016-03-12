@@ -29,27 +29,55 @@ def octave_script(env, script, source, target, args=[]):
 
 env.AddMethod(octave_script, "OctaveScript")
 
+def data2results(fpath):
+  """Convert a path into data to a matching path in results."""
+  path_parts = []
+  while True:
+    fpath, tail = os.path.split(fpath)
+    if not tail:
+      break
+    else:
+      path_parts.append(tail)
+  path_parts.reverse()
+
+  if path_parts[0] != "data":
+    ValueError('FPATH does not start in "data/"')
+
+  path_parts[0] = "results"
+  return os.path.join(*path_parts)
+
+
 fancy_frap = []
 
+
 find_spot_montage = env.File("scripts/fancy-frap.m")
-for experiment in os.listdir(os.path.join('data', 'frapping')):
-  experiment_path = os.path.join('data', 'frapping', experiment)
-  if not os.path.isdir(experiment_path):
+
+
+for root, dirs, files in os.walk(os.path.join('data', 'frapping')):
+  if len(files) == 0:
     continue
 
-  series_dataset = env.Glob(experiment_path + '/position=1-*.lsm')[0]
-  for pre_dataset in env.Glob(experiment_path + '/*pre-bleach.lsm'):
-    post_dataset = re.sub("(?<=position=\d),t=0,0pre-bleach.lsm",
-                          ",t=0,1post-bleach.lsm",
-                          str(pre_dataset))
-    post_dataset = env.File(post_dataset)
+  series_fpath = [f for f in files if f.startswith("position=1-")]
+  if len(series_fpath) != 1:
+    ValueError('more that 1 time series file in ""' %root)
+  series_fpath = os.path.join(root, series_fpath[0])
 
+  results_path = data2results(root)
+  for f in files:
+    if not f.endswith("pre-bleach.lsm"):
+      continue
+    position = re.search("(?<=^position=)\d+(?=,)", f).group(0)
+
+    pre_fpath = os.path.join(root, f)
+    post_fpath = re.sub(",t=0,0pre-bleach.lsm$", ",t=0,1post-bleach.lsm",
+                        pre_fpath)
+
+    spot_montage_fname = "position="+ position +"-spot_montage.png"
     fancy_frap.append(env.OctaveScript(
       script = find_spot_montage,
-      source = [pre_dataset, post_dataset, series_dataset],
-      target = env.File(os.path.join("results", str(pre_dataset) + ".png")),
+      source = [env.File(f) for f in [pre_fpath, post_fpath, series_fpath]],
+      target = env.File(os.path.join(results_path, spot_montage_fname)),
     ))
-
 
 
 ##
