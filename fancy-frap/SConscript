@@ -63,7 +63,7 @@ fancy_frap = []
 ## The scripts
 ##
 
-find_spot_montage = env.File(path4script("fancy-frap.m"))
+montage_bleach_spot = env.File(path4script("montage_bleach_spot.m"))
 create_position_image = env.File(path4script("create_position_image.m"))
 
 
@@ -95,7 +95,7 @@ for root, dirs, files in os.walk(os.path.join('data', 'frapping')):
 
     spot_montage_fname = "position="+ position +"-spot_montage.png"
     helper_results.append(env.OctaveScript(
-      script = find_spot_montage,
+      script = montage_bleach_spot,
       source = img_args,
       target = env.File(os.path.join(results_path, spot_montage_fname)),
     ))
@@ -106,7 +106,6 @@ for root, dirs, files in os.walk(os.path.join('data', 'frapping')):
       source = img_args,
       target = env.File(os.path.join(results_path, position_image_fname)),
     ))
-
 
 ##
 ## "Configure" - check that we have all the required tools installed
