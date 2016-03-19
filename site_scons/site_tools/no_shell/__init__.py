@@ -23,6 +23,7 @@
 import subprocess
 
 import SCons.Script
+import SCons.Errors
 
 ## NoShellCommand
 ##
@@ -49,13 +50,16 @@ def no_shell_command_strfunc(target, source, env):
 
 def no_shell_output(target, source, env):
   args = [str(x) for x in env['action']]
+  if len(target) > 1:
+    raise SCons.Errors.UserError("NoShellOutput biulder: target must be single element")
+  target = target[0]
   with open(str(target), "w") as outfile:
     return subprocess.call(args, stdout=outfile)
 
 def no_shell_output_strfunc(target, source, env):
   args = env['action']
   args_str = " ".join(["'%s'" % (arg) for arg in args[1:]])
-  return "$ %s %s > %s" % (args[0], args_str, target)
+  return "$ %s %s > %s" % (args[0], args_str, target[0])
 
 
 def generate(env):
