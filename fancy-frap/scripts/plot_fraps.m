@@ -15,6 +15,8 @@
 ## You should have received a copy of the GNU General Public License
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 
+pkg load image;
+
 pkg load bioformats;
 javaMethod ('enableLogging', 'loci.common.DebugTools', 'ERROR');
 
@@ -97,6 +99,15 @@ function [img, t] = read_lsm_fancy_frap (pre_fpath, post_fpath, post_series_fpat
 
 endfunction
 
+function img = denoise (img)
+  ## LSM data is ridiculously noisy.  We use nothing fancy, a simple
+  ## gaussian blurring is enough.
+  sigma = 2;
+  g = fspecial ("gaussian", 2 * ceil (2*sigma) +1, sigma);
+
+  cls = class (img);
+  img = cast (convn (img, g, "same"), cls);
+endfunction
 
 function [rv] = main (coord_fpath, pre_fpath, post_fpath, series_fpath, plot_fpath)
 
@@ -110,6 +121,9 @@ function [rv] = main (coord_fpath, pre_fpath, post_fpath, series_fpath, plot_fpa
 
   timestamps = timestamps(coords(:,4));   # remove time points without data points
   timestamps /= 60; # convert seconds to minutes
+
+
+  img = denoise (img);
 
   act = img(:,:,:,:,1);
   bl = img(:,:,:,:,2);
