@@ -65,7 +65,7 @@ fancy_frap = []
 
 montage_bleach_spot = env.File(path4script("montage_bleach_spot.m"))
 create_position_image = env.File(path4script("create_position_image.m"))
-
+plot_fraps = env.File(path4script("plot_fraps.m"))
 
 ##
 ##
@@ -74,13 +74,40 @@ create_position_image = env.File(path4script("create_position_image.m"))
 for root, dirs, files in os.walk(os.path.join('data', 'frapping')):
   if len(files) == 0:
     continue
+  results_path = data2results(root)
+  path4root_data = lambda x : os.path.join(root, x)
+  path4root_results = lambda x : os.path.join(results_path, x)
 
   series_fpath = [f for f in files if f.startswith("position=1-")]
   if len(series_fpath) != 1:
     ValueError('more that 1 time series file in ""' %root)
-  series_fpath = os.path.join(root, series_fpath[0])
+  series_fpath = env.File(os.path.join(root, series_fpath[0]))
 
-  results_path = data2results(root)
+  ## a dict od dicts, to index like foci["pos_idx"]["foci_idx"]
+  foci = dict()
+  for f in files:
+    foci_match = re.search("^position=(\d+),foci=(\d+).txt$", f)
+    if not foci_match:
+      continue
+    pos_idx = foci_match.group(1)
+    foci_idx = foci_match.group(2)
+    if not foci.has_key(pos_idx):
+      foci[pos_idx] = dict()
+    foci[pos_idx][foci_idx] = f
+
+  for pos_idx, pos_dict in foci.iteritems():
+    for f in pos_dict.itervalues():
+      coord_fpath = env.File(path4root_data(f))
+      pre_fpath = env.File(path4root_data("position=%s,t=0,0pre-bleach.lsm" % pos_idx))
+      post_fpath = env.File(path4root_data("position=%s,t=0,1post-bleach.lsm" % pos_idx))
+
+      plot_fname = env.File(path4root_results("%s.png" % os.path.splitext(f)[0]))
+      fancy_frap.append(env.OctaveScript(
+        script = plot_fraps,
+        source = [coord_fpath, pre_fpath, post_fpath, series_fpath],
+        target = plot_fname,
+      ))
+
   for f in files:
     if not f.endswith("pre-bleach.lsm"):
       continue
@@ -97,7 +124,7 @@ for root, dirs, files in os.walk(os.path.join('data', 'frapping')):
     helper_results.append(env.OctaveScript(
       script = montage_bleach_spot,
       source = img_args,
-      target = env.File(os.path.join(results_path, spot_montage_fname)),
+      target = env.File(path4root_results(spot_montage_fname)),
     ))
 
     position_image_fname = "position="+ position +".tif"
@@ -106,6 +133,7 @@ for root, dirs, files in os.walk(os.path.join('data', 'frapping')):
       source = img_args,
       target = env.File(os.path.join(results_path, position_image_fname)),
     ))
+
 
 ##
 ## "Configure" - check that we have all the required tools installed
