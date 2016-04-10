@@ -109,40 +109,95 @@ function img = denoise (img)
   img = cast (convn (img, g, "same"), cls);
 endfunction
 
+## We are finding the bleach area by watershed on the pre-bleach image.
+## Return a 2d array of subscript offsets (1 point per row) for the pre bleach
+## time point.
+function [bleach_offsets] = find_bleach_area (img, coords)
+  pre_bl = denoise (img(:,:,:,1,2));
+  wt = watershed (imcomplement (pre_bl));
+
+  first_point_idx = sub2ind (size (pre_bl), coords(1,1), coords(1,2), coords(1,3));
+  label = wt(first_point_idx);
+
+  ## We would have used bwselect if it supported ND
+  marker = false (size (wt));
+  marker(first_point_idx) = true;
+  bleach_spot = imreconstruct (marker, wt == label, 8);
+
+  ## watershed() returns a segmented image with watershed lines that
+  ## reasonably split the plateus regions where different catchment basins
+  ## come together.  However, we don't want any plateu region at all.  So
+  ## we remove the minimun value to get only the catchment basin.
+  bleach_spot = (pre_bl != min (pre_bl(bleach_spot)(:))) & bleach_spot;
+
+  [r, c, z] = ind2sub (size (pre_bl), find (bleach_spot));
+  bleach_offsets_2d = [r c] .- coords(1, 1:2);
+  bleach_offsets = [bleach_offsets_2d zeros(rows (bleach_offsets_2d), 1)];
+endfunction
+
+## Returns cell array with linear indices for each time point.
+function [foci_ind] = bleach_area_idxs (dims, coords, bleach_offsets)
+  ## Cell array with subscript indices for each time point.
+  ## Created from a 3D array of offsets to points of bleach area.  Rows
+  ## are points, columns are dimensions, and 3rd dimension is (was) time.
+  foci_sub = permute (coords(:,1:3), [3 2 1]) .+ bleach_offsets;
+  foci_sub = num2cell (foci_sub, [1 2]);
+
+  ## The bleach region may go out of the image border in some cases, so
+  ## remove them.  It also means that each time pint may end up with
+  ## different number of pixels so we need a cell array.
+  foci_ind = cell (size (foci_sub));
+  for i = 1:dims(4) # should be same as numel (foci_sub)
+    this_time_sub = foci_sub{i};
+    out_of_range = (this_time_sub < 1) | (this_time_sub > dims(1:3));
+    out_of_range_idx = any (out_of_range, 2);
+    this_time_sub(out_of_range_idx, :) = [];
+    time_sub = repmat (coords(i,4), rows (this_time_sub), 1);
+    foci_ind{i} = sub2ind (dims(1:4), num2cell (this_time_sub, 1){:}, time_sub);
+  endfor
+
+endfunction
+
+function [photo_recovery, photo_loss] = get_mean_intensities (img, coords)
+  bleach_offsets = find_bleach_area (img, coords);
+  foci_ind = bleach_area_idxs (size (img), coords, bleach_offsets);
+
+  act_channel = img(:,:,:,:,1);
+  photo_loss = cellfun (@(x) mean (act_channel(x)), foci_ind);
+  bl_channel = img(:,:,:,:,2);
+  photo_recovery = cellfun (@(x) mean (bl_channel(x)), foci_ind);
+endfunction
+
+
 function [rv] = main (coord_fpath, pre_fpath, post_fpath, series_fpath, plot_fpath)
 
   if (nargin != 5)
     error ("usage: plot_fraps.m COORD_FPATH PRE_FPATH POST_FPATH SERIES_FPATH PLOT_FPATH");
   endif
   [img, timestamps] = read_lsm_fancy_frap (pre_fpath, post_fpath, series_fpath);
+  timestamps /= 60; # convert seconds to minutes
 
   coords = read_points (coord_fpath);
   np = rows (coords);
 
-  timestamps = timestamps(coords(:,4));   # remove time points without data points
-  timestamps /= 60; # convert seconds to minutes
+  ## remove time points and img data without data points
+  timestamps = timestamps(coords(:,4));
+  img = img(:,:,:,coords(:,4),:);
 
-
-  img = denoise (img);
-
-  act = img(:,:,:,:,1);
-  bl = img(:,:,:,:,2);
-
-  act_coords = sub2ind (size (img), num2cell (coords, 1){:});
-  bl_coords = sub2ind (size (img), num2cell (coords, 1){:});
+  [photo_recovery, photo_loss] = get_mean_intensities (img, coords);
 
   h = figure ("visible", "off");
-  plot (timestamps, act(act_coords), "-xg;photoactivated;",
-        timestamps, bl(bl_coords), "-xr;photobleached;");
+  plot (timestamps(:), photo_loss(:), "-xg;photoactivated;",
+        timestamps(:), photo_recovery(:), "-xr;photobleached;");
 
   ylabel ("Intensity (uint8)");
   xlabel ("Time (minutes)");
   box ("off");
   legend ("boxoff");
 
+  ## Add some padding before the photoconversion.
   limits = axis ();
-  axis ([limits(1)-10 limits(2:end)]); # some padding before the photoconversion
-
+  axis ([limits(1)-10 limits(2:end)]);
 
   print (plot_fpath);
 
