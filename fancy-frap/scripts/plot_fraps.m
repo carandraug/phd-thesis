@@ -99,38 +99,23 @@ function [img, t] = read_lsm_fancy_frap (pre_fpath, post_fpath, post_series_fpat
 
 endfunction
 
-function img = denoise (img)
-  ## LSM data is ridiculously noisy.  We use nothing fancy, a simple
-  ## gaussian blurring is enough.
-  sigma = 2;
-  g = fspecial ("gaussian", 2 * ceil (2*sigma) +1, sigma);
-
-  cls = class (img);
-  img = cast (convn (img, g, "same"), cls);
-endfunction
-
-## We are finding the bleach area by watershed on the pre-bleach image.
-## Return a 2d array of subscript offsets (1 point per row) for the pre bleach
-## time point.
+## Return a 2d array of subscript offsets (1 point per row) for the pre
+## bleach time point.
 function [bleach_offsets] = find_bleach_area (img, coords)
-  pre_bl = denoise (img(:,:,:,1,2));
-  wt = watershed (imcomplement (pre_bl));
+  sz_timepoint = size (img)(1:3);
 
-  first_point_idx = sub2ind (size (pre_bl), coords(1,1), coords(1,2), coords(1,3));
-  label = wt(first_point_idx);
+  ## We had a fancy logic that would give us a per image mask but then,
+  ## how do we change it (rotate and whatsnot) over time?  Also, it was
+  ## overreacinh and selected too much background.  This simple disk shape
+  ## seems to work just fine.
+  radius = 6;
+  disk = getnhood (strel ("disk", radius, 0));
+  bleach_spot = false (sz_timepoint);
+  bleach_spot([-radius:radius] .+ coords(1,1),
+              [-radius:radius] .+ coords(1,2),
+              coords(1,3)) = disk;
 
-  ## We would have used bwselect if it supported ND
-  marker = false (size (wt));
-  marker(first_point_idx) = true;
-  bleach_spot = imreconstruct (marker, wt == label, 8);
-
-  ## watershed() returns a segmented image with watershed lines that
-  ## reasonably split the plateus regions where different catchment basins
-  ## come together.  However, we don't want any plateu region at all.  So
-  ## we remove the minimun value to get only the catchment basin.
-  bleach_spot = (pre_bl != min (pre_bl(bleach_spot)(:))) & bleach_spot;
-
-  [r, c, z] = ind2sub (size (pre_bl), find (bleach_spot));
+  [r, c, z] = ind2sub (sz_timepoint, find (bleach_spot));
   bleach_offsets_2d = [r c] .- coords(1, 1:2);
   bleach_offsets = [bleach_offsets_2d zeros(rows (bleach_offsets_2d), 1)];
 endfunction
@@ -147,7 +132,7 @@ function [foci_ind] = bleach_area_idxs (dims, coords, bleach_offsets)
   ## remove them.  It also means that each time pint may end up with
   ## different number of pixels so we need a cell array.
   foci_ind = cell (size (foci_sub));
-  for i = 1:dims(4) # should be same as numel (foci_sub)
+  for i = 1:numel (foci_sub) # should be same as rows (coords)
     this_time_sub = foci_sub{i};
     out_of_range = (this_time_sub < 1) | (this_time_sub > dims(1:3));
     out_of_range_idx = any (out_of_range, 2);
@@ -182,7 +167,6 @@ function [rv] = main (coord_fpath, pre_fpath, post_fpath, series_fpath, plot_fpa
 
   ## remove time points and img data without data points
   timestamps = timestamps(coords(:,4));
-  img = img(:,:,:,coords(:,4),:);
 
   [photo_recovery, photo_loss] = get_mean_intensities (img, coords);
 
