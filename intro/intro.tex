@@ -8,7 +8,7 @@
 %%
 %% "A month in the laboratory can often save an hour in the library" F. H. Westheimer
 %%
-%% "Science is what we understand well enough to explain to a computer, Art is all the rest."
+%% "Science is what we understand well enough to explain to a computer. Art is everything else we do."
 %% by Donald E. Knuth (foreword to “A=B” by Petkovsek, W and Z)
 %%
 %% "By relieving the brain of all unnecessary work, a good notation sets it free to
@@ -56,32 +56,88 @@
     \subsubsection{CENP--S/X}
 
 \section{In vivo techniques for quantitative protein dynamics}
-  \subsection{Fluorescent proteins}
   \subsection{FRAP}
 
-    Fluorescence Recovery After Photobleaching has been extensively used to obtain
-    qualitative and quantitative insight on the kinetic properties of proteins. Development of
-    this technique has led to complex models that are both more precise and accurate than
-    simple models based on inverse exponential decay. These take into account important
-    parameters that were previously discarded but have since been shown as important, such as
-    diffusion and the bleach spot profile shape.
+    Fluorescence Recovery After Photobleaching (FRAP) is an optical
+    microscopy technique to measure the dynamics of fluorescently
+    tagged molecules.
+    Originally developed in the 1970's for quantitative dynamics of lipids
+    in cell membrane under the name Fluorescence Photobleaching
+    Recovery (FPR) \citep{axelrod1976mobility}, it has
+    been extensively used to obtain qualitative and quantitative
+    insight on the kinetic properties of proteins since the development
+    of GFP tagging.
+    From studies of X, Y, and Z, to I, J, and K, FRAP is an ubiquitous
+    technique in the field of cell biology with continual reviews being
+    published\addref{for all the reviews about it every year}.
 
-    However, despite the their sophistication, these models of recovery make certain
-    important assumptions:
+    In this technique, fluorescently tagged molecules in a small region
+    are photobleached.  The fluorescent intensity in the region is
+    measured over time to obtain a recovery curve.  The recovery is a
+    function of the molecule dynamics, it represents the unbleached
+    molecules, from outside the bleached region, moving into the
+    photobleached region.  The molecule dynamics is determined by the
+    transport and diffusion rates, as well as binding interactions.
+
+    In the simplest case, a FRAP recovery curve is analysed
+    qualitatively.  By looking at the plotted data, one assesses
+    whether recovery is fast or slow, presence of an immobile
+    fraction and binding interactions, and how this changes
+    between different cases \fref{fig:intro:frap-curve-example}.
+
+    \begin{figure}
+      \centering
+      \missingfigure{shwo recovery curve example, with parts.}
+      \caption{}
+      \label{fig:intro:frap-curve-example}
+    \end{figure}
+
+    In quantitate FRAP, data analysis involves fitting the recovery
+    data to an idealized mathematical model.
+    Many different models exist with different assumptions for the model
+    \fref{fig:intro:frap-model-components}, and dependent on different
+    parameters.
+    Kinetic parameters are typically \Kon{} and \Koff{}, for
+    binding and unbinding rate constants, and $D_{f}$ for diffusion constant.
+    Different parameter values for the model are tested, until a curve is
+    obtained that fits best to the measured recovery.
+
+    \begin{figure}
+      \centering
+      \missingfigure{table of different assumptions as in Macnally's 2010 review}
+      \caption{blah blah blah, there's so many models, how can anyone trust
+               any of this?}
+      \label{fig:intro:frap-model-components}
+    \end{figure}
+
+    Two factors contribute for the widespread use of this technique:
+    it doesn't require specialized instruments and can be performed with
+    any standard confocal microscope or widefield microscope with a laser
+    module; and recovery curves are easy to understand making it easy to
+    identify artifacts.  This is not the case with alternative techniques
+    such as FCS (Fluorescence Correlation Microscopy) or single molecule
+    tracking.
+
+    The technique however has implicit assumptions which are applicable
+    for most biological situations:
+
     \begin{itemize}
-      \item the biological system has reached equilibrium before photobleaching;
-      \item total amount of both Fluorescent Protein (FP) fusion protein and its
-            binding sites remain constant over the time course of the recovery;
-      \item the binding sites are part of a large, relatively immobile complex, at
-            least on the time- and length-scale of the recovery.
+      \item The biological system has reached equilibrium and the equilibrium
+        is maintained throughout the experiment, \ie{} the kinetic parameters
+        must remain constant throughout the experiment;
+
+      \item distribution of tagged protein mimics the endogenous protein;
+
+      \item the binding sites are part of a large, relatively immobile
+        complex, on the time and length scale of the recovery.
     \end{itemize}
 
-    FRAP has been successfully used before to show that different core histones have
-    different kinetics and populations. We expect to be able to use it for \textit{in vivo}
-    validation of previously identified differences between wild type and mutant histones.
+    These assumptions become difficult to maintain as the experiment
+    times increases, a requirement for slow moving molecules.  This
+    is discussed again in \Cref{ch:kill-frap}.
 
   \subsection{iFRAP}
-  \label{sec:iFRAP}
+
 
   \subsection{FLAP}
 
