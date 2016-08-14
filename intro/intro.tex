@@ -34,11 +34,6 @@
 %%of relevant kinetic parameters, principally due to movement of chromatin.
 
 
-
-
-
-
-
 \section{Chromatin organization}
   Chromatin is a dynamic complex that controls access to genetic information by
   undergoing reconfiguration of its structure. Since nucleosomes are the chromatin
@@ -55,7 +50,97 @@
     \subsubsection{CENP--T/W}
     \subsubsection{CENP--S/X}
 
-\section{In vivo techniques for quantitative protein dynamics}
+\section{Fluorescence microscopy}
+
+  Fluorescence microscopy is an essential tool in the field of life
+  sciences for the visualization of cells and tissues.
+  Fluoropores emit light in a specific wavelength after
+  being exposed to another specific wavelength, named
+  emission and excitation wavelength respectively.
+  Illumination of a sample with the excitation wavelength, and filtering
+  out all but the emission wavelength from the formed image, allows
+  the localization of fluorophores in a dark background.
+  If specific molecules and cells can be associated with a fluorophore,
+  so can their localization can be infered, and by choosing fluorophores
+  with different emission wavelengths multiple molecules can be
+  simultaneously identified.
+  It would not be possible in normal optical microscopy.
+
+  \subsection{Fluorescent proteins}
+    Several fluorescent labels have been developed with different
+    properties, each best suited to different techniques.
+    These are often split into two major classes: synthetic fluorescent
+    molecules such as DAPI or Fluorescein, which either bind to the molecule of
+    interest or can be chemically linked to it; and Fluorescent Proteins (FPs)
+    which are genetically encodable and can be expressed by the cells themselves.
+    FPs allow tagging of individual molecules inside live cell, allowing
+    visualization of dynamics in real-time live-cell imaging.
+    Synthetic molecules are added exogenously, which often requires cell
+    fixation and permeabilization disturbing intracellular structures.
+    %% TODO mention synthethic moleculus that bing to proteins with tag like snap
+    %%      Over simplistic?  Fusion proteins for luciferase, etc
+
+    The \species{Aequorea} jellyfish Green Fluorescent Protein (GFP) was
+    the first FP to be expressed recombinantly.
+    Although originally discovered in 1962 \citep{shimomura1962-gfp-discovery},
+    it was only in 1994 that it was used as a gene expression
+    marker, by being placed under the control of \gene{T7} and
+    \gene{mec-7} promoters, in \species{E. coli} and \species{C. elegans}
+    respectively \citep{gfp-first-expression-marker}.
+    %% when was GFP first used as a gene tag?
+
+    Since then, many GFP variants have been engineered by mutating its
+    original nucleotide sequence.  These not only increase fluorescence
+    quantum yield, photostability, and improved folding, but also change
+    the excitation and emission spectrum, providing a wide range of GFP
+    derivatives with different colours.  FPs in other organisms were also
+    discovered and were themselves engineered to provide further improved
+    variants \citep{FP-color-palette}.
+
+    An important class of FPs that have since been developed is the
+    photo-controllable FPs whose
+    fluorescent properties can be controlled by excitation with specific
+    wavelengths allowing for individual cells and proteins to be optically
+    labeled making this proteins specially useful for studies of cell
+    lineage and protein movement.
+    They are phenotypically split into three categories:
+
+    \begin{description}
+      \item[photo-activatable]
+        Irreversible dark to bright state conversion.
+        PA--GFP (Photo Activatable GFP), the first PA--FP to be
+        reported, was developed by mutating the original GFP
+        \citep{pagfp-discovery} and is
+        still the only green PA--FP.
+        It allows to mark and track a subset of selected molecules
+        within cells.
+
+      \item[photo-switchable]
+        Irreversible conversion from one bright state to another bright
+        state with a different emission wavelength.
+        Like PA--FPs, they allow the tracking of a subset of selected
+        molecules with the added advantages that the whole set is visible
+        before the switch, and that the non-switched molecules continue
+        to be visible.
+        The development of proteins from this group started with Kaede FP
+        \footnote{Kaede is named after maple leaf in Japanese but it was
+        actually cloned from \species{Trachyphyllia geoffroyi} which is a
+        stony coral.} whose wild type form is an obligate homotetrameric
+        complex \citep{kaede-discovery}, thus making it
+        unsuitable for use as a genetically encoded fusion tag.
+        Monomeric Kaede-like FP have since been developed such as
+        mEos2 \citep{meos2-discovery}.
+
+      \item[reversible photo-switchable]
+        Reversible conversion between dark and bright states, \eg Dronpa.
+        These FPs have been mostly used in single molecule localization
+        microscopy, a type of super-resolution microscopy, due to the
+        low energy required for the transition between states.
+        %% We could mention RESOLFT but that would be too much detail.
+
+    \end{description}
+
+
   \subsection{FRAP}
 
     Fluorescence Recovery After Photobleaching (FRAP) is an optical
@@ -140,14 +225,4 @@
 
 
   \subsection{FLAP}
-
-
-
-
-
-
-
-
-
-
 
