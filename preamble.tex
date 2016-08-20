@@ -123,6 +123,14 @@
 
 \newcommand{\captionIntro}[2]{\caption[#1]{\textbf{#1} #2}}
 
+%% Just like we have cite and citep to cite in text and between parentheses,
+%% have the same for fref, tref, etc...
+\newcommand{\frefp}[1]{(\fref{#1})}
+\newcommand{\trefp}[1]{(\tref{#1})}
+\newcommand{\Crefp}[1]{(\Cref{#1})}
+\newcommand{\Srefp}[1]{(\Sref{#1})}
+
+
 \newcommand{\species}[1]{\textit{#1}}
 
 %% NCBI Style Guide, Chapter 5 "Style Points and Conventions", recommends

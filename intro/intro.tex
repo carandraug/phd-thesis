@@ -42,40 +42,133 @@
   being an estimate for an haploid genome, means that the human cell will
   typically have \SI{6.4}{\giga\bp} worth of genomic information inside
   its nucleus.
-  All of this is organised in a large DNA--protein complex known as chromatin.
+  All of this is organised in a large DNA--protein complex named chromatin.
 
   In chromatin, access to the genomic information is not all equal.
   There is an hierarchical structure with
-  multiple levels of compaction
-  that are achieved by folding the previous level into higher order structures
-  that eventually form a chromosome.
-  As the compaction level increases, access to the underlying genomic
+  multiple levels of compaction that starts with DNA being wrapped
+  around the nucleosome core particle, and continues
+  by folding the previous level into higher order structures
+  until it eventually forms a chromosome \frefp{fig:intro:chromatin-structure}.
+  As the level of compaction increases, access to the underlying genomic
   information decreases.
   The most simplistic and common view on the subject
   identifies two levels: euchromatin and heterochromatin, for low and
   high compaction respectively.
   This binary distinction is associated with active and inactive genes
   since high level of compaction prevents DNA transcription by blocking
-  access to the all the required machinery.
+  access to the required machinery.
+
+  \begin{figure}
+    \centering
+    \missingfigure{diagram from alberts 5th edition}
+    \captionIntro{Overview of the chromatin hierarchical structure.}%
+                 {At the lowest level is the ``beads on a string''
+                  appearance of the nucleosome around which DNA is
+                  wrapped.  This basic unit is repeated and folded
+                  multiple times, forming the \SI{30}{\nano\meter}
+                  fiber, followed by the \SI{100}{\nano\meter} fiber,
+                  and finally the mitotic chromosome.  However, while
+                  the nucleosome and mitotic chromosome are well
+                  established, the actual structure of the intermediary
+                  levels are still controversy.}
+    \label{fig:intro:chromatin-structure}
+  \end{figure}
 
   However, chromatin function is not limited to the compaction of DNA
   to fit on the
-  cell nucleus, although it is often seen as so.
+  cell nucleus, and hampered access to the DNA is not a negative side
+  effect, although it is often portrayed as such.
   Chromatin controls access
-  to the DNA which also means controlling transcription and replication, as
+  to the DNA which means controlling transcription, replication,
+  and recombination, as
   well as protecting DNA from damage;  it is about controlled and efficient
   access to genomic information, and not about a barrier problem for the sake
   of compaction.
 
   \subsection{Nucleosome structure}
 
+    At the lowest level of chromatin structure is the nucleosome.
+    Each nucleosome is composed of the nucleosome core particle,
+    \SI{147}{\bp} of DNA wrapped around
+    an histone protein octamer,
+    and a stretch of variable length linker DNA which connects
+    to the following nucleosome.  Altogether, the nucleosome forms
+    a repeating unit that includes \SIrange{165}{245}{\bp}
+    \citep{widom1992-linker-length}.
+
+    The first view of the nucleosome under a microscope revealed the
+    classic beads on a string \footnote{originally, ``particles on a string''}
+    structure of chromatin fibers
+    \frefp{fig:intro:beads-on-a-string} \citep{olin1974-nu-bodies},
+    establishing its position as the repeating subunit of chromatin.
+    These results were a surprise as it departed from the then current view
+    of chromatin structure as a uniform superhelical coiling of the
+    DNA itself, stabilised by histone interactions
+    \citep{pardon-wilkins-1972model}.
+
+    Associated with the discovery of interactions between histones,
+    first between H2A and H2B \citep{anna-isenberg-1974-h2a-h2b}, and
+    then between H3 and H4 \citep{kornberg1974-results};
+    the previous knowledge of the main histones being present in
+    roughly equimolar concentrations with four histones per
+    \SI{100}{\bp} of DNA \addref{where is this?};
+    %% They didn't actually refer to 200bp on this paper, there is
+    %% no ladder on the figure.  It's Kornberg on the notes of his
+    %% references that mentions:
+    %%    "the extent of digestion and size of the pieces are
+    %%    from D. R. Hewish, personal communication
+    %%    (the size was determined by velocity sedimenta-
+    %%    tion in alkali and should be regarded as only
+    %%    approximate)."
+    and digestion of chromating by nucleases yielding
+    \SI{200}{\bp} fragments \citep{hewish1973-200bp-pieces};
+    led to the basic model of the nucleosome as is known today
+    \frefp{fig:intro:chromatin-model-1975}:
+
+    \begin{quotation}
+      Chromatin structure is based on a repeating unit of eight
+      histone molecules and about 200 DNA base pairs.
+      \sourceatright{\cite{kornberg1974-model}}
+    \end{quotation}
+
+    More details on the structure of the nucleosome core particle required
+    solving its crystal structure.  Solving the structure by X-ray
+    diffraction was initially reported in 1977
+    \citep{finch1977-first-structure}
+    with a low resolution until a reaching an
+    intermediate resolution of \SI{7}{\angstrom} model \citep{richmond1984-7angstrom}.
+    A high resolution strucuture with \SI{2.8}{\angstrom} would be solved much later
+    showing the molecular interactions between the histones and DNA
+    \citep{luger1997-28angstrom}.
+
+
     \begin{figure}
       \centering
-      \missingfigure{subfigures with typical scheme of a nucleosome, side
-        by side with 3d structure structure.  Show histone fold domain by making
-        figures for each pair.}
-      \caption{people usually draw as a tuna can. Here's how it really
-        looks like.}
+      \subbottom[]{%
+        %% a) rat thymus positive staining, b) rat thymus negative staining,
+        %% c) chicken erythrocyte positive staining.
+        %% Maybe we should include only one of this pictures.
+        \includegraphics[width=\textwidth]%
+        {"intro/figures/beads-on-a-string"}
+        \label{fig:intro:beads-on-a-string}
+      }
+      \subbottom[]{%
+        \missingfigure{subfigures with typical scheme of a nucleosome, side
+            by side with 3d structure structure.  Show histone fold domain by making
+            figures for each pair. see fig 2.5 of van holde}
+        \label{fig:intro:chromatin-model-1975}
+      }
+      \captionIntro{Schematic of nucleosome in chromatin fibers.}%
+                   {\subcaptionref{fig:intro:beads-on-a-string} Rat thymus
+                    and chicken erythrocyte chromatin fibers
+                    spilling out of ruptured nuclei depicting the
+                    classic beads on a string.
+                    Scale bars of \SI{0.2}{\micro\meter}.
+                    First published report on
+                    visualization of nucleosomes, originally named
+                    \textnu~bodies \citep{olin1974-nu-bodies}.
+                    \subcaptionref{fig:intro:chromatin-model-1975}
       \label{fig:intro:nucleosome-structure}
     \end{figure}
 
