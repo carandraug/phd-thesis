@@ -44,13 +44,22 @@ figs = []
 for f in ["NUI_Galway_BrandMark_B.eps"]:
   figs.append(os.path.join("figs", f))
 
+intro = env.SConscript(dirs="intro", exports=["env"])
 methods = env.SConscript(dirs="methods", exports=["env"])
 software = env.SConscript(dirs="software", exports=["env"])
 kill_frap = env.SConscript(dirs="kill-frap", exports=["env"])
 fancy_frap = env.SConscript(dirs="fancy-frap", exports=["env"])
 h2ax_review = env.SConscript(dirs="h2ax-review", exports=["env"])
 
-env.Depends(thesis, [figs, methods, software, kill_frap, fancy_frap, h2ax_review])
+env.Depends(thesis, [
+  figs,
+  intro,
+  methods,
+  software,
+  kill_frap,
+  fancy_frap,
+  h2ax_review
+])
 
 
 ##

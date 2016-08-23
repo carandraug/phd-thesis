@@ -1,0 +1,73 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os.path
+
+Import('env')
+
+def path4data(fname=""):
+  return os.path.join("data", fname)
+
+def path4script(fname=""):
+  return os.path.join("scripts", fname)
+
+def path4result(fname=""):
+  return os.path.join("results", fname)
+
+
+## The actual dependencies for the thesis.
+intro = []
+
+##
+## The scripts
+##
+
+nucleosome_views_script = env.File(path4script("nucleosome-views.py"))
+
+nucleosome_views = {
+  'H2A' : 'nucleosome-h2a',
+  'H2B' : 'nucleosome-h2b',
+  'H2A-H2B' : 'nucleosome-h2a-h2b-dimer',
+}
+
+nucleosome_2cv5 = path4data('2cv5.pdb')
+for view, fname in nucleosome_views.iteritems():
+  target = path4result(fname + '.png')
+  view_fig = env.Command(target=target, source=nucleosome_2cv5,
+                         SCRIPT=nucleosome_views_script,
+                         action='pymol -cq $SCRIPT -- $SOURCE %s $TARGET' % view)
+  intro.append(view_fig)
+
+
+##
+## "Configure" - check that we have all the required tools installed
+##
+
+def CheckProg(context, prog_name):
+  context.Message("Checking for %s..." % prog_name)
+  is_ok = context.env.WhereIs(prog_name)
+  context.Result(is_ok)
+  return is_ok
+
+conf = Configure (
+  env,
+  custom_tests = {
+    "CheckProg" : CheckProg,
+  },
+)
+
+## How the fuck is this not the default in SCons?
+if not env.GetOption('help'):
+  progs = {
+    "pymol"
+      : "pymol must be installed to draw nucleosome structure",
+  }
+
+  for p_name, p_desc in progs.iteritems():
+    if not conf.CheckProg(p_name):
+      print p_desc
+      Exit(1)
+
+env = conf.Finish()
+
+Return (['intro'])
