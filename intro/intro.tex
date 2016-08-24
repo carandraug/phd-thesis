@@ -71,7 +71,7 @@
                   and finally the mitotic chromosome.  However, while
                   the nucleosome and mitotic chromosome are well
                   established, the actual structure of the intermediary
-                  levels are still controversy.}
+                  levels are still controversial.}
     \label{fig:intro:chromatin-structure}
   \end{figure}
 
@@ -89,9 +89,9 @@
   \subsection{Nucleosome structure}
 
     At the lowest level of chromatin structure is the nucleosome.
-    Each nucleosome is composed of the nucleosome core particle,
+    Each nucleosome is composed of the nucleosome core particle ---
     \SI{147}{\bp} of DNA wrapped around
-    an histone protein octamer,
+    an histone protein octamer ---
     and a stretch of variable length linker DNA which connects
     to the following nucleosome.  Altogether, the nucleosome forms
     a repeating unit that includes \SIrange{165}{245}{\bp}
@@ -132,17 +132,6 @@
       \sourceatright{\cite{kornberg1974-model}}
     \end{quotation}
 
-    More details on the structure of the nucleosome core particle required
-    solving its crystal structure.  Solving the structure by X-ray
-    diffraction was initially reported in 1977
-    \citep{finch1977-first-structure}
-    with a low resolution until a reaching an
-    intermediate resolution of \SI{7}{\angstrom} model \citep{richmond1984-7angstrom}.
-    A high resolution strucuture with \SI{2.8}{\angstrom} would be solved much later
-    showing the molecular interactions between the histones and DNA
-    \citep{luger1997-28angstrom}.
-
-
     \begin{figure}
       \centering
       \subbottom[]{%
@@ -169,23 +158,117 @@
                     visualization of nucleosomes, originally named
                     \textnu~bodies \citep{olin1974-nu-bodies}.
                     \subcaptionref{fig:intro:chromatin-model-1975}
-      \label{fig:intro:nucleosome-structure}
+      people usually draw as a tuna can. Here's how it really
+        looks like.}
     \end{figure}
 
-    Histone Fold Domain
+    More details on the structure of the nucleosome core particle required
+    solving its crystal structure.  Solving the structure by X-ray
+    diffraction was initially reported in 1977
+    \citep{finch1977-first-structure}
+    with a low resolution until a reaching an
+    intermediate resolution of
+    revealing a disk shaped (H3--H4)\textsubscript{2} symmetric tetramer
+    at the center of the nucleosome, two H2A--H2B dimers,
+    one on each face of the disk, and the DNA sequence around it
+    making several interactions with the histones octamer within
+    \SI{7}{\angstrom} model \citep{richmond1984-7angstrom}.
+    High resolutions structure was solved later
+    \citep{arents1991-31angstrom,luger1997-28angstrom}
+    with \SI{3.1}{\angstrom} and \SI{2.8}{\angstrom}
+    respectively
+    first showing the individual histone fold, named histone fold domain,
+    and the ``handshake'' motif between the assembled histone dimers;
+    and later the atomic interactions between the histones and their
+    internal structure.
 
-    histone fold complex
+    A list of some of the
+    different nucleosome crystal structures solved to date along with their histone species
+    composition and DNA sequence is given in \addref{Tan and Davey, 2011}.
 
-  \subsection{Chromatin as substrate}
+  \todo[inline]{Can we add section about histones on the introduction?  That is
+        already the whole chapter of histone catalogue.  Maybe not since
+        that is not required knowledge for the results chapter.
+        Maybe make a reference that histones are better explained in
+        that chapter?}
 
-  \subsection{Chromatin remodelling}
+    \subsubsection{Histone Fold Domain}
 
-\section{Centromeres --- specialized chromatin}
-  \subsection{Centromere and kinetochore structure}
-    \subsubsection{Timing of assembly}
-  \subsection{Histone Fold Domain}
-    \subsubsection{CENP--T/W}
-    \subsubsection{CENP--S/X}
+      %% \textalpha1--L1--\textalpha2--L2--\textalpha3
+      Core histone proteins share a common structural domain named
+      histone fold, which consists of a long central
+      \textalpha-helix flanked on both sides by a loop
+      and shorter \textalpha-helices \citep{arents1991-31angstrom, arents1995histone-fold}.
+      This domain allows for the characteristic ``handshake'' motif
+      of dimer assembly where the central \textalpha-helix of each
+      histone crosses each other and fits between the shorter
+      \textalpha-helices of the other \frefp{fig:intro:histone-dimers-structure}.
+      It gives histones an extensive molecular contact interface
+      between each other.
+
+      %% We could also write how interesting the histone fold is from an
+      %% evolutionary point of view.  See Arents and Moudrianakis 1995.
+
+      In addition, each histone have extra \textalpha-helix, \textbeta-strands,
+      and unstructured N-- and C-- terminals \addref{add a figure with secondary structure}.
+
+      \begin{figure}
+        %% Two possible configurations:
+        %%
+        %%  This has a nice hierarchy that matches the nucleosome structure
+        %%  so it's obvious to see the levels.
+        %%  +-------+-------+-------+-------+
+        %%  |       |       |       |       |
+        %%  |  H2A  |  H2B  |   H3  |   H4  |
+        %%  |       |       |       |       |
+        %%  +-------+-------+-------+-------+
+        %%  |    H2A-H2B    |     H3-H4     |
+        %%  |     dimer     |     dimer     |
+        %%  +---------------+---------------+
+        %%  |                               |
+        %%  |          nucleosome           |
+        %%  |                               |
+        %%  +-------------------------------+
+        %%
+        %%  This has the dimer on the same size as the individual histones
+        %%  and makes it easier to see where each fits.
+        %%  +--------+--------+-------------+
+        %%  |        |        |             |
+        %%  |   H2A  |   H2B  |   H2A-H2B   |
+        %%  |        |        |    dimer    |
+        %%  +--------+--------+-------------+
+        %%  |        |        |             |
+        %%  |    H3  |   H4   |    H3-H4    |
+        %%  |        |        |    dimer    |
+        %%  +--------+--------+-------------+
+        %%  |                               |
+        %%  |          nucleosome           |
+        %%  |                               |
+        %%  +-------------------------------+
+        \centering
+        \subbottom[]{%
+          \missingfigure{secondary structure of histones}
+          \label{fig:intro:histone-secondary-structure}
+        }
+        \subbottom[]{%
+          \includegraphics[width=0.32\textwidth]%
+          {"intro/results/nucleosome-h2a"}
+          \includegraphics[width=0.32\textwidth]%
+          {"intro/results/nucleosome-h2b"}
+          \includegraphics[width=0.32\textwidth]%
+          {"intro/results/nucleosome-h2a-h2b-dimer"}
+          \label{fig:intro:individual-histone-structure}
+        }
+        \subbottom[]{%
+          \label{fig:intro:histone-dimers-structure}
+        }
+        \subbottom[]{%
+          \missingfigure{nucleosome structure}
+          \label{fig:intro:nucleosome-structure}
+        }
+        \captionIntro{Structure of the nucleosome core particle and constituents.}%
+                     {lalala}
+      \end{figure}
 
 \section{Fluorescence microscopy}
 
