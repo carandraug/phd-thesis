@@ -51,7 +51,7 @@ intro.append(env.File("intro.tex"))
 ## Figures to be created
 ##
 
-intro.append(env.PDF_TEX(path4figure('chromatin-hierarchy-alberts-3rd-ed.svg')))
+intro.append(env.PDF_TEX(path4figure('chromatin-hierarchy-diagram.svg')))
 
 
 ##
