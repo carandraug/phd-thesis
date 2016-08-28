@@ -1,42 +1,10 @@
 \chapter{Introduction}
-\label{ch:intro}
-
-\epigraph{You need a David filter or you'll go crazy.}{Holger Stephan}
-%% because this is the chapter where I'll talk a lot
-%%
-%% "Don't indulge in sesquipedalian lexicological constructions" William Safire's Rules for Writers
-%%
-%% "A month in the laboratory can often save an hour in the library" F. H. Westheimer
-%%
-%% "Science is what we understand well enough to explain to a computer. Art is everything else we do."
-%% by Donald E. Knuth (foreword to “A=B” by Petkovsek, W and Z)
-%%
-%% "By relieving the brain of all unnecessary work, a good notation sets it free to
-%% concentrate on more advanced problems, and, in effect, increases the mental power
-%% of the race." Quoted in P. Davis and R. Hersh The Mathematical Experience (Boston 1981)
-%%
-%% "The gall of them, fighting back!" -- Tyrion Lannister
-
-%% FIXME 2nd year report abstract
-%%The nucleosome is the fundamental structural unit of chromatin and the foundation
-%%of it dynamics. Certain mutants have been shown to have a large effect on the
-%%stability of the nucleosome \textit{in vitro} and to mimic chromatin remodelling
-%%complexes in yeast.
-%%
-%%Fluorescence Recovery After Photobleaching (FRAP) has been previously used to
-%%measure kinetics of endogenous histones. We are attempting to use it to measure
-%%differences between wild type histones and mutants showing unusual \textit{in vitro} dynamics.
-%%
-%%We have developed two programs on the GNU Octave programming language, CropReg and
-%%FRAPINATOR which was released under GPL. CropReg is able to track the nuclei of moving
-%%cells. FRAPINATOR is able to do all the image processing, data extraction and fitting
-%%of our FRAP experiments. These have revealed significant challenges to the determination
-%%of relevant kinetic parameters, principally due to movement of chromatin.
 
 \section{Chromatin}
 
-  %% This estimate ignores mitochondrial DNA (but at this scale, its size
-  %% is negligible anyway).
+  %% This estimate ignores mitochondrial DNA but at this scale its size
+  %% is negligible anyway, and we are talking about fitting it into the
+  %% nucleus anyway.
   The human genome has been estimated to be about \num{3.2e9}
   base pairs long \citep{nature-first-human-genome-draft}, which
   being an estimate for an haploid genome, means that the human cell will
@@ -45,56 +13,66 @@
   All of this is organised in a large DNA--protein complex named chromatin.
 
   In chromatin, access to the genomic information is not all equal.
-  There is an hierarchical structure with
-  multiple levels of compaction that starts with DNA being wrapped
-  around the nucleosome core particle, and continues
-  by folding the previous level into higher order structures
-  until it eventually forms a chromosome \frefp{fig:intro:chromatin-structure}.
-  As the level of compaction increases, access to the underlying genomic
+  It is organized in hierarchical structure with
+  multiple levels of compaction \frefp{fig:intro:chromatin-structure} and
+  as the level of compaction increases, access to the underlying genomic
   information decreases.
   The most simplistic and common view on the subject
   identifies two levels: euchromatin and heterochromatin, for low and
   high compaction respectively.
   This binary distinction is associated with active and inactive genes
   since high level of compaction prevents DNA transcription by blocking
-  access to the required machinery.
+  the access of the required machinery.
+
+  However, chromatin function is not limited to the compaction of DNA
+  so it fits on the
+  cell nucleus, and hampered access to the DNA is not a negative side
+  effect although it is often portrayed as such.
+  Chromatin controls access
+  to the DNA which means controlling transcription, replication,
+  and recombination, as
+  well as protecting DNA from damage;  it is about controlled and efficient
+  access to genomic information and not about a barrier problem for the sake
+  of compaction.
+
+  In the chromatin hierarchical structure, the nucleosome is the
+  basic repeating unit.
+  An array of nucleosomes is then folded into a chromatin fiber by
+  short-range interactions between neighbouring nucleosomes,
+  and the subsequent interactions between chromatin fibers shape the
+  condensed chromosome structure \frefp{fig:intro:chromatin-structure}.
+  Or so is in the traditionally accepted model.  While the nucleosome
+  structure is well established, details on the structure of the
+  intermediary structures are still controversial and some recent models
+  eschew them altogether
+  \citep{fussner2011-no-30nm-fibre, luger2012-chromatin-review}.
 
   \begin{figure}
     \centering
     \def\svgwidth{\textwidth}
     \subinputfrom{figures/}{chromatin-hierarchy-diagram.pdf_tex}
     \captionIntro{Overview of the chromatin hierarchical structure.}%
-                 {At the lowest level is the ``beads on a string''
-                  appearance of the nucleosome around which DNA is
-                  wrapped.  This basic unit is repeated and folded
-                  multiple times, forming the \SI{30}{\nano\meter}
-                  fiber, followed by the \SI{100}{\nano\meter} fiber,
-                  and finally the mitotic chromosome.  However, while
-                  the nucleosome and mitotic chromosome are well
-                  established, the actual structure of the intermediary
-                  levels are still controversial.
+                 {At the lowest level are the nucleosomes around which
+                  DNA is wrapped.
+                  This basic unit is repeated multiple times to form
+                  the classical view of ``beads on a string''
+                  \frefp{fig:intro:beads-on-a-string},
+                  which is folded on itself to form the
+                  \SI{30}{\nano\meter} fibre,
+                  which is also folded on itself to form higher
+                  compaction fibres until it finally forms the
+                  mitotic chromosome.
                   Figure adapted from \cite{alberts} and \cite{lodish}.}
     \label{fig:intro:chromatin-structure}
   \end{figure}
 
-  However, chromatin function is not limited to the compaction of DNA
-  to fit on the
-  cell nucleus, and hampered access to the DNA is not a negative side
-  effect, although it is often portrayed as such.
-  Chromatin controls access
-  to the DNA which means controlling transcription, replication,
-  and recombination, as
-  well as protecting DNA from damage;  it is about controlled and efficient
-  access to genomic information, and not about a barrier problem for the sake
-  of compaction.
+  \subsection{Nucleosome}
 
-  \subsection{Nucleosome structure}
-
-    At the lowest level of chromatin structure is the nucleosome.
-    Each nucleosome is composed of the nucleosome core particle ---
+    At the lowest level of chromatin compaction is the nucleosome.
+    Each one is composed of the nucleosome core particle ---
     \SI{147}{\bp} of DNA wrapped around
-    an histone protein octamer ---
-    and a stretch of variable length linker DNA which connects
+    an histone protein octamer --- and the linker DNA ---
+    a stretch of variable length DNA which connects
     to the following nucleosome.  Altogether, the nucleosome forms
     a repeating unit that includes \SIrange{165}{245}{\bp}
     \citep{widom1992-linker-length}.
