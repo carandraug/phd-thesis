@@ -79,6 +79,12 @@
 
 \usepackage[final]{graphicx}
 
+%% Input files that input others relative to themselves instead of
+%% relative to the initial tex file.  Handy for each chapter but an
+%% absolute requirement to include the pdf_tex figures from inkscape
+%% which call includegraphics with the filename only.
+\usepackage{import}
+
 \usepackage{amsmath}
 
 \usepackage[textsize=footnotesize]{todonotes}
