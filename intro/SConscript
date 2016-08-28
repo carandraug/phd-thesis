@@ -37,6 +37,16 @@ def path4result(fname=""):
 ## The actual dependencies for the thesis.
 intro = []
 
+## Raw figures and files
+##
+## SCons parses the files itself and so misses the files dependencies
+## because we use subinputfrom and subincludefrom.
+
+for f in ['beads-on-a-string.png']:
+  intro.append(env.File(path4figure(f)))
+
+intro.append(env.File("intro.tex"))
+
 ##
 ## Figures to be created
 ##
