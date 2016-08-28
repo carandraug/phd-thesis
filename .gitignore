@@ -46,5 +46,9 @@ config.log
 data/
 results/
 
+## inkscape with --export-latex
+*.pdf_tex
+
 ## Because Andrew uses Mac
 .DS_Store
+
