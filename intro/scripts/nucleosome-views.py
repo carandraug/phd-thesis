@@ -110,6 +110,7 @@ def main(pdb_fpath, view_name, png_fpath):
 
   cmd.hide("all")
 
+  cmd.set('cartoon_cylindrical_helices', '1') # solid cylinders instead of ribbon helices
   cmd.set('ray_opaque_background', 0) # transparent background
   cmd.set('ray_trace_color', 'black') # outline colour
   cmd.set('ray_trace_mode', 3) # 3 = quantized color + black outline
