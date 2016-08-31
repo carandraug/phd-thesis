@@ -63,7 +63,10 @@ nucleosome_views_script = env.File(path4script("nucleosome-views.py"))
 nucleosome_views = {
   'H2A' : 'nucleosome-h2a',
   'H2B' : 'nucleosome-h2b',
+  'H3'  : 'nucleosome-h3',
+  'H4'  : 'nucleosome-h4',
   'H2A-H2B' : 'nucleosome-h2a-h2b-dimer',
+  'H3-H4'   : 'nucleosome-h3-h4-dimer',
 }
 
 nucleosome_2cv5 = path4data('2cv5.pdb')
@@ -72,6 +75,7 @@ for view, fname in nucleosome_views.iteritems():
   view_fig = env.Command(target=target, source=nucleosome_2cv5,
                          SCRIPT=nucleosome_views_script,
                          action='pymol -cq $SCRIPT -- $SOURCE %s $TARGET' % view)
+  env.Depends(view_fig, [nucleosome_views_script])
   intro.append(view_fig)
 
 

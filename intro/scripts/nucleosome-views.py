@@ -58,6 +58,16 @@ def set_H2A_H2B_view():
     -502.546875000,  869.908813477,  -20.000000000''')
   cmd.ray(300, 500)
 
+def set_H3_H4_view():
+  cmd.set_view('''
+       0.839876473,   -0.352466851,    0.412677944,\
+       0.326860875,   -0.278449327,   -0.903084040,\
+       0.433210075,    0.893399477,   -0.118660636,\
+      -0.003059018,   -0.001732945, -222.018493652,\
+       3.171439171,   25.884944916,   32.959381104,\
+    -163.193908691,  607.508605957,  -20.000000000''')
+  cmd.ray(300, 500)
+
 def draw_H2A():
   cmd.show("cartoon", "H2A_bottom")
   set_H2A_H2B_view()
@@ -70,6 +80,19 @@ def draw_H2A_H2B_dimer():
   cmd.show("cartoon", "H2A_bottom")
   cmd.show("cartoon", "H2B_bottom")
   set_H2A_H2B_view()
+
+def draw_H3():
+  cmd.show("cartoon", "H3_left")
+  set_H3_H4_view()
+
+def draw_H4():
+  cmd.show("cartoon", "H4_left")
+  set_H3_H4_view()
+
+def draw_H3_H4_dimer():
+  cmd.show("cartoon", "H3_left")
+  cmd.show("cartoon", "H4_left")
+  set_H3_H4_view()
 
 
 def main(pdb_fpath, view_name, png_fpath):
@@ -94,7 +117,10 @@ def main(pdb_fpath, view_name, png_fpath):
   views = {
     'H2A' : draw_H2A,
     'H2B' : draw_H2B,
+    'H3'  : draw_H3,
+    'H4'  : draw_H4,
     'H2A-H2B' : draw_H2A_H2B_dimer,
+    'H3-H4'   : draw_H3_H4_dimer,
   }
   view_func = views.get(view_name)
   if not setup_func:
