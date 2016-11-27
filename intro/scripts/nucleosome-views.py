@@ -68,6 +68,28 @@ def set_H3_H4_view():
     -163.193908691,  607.508605957,  -20.000000000''')
   cmd.ray(300, 500)
 
+def set_nucleosome_top_view():
+  cmd.rotate('x', angle=90)
+  cmd.translate([0, -4, 0])
+  cmd.move('z', -5)
+  cmd.ray(1000, 1000)
+
+def set_nucleosome_side_view():
+  cmd.rotate('z', angle=-90)
+  cmd.rotate('x', angle=180)
+  cmd.ray(600, 1000)
+
+def set_octamer_side_view():
+  cmd.rotate('z', angle=-90)
+  cmd.rotate('x', angle=180)
+  cmd.ray(600, 1000)
+
+def set_tetramer_side_view():
+  cmd.rotate('z', angle=-90)
+  cmd.rotate('x', angle=180)
+  cmd.ray(600, 1000)
+
+
 def draw_H2A():
   cmd.show("cartoon", "H2A_bottom")
   set_H2A_H2B_view()
@@ -93,6 +115,22 @@ def draw_H3_H4_dimer():
   cmd.show("cartoon", "H3_left")
   cmd.show("cartoon", "H4_left")
   set_H3_H4_view()
+
+def draw_nucleosome_top():
+  cmd.show("cartoon", "all")
+  set_nucleosome_top_view()
+
+def draw_nucleosome_side():
+  cmd.show("cartoon", "all")
+  set_nucleosome_side_view()
+
+def draw_octamer_side():
+  cmd.show("cartoon", "H2A or H2B or H3 or H4")
+  set_nucleosome_side_view()
+
+def draw_tetramer_side():
+  cmd.show("cartoon", "H3 or H4")
+  set_nucleosome_side_view()
 
 
 def main(pdb_fpath, view_name, png_fpath):
@@ -122,6 +160,10 @@ def main(pdb_fpath, view_name, png_fpath):
     'H4'  : draw_H4,
     'H2A-H2B' : draw_H2A_H2B_dimer,
     'H3-H4'   : draw_H3_H4_dimer,
+    'nucleosome-top' : draw_nucleosome_top,
+    'nucleosome-side' : draw_nucleosome_side,
+    'octamer-side' : draw_octamer_side,
+    'tetramer-side' : draw_tetramer_side,
   }
   view_func = views.get(view_name)
   if not setup_func:

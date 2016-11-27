@@ -1,29 +1,28 @@
-\chapter{Introduction}
-
 \section{Chromatin}
 
-  %% This estimate ignores mitochondrial DNA but at this scale its size
+  %% Note that the size of an human genome is for an haploid genome.  The
+  %% actual number of bp inside a typical cell will be double of that.
+  %% Also, the estimate ignores mitochondrial DNA but at this scale its size
   %% is negligible anyway, and we are talking about fitting it into the
   %% nucleus anyway.
   The human genome has been estimated to be about \num{3.2e9}
-  base pairs long \citep{nature-first-human-genome-draft}, which
-  being an estimate for an haploid genome, means that the human cell will
+  base pairs long \citep{nature-first-human-genome-draft}
+  meaning that a human cell will
   typically have \SI{6.4}{\giga\bp} worth of genomic information inside
   its nucleus.
   All of this is organised in a large DNA--protein complex named chromatin.
 
   In chromatin, access to the genomic information is not all equal.
-  It is organized in hierarchical structure with
-  multiple levels of compaction \frefp{fig:intro:chromatin-structure} and
-  as the level of compaction increases, access to the underlying genomic
+  It is organized in a hierarchical structure with
+  multiple levels of compaction \frefp{fig:intro:chromatin-structure} where
+  the level of compaction increases as access to the underlying genomic
   information decreases.
   The most simplistic and common view on the subject
-  identifies two levels: euchromatin and heterochromatin, for low and
+  identifies two levels: euchromatin and heterochromatin for low and
   high compaction respectively.
   This binary distinction is associated with active and inactive genes
   since high level of compaction prevents DNA transcription by blocking
   the access of the required machinery.
-
   However, chromatin function is not limited to the compaction of DNA
   so it fits on the
   cell nucleus, and hampered access to the DNA is not a negative side
@@ -33,19 +32,7 @@
   and recombination, as
   well as protecting DNA from damage;  it is about controlled and efficient
   access to genomic information and not about a barrier problem for the sake
-  of compaction.
-
-  In the chromatin hierarchical structure, the nucleosome is the
-  basic repeating unit.
-  An array of nucleosomes is then folded into a chromatin fiber by
-  short-range interactions between neighbouring nucleosomes,
-  and the subsequent interactions between chromatin fibers shape the
-  condensed chromosome structure \frefp{fig:intro:chromatin-structure}.
-  Or so is in the traditionally accepted model.  While the nucleosome
-  structure is well established, details on the structure of the
-  intermediary structures are still controversial and some recent models
-  eschew them altogether
-  \citep{fussner2011-no-30nm-fibre, luger2012-chromatin-review}.
+  of compaction \citep{controlling-double-helix}.
 
   \begin{figure}
     \centering
@@ -66,106 +53,140 @@
     \label{fig:intro:chromatin-structure}
   \end{figure}
 
-  \subsection{Nucleosome}
+  \begin{figure}
+    \centering
+    %% The original image has 3 panels:
+    %%    a) rat thymus positive staining;
+    %%    b) rat thymus negative staining;
+    %%    c) chicken erythrocyte positive staining.
+    %% We don't need to show all of them, so we show only c) because
+    %% it's the nicest looking one.  We crop the other two panels out
+    %% and a bit more too to remove the "C".  We turn it 90 degrees
+    %% to save space too.
+    \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] at (0,0)
+          {\includegraphics[trim=24cm 0 0 0, clip=true, angle=-90,%
+                            width=\textwidth]{"figures/beads-on-a-string"}};
+        \node at (1.7,0.35)
+          {\SI{0.2}{\micro\meter}};
+    \end{tikzpicture}
+    \captionIntro{Classic ``beads on a string'' view of chromatin.}%
+                 {Chicken erythrocyte chromatin negatively stained.
+                  Chromatin fibers are seen spilling out of ruptured
+                  nuclei depicting the classic ``beads on a string''.
+                  First published report on
+                  visualization of nucleosomes, originally named
+                  \textnu~bodies \citep{olins1974-nu-bodies}.}
+    \label{fig:intro:beads-on-a-string}
+  \end{figure}
 
-    At the lowest level of chromatin compaction is the nucleosome.
-    Each one is composed of the nucleosome core particle ---
-    \SI{147}{\bp} of DNA wrapped around
-    an histone protein octamer --- and the linker DNA ---
-    a stretch of variable length DNA which connects
-    to the following nucleosome.  Altogether, the nucleosome forms
-    a repeating unit that includes \SIrange{165}{245}{\bp}
-    \citep{widom1992-linker-length}.
+  In the chromatin hierarchical structure, the nucleosome is the
+  basic repeating unit.
+  An array of nucleosomes is then folded into a chromatin fiber by
+  short-range interactions between neighbouring nucleosomes
+  and the subsequent interactions between chromatin fibers shape the
+  condensed chromosome structure \frefp{fig:intro:chromatin-structure}.
+  Or so is in the traditionally accepted model.  While the nucleosome
+  structure is well established, details on the structure of the
+  intermediary structures are still controversial and some recent models
+  eschew them altogether
+  \citep{fussner2011-no-30nm-fibre, luger2012-chromatin-review}.
 
-    The first view of the nucleosome under a microscope revealed the
-    classic beads on a string \footnote{originally, ``particles on a string''}
-    structure of chromatin fibers
-    \frefp{fig:intro:beads-on-a-string} \citep{olin1974-nu-bodies},
-    establishing its position as the repeating subunit of chromatin.
-    These results were a surprise as it departed from the then current view
-    of chromatin structure as a uniform superhelical coiling of the
-    DNA itself, stabilised by histone interactions
-    \citep{pardon-wilkins-1972model}.
+  The nucleosome itself is composed of a core particle
+  consisting of \SI{147}{\bp} of DNA and an histone protein octamer,
+  and a variable length linker DNA that connects
+  to the following core particles \frefp{fig:intro:nucleosome-top-view}.
+  Altogether, the nucleosome includes \SIrange{165}{245}{\bp} of DNA
+  \citep{widom1992-linker-length}.
 
-    Associated with the discovery of interactions between histones,
-    first between H2A and H2B \citep{anna-isenberg-1974-h2a-h2b}, and
-    then between H3 and H4 \citep{kornberg1974-results};
-    the previous knowledge of the main histones being present in
-    roughly equimolar concentrations with four histones per
-    \SI{100}{\bp} of DNA \addref{where is this?};
-    %% They didn't actually refer to 200bp on this paper, there is
-    %% no ladder on the figure.  It's Kornberg on the notes of his
-    %% references that mentions:
-    %%    "the extent of digestion and size of the pieces are
-    %%    from D. R. Hewish, personal communication
-    %%    (the size was determined by velocity sedimenta-
-    %%    tion in alkali and should be regarded as only
-    %%    approximate)."
-    and digestion of chromating by nucleases yielding
-    \SI{200}{\bp} fragments \citep{hewish1973-200bp-pieces};
-    led to the basic model of the nucleosome as is known today:
+  Nucleosomes act as the substrate for almost all nuclear processes that
+  require access to genomic DNA \citep{controlling-double-helix}.
+  Reconfigurations of local chromatin necessary for these processes can
+  be accomplished by changing nucleosome structure, or altering its
+  composition by incorporation of variant histones or post-translational
+  modifications.
+  Understanding chromatin structure and the nature of changes which can
+  occur requires understanding the biochemical properties of nucleosomes
+  \Srefp{sec:intro:chromatin-remodelling}.
 
-    \begin{quotation}
-      Chromatin structure is based on a repeating unit of eight
-      histone molecules and about 200 DNA base pairs.
-      \sourceatright{\cite{kornberg1974-model}}
-    \end{quotation}
+  \subsection{Histones}
+
+    Histones is a family of proteins, the principal protein component
+    of chromatin, and the only proteins present in the nucleosome.
+    There are five histone types: H1, H2A, H2B, H3, and H4.
+    Histone H1 binds to the linker DNA and is not part of the nucleosome.
+    The other four form the core
+    nucleosome and are therefore referred to as core histones.
+    Their highly basic charge has always been a hallmark characteristic of
+    this proteins.  The DNA polymer is negatively charged and the highly
+    basic histone proteins bind to it, neutralizing the negative charge
+    and allowing for the required compaction of DNA in the nucleus.
+    In addition, histones themselves interact with each other, forming
+    a compact histone octamer structure that further helps with
+    DNA compaction.
+
+    The histone octamer is the central piece of the nucleosome core particle
+    \frefp{fig:intro:nucleosome-top-view}
+    composed of two of each of the core histones arranged in four dimers
+    --- two H2A--H2B and two H3--H4.
+    The two H3--H4 dimers form a disk-shaped (H3--H4)\textsubscript{2}
+    tetramer at the center \frefp{fig:intro:tetramer-side-view}
+    with one H2A--H2B dimer on each face of the disk
+    \frefp{fig:intro:octamer-side-view}
+    and the \SI{147}{\bp} of DNA wrapped around in 1.65~turns
+    \frefp{fig:intro:nucleosome-side-view}.
 
     \begin{figure}
       \centering
-      %% The original image has 3 panels:
-      %%    a) rat thymus positive staining;
-      %%    b) rat thymus negative staining;
-      %%    c) chicken erythrocyte positive staining.
-      %% We don't need to show all of them, so we show only c) because
-      %% it's the nicest looking one.  We crop the other two panels out
-      %% and a bit more too to remove the "C".  We turn it 90 degrees
-      %% to save space too.
-      \includegraphics[trim=24cm 0 0 0, clip=true, angle=-90, width=\textwidth]%
-      {"figures/beads-on-a-string"}
-      \label{fig:intro:beads-on-a-string}
-      \captionIntro{Classic ``beads on a string'' view of chromatin.}%
-                   {Chicken erythrocyte chromatin negatively stained.
-                    Chromatin fibers are seen spilling out of ruptured
-                    nuclei depicting the classic ``beads on a string''.
-                    Scale bars of \SI{0.2}{\micro\meter}.
-                    First published report on
-                    visualization of nucleosomes, originally named
-                    \textnu~bodies \citep{olin1974-nu-bodies}.}
+      \subbottom[]{%
+        \includegraphics[width=0.5\textwidth]%
+        {"results/nucleosome-top"}
+        \label{fig:intro:nucleosome-top-view}
+      }
+
+      %% We definitely want the following 3 images side-by-side
+      \subbottom[Nucleosome core particle]{%
+        \includegraphics[width=0.3\textwidth]%
+        {"results/nucleosome-side"}
+        \label{fig:intro:nucleosome-side-view}
+      }
+      \subbottom[Histone octamer]{%
+        \includegraphics[width=0.3\textwidth]%
+        {"results/octamer-side"}
+        \label{fig:intro:octamer-side-view}
+      }
+      \subbottom[(H3--H4)\textsubscript{2} tetramer]{%
+        \includegraphics[width=0.3\textwidth]%
+        {"results/tetramer-side"}
+        \label{fig:intro:tetramer-side-view}
+      }
+      \captionIntro{Structure of the nucleosome core particle.}%
+                   {Axial view of the nucleosome core particle
+                    facing towards the DNA entry/exit point
+                    \subcaptionref{fig:intro:nucleosome-side-view}
+                    showing 1.65 turns of DNA wrapped around the
+                    histone octamer;
+                    \subcaptionref{fig:intro:octamer-side-view}
+                    DNA hidden showing the histone octamer;
+                    \subcaptionref{fig:intro:tetramer-side-view}
+                    the two H2A--H2B dimers hidden to show the
+                    disk shaped (H3--H4)\textsubscript{2} tetramer center.
+                    Figure generated from PDB structure 2CV5
+                    \citep{tsunaka2005-2cv5}.
+                    Histones H2A, H2B, H3, and H4 are coloured cyan,
+                    grey, yellow, and blue respectively.}
     \end{figure}
 
-    More details on the structure of the nucleosome core particle required
-    solving its crystal structure.  Solving the structure by X-ray
-    diffraction was initially reported in 1977
-    \citep{finch1977-first-structure}
-    with a low resolution until a reaching an
-    intermediate resolution of
-    revealing a disk shaped (H3--H4)\textsubscript{2} symmetric tetramer
-    at the center of the nucleosome, two H2A--H2B dimers,
-    one on each face of the disk, and the DNA sequence around it
-    making several interactions with the histones octamer within
-    \SI{7}{\angstrom} model \citep{richmond1984-7angstrom}.
-    High resolutions structure was solved later
-    \citep{arents1991-31angstrom,luger1997-28angstrom}
-    with \SI{3.1}{\angstrom} and \SI{2.8}{\angstrom}
-    respectively
-    first showing the individual histone fold, named histone fold domain,
-    and the ``handshake'' motif between the assembled histone dimers;
-    and later the atomic interactions between the histones and their
-    internal structure.
+    \subsubsection{Histone and nucleosome structure}
 
-    A list of some of the
-    different nucleosome crystal structures solved to date along with their histone species
-    composition and DNA sequence is given in \addref{Tan and Davey, 2011}.
+      The structure of the core histones proteins themselves, is divided
+      into three parts: histone fold domain --- the central piece of an
+      histone involved in the formation of histone dimers, the histone
+      fold extensions, and the histone tails --- regions of the histone
+      that extend beyond the nucleosome interacting with the DNA and
+      other nucleosomes.
 
-  \todo[inline]{Can we add section about histones on the introduction?  That is
-        already the whole chapter of histone catalogue.  Maybe not since
-        that is not required knowledge for the results chapter.
-        Maybe make a reference that histones are better explained in
-        that chapter?}
-
-    \subsubsection{Histone Fold Domain}
-
+      %% Histone fold domain
       %% \textalpha1--L1--\textalpha2--L2--\textalpha3
       Core histone proteins share a common structural domain named
       histone fold, which consists of a long central
@@ -178,12 +199,6 @@
       and \ref{fig:intro:h3-h4-structure}).
       It gives histones an extensive molecular contact interface
       between each other.
-
-      %% We could also write how interesting the histone fold is from an
-      %% evolutionary point of view.  See Arents and Moudrianakis 1995.
-
-      In addition, each histone have extra \textalpha-helix, \textbeta-strands,
-      and unstructured N-- and C-- terminals \addref{add a figure with secondary structure}.
 
       \begin{figure}
         %% Two possible configurations:
@@ -198,10 +213,6 @@
         %%  |    H2A-H2B    |     H3-H4     |
         %%  |     dimer     |     dimer     |
         %%  +---------------+---------------+
-        %%  |                               |
-        %%  |          nucleosome           |
-        %%  |                               |
-        %%  +-------------------------------+
         %%
         %%  This has the dimer on the same size as the individual histones
         %%  and makes it easier to see where each fits.
@@ -214,54 +225,53 @@
         %%  |    H3  |   H4   |    H3-H4    |
         %%  |        |        |    dimer    |
         %%  +--------+--------+-------------+
-        %%  |                               |
-        %%  |          nucleosome           |
-        %%  |                               |
-        %%  +-------------------------------+
         \centering
-        \subbottom[]{%
+        \subbottom[Histone secondary structure]{%
           \missingfigure{secondary structure of histones}
           \label{fig:intro:histone-secondary-structure}
         }
+
         \subbottom[H2A]{%
-          \includegraphics[width=0.32\textwidth]%
+          \includegraphics[angle=90, width=0.32\textwidth]%
           {"results/nucleosome-h2a"}
           \label{fig:intro:h2a-structure}
         }
         \subbottom[H2B]{%
-          \includegraphics[width=0.32\textwidth]%
+          \includegraphics[angle=90, width=0.32\textwidth]%
           {"results/nucleosome-h2b"}
           \label{fig:intro:h2b-structure}
         }
         \subbottom[H2A--H2B dimer]{%
-          \includegraphics[width=0.32\textwidth]%
+          \includegraphics[angle=90, width=0.32\textwidth]%
           {"results/nucleosome-h2a-h2b-dimer"}
           \label{fig:intro:h2a-h2b-structure}
         }
+
         \subbottom[H3]{%
-          \includegraphics[width=0.32\textwidth]%
+          \includegraphics[angle=90, width=0.32\textwidth]%
           {"results/nucleosome-h3"}
           \label{fig:intro:h3-structure}
         }
         \subbottom[H4]{%
-          \includegraphics[width=0.32\textwidth]%
+          \includegraphics[angle=90, width=0.32\textwidth]%
           {"results/nucleosome-h4"}
           \label{fig:intro:h4-structure}
         }
         \subbottom[H3-H4 dimer]{%
-          \includegraphics[width=0.32\textwidth]%
+          \includegraphics[angle=90, width=0.32\textwidth]%
           {"results/nucleosome-h3-h4-dimer"}
           \label{fig:intro:h3-h4-structure}
         }
-        \subbottom[]{%
-          \missingfigure{nucleosome structure}
-          \label{fig:intro:nucleosome-structure}
-        }
-        \captionIntro{Structure of the nucleosome core particle and constituents.}%
-                     {lalala}
+
+        \captionIntro{Histone fold domain.}%
+                     {lalala.
+                      Figure generated from PDB structure 2CV5
+                      \citep{tsunaka2005-2cv5}.
+                      Histones H2A, H2B, H3, and H4 are coloured cyan,
+                      grey, yellow, and blue respectively.}
       \end{figure}
 
-    \subsubsection{Histone tails}
+      %% Histone tails
 
       Each one of the four core histones has an unstructured N or C
       terminal tail that extend beyond the DNA in the nucleosome core,
@@ -295,10 +305,227 @@
       Phosphorilation of Serine 139 H2AX is involved in DNA repair
       in the recruitment of DNA repair-related proteins \Srefp{app:h2ax-review}.
 
-    \subsubsection{Core histones}
-    
-      They will be discussed with more details on \Sref{section:histone-catalogue}.
+    \subsubsection{Histone variants}
 
+      Each of the histones protein types is encoded by a large family
+      of genes resulting in several slightly different proteins.
+      These are grouped into two classes, canonical isoforms
+      and variant histones, which are based on their gene location,
+      expression characteristics, and functional roles.
+      Canonical isoforms contribute to the majority
+      of histones in chromatin, have high sequence identify, and display
+      largely equivalent functions.  They are discussed in more detail on
+      \Sref{section:histone-catalogue}.
+      Variant histones are present in a smaller number than canonical
+      histones, much different sequences with unique structural features,
+      and perform a variety of specialized functions.  For example, the
+      H2A variant H2AX has a longer C-terminal tail with unique locations
+      for post-translational modifications involved in DNA damage
+      response \Arefp{app:h2ax-review}.  CENP-A is a H3 variant that
+      forms a more compact and rigid nucleosome and has a unique N-terminal
+      tail that is involved in centromere formation \citep{black2011-cenpa}.
+
+    \subsubsection{Histone H1}
+      %% I guess we should at least mention a bit of H1.
+
+      %% Luger 1997 specifically says that H1 is part of the nucleosome.
+      %% Other older papers also include H1 as part of the nucleosome
+      %% structure.  That doesn't happen so often anymore.
+      Histone H1 is not part of the nucleosome structure and is not
+      required for the beads on a string structure.
+      Instead, it binds to the linker DNA, which is why it is referred
+      to as linker histone, to stabilise the higher order
+      chromatin structures and modulate the accessibility of
+      regulatory proteins,
+      chromatin remodelling factors, and histone modification enzymes
+      to their target sites.
+      As with the case of higher order chromatin structures, details
+      on H1 contribution to chromatin structure and function remains
+      unclear but the typically accepted view is that it binds at
+      the nucleosome DNA entry/exit points and that it shortens the
+      length of the linker DNA bringing nucleosomes close together
+      to form the \SI{30}{\nm} fibres \citep{harshman2013h1-review}.
+
+      Similar to the core histones, expression of histone H1 is
+      replication dependent, there are variant H1 with specialised
+      roles and tissue-specific expression, all canonical genes
+      are located at an histone gene cluster, and the H1 protein
+      is target to multiple post-translational modifications.
+      Structuraly, histones H1 consist of a short N terminal, a globular
+      structure, and a variable length C terminal with a high lysine
+      content, which is why they are also named lysine-rich histones.
+
+      There are fundamental differences in the functional roles of
+      the core histones and histone H1;
+      there is no sequence similarity between these groups;
+      histone H1 does not have an histone fold;
+      histone H1 is not evolutionary conserved like core histones;
+      histone H1 is not required for nucleosome formation.
+      Why, then, should histone H1 and core histones be even considered together?
+      The answer seems to be a rather trivial one: 
+      ``histon'' was the name given to the protein fraction of
+      the original crude chromatin extracts \citep{kossel1884-histones}
+      even though histone H1 was the first species to be separated from
+      the others \citep{stedman1951main-histones-separation}.
+
+    \subsubsection{Historical perspective}
+      %% History of study of the structure and function of chromatin.
+
+      The first chromatin preparation, at the time named nucleïn, was
+      separated in two components: one basic and protein-like which
+      became known as histones, and one acid and unlike any cellular
+      substance yet observed which became known as nucleic acid.
+      This discovery predates the discovery of DNA as the hereditary
+      molecule and genetic material, the discovery of DNA itself,
+      the discovery of the nucleus as the recipient for genetic
+      information, and even the discovery of proteins as polypeptides.
+      Actually, this discovery was a precursor for all those.
+
+      From the initial chromatin preparation to the crystal structure of
+      the nucleosome at high resolution, varied models for chromatin
+      existed.  Even the nucleosome itself was discovered more than 100 years
+      after the chromatin preparations.
+      The series of discoveries that led to the model of nucleosome
+      structure is better told in a timeline fashion with references
+      to the original reports.
+
+      \begin{description}
+        %% Ueber die chemische Zusammensetzung der Eiterzellen
+        %% von Dr. F. Miescher aus Basel
+        \item[\cite{miescher1871-chromatin}]
+        First chromatin preparation, named nucleïn.
+
+        \item[\cite{miescher1874-protamines}]
+        First DNA purification, also named nucleïn, and identification
+        of protamines from a sperm chromatin preparation.  Demonstration
+        that DNA exhibits acidic properties.
+
+        \item[\cite{flemming1880-chromatin}]
+        Chromatin named for the first time as the readily stainable
+        material on cell nuclei. Only later would it be identified
+        as the same as the nucleïn in Miescher preparations.
+
+        %% Wenn in dem vorliegenden Fall ebenfalls eine derartige Verbindung
+        %% des Nucleïns vorlag, so war eine Extraktion des basischen Körpers
+        %% durch die verdünnte Säure vorauszusetzen. Die Untersuchung des
+        %% salzsauren Extraktes der Kernmasse ergab die Anwesenheit eines
+        %% Körpers, welcher zu jener Klasse von Substanzen gehört, due unter
+        %% dem Namem A-Pepton (Meissner), Propepton (Schmidt-Mühlheim),
+        %% Albumose (Kühne) zusammengefasst werden. [...]
+        %% Ich schlage für diese Substanz den Namen Histon vor.
+        \item[\cite{kossel1884-histones}]
+        Histones named for the first time.  They were the peptone-like
+        substances with basic properties obtained by acid extraction from
+        a chromatin preparation.
+
+        %% Thanks to people on ##deutsch on irc.freenode.net for
+        %% help with the translation.
+        %%
+        %% Die Bindung des Histons am Nuclein muß wahrscheinlich als
+        %% eine saltzartige ausgefaßt werden und zwar so, daß die
+        %% Säurekomponente durch das Nuclein, der basische Bestandteil
+        %% durch das Histon vertreten ist.
+        %%
+        %% saltzartige --> salt-like --> electrostatic
+        \item[\cite{huiskamp1903-electrostatic}]
+        After a series of studies on chromatin chemical properties,
+        including demonstration that nucleïn is negatively charged
+        and histones positively charged, it proposes that
+        histone and DNA binding happens by electrostatic interactions.
+
+        %% We therefore advance the hypothesis that the basic proteins of
+        %% cell nuclei are gene inhibitors, each histone or protamin being
+        %% capable of suppressing the activities of specific groups of
+        %% genes. Such an hypothesis will, we believe, not only serve to
+        %% explain the different properties of cell nuclei, but will also
+        %% give some indication of the mechanism by which the nucleus
+        %% effectively participates in the process of cell differentiation.
+        \item[\cite{stedman1951main-histones-separation}]
+        Demonstration that histones are not homogeneous and can be
+        separated in two parts, main and subsidiary histones,
+        which are now known as core histones and histone H1.
+        Further demonstration that even these two fracations are not
+        homogeneous themselves, that distribution is tissue specific,
+        but further fractionation is technically difficult.
+        Proposal that histones play a role in gene regulation based
+        on the tissue specificity of certain histones.
+
+        %% On this paper they separate F2a into two parts (into what
+        %% is now known as H2B and H4).  There are 3 other papers by
+        %% the same lab, before this one, where they identify the other
+        %% histones but this is the last.  The 3 other papers are
+        %% referenced in the introduction of this one.
+        \item[\cite{philips-and-johns1965-fractionation}]
+        The last on a long series of papers about fractionation and
+        identification of histones leading to the identification of
+        the five histones types known today.
+        This was made possible by the development of chromatographic
+        fractionation methods and gel electrophoresis techniques in the
+        late 1950s.
+
+        %% They didn't actually refer to 200bp on this paper, there is
+        %% no ladder on the figure.  It's Kornberg on the notes of his
+        %% references that mentions:
+        %%    "the extent of digestion and size of the pieces are
+        %%    from D. R. Hewish, personal communication
+        %%    (the size was determined by velocity sedimenta-
+        %%    tion in alkali and should be regarded as only
+        %%    approximate)."
+        \item[\cite{hewish1973-200bp-pieces}]
+        Digestion of chromatin by nucleases yields \SI{200}{\bp}
+        fragments.
+        ``It is proposed that chromatin has some simple, basic, repeating
+        substructure with a repetitive spacing of sites that are
+        potentially accessible to the Ca--Mg endonuclease''.
+
+        \item[\cite{olins1974-nu-bodies}]
+        First view of the ``beads on a string'' structure
+        \frefp{fig:intro:beads-on-a-string}.
+        These results were surprising at the time, and initially
+        regarded as artifacts, as it departed from the then current
+        view of chromatin structure as a uniform superhelical
+        coiling of the DNA itself, stabilised by histone interactions
+        \citep{pardon-wilkins-1972model}.
+
+        \item[\cite{anna-isenberg-1974-h2a-h2b}]
+        Demonstration of strong association between H2A--H2B.
+
+        \item[\cite{kornberg1974-results}]
+        Demonstration that histones form a (H3--H4)\textsubscript{2} tetramer
+        an H2A--H2B dimer.
+
+        %% Beautiful paper, with the best abstract ever.  This is it on its
+        %% entirety: "Chromatin structure is based on a repeating unit
+        %% of eight histone molecules and about 200 DNA base pairs."
+        \item[\cite{kornberg1974-model}]
+        Basic structure of the nucleosome is proposed as a repeating
+        unit of chromatin with eight histones, two of each, and about
+        200 base pairs of DNA.
+
+        \item[\cite{bradbury1975-histone-nomenclature}]
+        The current histone nomenclature is presented at Ciba foundation
+        symposium, and submitted to IUPAC for official standardization.
+
+        \item[\cite{richmond1984-7angstrom}]
+        Crystal structure of the nucleosome solved with intermediate
+        resolution of \SI{7}{\angstrom}.
+        Reveals a disk shaped (H3--H4)\textsubscript{2} symmetric
+        tetramer at the center of the nucleosome, an H2A--H2B dimers
+        on each face of the disk, and the DNA sequence around it.
+
+        \item[September 1986]
+        Author of this thesis is born in Portugal.
+
+        \item[\cite{arents1991-31angstrom}]
+        Crystal structure of the nucleosome solved with high
+        resolution of \SI{3.1}{\angstrom} showing individual
+        histone fold and the ``handshake'' motif.
+
+        \item[\cite{luger1997-28angstrom}]
+        Crystal structure of the nucleosome solved with high
+        resolution of \SI{2.8}{\angstrom} showing atomic interactions
+        between the histones and their internal structure.
+      \end{description}
 
 \section{Fluorescence microscopy}
 
@@ -475,4 +702,3 @@
 
 
   \subsection{FLAP}
-

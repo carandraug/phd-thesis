@@ -67,6 +67,10 @@ nucleosome_views = {
   'H4'  : 'nucleosome-h4',
   'H2A-H2B' : 'nucleosome-h2a-h2b-dimer',
   'H3-H4'   : 'nucleosome-h3-h4-dimer',
+  'nucleosome-top' : 'nucleosome-top',
+  'nucleosome-side' : 'nucleosome-side',
+  'octamer-side' : 'octamer-side',
+  'tetramer-side' : 'tetramer-side',
 }
 
 nucleosome_2cv5 = path4data('2cv5.pdb')
