@@ -524,6 +524,7 @@
         between the histones and their internal structure.
       \end{description}
 
+
 \section{Fluorescence microscopy}
 
   Fluorescence microscopy is an essential tool in the field of life
@@ -658,21 +659,33 @@
 
     In quantitate FRAP, data analysis involves fitting the recovery
     data to an idealized mathematical model.
-    Many different models exist with different assumptions for the model
-    \fref{fig:intro:frap-model-components}, and dependent on different
-    parameters.
+    Many different models exist with different assumptions for the
+    model, and dependent on different
+    parameters \citep{mcnally-frap-2010}.
     Kinetic parameters are typically \Kon{} and \Koff{}, for
     binding and unbinding rate constants, and $D_{f}$ for diffusion constant.
     Different parameter values for the model are tested, until a curve is
     obtained that fits best to the measured recovery.
 
-    \begin{figure}
-      \centering
-      \missingfigure{table of different assumptions as in Macnally's 2010 review}
-      \caption{blah blah blah, there's so many models, how can anyone trust
-               any of this?}
-      \label{fig:intro:frap-model-components}
-    \end{figure}
+    \begin{description}
+    \item[compartment geometry] Are the boundaries of the compartment
+      being considered at all or is it assumed to be an infinite space?
+      Is the compartment a three dimensional volume or a two
+      dimensional area only?
+    \item[bleach event] Is the bleaching profile of the bleached
+      region considered or is the bleaching assumed to be uniform?  Is
+      the time duration of the bleaching event considered?  Is
+      reversible photobleaching considered?
+    \item[diffusion] Is molecular diffusion incorporated or are
+      molecules movement assumed to be instantaneous?  Does it
+      incorporate the different diffusion rates in a non-homogeneous
+      compartment?
+    \item[binding states] How many binding states, if any, are
+      considered?  Are the binding states distributed equally within
+      the compartment?
+    \item[binding reaction] Is it modelled after a simple binding
+      reaction, an sequence of reactions, or something more complex?
+    \end{description}
 
     Two factors contribute for the widespread use of this technique:
     it doesn't require specialized instruments and can be performed with
