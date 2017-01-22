@@ -201,6 +201,12 @@
       between each other.
 
       \begin{figure}
+        \centering
+        \subbottom[Histone secondary structure]{%
+          \input{results/histone-secondary-structures}
+          \label{fig:intro:histone-secondary-structure}
+        }
+
         %% Two possible configurations:
         %%
         %%  This has a nice hierarchy that matches the nucleosome structure
@@ -225,12 +231,6 @@
         %%  |    H3  |   H4   |    H3-H4    |
         %%  |        |        |    dimer    |
         %%  +--------+--------+-------------+
-        \centering
-        \subbottom[Histone secondary structure]{%
-          \missingfigure{secondary structure of histones}
-          \label{fig:intro:histone-secondary-structure}
-        }
-
         \subbottom[H2A]{%
           \includegraphics[angle=90, width=0.32\textwidth]%
           {"results/nucleosome-h2a"}
@@ -264,11 +264,21 @@
         }
 
         \captionIntro{Histone fold domain.}%
-                     {lalala.
-                      Figure generated from PDB structure 2CV5
-                      \citep{tsunaka2005-2cv5}.
-                      Histones H2A, H2B, H3, and H4 are coloured cyan,
-                      grey, yellow, and blue respectively.}
+                     {\subcaptionref{fig:intro:histone-secondary-structure}
+                       Secondary structure of the core histones with
+                       the \textalpha-helices that form the histone
+                       fold domain highlighted.
+                       \subcaptionref*{fig:intro:h2a-structure}--%
+                       \subcaptionref*{fig:intro:h3-h4-structure}
+                       Tertiary structure of the individual core
+                       histones showing their histone fold domain, and
+                       quaternary structure of the H2A-H2B and H3-H4
+                       dimers showing the histone fold domain in its
+                       characteristic ``handshake'' motif.  Figures
+                       generated from PDB structure 2CV5
+                       \citep{tsunaka2005-2cv5}.  Histones H2A, H2B,
+                       H3, and H4 are coloured cyan, grey, yellow, and
+                       blue respectively.}
       \end{figure}
 
       %% Histone tails

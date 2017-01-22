@@ -82,6 +82,17 @@ for view, fname in nucleosome_views.iteritems():
   env.Depends(view_fig, [nucleosome_views_script])
   intro.append(view_fig)
 
+## Note quite the right thing.  In this case there is no source (well,
+## SOURCE is not different from SCRIPT).
+sec_struct_script = env.File(path4script('histone-secondary-structure.py'))
+sec_struct = env.PythonOutput(
+  script=sec_struct_script,
+  target=path4result('histone-secondary-structures.tex'),
+  source=sec_struct_script)
+
+env.Depends(sec_struct, [sec_struct_script])
+intro.append(sec_struct)
+
 
 ##
 ## "Configure" - check that we have all the required tools installed
