@@ -662,8 +662,77 @@
 
     \begin{figure}
       \centering
-      \missingfigure{shwo recovery curve example, with parts.}
-      \caption{}
+      \begin{tikzpicture}[scale=\textwidth/7.0cm]
+        \tikzset{drawandfill/.style={draw=#1,fill=#1}}
+
+        %% I guess we should created a PGF shape for the cell and then
+        %% we would use \path with cells at the nodes.  But oh boy, is
+        %% that complicated?  It is definitely not worth having to pay
+        %% university fees for another year so we just keep the cell
+        %% size 1x1, and slide the x coordinates 1.2 for every cell.
+
+        %% Draw the cells
+        \foreach \offset in {0.0, 1.2, 2.4, 3.6, 4.8, 6.0} {%
+          \draw[drawandfill=green!80!black]
+          plot [smooth cycle, tension=1]
+          coordinates {(\offset,0.5) (\offset+0.2,0.8) (\offset+0.6,1.0)
+            (\offset+1.0,0.5) (\offset+0.4,0.1)}
+          node at (\offset,0.0) {};
+        }
+
+        %% Draw the bleach spots
+        \node at (1.7, 0.5) [circle, drawandfill=green!05!black] {};
+        \node at (2.9, 0.5) [circle, drawandfill=green!40!black] {};
+        \node at (4.1, 0.5) [circle, drawandfill=green!55!black] {};
+        \node at (5.3, 0.5) [circle, drawandfill=green!65!black] {};
+        \node at (6.5, 0.5) [circle, drawandfill=green!70!black] {};
+
+        %% Write legend.  Specific text height and text depth values are
+        %% required to align the text baselines.
+        \tikzset{legend/.style={below,text height=1.5ex,text depth=.25ex}}
+        \draw (0.0, -0.1) -- node[legend] {pre bleach} (1.0, -0.1);
+        \draw (1.2, -0.1) -- node[legend] {bleaching}  (2.2, -0.1);
+        \draw (2.4, -0.1) -- node[legend] {recovery}   (7.0, -0.1);
+
+      \end{tikzpicture}
+
+      %% Add some vertical space because the y axis of the plot below
+      %% looks like it's pointing to the first cell.
+      \bigskip
+
+      %% Draw the plot of a recovery curve.
+      \begin{tikzpicture}[scale=\textwidth/10cm]
+        \tikzset{axis/.style={thick,->}}
+        \draw[axis] (0.5, 0.0)
+                    -- node [below] {Time}
+                    (9.5, 0.0);
+
+        \draw[axis] (0.5, 0.0)
+                    -- node[above, rotate=90] {Fluorescence Intensity}
+                    (0.5, 4.0);
+
+        \draw (0.5, 3.5)
+              -- (2.0, 3.5)
+              -- (2.0, 0.3)
+              .. controls (2.2, 2.4) and (2.0, 3.0) .. (9.5, 3.0);
+
+        \draw[<->] (2.5, 3.0)
+                   -- node [right] {Immobile fraction}
+                   (2.5, 3.5);
+
+        \draw[loosely dashed] (2.0, 3.0) -- (9.5, 3.0);
+      \end{tikzpicture}
+
+      \captionIntro{Basics of a FRAP experiment.}%
+                   {The fluorescent proteins of a small region are
+                    permanently bleached by a laser event. The
+                    intensity in the region is measured so that the
+                    plot shows the recovery of fluorescence in the
+                    bleached area.  The recovery curve reflects the
+                    diffusion and binding dynamics of the proteins
+                    tagged with the fluorescent proteins.  The
+                    fraction of fluorescence that does not recover is
+                    the fraction of immobile proteins.}
       \label{fig:intro:frap-curve-example}
     \end{figure}
 
