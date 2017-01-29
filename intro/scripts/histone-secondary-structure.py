@@ -100,16 +100,32 @@ def main():
     figure_length = left_side + right_side
     print "\\begin{tikzpicture}[scale=\\textwidth/%.1fcm]" % figure_length
 
+    ## We specify both text height and text depth so that the baseline
+    ## of all labels align properly.
+    print "\\tikzset{label/.style={font=\\scriptsize,text height=1.5ex,text depth=.25ex}}"
+
+    ## We draw rectangles below the text node instead of specifying
+    ## minimum width and fill on the node, because the actual width
+    ## shows up wrong (slightly smaller) than drawing a rectangle.
+    ## We also specify the height of the rectangles and the space
+    ## between histones.  Not sure how to go around and make it all
+    ## relative to something.
+    box_height = 5
+    box_half = box_height / 2.0
+    line_spacing = 1
     y = 0
     for h in histones:
         offset = left_side - h.midpoint()
         print ("\\draw (%.1f, %i) -- (%.1f, %i);"
                % (offset, y, offset + h.length, y))
         for num, pos in h.hfd_helices.items():
+            box_x_center = offset + pos[0] + ((pos[1] - pos[0]) / 2.0)
             print ("\\fill[color=%s] (%.1f, %.1f) rectangle (%.1f, %.1f);"
-                   % (h.color, pos[0] + offset, y -0.5, pos[1] + offset,
-                      y +0.5))
-        y += 1
+                   % (h.color, pos[0] + offset, y - box_half, pos[1] + offset,
+                      y + box_half))
+            print ("\\node at (%.1f, %.1f) [label] {\\textalpha%s};"
+                   % (box_x_center, y, num))
+        y += box_height + line_spacing
 
     print "\\end{tikzpicture}"
 
