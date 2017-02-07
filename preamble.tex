@@ -1,73 +1,78 @@
-%% "University Guidelines for Research Degree Programmes - For Research Students,
-%% Supervisors and Staff"
-%% http://www.nuigalway.ie/graduatestudies/documents/university_research_guidelines.pdf
-%% Retrieved on Wed 19 Dec 2012 12:42:43 WET
+%% We need to follow NUIG structure and style in the thesis.  They
+%% tell us how to do it but they don't really give a template or latex
+%% document class to use.  I guess being able to format a document is
+%% part.  Follows their documentation retrieved from ``University
+%% Guidelines for Research Degree Programmes --- For Research
+%% Students, Supervisors and Staff'', July 2016 edition, retrieved on
+%% Mon 6 Feb 23:05:05 GMT 2017 from
+%% HTTP://www.nuigalway.ie/media/graduatestudies/files/university_guidelines_for_research_degree_programmes.pdf
 %%
-%% Excerpt from Section 6 - The Examination Process
+%% From Section 6 - The PhD Examination Process
 %%
-%%  6.3 The Thesis
+%% 6.2.3 Directions on Format, Layout and Presentation
 %%
-%%  Norms as to the formats of research master’s and PhD theses vary. In general,
-%%  thesis formats, structures and layouts that are consistent with readability and
-%%  compactness are required. Acceptable formats and other attributes of Master
-%%  and PhD theses are outlined in the University Regulations (Appendices 3 and 1,
-%%  respectively) and may be specified in more detail in local guidelines.
-%%  It is university policy that the practice of engaging professional editorial services
-%%  is not permitted.
+%% The PhD thesis should not normally exceed 80,000 words, inclusive
+%% of appendices, footnotes, tables and bibliography.  It is
+%% university policy that the practice of engaging professional
+%% editorial services to assist in writing the thesis is not
+%% permitted.  There must be a title page which shall contain the
+%% following information:
 %%
-%%  6.3.1 Length of Thesis
+%%  a. The full title (and subtitle, if any)
+%%  b. The volume number and total number of volumes, if more than one
+%%  c. The full name of the candidate, followed, if desired, by any
+%%     degree and/or professional qualification(s)
+%%  d. The name(s) of the supervisor(s), School(s), component
+%%     Discipline(s), Institution
+%%  e. The month and year of submission.
 %%
-%%  [...] The PhD thesis should not
-%%  normally exceed 80,000 words, inclusive of appendices, footnotes, tables and
-%%  bibliography.
+%% Format and Layout
 %%
-%% Excerpt from Appendix 1 - Regulations for Higher Research Degrees
+%% The 'Table of Contents', which should not be over-detailed, shall
+%% immediately follow the title page.  The text must be printed on good
+%% quality (110g/m2) A4 size paper.  Line-spacing should be a maximum
+%% of one-and-half; text must be left justified with a left-hand
+%% margin of 4 cm and may be right justified.  An easily-readable
+%% layout and double-sided printing are recommended for the body text.
+%% For double sided printing ensure that the right hand margin is also
+%% adequate for binding (i.e. a margin of 4 cm).  More compact formats,
+%% with smaller font sizes, are usually appropriate for certain
+%% sections, such as reference lists, bibliographies and some kinds of
+%% appendices.  Pages must be numbered consecutively, with page numbers
+%% located centrally at the bottom, and chapter headers at the top, of
+%% each page.  Diagrams, graphs, photographs and tables should be
+%% properly numbered and located in relation to the text.  The copies
+%% of the thesis presented initially for examination must be spiral or
+%% gum-bound.
 %%
-%%  Submission of the Thesis
-%%
-%%  10. The candidate must follow the directions on format, layout and presentation
-%%      of a thesis, as described below. Two copies of the PhD thesis, spiral or gum-
-%%      bound, must be lodged with the Examinations Office (unless otherwise
-%%      stated). Each copy of the thesis must be accompanied by:
-%%        a) a ‘Summary of the Contents’, not exceeding 300 words in length
-%%        b) a copy of the completed form EOG 020.
-%%        c) Library Submission Form, EOG 051 signed by the candidate
-%%
-%%      Directions on Format, Layout and Presentation
-%%
-%%      There must be a title page which shall contain the following information:
-%%        a) The full title (and subtitle, if any)
-%%        b) The volume number and total number of volumes, if more than one
-%%        c) The full name of the candidate, followed, if desired, by any degree and/or
-%%           professional qualification(s)
-%%        d) The name(s) of the supervisor(s), school(s), component discipline(s),
-%%           institution
-%%        e) The month and year of submission.
-%%
-%%      Table of Contents
-%%
-%%      The ‘Table of Contents’, which should not be over-detailed, shall immediately
-%%      follow the title page.
-%%
-%%      Format and Layout
-%%
-%%      The text must be printed on good quality (110g/m2) A4 size paper with a
-%%      left-hand margin of 4 cm. A maximum of one-and-half line-spacing, left
-%%      and right justified, an easily readable layout and double sided printing are
-%%      recommended for the body text. More compact formats, with smaller font
-%%      sizes, are usually appropriate for certain sections, such as reference lists,
-%%      bibliographies and some kinds of appendices. Pages must be numbered
-%%      consecutively, with page numbers located centrally at the bottom, and chapter
-%%      headers at the top, of each page. Diagrams, graphs, photographs and tables
-%%      should be properly numbered and located in relation to the text.
-%%
-%% No local guidelines found at
-%% http://www.nuigalway.ie/graduatestudies/Current_Students_2/local_guidelines.html
-%% only " To be added shortly" was displayed on the page
+%% This is pretty much repeated in Appendix 1 --- Regulations for
+%% Higher Research Degrees, Section 10 Submission of the Thesis.
 
 \chapterstyle{veelo}
 
 \OnehalfSpacing
+
+\makepagestyle{NUIG}
+\makeevenfoot{NUIG}{}{\thepage}{} % page numbers in the centre
+\makeoddfoot{NUIG}{}{\thepage}{} % page numbers at the centre
+\makeevenhead{NUIG}{\leftmark}{}{} % page marks in the edge
+\makeoddhead{NUIG}{}{}{\rightmark} % page marks in the edge
+\pagestyle{NUIG}
+
+%% NUIG style requires 4cm for the spine margine (actually, it
+%% requires 4 cm on the left margin, and 4 cm on the right margin if
+%% it is to be double sided so that is is ``adequate for binding''.
+%% Sounds like what matters is the spine margin and not right or left
+%% margin).  Anyway, for an A4 page with font size 10pt (the default),
+%% the memoir class default to ~3.5cm on the spine, and ~5.5cm on the
+%% other side.  I kinda like the default format and text width so if
+%% we add .5cm on one side, I'm taking it back from the other side.
+%% Those default margins are computed based on the font size so the
+%% text ends with roughly 66 characters per line.  Check the margin
+%% sizes again if we have to change the font size.
+\setlrmarginsandblock{4cm}{5cm}{*}
+\checkandfixthelayout
+
 %% remove colorlinks option when ready for print
 \usepackage[final,hyperindex,hyperfootnotes,bookmarksnumbered,colorlinks]{hyperref}
 
