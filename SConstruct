@@ -102,8 +102,8 @@ if not env.GetOption('help'):
     print "Unable to find the LaTeX document class memoir."
     Exit(1)
 
-  if not conf.CheckBibTeXStyle("plainnat"):
-    print "Unable to find the BibTeX style plainnat."
+  if not conf.CheckBibTeXStyle("agu"):
+    print "Unable to find the BibTeX style agu."
     Exit(1)
 
   latex_package_dependencies = [

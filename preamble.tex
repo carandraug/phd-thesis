@@ -118,7 +118,11 @@
 \usepackage{rotating}       % for sideways tables and figures
   \newcommand{\crows}[1]{\multicolumn{2}{c}{#1}}
 
+%% Use agu style (American Geophysical Union) which only uses author
+%% forenames and after too many authors, uses et. al.  All this helps
+%% saves a lot of paper.
 \usepackage[round]{natbib}
+\bibliographystyle{agu}
 
 \usepackage{seqsplit}
 \usepackage{dnaseq}
