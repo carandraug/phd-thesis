@@ -5,33 +5,31 @@
   %% Also, the estimate ignores mitochondrial DNA but at this scale its size
   %% is negligible anyway, and we are talking about fitting it into the
   %% nucleus anyway.
-  The human genome has been estimated to be about \num{3.2e9}
+  The human genome has a length of some \num{3.2e9}
   base pairs long \citep{nature-first-human-genome-draft}
   meaning that a human cell will
-  typically have \SI{6.4}{\giga\bp} worth of genomic information inside
+  typically have \SI{6.4}{\giga\bp} of genomic information inside
   its nucleus.
-  All of this is organised in a large DNA--protein complex named chromatin.
+  All of this is organised in a large DNA--protein complex known as chromatin.
 
-  In chromatin, access to the genomic information is not all equal.
+  Access to the genomic information is not uniform in chromatin.
   It is organized in a hierarchical structure with
   multiple levels of compaction \frefp{fig:intro:chromatin-structure} where
   the level of compaction increases as access to the underlying genomic
   information decreases.
-  The most simplistic and common view on the subject
-  identifies two levels: euchromatin and heterochromatin for low and
+  One common view distinguishes
+  euchromatin and heterochromatin for low and
   high compaction respectively.
   This binary distinction is associated with active and inactive genes
   since high level of compaction prevents DNA transcription by blocking
-  the access of the required machinery.
-  However, chromatin function is not limited to the compaction of DNA
-  so it fits on the
-  cell nucleus, and hampered access to the DNA is not a negative side
-  effect although it is often portrayed as such.
-  Chromatin controls access
-  to the DNA which means controlling transcription, replication,
+  the access of the required machinery\addref{}.
+  Chromatin function is not limited by the compaction of DNA
+  to fit into the cell nucleus.
+  Instead, chromatin controls access
+  to the DNA which means mediating transcription, replication,
   and recombination, as
-  well as protecting DNA from damage;  it is about controlled and efficient
-  access to genomic information and not about a barrier problem for the sake
+  well as protecting DNA from damage; controlled and efficient
+  access to genomic information is not simply a barrier problem for the sake
   of compaction \citep{controlling-double-helix}.
 
   \begin{figure}
@@ -80,22 +78,23 @@
     \label{fig:intro:beads-on-a-string}
   \end{figure}
 
-  In the chromatin hierarchical structure, the nucleosome is the
-  basic repeating unit.
+  The nucleosome is the
+  basic repeating unit in the chromatin hierarchical structure.
   An array of nucleosomes is then folded into a chromatin fiber by
   short-range interactions between neighbouring nucleosomes
   and the subsequent interactions between chromatin fibers shape the
   condensed chromosome structure \frefp{fig:intro:chromatin-structure}.
-  Or so is in the traditionally accepted model.  While the nucleosome
-  structure is well established, details on the structure of the
+  While the nucleosome
+  structure is well established \citep{luger1997-28angstrom},
+  details on the structure of the
   intermediary structures are still controversial and some recent models
   eschew them altogether
   \citep{fussner2011-no-30nm-fibre, luger2012-chromatin-review}.
 
   The nucleosome itself is composed of a core particle
-  consisting of \SI{147}{\bp} of DNA and an histone protein octamer,
+  consisting of \SI{147}{\bp} of DNA and a histone protein octamer,
   and a variable length linker DNA that connects
-  to the following core particles \frefp{fig:intro:nucleosome-top-view}.
+  to the flanking core particles \frefp{fig:intro:nucleosome-top-view}.
   Altogether, the nucleosome includes \SIrange{165}{245}{\bp} of DNA
   \citep{widom1992-linker-length}.
 
@@ -111,26 +110,25 @@
 
   \subsection{Histones}
 
-    Histones is a family of proteins, the principal protein component
-    of chromatin, and the only proteins present in the nucleosome.
+    Histones are a family of proteins that are the principal protein component
+    of chromatin.
     There are five histone types: H1, H2A, H2B, H3, and H4.
     Histone H1 binds to the linker DNA and is not part of the nucleosome.
-    The other four form the core
+    The other four histones form the core
     nucleosome and are therefore referred to as core histones.
-    Their highly basic charge has always been a hallmark characteristic of
-    this proteins.  The DNA polymer is negatively charged and the highly
+    The DNA polymer is negatively charged and the highly
     basic histone proteins bind to it, neutralizing the negative charge
-    and allowing for the required compaction of DNA in the nucleus.
-    In addition, histones themselves interact with each other, forming
-    a compact histone octamer structure that further helps with
+    and facilitating the required compaction of DNA.
+    The histones interact with each other in a defined way to form
+    a compact histone octamer structure that furthers
     DNA compaction.
 
-    The histone octamer is the central piece of the nucleosome core particle
+    The histone octamer is the central component of the nucleosome core particle
     \frefp{fig:intro:nucleosome-top-view}
     composed of two of each of the core histones arranged in four dimers
     --- two H2A--H2B and two H3--H4.
     The two H3--H4 dimers form a disk-shaped (H3--H4)\textsubscript{2}
-    tetramer at the center \frefp{fig:intro:tetramer-side-view}
+    tetramer at the centre \frefp{fig:intro:tetramer-side-view}
     with one H2A--H2B dimer on each face of the disk
     \frefp{fig:intro:octamer-side-view}
     and the \SI{147}{\bp} of DNA wrapped around in 1.65~turns
@@ -179,25 +177,25 @@
 
     \subsubsection{Histone and nucleosome structure}
 
-      The structure of the core histones proteins themselves, is divided
-      into three parts: histone fold domain --- the central piece of an
-      histone involved in the formation of histone dimers, the histone
+      The linear organisation of the core histones proteins is divided
+      into three parts: the histone fold domain --- the central piece of a
+      histone involved in the formation of histone dimers, histone
       fold extensions, and the histone tails --- regions of the histone
       that extend beyond the nucleosome interacting with the DNA and
       other nucleosomes.
 
       %% Histone fold domain
       %% \textalpha1--L1--\textalpha2--L2--\textalpha3
-      Core histone proteins share a common structural domain named
-      histone fold, which consists of a long central
-      \textalpha-helix flanked on both sides by a loop
+      Core histone proteins share a common
+      histone fold domain, which consists of a long central
+      \textalpha-helix flanked on both sides by loops
       and shorter \textalpha-helices \citep{arents1991-31angstrom, arents1995histone-fold}.
       This domain allows for the characteristic ``handshake'' motif
       of dimer assembly where the central \textalpha-helix of each
       histone crosses each other and fits between the shorter
       \textalpha-helices of the other (\fref{fig:intro:h2a-h2b-structure}
       and \ref{fig:intro:h3-h4-structure}).
-      It gives histones an extensive molecular contact interface
+      This gives histones an extensive molecular contact interface
       between each other.
 
       \begin{figure}
@@ -283,7 +281,7 @@
 
       %% Histone tails
 
-      Each one of the four core histones has an unstructured N or C
+      Each of the four core histones has an unstructured N and/or C
       terminal tail that extend beyond the DNA in the nucleosome core,
       making the inter-nucleosome interactions and therefore an important
       role on chromatin higher order structures.
@@ -298,21 +296,21 @@
       %% Should we mention that there are a few PTM in the nucleosome
       %% core, it's just that the vast majority are on the tails?
 
-      Histone post-translational modification have indeed been shown to
-      regulate chromatin structure, not only by merely being there, but
-      also by recruiting different protein complexes.
+      Histone post-translational modifications have indeed been shown to
+      regulate chromatin structure
+      by recruiting different protein complexes.
       They have been show to influence
       DNA processes such as DNA replication, repair, recombination,
       and transcription.
       The most studied modifications have been related with transcription,
-      gene activation and gene silencing were even the only points
-      on the original proposal for the histone code \citep{jenuwein200histone-code}
+      gene activation and gene silencing in
+      the original proposal for the histone code \citep{jenuwein200histone-code}
       reducing chromatin structure to an either ``on'' or ``off' state.
       For example,
       H3 K4 di-methylation and H3 K27 tri-methylation are well known
       markers for gene activation and silencing respectively.
-      An example of non
-      Phosphorilation of Serine 139 H2AX is involved in DNA repair
+      Similarly,
+      phosphorylation of serine 139 H2AX is involved in DNA repair
       in the recruitment of DNA repair-related proteins \Srefp{app:h2ax-review}.
 
     \subsubsection{Histone variants}
@@ -327,7 +325,7 @@
       largely equivalent functions.  They are discussed in more detail on
       \Sref{section:histone-catalogue}.
       Variant histones are present in a smaller number than canonical
-      histones, much different sequences with unique structural features,
+      histones, have more distinct sequences with unique structural features,
       and perform a variety of specialized functions.  For example, the
       H2A variant H2AX has a longer C-terminal tail with unique locations
       for post-translational modifications involved in DNA damage
@@ -341,10 +339,10 @@
       %% Luger 1997 specifically says that H1 is part of the nucleosome.
       %% Other older papers also include H1 as part of the nucleosome
       %% structure.  That doesn't happen so often anymore.
-      Histone H1 is not part of the nucleosome structure and is not
+      Histone H1 is not part of the nucleosome core particle and is not
       required for the beads on a string structure.
-      Instead, it binds to the linker DNA, which is why it is referred
-      to as linker histone, to stabilise the higher order
+      Instead, it binds to the linker DNA
+      to stabilise the higher order
       chromatin structures and modulate the accessibility of
       regulatory proteins,
       chromatin remodelling factors, and histone modification enzymes
@@ -356,48 +354,42 @@
       length of the linker DNA bringing nucleosomes close together
       to form the \SI{30}{\nm} fibres \citep{harshman2013h1-review}.
 
-      Similar to the core histones, expression of histone H1 is
+      Similar to the canonical core histones, expression of histone H1 is
       replication dependent, there are variant H1 with specialised
       roles and tissue-specific expression, all canonical genes
-      are located at an histone gene cluster, and the H1 protein
+      are located at a histone gene cluster, and the H1 protein
       is target to multiple post-translational modifications.
       Structuraly, histones H1 consist of a short N terminal, a globular
       structure, and a variable length C terminal with a high lysine
       content, which is why they are also named lysine-rich histones.
 
       There are fundamental differences in the functional roles of
-      the core histones and histone H1;
-      there is no sequence similarity between these groups;
-      histone H1 does not have an histone fold;
-      histone H1 is not evolutionary conserved like core histones;
-      histone H1 is not required for nucleosome formation.
-      Why, then, should histone H1 and core histones be even considered together?
-      The answer seems to be a rather trivial one:
-      ``histon'' was the name given to the protein fraction of
+      the core histones and histone H1.
+      There is no sequence similarity between H1 and the core histones,
+      histone H1 does not have a histone fold,
+      histone H1 is not evolutionary conserved like core histones,
+      and histone H1 is not required for nucleosome formation.
+      ``Histon'' was the name given to the protein fraction of
       the original crude chromatin extracts \citep{kossel1884-histones}
       even though histone H1 was the first species to be separated from
       the others \citep{stedman1951main-histones-separation}.
 
-    \subsubsection{Historical perspective}
+    \subsubsection{Historical perspective on chromatin structure}
       %% History of study of the structure and function of chromatin.
 
-      The first chromatin preparation, at the time named nucleïn, was
+      The first chromatin preparation \citep{kossel1884-histones}
+      at the time named nucleïn, was
       separated in two components: one basic and protein-like which
       became known as histones, and one acid and unlike any cellular
       substance yet observed which became known as nucleic acid.
-      This discovery predates the discovery of DNA as the hereditary
+      This discovery was the precursor to the discovery of DNA as the hereditary
       molecule and genetic material, the discovery of DNA itself,
       the discovery of the nucleus as the recipient for genetic
       information, and even the discovery of proteins as polypeptides.
-      Actually, this discovery was a precursor for all those.
 
-      From the initial chromatin preparation to the crystal structure of
-      the nucleosome at high resolution, varied models for chromatin
-      existed.  Even the nucleosome itself was discovered more than 100 years
-      after the chromatin preparations.
-      The series of discoveries that led to the model of nucleosome
-      structure is better told in a timeline fashion with references
-      to the original reports.
+      The series of discoveries that led to the nucleosome
+      structure form a timeline spanning over a century
+      \citep{vanHolde-chapter1}.
 
       \begin{description}
         %% Ueber die chemische Zusammensetzung der Eiterzellen
@@ -440,7 +432,7 @@
         \item[\cite{huiskamp1903-electrostatic}]
         After a series of studies on chromatin chemical properties,
         including demonstration that nucleïn is negatively charged
-        and histones positively charged, it proposes that
+        and histones positively charged, it was proposed that
         histone and DNA binding happens by electrostatic interactions.
 
         %% We therefore advance the hypothesis that the basic proteins of
@@ -452,11 +444,10 @@
         %% effectively participates in the process of cell differentiation.
         \item[\cite{stedman1951main-histones-separation}]
         Demonstration that histones are not homogeneous and can be
-        separated in two parts, main and subsidiary histones,
+        separated into main and subsidiary histones,
         which are now known as core histones and histone H1.
-        Further demonstration that even these two fracations are not
-        homogeneous themselves, that distribution is tissue specific,
-        but further fractionation is technically difficult.
+        Further demonstration that these two fracations are not
+        homogeneous themselves and that distribution is tissue specific.
         Proposal that histones play a role in gene regulation based
         on the tissue specificity of certain histones.
 
@@ -466,12 +457,11 @@
         %% histones but this is the last.  The 3 other papers are
         %% referenced in the introduction of this one.
         \item[\cite{philips-and-johns1965-fractionation}]
-        The last on a long series of papers about fractionation and
+        Culmination of a long series of papers about fractionation and
         identification of histones leading to the identification of
         the five histones types known today.
         This was made possible by the development of chromatographic
-        fractionation methods and gel electrophoresis techniques in the
-        late 1950s.
+        fractionation methods and gel electrophoresis techniques.
 
         %% They didn't actually refer to 200bp on this paper, there is
         %% no ladder on the figure.  It's Kornberg on the notes of his
@@ -483,19 +473,14 @@
         %%    approximate)."
         \item[\cite{hewish1973-200bp-pieces}]
         Digestion of chromatin by nucleases yields \SI{200}{\bp}
-        fragments.
-        ``It is proposed that chromatin has some simple, basic, repeating
-        substructure with a repetitive spacing of sites that are
-        potentially accessible to the Ca--Mg endonuclease''.
+        fragments and proposal that chromatin has a repeating
+        substructure with a repetitive spacing.
 
         \item[\cite{olins1974-nu-bodies}]
         First view of the ``beads on a string'' structure
         \frefp{fig:intro:beads-on-a-string}.
-        These results were surprising at the time, and initially
-        regarded as artifacts, as it departed from the then current
-        view of chromatin structure as a uniform superhelical
-        coiling of the DNA itself, stabilised by histone interactions
-        \citep{pardon-wilkins-1972model}.
+        These results were initially
+        regarded as artifacts \citep{pardon-wilkins-1972model}.
 
         \item[\cite{anna-isenberg-1974-h2a-h2b}]
         Demonstration of strong association between H2A--H2B.
@@ -523,53 +508,56 @@
         tetramer at the center of the nucleosome, an H2A--H2B dimers
         on each face of the disk, and the DNA sequence around it.
 
-        \item[\cite{arents1991-31angstrom}]
-        Crystal structure of the nucleosome solved with high
-        resolution of \SI{3.1}{\angstrom} showing individual
-        histone fold and the ``handshake'' motif.
-
         \item[\cite{luger1997-28angstrom}]
         Crystal structure of the nucleosome solved with high
         resolution of \SI{2.8}{\angstrom} showing atomic interactions
         between the histones and their internal structure.
+
+        \item[\cite{richmond-1kx5-19ansgtrom}]
+        Crystal structure of the nucleosome solved with resolution of
+        \SI{1.9}{\angstrom}, the highest to date, showing details on
+        the interactions between the DNA double helix sequence and
+        histone octamer.
       \end{description}
 
 
 \section{Fluorescence microscopy}
 
-  Fluorescence microscopy is an essential tool in the field of life
-  sciences for the visualization of cells and tissues.
+  Fluorescence microscopy is an essential tool
+  for the visualization of cells and tissues.
   Fluoropores emit light in a specific wavelength after
-  being exposed to another specific wavelength, named
+  being exposed to another shorter wavelength, named
   emission and excitation wavelength respectively.
   Illumination of a sample with the excitation wavelength, and filtering
-  out all but the emission wavelength from the formed image, allows
+  out all but the emission wavelength allows
   the localization of fluorophores in a dark background.
   If specific molecules and cells can be associated with a fluorophore,
-  so can their localization can be infered, and by choosing fluorophores
+  their localization can be inferred.  By choosing fluorophores
   with different emission wavelengths multiple molecules can be
   simultaneously identified.
-  It would not be possible in normal optical microscopy.
 
   \subsection{Fluorescent proteins}
     Several fluorescent labels have been developed with different
     properties, each best suited to different techniques.
-    These are often split into two major classes: synthetic fluorescent
-    molecules such as DAPI or Fluorescein, which either bind to the molecule of
-    interest or can be chemically linked to it; and Fluorescent Proteins (FPs)
-    which are genetically encodable and can be expressed by the cells themselves.
+    These are often split into two major classes:
+    Synthetic fluorescent
+    molecules such as DAPI or fluorescein, which either bind to the molecule of
+    interest or can be chemically linked to it.
+    These are added exogenously, which often requires cell
+    fixation and permeabilization disturbing intracellular structures.
+    In contrast, Fluorescent Proteins (FPs)
+    are genetically encodable and can be expressed by the cells themselves.
     FPs allow tagging of individual molecules inside live cell, allowing
     visualization of dynamics in real-time live-cell imaging.
-    Synthetic molecules are added exogenously, which often requires cell
-    fixation and permeabilization disturbing intracellular structures.
     %% TODO mention synthethic moleculus that bing to proteins with tag like snap
     %%      Over simplistic?  Fusion proteins for luciferase, etc
 
-    The \species{Aequorea} jellyfish Green Fluorescent Protein (GFP) was
+    The \species{Aequorea victoria} jellyfish
+    Green Fluorescent Protein (GFP) was
     the first FP to be expressed recombinantly.
     Although originally discovered in 1962 \citep{shimomura1962-gfp-discovery},
     it was only in 1994 that it was used as a gene expression
-    marker, by being placed under the control of \gene{T7} and
+    marker under the control of \gene{T7} and
     \gene{mec-7} promoters, in \species{E. coli} and \species{C. elegans}
     respectively \citep{gfp-first-expression-marker}.
     %% when was GFP first used as a gene tag?
@@ -579,16 +567,17 @@
     quantum yield, photostability, and improved folding, but also change
     the excitation and emission spectrum, providing a wide range of GFP
     derivatives with different colours.  FPs in other organisms were also
-    discovered and were themselves engineered to provide further improved
+    discovered and further engineered to provide further improved
     variants \citep{FP-color-palette}.
 
-    An important class of FPs that have since been developed is the
-    photo-controllable FPs whose
-    fluorescent properties can be controlled by excitation with specific
+    An important class of FPs that have been developed are the
+    photo-controllable FPs.
+    These have
+    fluorescent properties that can be controlled by excitation with specific
     wavelengths allowing for individual cells and proteins to be optically
     labeled making this proteins specially useful for studies of cell
     lineage and protein movement.
-    They are phenotypically split into three categories:
+    They can be divided in three categories:
 
     \begin{description}
       \item[photo-activatable]
@@ -597,28 +586,27 @@
         reported, was developed by mutating the original GFP
         \citep{pagfp-discovery} and is
         still the only green PA--FP.
-        It allows to mark and track a subset of selected molecules
+        It allows marking and tracking of a subset of molecules
         within cells.
 
       \item[photo-switchable]
         Irreversible conversion from one bright state to another bright
         state with a different emission wavelength.
-        Like PA--FPs, they allow the tracking of a subset of selected
+        Like PA--FPs, they allow the tracking of
         molecules with the added advantages that the whole set is visible
         before the switch, and that the non-switched molecules continue
         to be visible.
-        The development of proteins from this group started with Kaede FP
-        \footnote{Kaede is named after maple leaf in Japanese but it was
-        actually cloned from \species{Trachyphyllia geoffroyi} which is a
-        stony coral.} whose wild type form is an obligate homotetrameric
+        The development of proteins from this category started with Kaede FP
+        which has an obligate homotetrameric
         complex \citep{kaede-discovery}, thus making it
         unsuitable for use as a genetically encoded fusion tag.
-        Monomeric Kaede-like FP have since been developed such as
+        Monomeric Kaede-like FPs have since been developed including
         mEos2 \citep{meos2-discovery}.
 
       \item[reversible photo-switchable]
-        Reversible conversion between dark and bright states, \eg Dronpa.
-        These FPs have been mostly used in single molecule localization
+        Reversible conversion between dark and bright states.
+        These FPs, such as Dronpa, have mostly been used in
+        single molecule localization
         microscopy, a type of super-resolution microscopy, due to the
         low energy required for the transition between states.
         %% We could mention RESOLFT but that would be too much detail.
@@ -631,34 +619,40 @@
     Fluorescence Recovery After Photobleaching (FRAP) is an optical
     microscopy technique to measure the dynamics of fluorescently
     tagged molecules.
-    Originally developed in the 1970's for quantitative dynamics of lipids
+    Originally developed in the 1970 for quantitative dynamics of lipids
     in cell membrane under the name Fluorescence Photobleaching
     Recovery (FPR) \citep{axelrod1976mobility}, it has
     been extensively used to obtain qualitative and quantitative
     insight on the kinetic properties of proteins since the development
     of GFP tagging.
 
-    From studies of cell membrane protein diffusion, dynamics of
+    FRAP is an ubiquitous technique in the field of cell biology,
+    enabling a wide range of studies
+    including cell membrane protein diffusion, dynamics of
     protein complex assembly, and protein aggregate degradation, to
     flow of drugs in extracellular matrices for drug delivery, fat
     migration in chocolate manufacturing, and plasticizers into food
-    from packaging, FRAP is an ubiquitous technique in the field of
-    cell biology with continual reviews being published
+    from packaging
     \citep{frap-review-2005,mcnally-frap-2010,frap-review-2015}.
+    %% All the citations above are for reviews.  They made the most
+    %% sense when I was trying to make/hide a point that writing about
+    %% this was pointless because there's plenty of reviews out there,
+    %% coming out every other year.
 
     In this technique, fluorescently tagged molecules in a small region
     are photobleached.  The fluorescent intensity in the region is
     measured over time to obtain a recovery curve.  The recovery is a
-    function of the molecule dynamics, it represents the unbleached
-    molecules, from outside the bleached region, moving into the
-    photobleached region.  The molecule dynamics is determined by the
+    function of the molecule dynamics of unbleached
+    molecules from outside the bleached region moving into the
+    photobleached region.  The molecule dynamics is dependent on the
     transport and diffusion rates, as well as binding interactions.
 
     In the simplest case, a FRAP recovery curve is analysed
-    qualitatively.  By looking at the plotted data, one assesses
-    whether recovery is fast or slow, presence of an immobile
+    qualitatively.  By looking at the plotted data the qualitative
+    recovery rate, presence of an immobile
     fraction and binding interactions, and how this changes
-    between different cases \fref{fig:intro:frap-curve-example}.
+    between different cases can be interpreted
+    \frefp{fig:intro:frap-curve-example}.
 
     \begin{figure}
       \centering
@@ -738,14 +732,13 @@
 
     In quantitate FRAP, data analysis involves fitting the recovery
     data to an idealized mathematical model.
-    Many different models exist with different assumptions for the
-    model, and dependent on different
+    Many different models exist with different assumptions
+    and dependence on
     parameters \citep{mcnally-frap-2010}.
     Kinetic parameters are typically \Kon{} and \Koff{}, for
     binding and unbinding rate constants, and $D_{f}$ for diffusion constant.
-    Different parameter values for the model are tested, until a curve is
-    obtained that fits best to the measured recovery.
 
+    A number of parameters go into the design of FRAP models.
     \begin{description}
     \item[compartment geometry] Are the boundaries of the compartment
       being considered at all or is it assumed to be an infinite space?
@@ -766,31 +759,30 @@
       reaction, an sequence of reactions, or something more complex?
     \end{description}
 
-    Two factors contribute for the widespread use of this technique:
-    it doesn't require specialized instruments and can be performed with
+    Two factors contribute for the widespread use of FRAP.
+    Firstly, it does not require specialized instruments
+    so it can be performed with
     any standard confocal microscope or widefield microscope with a laser
-    module; and recovery curves are easy to understand making it easy to
+    module.
+    Secondly, recovery curves are easy to understand making it easy to
     identify artifacts.  This is not the case with alternative techniques
-    such as FCS (Fluorescence Correlation Microscopy) or single molecule
+    such as Fluorescence Correlation Microscopy (FCS) or single molecule
     tracking.
 
-    The technique however has implicit assumptions which are applicable
-    for most biological situations:
-
-    \begin{itemize}
-      \item The biological system has reached equilibrium and the equilibrium
-        is maintained throughout the experiment, \ie{} the kinetic parameters
-        must remain constant throughout the experiment;
-
-      \item distribution of tagged protein mimics the endogenous protein;
-
-      \item the binding sites are part of a large, relatively immobile
-        complex, on the time and length scale of the recovery.
-    \end{itemize}
-
+    FRAP has a number of implicit assumptions which are applicable
+    for most biological situations.
+    Firstly, the biological system is assumed to have
+    reached equilibrium and the equilibrium
+    is maintained throughout the experiment.
+    This means the kinetic parameters
+    must remain constant throughout the experiment.
+    Secondly, the distribution of tagged protein mimics the endogenous
+    protein.
+    And finally, the binding sites for the recovering ligand
+    are part of a large, relatively immobile
+    complex, on the time and length scale of the recovery.
     These assumptions become difficult to maintain as the experiment
-    times increases, a requirement for slow moving molecules.  This
-    is discussed again in \Cref{ch:kill-frap}.
+    times increases for slow moving molecules.
 
   \subsection{iFRAP}
 
