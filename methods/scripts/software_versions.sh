@@ -37,11 +37,3 @@ print_latex_new_command \
 print_latex_new_command \
   "OctaveBioformatsVersion" \
   `$OCTAVE --eval 'printf (ver ("bioformats").Version)'`
-
-print_latex_new_command \
-  "BioPerlVersion" \
-  `$PERL -MBio::Root::Version -e 'print $Bio::Root::Version::VERSION'`
-
-print_latex_new_command \
-  "BioEUtilitiesVersion" \
-  `$PERL -MBio::Tools::EUtilities -e 'print $Bio::Tools::EUtilities::VERSION'`
