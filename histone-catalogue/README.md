@@ -1,30 +1,17 @@
 Histone Catalogue
 =================
 
-This project provides a catalogue of canonical core histone genes,
-encoded proteins, and pseudogenes based on reference genome
-annotations.  It also provides a discussion on the definition of
-histone variables, isoforms, clusters, and their nomenclature.
+This chapter of the thesis was merged from its [own
+repository](https://github.com/af-lab/histone-catalogue/).  If you are
+interested on the histone catalogue only, look there.
 
-Since curation and annotation are dynamic and evolving, the catalogue
-was made a live publication so it can provide always up to date
-information in an accessible format.  Inspired by the ideals of
-reproducible research, this project contains all the code required to
-create a new build of the catalogue from current annotations as well
-as the code to automate such build.  SCons, a software build system,
-is used to automate the build.
+Minor LaTeX changes were necessary to fit into the thesis and support
+multiple organism in the same build tree.  Similarly changes were
+required to the build system.  This section was merged into the thesis
+as a subtree and the history squashed.  All the changes required were
+done as individual commits after the merge commits.  As such, should
+be trivial to find the changes done.
 
-
-Build instructions
-==================
-
-To build the catalogue, run `scons' from the root of the project.
-This will check if all required sofware is installed, search the
-databases for the histone genes, download all required sequences,
-analyze the sequences, generate figures, and finally compile a
-catalogue in pdf format.
-
-See `scons -h' for a complete list of targets and options.
 
 Data
 ----
@@ -35,24 +22,6 @@ data and skip all the analysis, use the `data' target:
 
     scons data
 
-Other organisms
----------------
-
-By default, a catalogue of the human histones is generated.  Other
-organisms can be specified via the `--organism' option.  This is
-heavily dependent on the annotation state of the organism reference
-genome and it has only been tested in human and mice.
-
-    scons --organism='mus musculus'
-
-Manuscript
-----------
-
-By default, only the catalogue --- a pdf with multiple tables and
-figures --- is built.  There is also a manuscript which builds
-something akin to a publication of the catalogue which includes a
-discussion of the histone genes as well as some analysis not present
-on the catalogue.
 
 Update
 ------
@@ -61,6 +30,7 @@ If there is previously downloaded sequence data, a new build will
 not automatically download new data.  Use the `update' target for
 that.  Note that this will only update the data, if you want to
 rebuild
+
 
 Email
 -----
@@ -86,69 +56,18 @@ To set an email, use the `--email' option like so:
 
     scons --email=example@domain.top
 
-Examples
---------
-
-* Build the catalogue for human histones:
-
-        scons
-
-* Build the manuscript for human histones:
-
-        scons manuscript
-
-* Only download the sequences data for humans:
-
-        scons data
-
-* Only download the sequences data for mice:
-
-        scons --organism='mus musculus' data
-
-* Update previously downloaded data:
-
-        scons update
-
-* Rebuild catalogue with new data
-
-        scons update catalogue
-
-
-Dependencies
-============
-
-Several pieces of software are required to build the histone
-catalogue:
-
-* [SCons](www.scons.org) which provides the build system.
-* pdflatex, bibtex, epstopdf, and several other latex packages are
-  required to build the catalogue and manuscript pdf files.  Simplest
-  method is to install [TeX Live](http://www.tug.org/tex-live/) which
-  provides all of them in a single distribution.
-* [Perl](https://www.perl.org/) as well as several perl modules.
-* `bp_genbank_ref_extractor' which is used for search and download of
-  sequences is part of bioperl's
-  [Bio-EUtilities](https://metacpan.org/release/Bio-EUtilities)
-  distribution.
-* [weblogo](weblogo.threeplusone.com) to generate the sequence logos.
-* [inkscape](https://inkscape.org/) for figure svg to pdf conversion.
-
-A complete list of required perl modules and latex packages is listed
-via `scons -h'.
-
 
 Directory structure
 ===================
 
 * data - data that is not automatically generated such as the data
   from Marzluff 2002 paper which we use as reference for comparison.
-* figs - figures generated during the build.
+* figs-ORGANISM - figures generated during the build.
 * lib-perl5 - library for handling sequences and needed by our perl
   scripts.
-* results - data after processing.  Includes aligned sequences, as
+* results-ORGANISM - data after processing.  Includes aligned sequences, as
   well as LaTeX tables and variable definitions.
-* results/sequences - sequences downloaded as part of the build.
+* results-ORGANISM/sequences - sequences downloaded as part of the build.
 * scripts - collection of scripts for data analysis.
 * sections - LaTeX source for the different manuscript sections.
-* site_scons - scons configuration for this project.
 * t - tests for lib-perl5.
