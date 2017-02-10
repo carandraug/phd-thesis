@@ -1,7 +1,23 @@
 \appendix
 
+\chapter{Mice Canonical Core Histone Catalogue}
+  \label{ch:mice-catalogue}
+  \begingroup
+  \newcommand{\ResultsDir}{results-mus-musculus}
+  \newcommand{\FigsDir}{figs-mus-musculus}
+  \newcommand{\ReferenceDir}{data/reference-mus-musculus/}
+  \subinputfrom{histone-catalogue/}{variables}
+  \subinputfrom{histone-catalogue/}{catalogue}
+  \endgroup
+
 \chapter{Human Canonical Core Histone Catalogue}
+  \begingroup
+  \newcommand{\ResultsDir}{results-homo-sapiens}
+  \newcommand{\FigsDir}{figs-homo-sapiens}
+  \newcommand{\ReferenceDir}{data/reference-homo-sapiens}
+  \subinputfrom{histone-catalogue/}{variables}
   \subinputfrom{histone-catalogue/}{sections/supplementary}
+  \endgroup
 
 \chapter{Solutions}
   \label{app:solutions}

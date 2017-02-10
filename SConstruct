@@ -17,12 +17,35 @@ vars.Add('OCTAVE', default='octave', help='The Octave interpreter')
 vars.Update(env)
 Help(vars.GenerateHelpText(env))
 
+env.Help("""
+OPTIONS
+
+  --verbose
+      LaTeX and BibTeX compilers are silenced by default using the
+      batchmode and terse options. Set this option to revert it.
+
+  --email=ADDRESS
+      Set email to be used when connecting to the NCBI servers.:
+
+          scons --email="Your Name <your.name@domain.here>"
+          scons --email="<your.name@domain.here>"
+""")
+
 AddOption(
   "--verbose",
   dest    = "verbose",
   action  = "store_true",
   default = False,
   help    = "Print LaTeX and BibTeX output."
+)
+
+AddOption(
+  "--email",
+  dest    = "email",
+  action  = "store",
+  type    = "string",
+  default = "",
+  help    = "E-mail provided to NCBI when connecting to Entrez."
 )
 
 if not env.GetOption("verbose"):
@@ -47,11 +70,17 @@ for f in ["NUI_Galway_BrandMark_B.eps"]:
 intro = env.SConscript(dirs="intro", exports=["env"])
 methods = env.SConscript(dirs="methods", exports=["env"])
 software = env.SConscript(dirs="software", exports=["env"])
-catalogue = env.SConscript(dirs="histone-catalogue", name="SConstruct",
-                           exports=["env"])
 kill_frap = env.SConscript(dirs="kill-frap", exports=["env"])
 fancy_frap = env.SConscript(dirs="fancy-frap", exports=["env"])
 h2ax_review = env.SConscript(dirs="h2ax-review", exports=["env"])
+
+## An alternative would be to use variant_dir.  We tried and it worked
+## but it duplicates the source tree and confuses the perl scanner
+## (which may be a bug on our the perl5 tool).
+catalogue = []
+for organism in ["Homo sapiens", "Mus musculus"]:
+  catalogue.append (env.SConscript(dirs="histone-catalogue", name="SConstruct",
+                                   exports=["env", "organism"]))
 
 env.Depends(thesis, [
   figs,
@@ -61,7 +90,7 @@ env.Depends(thesis, [
   catalogue,
   kill_frap,
   fancy_frap,
-  h2ax_review
+  h2ax_review,
 ])
 
 

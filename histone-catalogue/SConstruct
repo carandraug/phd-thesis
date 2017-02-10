@@ -5,8 +5,7 @@ import os
 import os.path
 import subprocess
 
-Import ('env')
-
+Import ('env', 'organism')
 env.Append(PERL5LIB=[env.Dir('lib-perl5')])
 env.Tool('perl5')
 
@@ -35,41 +34,8 @@ TARGETS
     search for anomalies on the sequence annotations, LaTeX tables listing
     all genes and proteins, sequence differences between isoforms. The
     analysis results are required for the publication.
-
-OPTIONS
-
-  --email=ADDRESS
-      Set email to be used when connecting to the NCBI servers.:
-
-          scons --email="Your Name <your.name@domain.here>"
-          scons --email="<your.name@domain.here>"
-
-  --organism=NAME
-      Organism species name to use when searching RefSeq for histone
-      sequences.  Defaults to Homo Sapiens.
-
-  --verbose
-      LaTeX and BibTeX compilers are silenced by default using the
-      batchmode and terse options. Set this option to revert it.
-
 """)
 
-AddOption(
-  "--email",
-  dest    = "email",
-  action  = "store",
-  type    = "string",
-  default = "",
-  help    = "E-mail provided to NCBI when connecting to Entrez."
-)
-AddOption(
-  "--organism",
-  dest    = "organism",
-  action  = "store",
-  type    = "string",
-  default = "Homo sapiens",
-  help    = "Organism to search for histones."
-)
 
 ## Build configuration (check if dependencies are all installed)
 ##
@@ -339,13 +305,14 @@ env = conf.Finish()
 ## Actual TARGETS from this point on
 ##
 
+organism_in_path = organism.replace(" ", "-").lower()
+
 scripts_dir   = env.Dir ("scripts")
-results_dir   = env.Dir ("results")
-figures_dir   = env.Dir ("figs")
+results_dir   = env.Dir ("results-" + organism_in_path)
+figures_dir   = env.Dir ("figs-" + organism_in_path)
 seq_dir       = env.Dir (os.path.join (str (results_dir), "sequences"))
 
-reference_dirname = "reference-" + env.GetOption("organism").replace(" ", "-").lower()
-reference_dir = env.Dir (os.path.join ("data", reference_dirname))
+reference_dir = env.Dir (os.path.join ("data", "reference-" + organism_in_path))
 
 def path4lib(name):
   return os.path.join("lib-perl5", name)
@@ -381,8 +348,8 @@ def create_extract_sequences_args():
     "HIST4*[gene name]",
     "CENPA[gene name]"
   ]
-  entrez_query = '"%s"[organism] AND (%s)' % (env.GetOption("organism"),
-                                              " OR ".join (gene_names))
+  gene_query = " OR ".join (gene_names)
+  entrez_query = '"%s"[organism] AND (%s)' % (organism, gene_query)
 
   bp_genbank_ref_extractor_call = [
     "bp_genbank_ref_extractor",
@@ -416,6 +383,11 @@ raw_data = env.NoShellCommand(
 ## Clean() is required so that it's removed when calling "scons -c".
 env.AddPreAction(raw_data, Delete (seq_dir))
 env.Clean(raw_data, seq_dir)
+
+## It shouldn't be necessary to create ourselves but this seems to
+## have broke once we merge the paper into the thesis and encoded
+## organism name on the results directory.
+env.AddPreAction(raw_data, Mkdir (seq_dir))
 
 db_store = File (path4result("histones_db.store"))
 data_store = env.PerlSub(
@@ -558,7 +530,7 @@ else:
   ## way to handle this better then.
   print ("WARNING: no reference data found for %s.\n"
          "         Skipping comparison against reference."
-         % env.GetOption("organism"))
+         % organism)
 
 ## The whole mess of alignment targets and their dependencies:
 ##

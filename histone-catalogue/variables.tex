@@ -1,0 +1,34 @@
+\input{\ResultsDir/variables-configuration}
+\input{\ResultsDir/variables-cluster_stats}
+\input{\ResultsDir/variables-protein_stats}
+\input{\ResultsDir/variables-utr}
+\input{\ResultsDir/variables-histone_counts}
+\input{\ResultsDir/variables-align_proteins_stats}
+\input{\ResultsDir/variables-align_transcripts_stats}
+
+\input{\ResultsDir/variables-reference_comparison}
+\input{\ReferenceDir/variables-Marzluff-stats}
+
+%%
+%% Some computations fit better here in LaTeX than the scripts.
+%%
+
+\FPeval{\result}{\SequenceChangeSinceReference{}
+                + \PseudoSinceReference{}
+                + \CodingSinceReference{}
+                + \AddedSinceReference{}
+                + \RemovedSinceReference{}}
+\FPround{\TotalChangesSinceReference}{\result}{0} % of course is an integer
+
+\FPeval{\result}{\SequenceChangeSinceReference{}
+                +\PseudoSinceReference{}
+                +\CodingSinceReference{}}
+\FPround{\SequencesUpdatedSinceReference}{\result}{0} % of course is an integer
+
+%% Minimum overall PID of each histone type
+\FPmin{\result}{\HTwoAPID}{\HTwoBPID}
+\FPmin{\result}{\result}{\HThreePID}
+\FPmin{\HallMinPID}{\result}{\HFourPID}
+
+\FPeval{\PercentageGenesInHISTOne}%
+       {\CoreCodingGenesInHISTOne{}*100/\TotalCoreCodingGenes{}}

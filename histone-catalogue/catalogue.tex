@@ -1,11 +1,4 @@
-\documentclass[a4paper,oneside,onecolumn,article]{memoir}
-
-\input{preamble}
-\setlength{\parindent}{0pt}
-
-\begin{document}
-
-  \section*{Build information}
+  \section{Build information}
   \begin{description}
     \item[Data accession date] \hfill \newline
       \printdate{\SequencesDate}
@@ -21,39 +14,37 @@
       \WebLogoVersion
   \end{description}
 
-  \section*{Count of histone genes by cluster and type}
+  \section{Count of histone genes by cluster and type}
   \input{sections/table-histone_count}
 
   \newpage
-  \section*{Catalogue of canonical core histone genes and products}
-  \input{results/table-histone_catalogue}
+  \section{Catalogue of canonical core histone genes and products}
+  \input{\ResultsDir/table-histone_catalogue}
 
   %% We don't really need a section* for the following, it's already
   %% on the table.
   \newpage
-  \input{results/table-H2A-proteins-align}
-  \includegraphics[width=\textwidth]{figs/seqlogo_H2A_proteins.pdf}
+  \input{\ResultsDir/table-H2A-proteins-align}
+  \includegraphics[width=\textwidth]{\FigsDir/seqlogo_H2A_proteins.pdf}
 
   \newpage
-  \input{results/table-H2B-proteins-align}
-  \includegraphics[width=\textwidth]{figs/seqlogo_H2B_proteins.pdf}
+  \input{\ResultsDir/table-H2B-proteins-align}
+  \includegraphics[width=\textwidth]{\FigsDir/seqlogo_H2B_proteins.pdf}
 
   \newpage
-  \input{results/table-H3-proteins-align}
-  \includegraphics[width=\textwidth]{figs/seqlogo_H3_proteins.pdf}
+  \input{\ResultsDir/table-H3-proteins-align}
+  \includegraphics[width=\textwidth]{\FigsDir/seqlogo_H3_proteins.pdf}
 
   \newpage
-  \input{results/table-H4-proteins-align}
-  \includegraphics[width=\textwidth]{figs/seqlogo_H4_proteins.pdf}
+  \input{\ResultsDir/table-H4-proteins-align}
+  \includegraphics[width=\textwidth]{\FigsDir/seqlogo_H4_proteins.pdf}
 
   \newpage
-  \section*{Catalogue of variant core histone genes and products}
-  \input{results/table-variant_catalogue}
+  \section{Catalogue of variant core histone genes and products}
+  \input{\ResultsDir/table-variant_catalogue}
 
   \newpage
-  \section*{List of current curation anomalies}
+  \section{List of current curation anomalies}
   \begin{itemize}
-  \input{results/histone_insanities}
+  \input{\ResultsDir/histone_insanities}
   \end{itemize}
-
-\end{document}

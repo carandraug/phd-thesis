@@ -15,14 +15,6 @@
 %% Simple command for horizontal centering a single table cell
 \newcommand{\centercell}[1]{\multicolumn{1}{c}{#1}}
 
-\input{results/variables-configuration}
-\input{results/variables-cluster_stats}
-\input{results/variables-protein_stats}
-\input{results/variables-utr}
-\input{results/variables-histone_counts}
-\input{results/variables-align_proteins_stats}
-\input{results/variables-align_transcripts_stats}
-
 %% We define a style here which will be used around all the values that
 %% are copmuted automatically.  The idea is to place them in a grey box
 %% so that readers can really get the idea that the values in the text
@@ -152,15 +144,3 @@
   \renewcommand{\ScriptValue}{\RealScriptValue}%
   \ScriptValue{\SI{\rounded}{\prefix#3}}%
 }
-
-
-%%
-%% Some computations fit better here in LaTeX than the scripts.
-%%
-
-%% Minimum overall PID of each histone type
-\FPmin{\result}{\HTwoAPID}{\HTwoBPID}
-\FPmin{\result}{\result}{\HThreePID}
-\FPmin{\HallMinPID}{\result}{\HFourPID}
-
-\FPeval{\PercentageGenesInHISTOne}{\CoreCodingGenesInHISTOne{}*100/\TotalCoreCodingGenes{}}

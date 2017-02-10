@@ -47,6 +47,10 @@ config.log
 ## do not commit any of the results and figures
 results/*
 figs/*
+results-homo-sapiens/*
+results-mus-musculus/*
+figs-homo-sapiens/*
+figs-mus-musculus/*
 
 ## because Andrew uses Mac...
 .DS_Store

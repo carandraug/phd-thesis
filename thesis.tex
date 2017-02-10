@@ -5,7 +5,6 @@
 %% the preamble, so we still have to specify the full path on the
 %% filename.  Relative paths inside the input'ed' files works fine.
 \subinputfrom{histone-catalogue/}{histone-catalogue/preamble}
-\subinputfrom{histone-catalogue/}{histone-catalogue/preamble-manuscript}
 
 \author{David Miguel Susano Pinto}
 \newcommand{\supervisor}{Dr.~Andrew Flaus}
@@ -79,8 +78,19 @@
   \include{methods/methods}
   \include{software/software}
 
+  %% To write this chapter we defined a bunch of commands that are
+  %% unique to human genome.  We also want to use the same commands
+  %% with values for mice genome but the command names.  So we define
+  %% the commands locally to this group.  See:
+  %% https://tex.stackexchange.com/questions/353002/redefine-existing-commands-outside-preamble
   \chapter{Human Canonical Core Histone Catalogue}
+  \begingroup
+  \newcommand{\ResultsDir}{results-homo-sapiens}
+  \newcommand{\FigsDir}{figs-homo-sapiens}
+  \newcommand{\ReferenceDir}{data/reference-homo-sapiens}
+  \subinputfrom{histone-catalogue/}{variables}
   \subinputfrom{histone-catalogue/}{manuscript}
+  \endgroup
 
   \include{kill-frap/kill-frap}
   \include{fancy-frap/fancy-frap}
