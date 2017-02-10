@@ -18,6 +18,16 @@
 ## <http:##www.gnu.org/licenses/>.
 
 """SCons tool to avoid the shell in commands.
+
+Add a NoShellCommand builder to be used like Command()
+
+This has the advantage that there's no shell involved, saving us
+from having to escape quotes, spaces, wildcards, and whatsnot.
+
+See the whole mailing list thread at
+  https://pairlist4.pair.net/pipermail/scons-users/2015-October/004150.html
+with the solution found much later with
+  https://pairlist4.pair.net/pipermail/scons-users/2015-November/004193.html
 """
 
 import subprocess

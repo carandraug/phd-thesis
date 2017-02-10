@@ -1,6 +1,11 @@
 \documentclass[a4paper,twoside,openright,draft]{memoir}
 
 \input{preamble}
+%% Seems like subinputfrom (import package) does not work so well in
+%% the preamble, so we still have to specify the full path on the
+%% filename.  Relative paths inside the input'ed' files works fine.
+\subinputfrom{histone-catalogue/}{histone-catalogue/preamble}
+\subinputfrom{histone-catalogue/}{histone-catalogue/preamble-manuscript}
 
 \author{David Miguel Susano Pinto}
 \newcommand{\supervisor}{Dr.~Andrew Flaus}
@@ -73,7 +78,10 @@
 
   \include{methods/methods}
   \include{software/software}
-  \include{histone-catalogue/histone-catalogue}
+
+  \chapter{Human Canonical Core Histone Catalogue}
+  \subinputfrom{histone-catalogue/}{manuscript}
+
   \include{kill-frap/kill-frap}
   \include{fancy-frap/fancy-frap}
   \include{conclusion/conclusion}
@@ -84,6 +92,7 @@
   \bibliography{%
     intro/references,%
     methods/references,%
+    histone-catalogue/references,%
     kill-frap/references,%
     fancy-frap/references,%
     h2ax-review/H2AXreview-biblio%

@@ -1,14 +1,12 @@
-\section*{Supplementary Data}
-
-  \begin{supplement}
-    \caption{
+  \begin{center}
+    \captionof{table}{
         Changes in human canonical core histone gene catalogue
-        annotated in NCBI RefSeq obtained on \protect\printdate{\SequencesDate{}}
+        annotated in NCBI RefSeq obtained on \SequencesDate{}
         compared to \citet{Marzluff02}.
     }
     \label{tab:difference-from-Marzluff02}
     \input{results/table-reference_comparison}
-  \end{supplement}
+  \end{center}
 
   %% This is a very long table (ctabular), that spans multiple pages.  TeX
   %% standard floats are unable to handle it.  We could use the longtable
@@ -16,67 +14,62 @@
   %% memoir class).  We may still do that later but at the moment we use
   %% capt-of which allows to enter a caption outside a float.
   \newpage
-  \captionof{supplement}{%
+  \captionof{table}{%
     Catalogue of annotated human canonical core histone genes, transcripts,
     and encoded proteins.
-    Data obtained from NCBI RefSeq \citep{OLearyRefseq2016} on \protect\printdate{\SequencesDate{}}.
+    Data obtained from NCBI RefSeq \citep{OLearyRefseq2016} on \SequencesDate{}.
   }
   \label{tab:histone-catalogue}
   \input{results/table-histone_catalogue}
 
   \newpage
-  \begin{supplement}
-    \centering
-    \caption{
+  \begin{center}
+    \captionof{figure}[]{
         Sequence logo for the human canonical H2A gene coding regions
         listed in table \tref{tab:histone-catalogue}.
         Initiator codon ATG and stop codon are omitted.
     }
     \label{fig:h2a-histone-gene-variation}
     \includegraphics[width=1.0\textwidth]{figs/seqlogo_H2A_cds.pdf}
-  \end{supplement}
+  \end{center}
   \newpage
-  \begin{supplement}
-    \centering
-    \caption{
+  \begin{center}
+    \captionof{figure}[]{
         Sequence logo for the human canonical H2B gene coding regions
         listed in table \tref{tab:histone-catalogue}.
         Initiator codon ATG and stop codon are omitted.
     }
     \label{fig:h2b-histone-gene-variation}
     \includegraphics[width=1.0\textwidth]{figs/seqlogo_H2B_cds.pdf}
-  \end{supplement}
+  \end{center}
   \newpage
-  \begin{supplement}
-    \centering
-    \caption{
+  \begin{center}
+    \captionof{figure}[]{
         Sequence logo for the human canonical H3 gene coding regions
         listed in table \tref{tab:histone-catalogue}.
         Initiator codon ATG and stop codon are omitted.
     }
     \label{fig:h3-histone-gene-variation}
     \includegraphics[width=1.0\textwidth]{figs/seqlogo_H3_cds.pdf}
-  \end{supplement}
+  \end{center}
   \newpage
-  \begin{supplement}
-    \centering
-    \caption{
+  \begin{center}
+    \captionof{figure}[]{
         Sequence logo for the human canonical H4 gene coding regions
         listed in table \tref{tab:histone-catalogue}.
         Initiator codon ATG and stop codon are omitted.
     }
     \label{fig:h4-histone-gene-variation}
     \includegraphics[width=1.0\textwidth]{figs/seqlogo_H4_cds.pdf}
-  \end{supplement}
+  \end{center}
 
   \newpage
-  \begin{supplement}
-    \caption{
+  \begin{center}
+    \captionof{table}[]{
         Annotated histone variants.
         HGNC histone family names \citep{HGNC2015}, commonly used protein names,
         and nomenclature proposal of \citet{Talbert2012}.
     }
-    \centering
     \begin{tabularx}{\linewidth}{l l l >{\raggedright\arraybackslash}X}
       \toprule
       Family & Common name & \citet{Talbert2012} & Notes \\
@@ -97,11 +90,11 @@
       CENPA & CENP-A & - & centromere-specific \\
       \bottomrule
     \end{tabularx}
-  \end{supplement}
+  \end{center}
 
   \newpage
-  \begin{supplement}
-    \caption{
+  \begin{center}
+    \captionof{table}[]{
         Mean synonymous and non-synonymous distances between pairs of canonical core histone genes.
         Mean over all pairwise comparisons of non-synonymous ($d_N$) and synonymous ($d_S$) 
         nucleotide substitutions and mean of $d_N/d_S$ ratios for canonical core histone coding regions
@@ -109,7 +102,6 @@
         \texttt{codeml} from the PAML package \citep{PAML2007}.
     }
     \label{tab:histone-gene-differences}
-    \centering
     \begin{tabular}{l l l l}
       \toprule
       \null & \centercell{$d_N$} & \centercell{$d_S$} & \centercell{$d_N/d_S$} \\
@@ -120,11 +112,11 @@
       H4  & \MeanHFourdN  & \MeanHFourdS  & \MeanHFourdNdS \\
       \bottomrule
     \end{tabular}
-  \end{supplement}
+  \end{center}
 
   \newpage
   \newpage
-  \captionof{supplement}{%
+  \captionof{table}[]{%
     Codon usage frequency for each amino acid
     and canonical core histone type.
   }
@@ -132,25 +124,27 @@
   \input{results/table-codon_usage}
 
   \newpage
-  \captionof{supplement}{%
+  \captionof{table}[]{%
     Catalogue of annotated human core histone variant genes, transcripts and encoded proteins.
     Catalogue of annotated human core histone variant genes, transcripts,
     and encoded proteins.
-    Data obtained from NCBI RefSeq \citep{OLearyRefseq2016} on \protect\printdate{\SequencesDate{}}.
+    Data obtained from NCBI RefSeq \citep{OLearyRefseq2016} on
+    \SequencesDate{}.
   }
 
   \label{tab:variant-catalogue}
   \input{results/table-variant_catalogue}
 
   \newpage
-  \begin{supplement}
-    \caption{
+  \begin{center}
+    \captionof{table}[]{
         Variations in canonical core histone gene annotations
         compared to expectation of single exon, single transcript, and stem-loop.
-        Data obtained from NCBI RefSeq \citep{OLearyRefseq2016} on \protect\printdate{\SequencesDate{}}.
+        Data obtained from NCBI RefSeq \citep{OLearyRefseq2016} on
+        \SequencesDate{}.
     }
     \label{tab:curation-anomalies}
     \begin{itemize}
     \input{results/histone_insanities.tex}
     \end{itemize}
-  \end{supplement}
+  \end{center}
