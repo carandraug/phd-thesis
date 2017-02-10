@@ -612,7 +612,15 @@ figures = env.PDF(source = Glob(os.path.join(str(figures_dir), "*.eps")))
 ##
 ## All the stuff actually required to build the thesis.
 
-catalogue = [figures, analysis]
+catalogue = [
+  figures,
+  analysis,
+  File ("variables.tex"),
+  File ("manuscript.tex"),
+  File ("preamble.tex"),
+  File ("catalogue.tex"),
+  File ("catalogue-extra.tex"),
+]
 
 ## TARGET check
 ##
