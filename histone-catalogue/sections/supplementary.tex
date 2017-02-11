@@ -1,5 +1,5 @@
   \begin{center}
-    \captionof{table}{
+    \captionof{table}[Changes in human histones since \citet{Marzluff02}]{%
         Changes in human canonical core histone gene catalogue
         annotated in NCBI RefSeq obtained on \SequencesDate{}
         compared to \citet{Marzluff02}.
@@ -14,7 +14,7 @@
   %% memoir class).  We may still do that later but at the moment we use
   %% capt-of which allows to enter a caption outside a float.
   \newpage
-  \captionof{table}{%
+  \captionof{table}[Human histone catalogue]{%
     Catalogue of annotated human canonical core histone genes, transcripts,
     and encoded proteins.
     Data obtained from NCBI RefSeq \citep{OLearyRefseq2016} on \SequencesDate{}.
@@ -24,7 +24,7 @@
 
   \newpage
   \begin{center}
-    \captionof{figure}[]{
+    \captionof{figure}[Human H2A CDS slignment]{
         Sequence logo for the human canonical H2A gene coding regions
         listed in table \tref{tab:histone-catalogue}.
         Initiator codon ATG and stop codon are omitted.
@@ -34,7 +34,7 @@
   \end{center}
   \newpage
   \begin{center}
-    \captionof{figure}[]{
+    \captionof{figure}[Human H2B CDS slignment]{
         Sequence logo for the human canonical H2B gene coding regions
         listed in table \tref{tab:histone-catalogue}.
         Initiator codon ATG and stop codon are omitted.
@@ -44,7 +44,7 @@
   \end{center}
   \newpage
   \begin{center}
-    \captionof{figure}[]{
+    \captionof{figure}[Human H3 CDS slignment]{
         Sequence logo for the human canonical H3 gene coding regions
         listed in table \tref{tab:histone-catalogue}.
         Initiator codon ATG and stop codon are omitted.
@@ -54,7 +54,7 @@
   \end{center}
   \newpage
   \begin{center}
-    \captionof{figure}[]{
+    \captionof{figure}[Human H4 CDS slignment]{
         Sequence logo for the human canonical H4 gene coding regions
         listed in table \tref{tab:histone-catalogue}.
         Initiator codon ATG and stop codon are omitted.
@@ -65,8 +65,7 @@
 
   \newpage
   \begin{center}
-    \captionof{table}[]{
-        Annotated histone variants.
+    \captionof{table}[Annotated histone variants]{
         HGNC histone family names \citep{HGNC2015}, commonly used protein names,
         and nomenclature proposal of \citet{Talbert2012}.
     }
@@ -94,7 +93,7 @@
 
   \newpage
   \begin{center}
-    \captionof{table}[]{
+    \captionof{table}[Histone codon substitution]{
         Mean synonymous and non-synonymous distances between pairs of canonical core histone genes.
         Mean over all pairwise comparisons of non-synonymous ($d_N$) and synonymous ($d_S$) 
         nucleotide substitutions and mean of $d_N/d_S$ ratios for canonical core histone coding regions
@@ -116,7 +115,7 @@
 
   \newpage
   \newpage
-  \captionof{table}[]{%
+  \captionof{table}[Histone codon usage]{%
     Codon usage frequency for each amino acid
     and canonical core histone type.
   }
@@ -124,20 +123,18 @@
   \input{\ResultsDir/table-codon_usage}
 
   \newpage
-  \captionof{table}[]{%
-    Catalogue of annotated human core histone variant genes, transcripts and encoded proteins.
+  \captionof{table}[Human histone variants catalogue]{%
     Catalogue of annotated human core histone variant genes, transcripts,
     and encoded proteins.
     Data obtained from NCBI RefSeq \citep{OLearyRefseq2016} on
     \SequencesDate{}.
   }
-
   \label{tab:variant-catalogue}
   \input{\ResultsDir/table-variant_catalogue}
 
   \newpage
   \begin{center}
-    \captionof{table}[]{
+    \captionof{table}[Anomalies in the annotation of human histones]{
         Variations in canonical core histone gene annotations
         compared to expectation of single exon, single transcript, and stem-loop.
         Data obtained from NCBI RefSeq \citep{OLearyRefseq2016} on

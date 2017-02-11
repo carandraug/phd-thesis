@@ -139,7 +139,11 @@
   \newcommand{\dc}[1]{\SI{#1}{\degreeCelsius}}
   \newcommand{\pcent}[1]{\SI{#1}{\percent}}
 
+%% This commands include the caption short description at the start of
+%% long description and in bold.
 \newcommand{\captionIntro}[2]{\caption[#1]{\textbf{#1.} #2}}
+\newcommand{\captionofIntro}[3]{\captionof{#1}[#2]{\textbf{#2.} #3}}
+
 
 %% Just like we have cite and citep to cite in text and between parentheses,
 %% have the same for fref, tref, etc...
