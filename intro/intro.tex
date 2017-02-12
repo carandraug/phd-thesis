@@ -390,137 +390,147 @@
 
       The series of discoveries that led to the nucleosome
       structure form a timeline spanning over a century
-      \citep{vanHolde-chapter1}.
+      (\tref{tab:chromatin-discoveries-timeline},
+      \cite{vanHolde-chapter1}).
 
-      \begin{description}
-        %% Ueber die chemische Zusammensetzung der Eiterzellen
-        %% von Dr. F. Miescher aus Basel
-        \item[\cite{miescher1871-chromatin}]
-        First chromatin preparation, named nucleïn.
+      %% Lists inlined in the text are not allowed in a thesis, so we
+      %% put this into a table.. However, this ``table'' is longer
+      %% than a single so we must use afterpage + captionof.
+      \afterpage{%
+        \captionofIntro{table}{Historical perspective on chromatin
+          structure}{}%
+        \label{tab:chromatin-discoveries-timeline}%
+        \begin{shaded}%
+          \begin{description}%
+            %% Ueber die chemische Zusammensetzung der Eiterzellen
+            %% von Dr. F. Miescher aus Basel
+          \item[\cite{miescher1871-chromatin}]
+            First chromatin preparation, named nucleïn.
 
-        \item[\cite{miescher1874-protamines}]
-        First DNA purification, also named nucleïn, and identification
-        of protamines from a sperm chromatin preparation.  Demonstration
-        that DNA exhibits acidic properties.
+          \item[\cite{miescher1874-protamines}]
+            First DNA purification, also named nucleïn, and identification
+            of protamines from a sperm chromatin preparation.  Demonstration
+            that DNA exhibits acidic properties.
 
-        \item[\cite{flemming1880-chromatin}]
-        Chromatin named for the first time as the readily stainable
-        material on cell nuclei. Only later would it be identified
-        as the same as the nucleïn in Miescher preparations.
+          \item[\cite{flemming1880-chromatin}]
+            Chromatin named for the first time as the readily stainable
+            material on cell nuclei. Only later would it be identified
+            as the same as the nucleïn in Miescher preparations.
 
-        %% Wenn in dem vorliegenden Fall ebenfalls eine derartige Verbindung
-        %% des Nucleïns vorlag, so war eine Extraktion des basischen Körpers
-        %% durch die verdünnte Säure vorauszusetzen. Die Untersuchung des
-        %% salzsauren Extraktes der Kernmasse ergab die Anwesenheit eines
-        %% Körpers, welcher zu jener Klasse von Substanzen gehört, due unter
-        %% dem Namem A-Pepton (Meissner), Propepton (Schmidt-Mühlheim),
-        %% Albumose (Kühne) zusammengefasst werden. [...]
-        %% Ich schlage für diese Substanz den Namen Histon vor.
-        \item[\cite{kossel1884-histones}]
-        Histones named for the first time.  They were the peptone-like
-        substances with basic properties obtained by acid extraction from
-        a chromatin preparation.
+            %% Wenn in dem vorliegenden Fall ebenfalls eine derartige Verbindung
+            %% des Nucleïns vorlag, so war eine Extraktion des basischen Körpers
+            %% durch die verdünnte Säure vorauszusetzen. Die Untersuchung des
+            %% salzsauren Extraktes der Kernmasse ergab die Anwesenheit eines
+            %% Körpers, welcher zu jener Klasse von Substanzen gehört, due unter
+            %% dem Namem A-Pepton (Meissner), Propepton (Schmidt-Mühlheim),
+            %% Albumose (Kühne) zusammengefasst werden. [...]
+            %% Ich schlage für diese Substanz den Namen Histon vor.
+          \item[\cite{kossel1884-histones}]
+            Histones named for the first time.  They were the peptone-like
+            substances with basic properties obtained by acid extraction from
+            a chromatin preparation.
 
-        %% Thanks to people on ##deutsch on irc.freenode.net for
-        %% help with the translation.
-        %%
-        %% Die Bindung des Histons am Nuclein muß wahrscheinlich als
-        %% eine saltzartige ausgefaßt werden und zwar so, daß die
-        %% Säurekomponente durch das Nuclein, der basische Bestandteil
-        %% durch das Histon vertreten ist.
-        %%
-        %% saltzartige --> salt-like --> electrostatic
-        \item[\cite{huiskamp1903-electrostatic}]
-        After a series of studies on chromatin chemical properties,
-        including demonstration that nucleïn is negatively charged
-        and histones positively charged, it was proposed that
-        histone and DNA binding happens by electrostatic interactions.
+            %% Thanks to people on ##deutsch on irc.freenode.net for
+            %% help with the translation.
+            %%
+            %% Die Bindung des Histons am Nuclein muß wahrscheinlich als
+            %% eine saltzartige ausgefaßt werden und zwar so, daß die
+            %% Säurekomponente durch das Nuclein, der basische Bestandteil
+            %% durch das Histon vertreten ist.
+            %%
+            %% saltzartige --> salt-like --> electrostatic
+          \item[\cite{huiskamp1903-electrostatic}]
+            After a series of studies on chromatin chemical properties,
+            including demonstration that nucleïn is negatively charged
+            and histones positively charged, it was proposed that
+            histone and DNA binding happens by electrostatic interactions.
 
-        %% We therefore advance the hypothesis that the basic proteins of
-        %% cell nuclei are gene inhibitors, each histone or protamin being
-        %% capable of suppressing the activities of specific groups of
-        %% genes. Such an hypothesis will, we believe, not only serve to
-        %% explain the different properties of cell nuclei, but will also
-        %% give some indication of the mechanism by which the nucleus
-        %% effectively participates in the process of cell differentiation.
-        \item[\cite{stedman1951main-histones-separation}]
-        Demonstration that histones are not homogeneous and can be
-        separated into main and subsidiary histones,
-        which are now known as core histones and histone H1.
-        Further demonstration that these two fracations are not
-        homogeneous themselves and that distribution is tissue specific.
-        Proposal that histones play a role in gene regulation based
-        on the tissue specificity of certain histones.
+            %% We therefore advance the hypothesis that the basic proteins of
+            %% cell nuclei are gene inhibitors, each histone or protamin being
+            %% capable of suppressing the activities of specific groups of
+            %% genes. Such an hypothesis will, we believe, not only serve to
+            %% explain the different properties of cell nuclei, but will also
+            %% give some indication of the mechanism by which the nucleus
+            %% effectively participates in the process of cell differentiation.
+          \item[\cite{stedman1951main-histones-separation}]
+            Demonstration that histones are not homogeneous and can be
+            separated into main and subsidiary histones,
+            which are now known as core histones and histone H1.
+            Further demonstration that these two fracations are not
+            homogeneous themselves and that distribution is tissue specific.
+            Proposal that histones play a role in gene regulation based
+            on the tissue specificity of certain histones.
 
-        %% On this paper they separate F2a into two parts (into what
-        %% is now known as H2B and H4).  There are 3 other papers by
-        %% the same lab, before this one, where they identify the other
-        %% histones but this is the last.  The 3 other papers are
-        %% referenced in the introduction of this one.
-        \item[\cite{philips-and-johns1965-fractionation}]
-        Culmination of a long series of papers about fractionation and
-        identification of histones leading to the identification of
-        the five histones types known today.
-        This was made possible by the development of chromatographic
-        fractionation methods and gel electrophoresis techniques.
+            %% On this paper they separate F2a into two parts (into what
+            %% is now known as H2B and H4).  There are 3 other papers by
+            %% the same lab, before this one, where they identify the other
+            %% histones but this is the last.  The 3 other papers are
+            %% referenced in the introduction of this one.
+          \item[\cite{philips-and-johns1965-fractionation}]
+            Culmination of a long series of papers about fractionation and
+            identification of histones leading to the identification of
+            the five histones types known today.
+            This was made possible by the development of chromatographic
+            fractionation methods and gel electrophoresis techniques.
 
-        %% They didn't actually refer to 200bp on this paper, there is
-        %% no ladder on the figure.  It's Kornberg on the notes of his
-        %% references that mentions:
-        %%    "the extent of digestion and size of the pieces are
-        %%    from D. R. Hewish, personal communication
-        %%    (the size was determined by velocity sedimenta-
-        %%    tion in alkali and should be regarded as only
-        %%    approximate)."
-        \item[\cite{hewish1973-200bp-pieces}]
-        Digestion of chromatin by nucleases yields \SI{200}{\bp}
-        fragments and proposal that chromatin has a repeating
-        substructure with a repetitive spacing.
+            %% They didn't actually refer to 200bp on this paper, there is
+            %% no ladder on the figure.  It's Kornberg on the notes of his
+            %% references that mentions:
+            %%    "the extent of digestion and size of the pieces are
+            %%    from D. R. Hewish, personal communication
+            %%    (the size was determined by velocity sedimenta-
+            %%    tion in alkali and should be regarded as only
+            %%    approximate)."
+          \item[\cite{hewish1973-200bp-pieces}]
+            Digestion of chromatin by nucleases yields \SI{200}{\bp}
+            fragments and proposal that chromatin has a repeating
+            substructure with a repetitive spacing.
 
-        \item[\cite{olins1974-nu-bodies}]
-        First view of the ``beads on a string'' structure
-        \frefp{fig:intro:beads-on-a-string}.
-        These results were initially
-        regarded as artifacts \citep{pardon-wilkins-1972model}.
+          \item[\cite{olins1974-nu-bodies}]
+            First view of the ``beads on a string'' structure
+            \frefp{fig:intro:beads-on-a-string}.
+            These results were initially
+            regarded as artifacts \citep{pardon-wilkins-1972model}.
 
-        \item[\cite{anna-isenberg-1974-h2a-h2b}]
-        Demonstration of strong association between H2A--H2B.
+          \item[\cite{anna-isenberg-1974-h2a-h2b}]
+            Demonstration of strong association between H2A--H2B.
 
-        \item[\cite{kornberg1974-results}]
-        Demonstration that histones form a (H3--H4)\textsubscript{2} tetramer
-        an H2A--H2B dimer.
+          \item[\cite{kornberg1974-results}]
+            Demonstration that histones form a (H3--H4)\textsubscript{2} tetramer
+            an H2A--H2B dimer.
 
-        %% Beautiful paper, with the best abstract ever.  This is it on its
-        %% entirety: "Chromatin structure is based on a repeating unit
-        %% of eight histone molecules and about 200 DNA base pairs."
-        \item[\cite{kornberg1974-model}]
-        Basic structure of the nucleosome is proposed as a repeating
-        unit of chromatin with eight histones, two of each, and about
-        200 base pairs of DNA.
+            %% Beautiful paper, with the best abstract ever.  This is it on its
+            %% entirety: "Chromatin structure is based on a repeating unit
+            %% of eight histone molecules and about 200 DNA base pairs."
+          \item[\cite{kornberg1974-model}]
+            Basic structure of the nucleosome is proposed as a repeating
+            unit of chromatin with eight histones, two of each, and about
+            200 base pairs of DNA.
 
-        \item[\cite{bradbury1975-histone-nomenclature}]
-        The current histone nomenclature is presented at Ciba foundation
-        symposium, and submitted to IUPAC for official standardization.
+          \item[\cite{bradbury1975-histone-nomenclature}]
+            The current histone nomenclature is presented at Ciba foundation
+            symposium, and submitted to IUPAC for official standardization.
 
-        \item[\cite{richmond1984-7angstrom}]
-        Crystal structure of the nucleosome solved with intermediate
-        resolution of \SI{7}{\angstrom}.
-        Reveals a disk shaped (H3--H4)\textsubscript{2} symmetric
-        tetramer at the center of the nucleosome, an H2A--H2B dimers
-        on each face of the disk, and the DNA sequence around it.
+          \item[\cite{richmond1984-7angstrom}]
+            Crystal structure of the nucleosome solved with intermediate
+            resolution of \SI{7}{\angstrom}.
+            Reveals a disk shaped (H3--H4)\textsubscript{2} symmetric
+            tetramer at the center of the nucleosome, an H2A--H2B dimers
+            on each face of the disk, and the DNA sequence around it.
 
-        \item[\cite{luger1997-28angstrom}]
-        Crystal structure of the nucleosome solved with high
-        resolution of \SI{2.8}{\angstrom} showing atomic interactions
-        between the histones and their internal structure.
+          \item[\cite{luger1997-28angstrom}]
+            Crystal structure of the nucleosome solved with high
+            resolution of \SI{2.8}{\angstrom} showing atomic interactions
+            between the histones and their internal structure.
 
-        \item[\cite{richmond-1kx5-19ansgtrom}]
-        Crystal structure of the nucleosome solved with resolution of
-        \SI{1.9}{\angstrom}, the highest to date, showing details on
-        the interactions between the DNA double helix sequence and
-        histone octamer.
-      \end{description}
-
+          \item[\cite{richmond-1kx5-19ansgtrom}]
+            Crystal structure of the nucleosome solved with resolution of
+            \SI{1.9}{\angstrom}, the highest to date, showing details on
+            the interactions between the DNA double helix sequence and
+            histone octamer.
+          \end{description}
+        \end{shaded}
+      }
 
 \section{Fluorescence microscopy}
 
