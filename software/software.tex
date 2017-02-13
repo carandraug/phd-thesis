@@ -1,2 +1,137 @@
 \chapter{Developed software}
-\label{ch:software}
+
+\section{GNU Octave}
+
+The GNU Octave programming language was heavily used for the analysis
+of microscope images throughout this studies as several of the
+language and features as well as its community makes it an attractive
+choice for this problems.
+
+Biological microscope images have a varying number of dimensions.
+Other than the 2 dimensional plane of a standard image, microscope
+images will typically include any combination of: $z$ dimension along
+the optical axis for a volume image; time dimension for time-lapse
+experiments; and wavelength for multi-channels.  Recent microscopy
+techniques generate images with an even higher number of dimensions
+such as angle, phase, and lifetime.  This varying dimensionality adds
+complexity and makes it harder to write generalized subroutines for
+microscope image analysis.
+
+GNU Octave is an array programming language, primarily intended for
+numerical computations \citep{octave}.  Array programming languages
+are high level programming languages where the primary data types and
+operators are generalised to multidimensional arrays.  This provides
+an abstraction layer that is useful when writing code for an arbitrary
+number of dimensions.
+
+In addition to being an array programming language, Octave has several
+packages that focus on problems of a specific domain such as control
+systems \citep{octave-control}, time-frequency analysis
+\citep{octave-ltfat}, or level-set \citep{octave-level-set}.  The
+Octave Forge project is a separate project that provides a collection
+of such Octave packages and a collaborative environment for their
+development.  This includes the Octave Forge image package which
+provides several functions for image processing such as geometric
+transformations, mathematical morphology, image registration, and
+noise reduction.
+
+Octave also has a read–eval–print loop (REPL) or an interactive top
+level, like Lisp machines, IPython, and Unix shells, which reduces the
+feedback time and allowing for quicker prototyping.
+
+%% No citation for this, only the anecdotal evidence of being the
+%% project leader for 6 years.
+The project has a large and activity community and being primarily
+aimed at numerical computations, the community is mainly composed of
+scientists and engineers which provide a large support group of
+specialists.
+
+Finally, GNU Octave and Octave Forge packages are free software.  This
+allows one to study the existing source, as well as modifying it for
+ones purpose and distributing the modified source.  We made extensive
+use of this feature and have constantly improved Octave and its
+packages to best fit our needs.  Octave is also a superset of the
+Matlab language and while Matlab itself is a proprietary language,
+code written for it is often free software which we were able to
+improve and use.
+
+%% These were actually lsm files but those are actually TIFFs.
+While we found the Octave language to be well suited for image
+processing, we also identified several problems always related with
+the large image size or number of dimensions.  Our microscopy images
+were several megabytes in size --- the single cell and half-nuclear
+FRAP experiments for histone dynamics generated TIFF files of 449 and
+512 megabytes respectively.  These images had a field of view of 300
+by 300 pixels and 2500 time frames for the single cell images, and
+1024 by 1024 pixels and 466 time points for the half-nuclear FRAP
+images, both being acquired by an 8-bit camera.  While these are large
+image files, they are not atypical in the field of microscopy.
+
+\subsection{Reading and Writing of Image Files}
+
+%% Number of 88 major image formats taken from GraphicsMagick
+%% documentation on February 2017.
+Octave uses the GraphicsMagick C++ library for the reading and writing
+of image files which provides a common API to a varied collection of
+image format specific libraries like libtiff, libpng, and libjpeg.  As
+of version 1.3.25, released on September of 2016, it gives support for
+over 88 major image formats.  In Octave, this functionality is
+provided via the functions \command{imfinfo}, \command{imread}, and
+\command{imwrite}.
+
+%% This is not completely exact.  The format is actually a linked list
+%% of IFDs and at the end of each IFD is the pointer to the next one.
+%% Each IFD includes the pointer for its own page (if any).  So
+%% technically, we don't need to read all the pages before, we need to
+%% read all the IFDs before.  But I think that will just make things a
+%% lot more complicated for nothing.
+Microscopy images are often stored in TIFF, a computer file format
+with open specifications originally developed for desktop publishing.
+Its support for multiple pages means that microscope images with
+multiple planes can be stored into a single file, one plane and
+wavelength per page.  However, the pages are structured into a singly
+linked list so reading a specific page implies scanning all the
+previous pages first.  Octave's \command{imread} was originally
+designed for reading a single page and required one call to
+\command{imread} per page to be read.  This is slow because the
+function is called and interpreted multiple times, but it is worse in
+the case of TIFF since previously scanned planes are constantly being
+rescanned.
+
+One solution is to store the information about scanned pages and pass
+such data to consecutive \command{imread} calls.  However, this adds
+complexity to the function usage, and breaks the abstraction with TIFF
+specific details that are important only for multipage images.
+Octave's \command{imread} was instead improved to accept an extra
+argument defining the range of images to be read or the string
+\command{all}, allowing to read any number of pages with a single call
+to \command{imread}.  This suits microscopy images since either all
+planes are to be read, or their numbers were known in advance.
+However, it does not provide a solution for when individual planes are
+read, processed, and discarded sequentially.
+
+This change was part part of a complete rewrite of Octave's image IO
+functions with the aim of making it better suited to multidimensional
+images, increased performance, and improved Matlab compatibility.
+
+Other new features included support for handling images in floating
+point precision and CMYK color model, writing of indexed images, and
+appending to existing image files.
+
+
+* handle rgb2ind and gay2ind for other data types and nd
+* new function imformats
+* a lot new fields for imfinfo and read exif and GPS
+
+
+
+\subsubsection{Bio-Formats}
+
+While GraphicsMagick provides support to read the pixel data of most
+microscope image formats, it has no support for reading microscope
+image metadata.
+
+
+\section{BioPerl}
+
+\section{SCons}
