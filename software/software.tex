@@ -1,123 +1,129 @@
-\chapter{Developed software}
+\chapter{Software Tools for Image and Sequence Analysis}
+
+\todo[inline]{Add one page general background to broad needs and
+  motivations of software.  Two sections on: Why software development
+  is essential for cell biology (1 page), and Why FOSS is important for
+  researchers (half page)}
 
 \section{GNU Octave}
 
 The GNU Octave programming language was heavily used for the analysis
-of microscope images throughout this studies as several of the
-language and features as well as its community makes it an attractive
-choice for this problems.
+of microscope images throughout this work.  Several features of the
+language and its supportive community make it an attractive choice
+for qualitative microscopy.
+
+\todo[inline]{Add 2 sentences with a general description of Octave
+  capabilities}
 
 Biological microscope images have a varying number of dimensions.
-Other than the 2 dimensional plane of a standard image, microscope
-images will typically include any combination of: $z$ dimension along
+In addition to the 2 dimensional plane of a standard image, microscope
+outputs typically include any combination of: $z$ dimension along
 the optical axis for a volume image; time dimension for time-lapse
-experiments; and wavelength for multi-channels.  Recent microscopy
+experiments; and wavelength for multi-channel experiments.  Recent microscopy
 techniques generate images with an even higher number of dimensions
 such as angle, phase, and lifetime.  This varying dimensionality adds
-complexity and makes it harder to write generalized subroutines for
+complexity and makes it more challenging to write generalized subroutines for
 microscope image analysis.
 
-GNU Octave is an array programming language, primarily intended for
+GNU Octave is an array programming language primarily intended for
 numerical computations \citep{octave}.  Array programming languages
 are high level programming languages where the primary data types and
-operators are generalised to multidimensional arrays.  This provides
+operators \todo{explain data types and operators}
+are generalised to multidimensional arrays.  This provides
 an abstraction layer that is useful when writing code for an arbitrary
 number of dimensions.
-
-In addition to being an array programming language, Octave has several
-packages that focus on problems of a specific domain such as control
-systems \citep{octave-control}, time-frequency analysis
-\citep{octave-ltfat}, or level-set \citep{octave-level-set}.  The
-Octave Forge project is a separate project that provides a collection
-of such Octave packages and a collaborative environment for their
-development.  This includes the Octave Forge image package which
-provides several functions for image processing such as geometric
-transformations, mathematical morphology, image registration, and
-noise reduction.
 
 %% Doesn't seem to be any scientific study about REPL as an advantage
 %% for prototyping.  Similarly, none about being better for
 %% exploratory data analysis but I can't imagine anyone disagreeing
 %% with it.
-Octave also has a read–eval–print loop (REPL) or an interactive top
+Octave also has a read–eval–print loop (REPL), or interactive top
 level, like Lisp machines, IPython, and Unix shells, which reduces the
-feedback time and creates a good\todo{I probably can't say this word
-  without reference} environment for exploratory data analysis.
+feedback time and provides an efficient
+environment for exploratory data analysis.
 
 %% No citation for this, only the anecdotal evidence of being the
-%% project leader for 6 years.
-The project has a large and activity community and being primarily
-aimed at numerical computations, the community is mainly composed of
-scientists and engineers which provide a large support group of
-specialists.
+%% project leader of octave Forge for 6 years.
+The project has a large and active community
+mainly composed of
+scientists and engineers as a large support group of
+specialists in numerical computations
 
-Finally, GNU Octave and Octave Forge packages are free software.  This
-allows one to study the existing source, as well as modifying it for
-ones purpose and distributing the modified source.  We made extensive
-use of this feature and have constantly improved Octave and its
-packages to best fit our needs.  Octave is also a superset of the
-Matlab language and while Matlab itself is a proprietary language,
-code written for it is often free software which we were able to
-improve and use.
+GNU Octave and Octave Forge packages are free software which allows
+the study, modification, and distribution of modified source.
+We made extensive
+use of this feature and have contributed to improving Octave and its
+packages for the needs of quantitative microscopy.
+
+In addition, Octave has
+packages that focus on specific applications such as control
+systems \citep{octave-control}, time-frequency analysis
+\citep{octave-ltfat}, or level sets \citep{octave-level-set}.  The
+Octave Forge project hosts
+Octave packages and provides a collaborative environment for their
+development.  The Octave Forge image package
+provides a number of functions for image processing such as geometric
+transformations, mathematical morphology, image registration, and
+noise reduction.
 
 %% These were actually lsm files but those are actually TIFFs.
-While we found the Octave language to be well suited for image
+While Octave is well suited to image
 processing, we also identified several problems always related with
 the large image size or number of dimensions.  Our microscopy images
-were several megabytes in size --- the single cell and half-nuclear
-FRAP experiments for histone dynamics generated TIFF files of 449 and
-512 megabytes respectively.  These images had a field of view of 300
-by 300 pixels and 2500 time frames for the single cell images, and
-1024 by 1024 pixels and 466 time points for the half-nuclear FRAP
-images, both being acquired by an 8-bit camera.  While these are large
-image files, they are not atypical in the field of microscopy.
+were several megabytes in size.  For example, the single cell
+FRAP experiments for histone dynamics generating TIFF files of 449
+These images had a field of view of 300
+by 300 pixels and 2500 time frames
+on acquisition by an 8-bit camera.
+Such files sizes are typical in the field of microscopy.
 
 \subsection{Reading and Writing of Image Files}
 
 %% Number of 88 major image formats taken from GraphicsMagick
 %% documentation on February 2017.
 Octave uses the GraphicsMagick C++ library for the reading and writing
-of image files which provides a common API to a varied collection of
-image format specific libraries like libtiff, libpng, and libjpeg.  As
-of version 1.3.25, released on September of 2016, it gives support for
-over 88 major image formats.  In Octave, this functionality is
+of image files which provides a common API \todo{define API}
+to a varied collection of
+image format specific libraries covering almost
+90 major image formats.  In Octave, this functionality is
 provided via the functions \command{imfinfo}, \command{imread}, and
-\command{imwrite} which is part of Octave since version 3.2.0.
+\command{imwrite}.
 
-We rewrote this three functions with the aim of supporting more
-options for reduced memory usage, increased performance, improved
-usage for multidimensional images, and new image types.  With this
-aim, we added new options to read and write a series of image planes
-with a single function call, to read specific regions of interested in
-individual planes, added support for reading and writing of images
-with floating point precision, and to append planes to existing image
+These three functions were rewritten with the aim of achieving
+reduced memory usage, increased performance, improved
+interface for multidimensional images, and new image types.
+New options were added to read and write a series of image planes
+with in a single function call, to read specific regions of interest in
+individual planes, to read and write images
+with floating point precision, and to append additional planes to existing image
 files.
 
-As part of this rewrite, we also improved existing features, and
-introduced several new features that do not have immediate usage in
-the field of microscopy.  We improved support for transparency as well
-as for indexed images, added support for the CMYK colour model, EXIF
+As part of this rewrite, existing features were improved such as
+support for transparency and
+indexed images, support for the CMYK colour model, EXIF
 and GPS metadata, reading and writing of animations in GIF images, and
 control over the image compression type.
 
-To support this development, we added a system of configurable hooks
-to the image IO functions based on individual file formats.  It makes
-it not only possible to plugin support of new image file formats
-without addition of new format specific functions, but also to hook
-into the existing formats.  For example, one could now hook reading of
-microscope specific metadata into \command{imfinfo}.  We tested and
-improved this system while improving the image IO functions
-ourselves.  This system is available via the function \command{imformats}.
+To support this development, a system of configurable hooks \todo{explain hooks}
+to the image IO \todo{define IO}
+functions were added based on individual file formats.
+This enables plugin \todo{explain plugin} support for new image file formats
+without addition of new format specific functions, and improved access
+to the existing formats.  For example, it is now possible to read
+microscope specific metadata from \command{imfinfo}.
+This system is available via the function \command{imformats}.
 
-This changes extended to other functions of Octave related to images
-and we overhauled all the images involved in conversion between color
+Changes extended to other functions of Octave related to images
+including overhaul of functions involved in conversion between color
 models, grayscale images, and indexed images to support integer and
-floating point data types, as well as N dimensions.  These functions
+floating point data types, and multiple dimensions.
+
+\todo[inline]{list all functions added or upgraded in  table These functions
 are: \command{gray2ind}, \command{hsv2rgb}, \command{ind2gray},
 \command{ind2rgb}, \command{ntsc2rgb}, \command{rgb2hsv},
-\command{rgb2ind}, and \command{rgb2ntsc}.
+\command{rgb2ind}, and \command{rgb2ntsc}}
 
-All of this changes were released with Octave version 3.8.0.
+All changes were released with Octave version 3.8.0.
 
 
 \subsubsection{Bio-Formats and Octave Java interface}
@@ -126,48 +132,45 @@ All of this changes were released with Octave version 3.8.0.
 %% knowing that LSM interleaves the actual pixel data with thumbnails
 %% which need to be skipped.
 While GraphicsMagick provides support to read many image formats, its
-support for scientific microscope image formats is smaller and
-accidental.  For example, the confocal microscopes we used all saved
-their images in the LSM file format which is an extension of TIFF and
-so we were able to read the pixel data.  However, this retrieved none
-of the file metadata such as pixel size, time interval, or region of
-bleaching event.
+support for scientific microscope image formats is limited.
+For example, Zeiss confocal microscopes save
+images in the LSM file format which is a proprietary extension of TIFF.
+Although this reads pixel data,
+the file metadata such as pixel size, time interval, or region of
+bleaching event cannot be retrieved.
 
 Bio-Formats is a free software library for reading and writing image
 data with a strong focus on microscopy image file formats
-\citep{bioformats}, written in the Java programming language.  It is
+\citep{bioformats}.  It is written in the Java programming language and
 used by other programs in the field of microscope image analysis such
 as CellProfiler \citep{cellprofiler}, ImageJ \cite{imagej2}, and OMERO
-\citep{omero}, all of which are also free software.
+\citep{omero}.
 
 %% Before version 3.8.0, there was a separate Octave Forge package
 %% that added the java interface.  Actually, Octave version 3.8.0
 %% pretty much only merged the java package into it.
-Octave has a native Java interface since version 3.8.0 which would
-ease development of any interface between Bio-Formats and Octave.
-However, Bio-Formats already included an interface to Matlab which
-should have worked in Octave.  Instead, we identified a series of
-problems in the Octave Java interface.  These were separated into two
-groups, one was addressed in Octave while the other in Bio-Formats.
+\todo{explain interface in 1 sentence}
+Octave has a native Java interface that should enable integration with
+Bio-Formats.
+We identified a series of problems in the Octave Java interface that
+could be solved either by improving Octave or Bio-Formats.
 
-In Octave, we rewrote the wrapping and unwrapping of Java objects into
-Octave data types.  Specifically, we changed Octave to automatically
-convert Java objects into native Octave data types, including arrays
-of Java primitive data types which is the format of the data returned
-by Bio-Formats.  We did not add support for arrays of Java arrays
-since we did not require it.  As of version 4.2.0, Octave still lacks
+In Octave, we rewrote the wrapping and unwrapping of Java objects \todo{explain}
+into Octave data types.  This enabled Octave to automatically
+convert Java objects into native Octave data types.
+Support for arrays of Java arrays was not enabled
+since we did not require it and Octave still lacks
 support for it.
 
 In Bio-Formats, we modified the code to use a Java interface that is
-both Octave and Matlab compatible.  Matlab has two available syntax
-for interfacing with Java but Octave only implements one of them.
-This change in Bio-Formats meant that ist package for Matlab and
-Octave are effectively the same code, the only difference being on the
-actual packaging format.  Finally, we configured the Bio-Formats build
-system to prepare an Octave package as part of their own releases so
-that it was handled by Octave's package manager.
+both Octave and Matlab compatible.
+This change considerably  simplified the packaging of
+Bio-Formats for Matlab and Octave so that they are now
+effectively the same code.
+Finally, we configured the Bio-Formats build system \todo{explain}
+to routinely prepare an Octave package as part of its releases.
 
-All of this changes were released with Octave since version 4.0.0 and
+All changes were released with Octave since version 4.0.0 and
 Bio-Formats since version 5.1.2
 
 \section{BioPerl}
