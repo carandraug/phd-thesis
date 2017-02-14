@@ -35,9 +35,14 @@ provides several functions for image processing such as geometric
 transformations, mathematical morphology, image registration, and
 noise reduction.
 
+%% Doesn't seem to be any scientific study about REPL as an advantage
+%% for prototyping.  Similarly, none about being better for
+%% exploratory data analysis but I can't imagine anyone disagreeing
+%% with it.
 Octave also has a read–eval–print loop (REPL) or an interactive top
 level, like Lisp machines, IPython, and Unix shells, which reduces the
-feedback time and allowing for quicker prototyping.
+feedback time and creates a good\todo{I probably can't say this word
+  without reference} environment for exploratory data analysis.
 
 %% No citation for this, only the anecdotal evidence of being the
 %% project leader for 6 years.
@@ -77,60 +82,93 @@ image format specific libraries like libtiff, libpng, and libjpeg.  As
 of version 1.3.25, released on September of 2016, it gives support for
 over 88 major image formats.  In Octave, this functionality is
 provided via the functions \command{imfinfo}, \command{imread}, and
-\command{imwrite}.
+\command{imwrite} which is part of Octave since version 3.2.0.
 
-%% This is not completely exact.  The format is actually a linked list
-%% of IFDs and at the end of each IFD is the pointer to the next one.
-%% Each IFD includes the pointer for its own page (if any).  So
-%% technically, we don't need to read all the pages before, we need to
-%% read all the IFDs before.  But I think that will just make things a
-%% lot more complicated for nothing.
-Microscopy images are often stored in TIFF, a computer file format
-with open specifications originally developed for desktop publishing.
-Its support for multiple pages means that microscope images with
-multiple planes can be stored into a single file, one plane and
-wavelength per page.  However, the pages are structured into a singly
-linked list so reading a specific page implies scanning all the
-previous pages first.  Octave's \command{imread} was originally
-designed for reading a single page and required one call to
-\command{imread} per page to be read.  This is slow because the
-function is called and interpreted multiple times, but it is worse in
-the case of TIFF since previously scanned planes are constantly being
-rescanned.
+We rewrote this three functions with the aim of supporting more
+options for reduced memory usage, increased performance, improved
+usage for multidimensional images, and new image types.  With this
+aim, we added new options to read and write a series of image planes
+with a single function call, to read specific regions of interested in
+individual planes, added support for reading and writing of images
+with floating point precision, and to append planes to existing image
+files.
 
-One solution is to store the information about scanned pages and pass
-such data to consecutive \command{imread} calls.  However, this adds
-complexity to the function usage, and breaks the abstraction with TIFF
-specific details that are important only for multipage images.
-Octave's \command{imread} was instead improved to accept an extra
-argument defining the range of images to be read or the string
-\command{all}, allowing to read any number of pages with a single call
-to \command{imread}.  This suits microscopy images since either all
-planes are to be read, or their numbers were known in advance.
-However, it does not provide a solution for when individual planes are
-read, processed, and discarded sequentially.
+As part of this rewrite, we also improved existing features, and
+introduced several new features that do not have immediate usage in
+the field of microscopy.  We improved support for transparency as well
+as for indexed images, added support for the CMYK colour model, EXIF
+and GPS metadata, reading and writing of animations in GIF images, and
+control over the image compression type.
 
-This change was part part of a complete rewrite of Octave's image IO
-functions with the aim of making it better suited to multidimensional
-images, increased performance, and improved Matlab compatibility.
+To support this development, we added a system of configurable hooks
+to the image IO functions based on individual file formats.  It makes
+it not only possible to plugin support of new image file formats
+without addition of new format specific functions, but also to hook
+into the existing formats.  For example, one could now hook reading of
+microscope specific metadata into \command{imfinfo}.  We tested and
+improved this system while improving the image IO functions
+ourselves.  This system is available via the function \command{imformats}.
 
-Other new features included support for handling images in floating
-point precision and CMYK color model, writing of indexed images, and
-appending to existing image files.
+This changes extended to other functions of Octave related to images
+and we overhauled all the images involved in conversion between color
+models, grayscale images, and indexed images to support integer and
+floating point data types, as well as N dimensions.  These functions
+are: \command{gray2ind}, \command{hsv2rgb}, \command{ind2gray},
+\command{ind2rgb}, \command{ntsc2rgb}, \command{rgb2hsv},
+\command{rgb2ind}, and \command{rgb2ntsc}.
+
+All of this changes were released with Octave version 3.8.0.
 
 
-* handle rgb2ind and gay2ind for other data types and nd
-* new function imformats
-* a lot new fields for imfinfo and read exif and GPS
+\subsubsection{Bio-Formats and Octave Java interface}
 
+%% We kind of managed to read the pixel data.  This also required
+%% knowing that LSM interleaves the actual pixel data with thumbnails
+%% which need to be skipped.
+While GraphicsMagick provides support to read many image formats, its
+support for scientific microscope image formats is smaller and
+accidental.  For example, the confocal microscopes we used all saved
+their images in the LSM file format which is an extension of TIFF and
+so we were able to read the pixel data.  However, this retrieved none
+of the file metadata such as pixel size, time interval, or region of
+bleaching event.
 
+Bio-Formats is a free software library for reading and writing image
+data with a strong focus on microscopy image file formats
+\citep{bioformats}, written in the Java programming language.  It is
+used by other programs in the field of microscope image analysis such
+as CellProfiler \citep{cellprofiler}, ImageJ \cite{imagej2}, and OMERO
+\citep{omero}, all of which are also free software.
 
-\subsubsection{Bio-Formats}
+%% Before version 3.8.0, there was a separate Octave Forge package
+%% that added the java interface.  Actually, Octave version 3.8.0
+%% pretty much only merged the java package into it.
+Octave has a native Java interface since version 3.8.0 which would
+ease development of any interface between Bio-Formats and Octave.
+However, Bio-Formats already included an interface to Matlab which
+should have worked in Octave.  Instead, we identified a series of
+problems in the Octave Java interface.  These were separated into two
+groups, one was addressed in Octave while the other in Bio-Formats.
 
-While GraphicsMagick provides support to read the pixel data of most
-microscope image formats, it has no support for reading microscope
-image metadata.
+In Octave, we rewrote the wrapping and unwrapping of Java objects into
+Octave data types.  Specifically, we changed Octave to automatically
+convert Java objects into native Octave data types, including arrays
+of Java primitive data types which is the format of the data returned
+by Bio-Formats.  We did not add support for arrays of Java arrays
+since we did not require it.  As of version 4.2.0, Octave still lacks
+support for it.
 
+In Bio-Formats, we modified the code to use a Java interface that is
+both Octave and Matlab compatible.  Matlab has two available syntax
+for interfacing with Java but Octave only implements one of them.
+This change in Bio-Formats meant that ist package for Matlab and
+Octave are effectively the same code, the only difference being on the
+actual packaging format.  Finally, we configured the Bio-Formats build
+system to prepare an Octave package as part of their own releases so
+that it was handled by Octave's package manager.
+
+All of this changes were released with Octave since version 4.0.0 and
+Bio-Formats since version 5.1.2
 
 \section{BioPerl}
 
