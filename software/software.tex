@@ -118,13 +118,46 @@ including overhaul of functions involved in conversion between color
 models, grayscale images, and indexed images to support integer and
 floating point data types, and multiple dimensions.
 
-\todo[inline]{list all functions added or upgraded in  table These functions
-are: \command{gray2ind}, \command{hsv2rgb}, \command{ind2gray},
-\command{ind2rgb}, \command{ntsc2rgb}, \command{rgb2hsv},
-\command{rgb2ind}, and \command{rgb2ntsc}}
-
 All changes were released with Octave version 3.8.0.
 
+\begin{table}
+  \captionIntro{List of new or improved functions in GNU Octave}{}
+  \begin{multicols}{3}
+    \begin{itemize}
+      \foreach \function in {
+        bitcmp,
+        bzip2,
+        cubehelix,
+        fliplr,
+        flipud,
+        flip,
+        frame2im,
+        gallery,
+        gray2ind,
+        gzip,
+        hsv2rgb,
+        im2double,
+        im2frame,
+        imfinfo,
+        imformats,
+        imread,
+        imwrite,
+        ind2gray,
+        ind2rgb,
+        inputParser,
+        ntsc2rgb,
+        pkg,
+        psi,
+        rectint,
+        rgb2hsv,
+        rgb2ind,
+        rgb2ntsc,
+        rot90,
+        validateattributes}
+      { \item \command{\function} }
+    \end{itemize}
+  \end{multicols}
+\end{table}
 
 \subsubsection{Bio-Formats and Octave Java interface}
 
@@ -172,6 +205,85 @@ to routinely prepare an Octave package as part of its releases.
 
 All changes were released with Octave since version 4.0.0 and
 Bio-Formats since version 5.1.2
+
+\begin{table}
+  \captionIntro{List of new or improved functions in the Octave Forge
+    image package}{}
+  \begin{multicols}{3}
+    \begin{itemize}
+      \foreach \function in {
+        bestblk,
+        bwareafilt,
+        bwareaopen,
+        bwconncomp,
+        bwdist,
+        bwlabel,
+        bwlabeln,
+        bwmorph,
+        bwperim,
+        bwpropfilt,
+        checkerboard,
+        col2im,
+        colfilt,
+        conndef,
+        edgetaper,
+        fftconv2,
+        fftconvn,
+        grayslice,
+        graythresh,
+        im2col,
+        imabsdiff,
+        imadjust,
+        imattributes,
+        imbothat,
+        imclearborder,
+        imclose,
+        imcomplement,
+        imcrop,
+        imdilate,
+        imerode,
+        imfill,
+        imgetfile,
+        imhist,
+        imlincomb,
+        immse,
+        imopen,
+        impixel,
+        impyramid,
+        imquantize,
+        imreconstruct,
+        imregionalmax,
+        imregionalmin,
+        imresize,
+        imrotate,
+        imtophat,
+        intlut,
+        iptcheckconn,
+        label2rgb,
+        labelmatrix,
+        mat2gray,
+        mmgradm,
+        montage,
+        nlfilter,
+        normxcorr2,
+        ordfiltn,
+        otf2psf,
+        padarray,
+        psf2otf,
+        psnr,
+        regionprops,
+        rgb2ycbcr,
+        strel,
+        stretchlim,
+        subimage,
+        tiff\_tag\_read,
+        watershed,
+        wavelength2rgb,
+        ycbcr2rgb}
+      { \item \command{\function} }
+  \end{itemize}
+  \end{multicols}
+\end{table}
 
 \section{BioPerl}
 
