@@ -121,7 +121,7 @@ floating point data types, and multiple dimensions.
 All changes were released with Octave version 3.8.0.
 
 \begin{table}
-  \captionIntro{List of new or improved functions in GNU Octave}{}
+  \captionIntro{New or improved functions in GNU Octave}{}
   \begin{multicols}{3}
     \begin{itemize}
       \foreach \function in {
@@ -207,8 +207,8 @@ All changes were released with Octave since version 4.0.0 and
 Bio-Formats since version 5.1.2
 
 \begin{table}
-  \captionIntro{List of new or improved functions in the Octave Forge
-    image package}{}
+  \captionIntro{New or improved functions in the Octave Forge image
+    package}{}
   \begin{multicols}{3}
     \begin{itemize}
       \foreach \function in {
@@ -285,6 +285,121 @@ Bio-Formats since version 5.1.2
   \end{multicols}
 \end{table}
 
+\subsubsection{Octave Forge image package}
+
+\subsubsection{Octave Forge zenity package}
+
+\subsubsection{Other Octave Forge packages}
+
 \section{BioPerl}
+
+The BioPerl project is an international association of developers of
+free Perl software for bioinformatics, genomics, and life science
+\citep{bioperl}.  It has created the BioPerl distribution of Perl
+modules which has almost 800 modules for management and manipulation
+of biological data, from protein and genomic sequences, gene
+ontologies, and bibliography references, to programmatic access of
+databases such as GenBank and SwissProt, and bioinformatics tools such
+as ClustalW and Blast+.
+
+%% $ find bioperl-live/Bio/ -name '*.pm' -type f | wc -l
+%% 791
+%% This number no longer includes the modules already moved out of
+%% BioPerl and into domain specific distributions.
+The large number of modules in BioPerl became a maintenance problem
+and in 2010, a new project was started to split BioPerl into smaller
+more manageable distributions.
+
+\subsection{Dist::Zilla and Pod::Weaver}
+
+Dist::Zilla is a program to make it easier to write, package, manage,
+and release free software, targeted at libraries written in the Perl
+programming language and released to the Comprehensive Perl Archive
+Network (CPAN).  It comes with a series of plugins to automate the
+release process such as the addition of copyright notices, discovery
+of dependencies, and uploading to CPAN.
+
+Pod::Weaver is a program to create documents in Plain Old
+Documentation (POD) format, a format mainly used to write
+documentation inlined in Perl modules.  It has a Dist::Zilla plugin
+that serves as bridge between the two, so that most boilerplate POD is
+generated automatically as part of the release process.
+
+BioPerl adopted Dist::Zilla and Pod::Weaver for its many new smaller
+module distributions with the aim of preventing duplication of
+maintainers code, reducing that existing code, and making new release
+a further easier process.  As part of this project, we configured the
+BioPerl Dist::Zilla PluginBundle, and created two new Pod::Weaver
+section plugins, GenerateSection and Legal::Complicated.
+
+GenerateSection creates a POD sections based on a templates.  It is
+used in BioPerl to generate the support section of individual modules
+with distribution specific details such as links to the online
+repository.
+
+Legal::Complicated creates a POD section for the copyright details
+based on comments in individual modules.  While BioPerl is free
+software, individual modules may be released under different free
+software licenses, and each has their own author which often is not
+the copyright holder.
+
+Both new Pod::Weaver plugins and the BioPerl PluginBundle are available
+on CPAN.
+
+\subsection{Debian packaging}
+
+Debian is a computer operating system, the set of low-level software
+that manages a computer hardware and resources for computer programs,
+composed entirely of free software and one of the earliest GNU/Linux
+distributions.  Like all free operating systems today, Debian is
+package based meaning that it is made of multiple components, the
+packages.  For example, in Debian there are packages for the Linux
+kernel, the Perl programming language, and Dist::Zilla.  Packages are
+managed by a package management system which handles their
+installation, configuration, and removal, tasks which otherwise would
+have to be handled by the user.
+
+While Debian had a package for the main BioPerl distribution, it did
+not have one for Bio-EUtilities.  With the aim of making it easier for
+others to reproduce our results, we packaged it for Debian.
+Similarly, with the aim of making it easier for prospective BioPerl
+developers, we packaged all the Dist::Zilla plugins required, as well
+as all the module distributions required by those
+\trefp{tab:software:debian-packages}.
+
+\begin{table}
+  \captionIntro{Perl module distributions packaged for Debian}{}
+  \label{tab:software:debian-packages}
+  \begin{itemize}
+  \item Bio-EUtilities
+  \item Config-MVP-Slicer
+  \item Dist-Zilla-Config-Slicer
+  \item Dist-Zilla-Plugin-AutoMetaResources
+  \item Dist-Zilla-Plugin-MojibakeTests
+  \item Dist-Zilla-Plugin-ReadmeFromPod
+  \item Dist-Zilla-Plugin-Test-Compile
+  \item Dist-Zilla-Role-PluginBundle-PluginRemover
+  \item MooseX-Types-Email
+  \item Pod-Weaver-Plugin-EnsureUniqueSections
+  \item Pod-Weaver-Section-Contributors
+  \item Pod-Weaver-Section-GenerateSection
+  \item Pod-Weaver-Section-Legal-Complicated
+  \item Test-Mojibake
+  \end{itemize}
+\end{table}
+
+%% Debian Jessie has 21024 source packages.  The binary number of
+%% packages would be much higher but while that number is what is
+%% usually used when making a point for Debian's high number of
+%% packages, it is misleading.  The point is how much of upstream
+%% projects are packaged, and that is the number of source packages.
+
+The choice of Debian was strategic.  Debian is a widely used GNU/Linux
+distribution with more than 21000 packages, but it also has a large
+number of derivative distributions.  These are new distributions that
+inherit the base of their packages from Debian, and some, like Ubuntu
+and Knoppix, are the parents of their own derivatives.  By packaging
+for Debian, we effectively prepare packages for the whole family of
+Debian based distributions.
 
 \section{SCons}
