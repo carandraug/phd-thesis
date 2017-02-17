@@ -99,6 +99,10 @@
   %% new command for box about missing references
   \newcommand{\addref}[1]{\todo[color=red!40,size=\tiny]{Add reference: #1}}
 
+%% Provides multicols environment to create itemize list with multiple
+%% columns.
+\usepackage{multicol}
+
 \usepackage{enumitem}       % so we can use the unboxed style when item names are too long
 \usepackage{longtable}      % because memoir's ctabular does not work well with eqparbox
 \usepackage{eqparbox}       % for adjusting size of table column (specially on appendices)
