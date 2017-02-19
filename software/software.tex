@@ -402,4 +402,37 @@ and Knoppix, are the parents of their own derivatives.  By packaging
 for Debian, we effectively prepare packages for the whole family of
 Debian based distributions.
 
+\subsection{Bio-EUtilities}
+
+For the work in \Cref{ch:histone-catalogue}, we required a tool to
+automate the search of histone genes, and download all sequences
+associated with them.  We used the Gene database for the searches and
+created a new program using BioPerl's Bio-EUtilities.
+
+Gene is a public database hosted at the National Center for
+Biotechnology Information (NCBI), which maps known or predicted genes
+to other entries in the NCBI Reference Sequence (RefSeq), namely to
+the Genome, Nucleotide, and Protein databases, which provide genomic,
+transcript, and proteins sequences respectively \citep{gene-database}.
+
+Bio-EUtilities is part of the BioPerl project and provides a Perl
+interface to NCBI's Entrez Programming Utilities (E-Utilities).
+Entrez is a federated search engine for multiple databases of
+biomedical data, one of which is the Gene database.  Entrez has an
+interactive interface at \url{https://www.ncbi.nlm.nih.gov/} while
+E-Utilities provides a programming interface for queries using a fixed
+URL syntax.
+
+The program created requires a query for the Entrez Gene database and
+then downloads all genomic, transcript, and protein sequences, as well
+as a CSV file with chromosome coordinates, names, and identifiers.  It
+has several options such as download of flanking sequences, different
+output format, choice of genome assembly, and skipping of non coding
+genes.  It is provided with an extensive manual covering all options
+and examples \Crefp{app:pod-doc}.
+
+The program bp\_genbank\_ref\_extractor was released with
+Bio-EUtilities version 1.73.
+
+
 \section{SCons}
