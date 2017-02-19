@@ -9,7 +9,8 @@ Import('env')
 genbank_ref_extractor_man = env.Command(
   source = env.WhereIs('bp_genbank_ref_extractor'),
   target = os.path.join('results', 'bp_genbank_ref_extractor-man.tex'),
-  action = "pod2latex --out $TARGET $SOURCE",
+  action = ("pod2latex --sections '!(FEEDBACK|AUTHOR|COPYRIGHT)'"
+            " --out $TARGET $SOURCE"),
 )
 
 ##
