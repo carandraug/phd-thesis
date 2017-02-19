@@ -52,3 +52,6 @@ results/
 ## Because Andrew uses Mac
 .DS_Store
 
+## Emacs files
+*~
+\#*\#
