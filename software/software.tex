@@ -304,13 +304,24 @@ as ClustalW and Blast+.
 
 %% $ find bioperl-live/Bio/ -name '*.pm' -type f | wc -l
 %% 791
+%%
 %% This number no longer includes the modules already moved out of
-%% BioPerl and into domain specific distributions.
-The large number of modules in BioPerl became a maintenance problem
-and in 2010, a new project was started to split BioPerl into smaller
-more manageable distributions.
+%% BioPerl and into their own distributions.
 
 \subsection{Dist::Zilla and Pod::Weaver}
+
+%% Technically, the first one to be moved out of BioPerl was
+%% Bio-Graphics and that was in 2009.  However, that was an
+%% independent event, not part of a concerted effort of reorganising
+%% BioPerl.  That only started in 2011 (see Changes file in
+%% bioperl-live).
+The large number of modules in BioPerl became a maintenance problem
+and in 2011, a new project was started to split BioPerl into smaller
+more manageable distributions such as Bio-Biblio, Bio-FeatureIO, and
+Bio-Coordinate.  With the aim of of preventing duplication of
+maintainers code, reducing that existing code, and making new release
+a further easier process, Dist::Zilla and Pod::Weaver were adopted for
+the new distributions.
 
 Dist::Zilla is a program to make it easier to write, package, manage,
 and release free software, targeted at libraries written in the Perl
@@ -325,11 +336,8 @@ documentation inlined in Perl modules.  It has a Dist::Zilla plugin
 that serves as bridge between the two, so that most boilerplate POD is
 generated automatically as part of the release process.
 
-BioPerl adopted Dist::Zilla and Pod::Weaver for its many new smaller
-module distributions with the aim of preventing duplication of
-maintainers code, reducing that existing code, and making new release
-a further easier process.  As part of this project, we configured the
-BioPerl Dist::Zilla PluginBundle, and created two new Pod::Weaver
+As part of the restructure of the BioPerl distribution, we configured
+the BioPerl Dist::Zilla PluginBundle, and created two new Pod::Weaver
 section plugins, GenerateSection and Legal::Complicated.
 
 GenerateSection creates a POD sections based on a templates.  It is
