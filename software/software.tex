@@ -442,14 +442,41 @@ and examples \Crefp{app:pod-doc}.
 The program bp\_genbank\_ref\_extractor was released with
 Bio-EUtilities version 1.73.
 
-\section{Build systems for scientific publications}
+\section{Build systems for reproducible research}
+
+Even if the original data is available, and the environment under
+which the analysis was done can be reproduced, reproducing the results
+is still dependent on invoking the exact same commands, the same
+options, in the same order.  Such information is often undocumented
+and difficult to repeat.
+
+A build system is a software tool with the purpose of automating such
+steps.  It is mainly used in software engineering to automate software
+builds but the process of maintaining software is not that different
+from maintaining a reproducible research project, and the same tools
+can be used.  In a software project, object code is built from the
+source code; In a research project, figures are built from the raw
+data.  In a software project, an executable program is built from
+object code; In a research project, a manuscript is built from the
+figures.
+
+%% On ReDocs there is a set of rules to prepare figures and run the
+%% analysis.  What he proposed was a set of names to generate such
+%% figures, run analysis, skip analysis that would take too long, and
+%% remove intermediary files.  This is similar to what GNUs coding
+%% standarda mandates via automake, all Makefiles should support
+%% install, all, help, check, so users know immediately what each one
+%% does.
+Claerbout \citep{ReDoc-claerbout} was one of the first who recognised
+this and proposed a standard build system for the generation of
+figures and manuscript from the author data and analysis software.
+This new system was an extension to GNU Make, one the most common
+build system.
+
 \subsection{SCons Perl tool}
 
-One of the most commons and widespread build systems is GNU Make.
-This was the basis for
-
-However, for this work we used the SCons (from Software Construction)
-build system \citep{scons}.  SCons was designed from the start to be a
+For this work we used the SCons (from Software Construction) build
+system \citep{scons}.  SCons was designed from the start to be a
 replacement of Make, and it still resembles Make in concept, but has
 the advantage of being configured by Python scripts, a modern
 programming language often praised for its readability.
