@@ -442,5 +442,41 @@ and examples \Crefp{app:pod-doc}.
 The program bp\_genbank\_ref\_extractor was released with
 Bio-EUtilities version 1.73.
 
+\section{Build systems for scientific publications}
+\subsection{SCons Perl tool}
 
-\section{SCons}
+One of the most commons and widespread build systems is GNU Make.
+This was the basis for
+
+However, for this work we used the SCons (from Software Construction)
+build system \citep{scons}.  SCons was designed from the start to be a
+replacement of Make, and it still resembles Make in concept, but has
+the advantage of being configured by Python scripts, a modern
+programming language often praised for its readability.
+
+%% Other people may mention other advantages but I disagree:
+%% 1.SCons has builtin configure and dependency analysis.  Well, that
+%%   is bullshit.  First, it doesn't work properly.  Configure support
+%%   was a second thought and is very much incomplete.  Second,
+%%   scanner is really slow.  And while Make itself really does not
+%%   have them, it is meant to be used as part of Autotools where
+%%   those jobs are done by autoconf and automake.
+%% 2. SCons uses a liberal licence.  Well, I prefer copyleft and
+%%    anyway that's the build system.
+%%
+%% One advantage that I could agree is default to md5sums instead of
+%% timestamps but then I would have to explain what md5 and a checksum
+%% is.  It also has builtin support for latex but that's really easy
+%% to do in GNU Make.
+
+For the work in \Cref{ch:histone-catalogue} we made extensive use of
+the Perl programming language which is not supported by default in
+SCons.  We then created a SCons perl tool which we made available at
+\url{https://bitbucket.org/carandraug/scons-perl5} under a free
+software licence.  The SCons perl5 tool adds automatic prerequesite
+scanning, perl configuration options, and multiple functions for using
+Perl scripts.
+
+%% automatic prerequesite scanning -> Scanner
+%% configuration options -> Variables
+%% multiple functions -> all the perl builders.
