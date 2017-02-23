@@ -382,23 +382,38 @@ as all the module distributions required by them
 \begin{table}
   \captionIntro{Perl module distributions packaged for Debian}{}
   \label{tab:software:debian-packages}
-  \todo[inline]{One short sentence summary for each}
-  \begin{itemize}
-  \item Bio-EUtilities
-  \item Config-MVP-Slicer
-  \item Dist-Zilla-Config-Slicer
-  \item Dist-Zilla-Plugin-AutoMetaResources
-  \item Dist-Zilla-Plugin-MojibakeTests
-  \item Dist-Zilla-Plugin-ReadmeFromPod
-  \item Dist-Zilla-Plugin-Test-Compile
-  \item Dist-Zilla-Role-PluginBundle-PluginRemover
-  \item MooseX-Types-Email
-  \item Pod-Weaver-Plugin-EnsureUniqueSections
-  \item Pod-Weaver-Section-Contributors
-  \item Pod-Weaver-Section-GenerateSection
-  \item Pod-Weaver-Section-Legal-Complicated
-  \item Test-Mojibake
-  \end{itemize}
+  %% This one line descriptions were retrieved from Debian description
+  %% which we wrote (except the one for Bio-EUtilities).
+  \begin{description}
+  \item[Bio-EUtilities] \hfill \\
+    Webagent which interacts with and retrieves data from NCBI's E-Utils.
+  \item[Config-MVP-Slicer] \hfill \\
+    Module to extract embedded plugin config from parent config.
+  \item[Dist-Zilla-Config-Slicer] \hfill \\
+    Config::MVP::Slicer customized for Dist::Zilla.
+  \item[Dist-Zilla-Plugin-AutoMetaResources] \hfill \\
+    Dist::Zilla plugin to ease filling \command{resources} metadata.
+  \item[Dist-Zilla-Plugin-MojibakeTests] \hfill \\
+    Dist::Zilla plugin that provides author tests for source encoding.
+  \item[Dist-Zilla-Plugin-ReadmeFromPod] \hfill \\
+    Dist::Zilla plugin to generate a README from POD.
+  \item[Dist-Zilla-Plugin-Test-Compile] \hfill \\
+    Common tests to check syntax of Perl modules, using only core modules.
+  \item[Dist-Zilla-Role-PluginBundle-PluginRemover] \hfill \\
+    Dist::Zilla plugin to add \command{-remove} functionality to a bundle.
+  \item[MooseX-Types-Email] \hfill \\
+    Email address validation type constraints for Moose.
+  \item[Pod-Weaver-Plugin-EnsureUniqueSections] \hfill \\
+    Pod::Weaver plugin to check for duplicate POD section headers.
+  \item[Pod-Weaver-Section-Contributors] \hfill \\
+    Pod::Weaver plugin for a section listing contributors.
+  \item[Pod-Weaver-Section-GenerateSection] \hfill \\
+    Pod::Weaver plugin to add POD sections from a template text.
+  \item[Pod-Weaver-Section-Legal-Complicated] \hfill \\
+    Pod::Weaver plugin for per module authors, copyright holders, and license.
+  \item[Test-Mojibake] \hfill \\
+    Module to check source for encoding misbehaviour.
+  \end{description}
 \end{table}
 
 %% Debian Jessie has 21024 source packages.  The binary number of
