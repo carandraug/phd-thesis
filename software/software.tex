@@ -316,7 +316,7 @@ and SwissProt, and bioinformatics tools such as ClustalW and Blast+.
 The large number of modules in BioPerl became a maintenance problem
 so in 2011, a new project to split BioPerl into
 more manageable distributions such as Bio-Biblio, Bio-FeatureIO, and
-Bio-Coordinate.  To reduce existing code and prevent duplication
+Bio-Coordinate.  To reduce existing code, prevent duplication,
 and to make new releases
 a easier, Dist::Zilla and Pod::Weaver were adopted for
 the new distributions.
@@ -332,7 +332,7 @@ Pod::Weaver is a program to create documents in Plain Old
 Documentation (POD) format, a format mainly used to write
 documentation inlined in Perl modules.
 Pod::Weaver includes a Dist::Zilla plugin
-that serves as bridge between the two, so that most boilerplate documentation is
+that serves as bridge between the two, so that most boilerplate POD is
 generated automatically as part of the release process.
 
 As part of the restructure of the BioPerl distribution, we configured
@@ -356,7 +356,7 @@ on CPAN.
 
 \subsection{Debian packaging}
 
-Debian is a computer operating system providing the set of low-level software
+Debian is a computer operating system, the set of low-level software
 that manages a computer hardware and resources for computer programs.
 Debian is
 composed entirely of free software and one of the earliest GNU/Linux
@@ -374,7 +374,8 @@ not have one for Bio-EUtilities.  We packaged Bio-EUtilities for
 Debian with the aim of making it easier for
 others to reproduce our results.
 Similarly, to make it easier for prospective BioPerl
-developers, we packaged all the Dist::Zilla plugins as well
+developers, we packaged all the Dist::Zilla plugins required to produce
+new BioPerl releases as well
 as all the module distributions required by them
 \trefp{tab:software:debian-packages}.
 
@@ -417,9 +418,9 @@ Debian based distributions.
 \subsection{Bio-EUtilities}
 
 For the work in \Cref{ch:histone-catalogue}, we required a tool to
-automate the search and download of histone genes and associated sequences.
+automate the search of histone genes and download associated sequences.
 We used the NCBI Gene database for the searches and
-created a new program as a component of Bio-EUtilities from BioPerl.
+created a new program for Bio-EUtilities from BioPerl.
 
 Gene is a public database hosted at the National Center for
 Biotechnology Information (NCBI) which maps known or predicted genes
