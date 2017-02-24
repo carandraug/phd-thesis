@@ -479,8 +479,8 @@ Bio-EUtilities version 1.73.
 
 \section{Build systems for reproducible research}
 
-Even if the original data is available and the infrastructure environment under
-which the computational analysis was done is available, reproducing results
+Even if the original data is available and the runtime environment under
+which the computational analysis was done can be duplicated, reproducing results
 is dependent on invoking the same commands and same
 options in the same order as the original analysis.
 The necessary information to achieve this is often undocumented
@@ -488,14 +488,14 @@ and difficult to reconstruct.
 
 A build system is a software tool with the purpose of automating such
 steps.  It is mainly used in software engineering to automate software
-assembly but the process of maintaining software has many parallels with
+builds but the process of maintaining software has many parallels with
 from maintaining a reproducible research projects so the same tools
 can be used.  In a software project, object code is built from the
 source code whereas in a research project, figures, tables, and values
 are built from raw
-data.  In a software project an executable program is built from
+data.  In a software project an executable program is built from multiple
 object code whereas in a research project a manuscript is built from the
-figures.
+figures, tables, and values.
 
 %% On ReDocs there is a set of rules to prepare figures and run the
 %% analysis.  What he proposed was a set of names to generate such
@@ -513,8 +513,8 @@ build system.
 \todo[inline]{Need a couple more examples here?}
 
 The SCons (from Software Construction) build
-system \citep{scons}.  SCons was designed to be a
-replacement of Make, and it still resembles Make in concept.  However, it has
+system \citep{scons} was designed to be a
+replacement of Make and it still resembles Make in concept.  However, it has
 the advantage of being configured by Python which is a modern
 programming language often praised for its readability.
 
@@ -535,8 +535,8 @@ programming language often praised for its readability.
 
 For the work in \Cref{ch:histone-catalogue} we made extensive use of
 the Perl programming language which is not supported by default in
-SCons although it is very commonly used in bioinformatics.
-To enable the use of SCons for our project we created
+SCons but commonly used in bioinformatics.
+To simplify the use of SCons for our project we created
 a SCons perl tool and made available at
 \url{https://bitbucket.org/carandraug/scons-perl5} under a free
 software licence.  The SCons perl5 tool adds automatic prerequesite
