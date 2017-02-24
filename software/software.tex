@@ -9,11 +9,10 @@
 
 The GNU Octave programming language was heavily used for the analysis
 of microscope images throughout this work.  Several features of the
-language and its supportive community make it an attractive choice
-for qualitative microscopy.
-
-\todo[inline]{Add 2 sentences with a general description of Octave
-  capabilities}
+language such as its handling of multi-dimensional arrays, interactive
+top level, and extensive image processing functions, as well as
+its supportive community make it an attractive choice
+for quantitative microscopy.
 
 Biological microscope images have a varying number of dimensions.
 In addition to the 2 dimensional plane of a standard image, microscope
@@ -22,23 +21,25 @@ the optical axis for a volume image; time dimension for time-lapse
 experiments; and wavelength for multi-channel experiments.  Recent microscopy
 techniques generate images with an even higher number of dimensions
 such as angle, phase, and lifetime.  This varying dimensionality adds
-complexity and makes it more challenging to write generalized subroutines for
+complexity and makes it challenging to write generalized subroutines for
 microscope image analysis.
 
-GNU Octave is an array programming language primarily intended for
-numerical computations \citep{octave}.  Array programming languages
-are high level programming languages where the primary data types and
-operators \todo{explain data types and operators}
-are generalised to multidimensional arrays.  This provides
+%% All values are multi-dimensional arrays does not include objects
+%% wrapped from other languages such as java objects (and I guess it
+%% will be the same for python when the pytave project is finished).
+GNU Octave is an array programming language, high level programming
+languages where operations are generalised to multidimensional arrays,
+primarily intended for numerical computations \citep{octave}.
+In Octave, all values are multidimensional arrays which provides
 an abstraction layer that is useful when writing code for an arbitrary
-number of dimensions.
+number of dimensions as is the case for microscope image processing.
 
 %% Doesn't seem to be any scientific study about REPL as an advantage
 %% for prototyping.  Similarly, none about being better for
 %% exploratory data analysis but I can't imagine anyone disagreeing
 %% with it.
-Octave also has a read–eval–print loop (REPL), or interactive top
-level, like Lisp machines, IPython, and Unix shells, which reduces the
+Octave also has a Read--Eval--Print Loop (REPL), or interactive top
+level, like IPython and Unix shells, which reduces the
 feedback time and provides an efficient
 environment for exploratory data analysis.
 
@@ -47,24 +48,24 @@ environment for exploratory data analysis.
 The project has a large and active community
 mainly composed of
 scientists and engineers as a large support group of
-specialists in numerical computations
+specialists in numerical computations.
+The separate Octave Forge project hosts a vast number of
+packages that extend Octave into specific applications such as control
+systems \citep{octave-control}, time-frequency analysis
+\citep{octave-ltfat}, or level sets \citep{octave-level-set}.
+It provides a collaborative environment for development of Octave
+packages and another nexus of the Octave community.
 
-GNU Octave and Octave Forge packages are free software which allows
+Both GNU Octave and Octave Forge packages are free software which allows
 the study, modification, and distribution of modified source.
 We made extensive
 use of this feature and have contributed to improving Octave and its
 packages for the needs of quantitative microscopy.
 
-In addition, Octave has
-packages that focus on specific applications such as control
-systems \citep{octave-control}, time-frequency analysis
-\citep{octave-ltfat}, or level sets \citep{octave-level-set}.  The
-Octave Forge project hosts
-Octave packages and provides a collaborative environment for their
-development.  The Octave Forge image package
-provides a number of functions for image processing such as geometric
-transformations, mathematical morphology, image registration, and
-noise reduction.
+Finally, Octave comes with basic support for image processing and the
+Octave Forge image package extends it with a number of functions for
+image processing such as geometric transformations, mathematical
+morphology, image registration, and noise reduction.
 
 %% These were actually lsm files but those are actually TIFFs.
 While Octave is well suited to image
@@ -82,48 +83,58 @@ Such files sizes are typical in the field of microscopy.
 %% Number of 88 major image formats taken from GraphicsMagick
 %% documentation on February 2017.
 Octave uses the GraphicsMagick C++ library for the reading and writing
-of image files which provides a common API \todo{define API}
+of image files which provides a common interface
 to a varied collection of
 image format specific libraries covering almost
 90 major image formats.  In Octave, this functionality is
 provided via the functions \command{imfinfo}, \command{imread}, and
 \command{imwrite}.
 
+%% The importance of reading all planes in a single call to imread is
+%% of performance for TIFF.  This is because of the structure of TIFFs
+%% where reading plane N means parsing all the IFDs before that.
 These three functions were rewritten with the aim of achieving
 reduced memory usage, increased performance, improved
 interface for multidimensional images, and new image types.
 New options were added to read and write a series of image planes
-with in a single function call, to read specific regions of interest in
+in a single function call, to read specific regions of interest in
 individual planes, to read and write images
 with floating point precision, and to append additional planes to existing image
 files.
 
-As part of this rewrite, existing features were improved such as
-support for transparency and
-indexed images, support for the CMYK colour model, EXIF
+As part of this rewrite, new features were introduced such as
+support for the CMYK colour model, EXIF
 and GPS metadata, reading and writing of animations in GIF images, and
-control over the image compression type.
+control over the image compression type,
+while existing features were improved such as
+support for transparency and
+indexed images.
 
-To support this development, a system of configurable hooks \todo{explain hooks}
-to the image IO \todo{define IO}
-functions were added based on individual file formats.
-This enables plugin \todo{explain plugin} support for new image file formats
-without addition of new format specific functions, and improved access
-to the existing formats.  For example, it is now possible to read
+%% We can't use the term image IO functions because then we would have
+%% to explain what IO is.  For the same reason, we can't say ``hooks''.
+To support this development, we created a system that allows changing
+how the \command{imread}, \command{imwrite}, and \command{imfinfo}
+functions behave for each file format.
+This enables Octave extensions to add support for new image file
+formats or to improve access to the existing formats
+without addition of new format specific functions.
+For example, it is now possible for packages to enable reading of
 microscope specific metadata from \command{imfinfo}.
 This system is available via the function \command{imformats}.
 
 Changes extended to other functions of Octave related to images
-including overhaul of functions involved in conversion between color
+including  functions involved in conversion between color
 models, grayscale images, and indexed images to support integer and
-floating point data types, and multiple dimensions.
+floating point data types, and multiple dimensions
+\trefp{tab:software:octave-core-functions}.
 
 All changes were released with Octave version 3.8.0.
 
 \begin{table}
   \captionIntro{New or improved functions in GNU Octave}{}
+  \label{tab:software:octave-core-functions}
   \begin{multicols}{3}
-    \begin{itemize}
+    \begin{itemize}[label={}]
       \foreach \function in {
         bitcmp,
         bzip2,
@@ -166,9 +177,9 @@ All changes were released with Octave version 3.8.0.
 %% which need to be skipped.
 While GraphicsMagick provides support to read many image formats, its
 support for scientific microscope image formats is limited.
-For example, Zeiss confocal microscopes save
+For example, Zeiss confocal microscopes saves
 images in the LSM file format which is a proprietary extension of TIFF.
-Although this reads pixel data,
+Although GraphicsMagick reads LSM pixel data,
 the file metadata such as pixel size, time interval, or region of
 bleaching event cannot be retrieved.
 
@@ -176,32 +187,35 @@ Bio-Formats is a free software library for reading and writing image
 data with a strong focus on microscopy image file formats
 \citep{bioformats}.  It is written in the Java programming language and
 used by other programs in the field of microscope image analysis such
-as CellProfiler \citep{cellprofiler}, ImageJ \cite{imagej2}, and OMERO
+as CellProfiler \citep{cellprofiler}, ImageJ \citep{imagej2}, and OMERO
 \citep{omero}.
 
 %% Before version 3.8.0, there was a separate Octave Forge package
 %% that added the java interface.  Actually, Octave version 3.8.0
 %% pretty much only merged the java package into it.
-\todo{explain interface in 1 sentence}
-Octave has a native Java interface that should enable integration with
-Bio-Formats.
-We identified a series of problems in the Octave Java interface that
+Octave has a native interface to the Java programming language
+that should enable easy integration with
+Bio-Formats, and Bio-Formats has a Matlab toolbox that should be
+compatible with Octave.
+We identified a series of problems in the Octave interface to Java that
 could be solved either by improving Octave or Bio-Formats.
 
-In Octave, we rewrote the wrapping and unwrapping of Java objects \todo{explain}
-into Octave data types.  This enabled Octave to automatically
-convert Java objects into native Octave data types.
-Support for arrays of Java arrays was not enabled
-since we did not require it and Octave still lacks
-support for it.
+%% Writing this paragraph without mentioning the words data type,
+%% primitive, wrapper, and objects is though.  And on top of that,
+%% writing it without sounding dumb is just impossible.
+In Octave, we rewrote the handling of values returned from Java.
+Of special importance for BioFormats was the automatic conversion of
+Java arrays which are used to return pixel data.
+Support for conversion of multidimensional Java arrays was not implemented
+since we did not require it and it remains available for a future project.
 
-In Bio-Formats, we modified the code to use a Java interface that is
+In Bio-Formats, we modified their Matlab toolbox so that it is
 both Octave and Matlab compatible.
-This change considerably  simplified the packaging of
-Bio-Formats for Matlab and Octave so that they are now
+This change simplifies the packaging of
+Bio-Formats for Matlab and Octave making them
 effectively the same code.
-Finally, we configured the Bio-Formats build system \todo{explain}
-to routinely prepare an Octave package as part of its releases.
+Finally, we automated the creation of Octave packages in Bio-Formats
+so that they be made part as part of Bio-Formats releases.
 
 All changes were released with Octave since version 4.0.0 and
 Bio-Formats since version 5.1.2
@@ -209,8 +223,9 @@ Bio-Formats since version 5.1.2
 \begin{table}
   \captionIntro{New or improved functions in the Octave Forge image
     package}{}
+  \label{tab:software:octave-image-functions}
   \begin{multicols}{3}
-    \begin{itemize}
+    \begin{itemize}[label={}]
       \foreach \function in {
         bestblk,
         bwareafilt,
