@@ -72,6 +72,7 @@ methods = env.SConscript(dirs="methods", exports=["env"])
 software = env.SConscript(dirs="software", exports=["env"])
 kill_frap = env.SConscript(dirs="kill-frap", exports=["env"])
 fancy_frap = env.SConscript(dirs="fancy-frap", exports=["env"])
+discussion = File("discussion/discussion.tex")
 h2ax_review = env.SConscript(dirs="h2ax-review", exports=["env"])
 
 ## An alternative would be to use variant_dir.  We tried and it worked
@@ -90,6 +91,7 @@ env.Depends(thesis, [
   catalogue,
   kill_frap,
   fancy_frap,
+  discussion,
   h2ax_review,
 ])
 
