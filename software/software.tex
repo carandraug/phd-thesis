@@ -131,6 +131,13 @@ floating point data types, and multiple dimensions
 All changes were released with Octave version 3.8.0.
 
 \begin{table}
+  %% This table includes the major things we contributed to Octave
+  %% core.  It doesn't mention a version since it's work I contributed
+  %% between Octave 3.6 and 4.2.  Some of the changes even span
+  %% multiple versions.
+  %% It does not include minor bug fixes or trivial bug fixes.  Also
+  %% does not include major changes we did to the internals which only
+  %% reduced code duplication.
   \captionIntro{New or improved functions in GNU Octave}{}
   \label{tab:software:octave-core-functions}
   \begin{multicols}{3}
@@ -170,7 +177,7 @@ All changes were released with Octave version 3.8.0.
   \end{multicols}
 \end{table}
 
-\subsubsection{Bio-Formats and Octave Java interface}
+\subsection{Bio-Formats and Octave Java interface}
 
 %% We kind of managed to read the pixel data.  This also required
 %% knowing that LSM interleaves the actual pixel data with thumbnails
@@ -219,6 +226,34 @@ so that they be made part as part of Bio-Formats releases.
 
 All changes were released with Octave since version 4.0.0 and
 Bio-Formats since version 5.1.2
+
+\section{Octave Forge image package}
+
+The Octave programming language is primarily intended for numerical
+computations and provides a syntax and set of functions particularly
+convenient for solving linear algebra and differential equations.  It
+also includes a collection of functions for the handling of image data
+but those are focused on the reading and writing of image files,
+conversion between colour models, and graphical display.
+
+The Octave Forge image package supplements Octave with a wide range of
+image analysis specialised functions.  While Octave syntax is
+identical for any number of dimensions and data type, we found that
+many of the image package functions were either limited to two
+dimensional images or inefficient for the large images we obtained in
+microscopy.  We began a project with the purpose of eliminating any
+limitation on number of dimensions in the image package
+\trefp{tab:software:octave-image-functions} which has seen multiple
+releases, starting in version 2.0.0 and continuing in the current
+version 2.6.1.
+%% Other issues are when functions just treated higher number of
+%% dimensions as a long 2D image and introduced artifacts on image
+%% borders.  Or they looped over each pixel making it terribly slow
+%% even on 2d images.
+%%
+%% The first time the project to support ND images was made official
+%% was for the summer of 2013 (my GSOC) but even on that proposal I
+%% mentioned work already made.
 
 \begin{table}
   \captionIntro{New or improved functions in the Octave Forge image
@@ -300,11 +335,95 @@ Bio-Formats since version 5.1.2
   \end{multicols}
 \end{table}
 
-\subsubsection{Octave Forge image package}
+\subsection{Image Thresholding Algorithms}
 
-\subsubsection{Octave Forge zenity package}
+Image thresholding is a method for image segmentation where the image
+pixels are separated into classes based on their intensity values.
+The simplest of the thresholding methods uses a single fixed value and
+separates an image into background and foreground which are then
+represented in a binary, or black and white, image.  This is
+particularly useful in images of fluorescence microscopy where objects
+of interested show bright with high intensity values against a dark
+background with low intensity values.
 
-\subsubsection{Other Octave Forge packages}
+Multiple threshold algorithms exist to automate the choice of a
+threshold value, the most common of which being based on the analysis
+of an image histogram \citep{analysis-hist-threshold}.  Otsu's method
+\citep{otsu-threshold} is among the most widespread of this methods
+and is available in the function \command{graythresh} of the image
+package.  We rewrote this function to handle histograms of arbitrary
+length, vectorised for performance, and additional computation of a
+``goodness'' of the threshold value.  In addition, we ported to Octave
+the HistThresh toolbox, an unpublished collection of histogram
+threshold algorithms by Antti Niemistö, making them available as an
+option for \command{graythresh}.  Finally, the rewrite added the
+option of using an histogram as input instead of an image, enabling
+the possibility of histogram processing as a preceding step.
+
+%% We have no reference for Antti Niemistö work.  It was never
+%% published and only available on his University webpage at
+%% http://www.cs.tut.fi/~ant/histthresh/ which is no longer available.
+%% He has several other publications but none about this topic.
+%% Here's one: A. Niemistö, V. Dunmire, O. Yli-Harja, W. Zhang, and
+%% I. Shmulevich, "Robust quantification of in vitro angiogenesis
+%% through image analysis," IEEE Transactions on Medical Imaging,
+%% vol. 24, no. 4, pp. 549-553, April 2005.
+%%
+%% The only copies of his work that I know of are on my github account
+%% (which I have since modified), and on https://archive.org/web
+
+\subsection{Mathematical Morphology}
+
+%% This is not the complete story.  When we started, imdilate and
+%% imerode had some support for ND images.  I can't quite remember
+%% what was missing but I do remember making a table at the end with
+%% performance comparison, and some comparisons couldn't be made
+%% because they were missing before.  Looking at the source for 1.0.15
+%% (before I started this), I can see that imerode and imdilate called
+%% ordfiltn for grayscale images which was bound to be quite slow, and
+%% filter2 for binary images which would limit to 2d images.
+Mathematical morphology is the theory for the analysis of spatial
+structures which provides a powerful image analysis technique based on
+the shape and form of objects.  This is achieved by probing an image
+with a known shape, named Structuring Element (SE), and filtering the
+image based on whether the SE fits, or does not fit, on each location
+within the image.
+
+The fundamental morphological operations are named dilation and
+erosion which are available in the image package through the
+\command{imdilate} and \command{imerode} functions.  More complex
+morphological operations are built on top of this two operations.  For
+example, morphological top-hat transform corresponds is the difference
+between an image and its morphological opening which in turn
+corresponds to an erosion followed by a dilation.
+
+Being the two fundamental operations, they are the ideal targets of
+improvements for mathematical morphology since any performance
+improvement and support for new image types will be propagated to
+other morphology functions.
+
+\section{Octave FRAP package}
+
+
+%% \subsubsection{Octave Forge zenity package}
+
+%% \subsubsection{Other Octave Forge packages}
+
+%% Other Octave that I am not mentioning:
+%%   * move all XMatrix as subclasses of XNDarray to reduce code
+%%     duplication.
+%%  * liboctave better integration with STL
+%%  * templates for svd instead of duplicated classes
+%%  * cleanup of methods (capacity, length, nzmax)
+%%  * making Octave quiet when calling scripts of eval.
+%%  * zero length dimensions on broadcasting
+%%  * accumarray, zeros, ones, etc with empty lists
+%%  * rewrite 'pkg build' for distribution of binary packages.
+%%  * miscellaneous package: textable and units
+%%  * signal package: xcorr2 coeff option
+%%  * statistics: hist3, grp2idx, squareform, and binostat
+%%  * mapping: a bunch of low hanging fruits
+
 
 \section{BioPerl}
 
