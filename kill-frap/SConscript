@@ -82,13 +82,6 @@ kill_frap = [
     target = [path4result(f) for f in ['ifrap-pre.png', 'ifrap-post.png',
                                        'ifrap.png']],
   ),
-  env.Command(
-    source = [path4script("frapinator.sh"), path4data("frapinator-options.txt"),
-              path4data("Image114.lsm")],
-    target = [path4result('frapinator.png'),
-              path4result('frapinator-data.txt')],
-    action = '$SOURCES $TARGETS',
-  ),
   env.OctaveWithImageJ(
     script = path4script("cropreg.m"),
     source = path4data("HeLa_H3_1A5_01_6_R3D_D3D.dv"),

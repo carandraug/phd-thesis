@@ -2,8 +2,27 @@
 # -*- coding: utf-8 -*-
 
 import os.path
+import subprocess
+import json
+import hashlib
 
 Import('env')
+
+def path4script(fname=""):
+  return os.path.join("scripts", fname)
+def path4data(fname=""):
+  return os.path.join("data", fname)
+def path4result(fname=""):
+  return os.path.join("results", fname)
+
+
+frapinator = env.Command(
+  source = [path4script("frapinator.sh"), path4data("frapinator-options.txt"),
+            path4data("Image114.lsm")],
+  target = [path4result('frapinator.png'),
+            path4result('frapinator-data.txt')],
+  action = '$SOURCES $TARGETS',
+)
 
 ## The man page for our program which will appear as an appendix.
 ## The ugly DUMMY is due to some bugs on pod2latex:
@@ -18,13 +37,14 @@ Import('env')
 ##     See https://github.com/timj/perl-Pod-LaTeX/issues/4
 genbank_ref_extractor_man = env.Command(
   source = env.WhereIs('bp_genbank_ref_extractor'),
-  target = os.path.join('results', 'bp_genbank_ref_extractor-man.tex'),
-  DUMMY = env.File(os.path.join('results', 'bp_genbank_ref_extractor.pod')),
+  target = path4result('bp_genbank_ref_extractor-man.tex'),
+  DUMMY = env.File(path4result('bp_genbank_ref_extractor.pod')),
   action = ("perldoc -uT $SOURCE | grep -v '^=encoding ' > $DUMMY"
             " && pod2latex --sections '!(FEEDBACK|AUTHOR|COPYRIGHT)'"
             "              --out $TARGET $DUMMY"
             " && rm $DUMMY"),
 )
+
 
 ##
 ## "Configure" - check that we have the required programs
@@ -36,10 +56,30 @@ def CheckProg(context, prog_name):
   context.Result(is_ok)
   return is_ok
 
+def CheckOctavePackage(context, pkg):
+    context.Message("Checking for Octave package %s..." % pkg)
+    is_ok = (subprocess.call(["octave", "-qf", "-W", "--eval", "pkg load " + pkg]) == 0)
+    context.Result(is_ok)
+    return is_ok
+
+def CheckDataMD5(context, md5s):
+  context.Message("Checking for kill-frap data files integrity...")
+
+  for fpath, md5 in md5s.iteritems():
+    read_md5 = hashlib.md5(open(fpath, "rb").read()).hexdigest()
+    if md5 != read_md5:
+      context.Result("failed for " + fpath)
+      return False
+  else:
+    context.Result(True)
+    return True
+
 conf = Configure(
   env,
   custom_tests = {
-    "CheckProg" : CheckProg
+    "CheckProg" : CheckProg,
+    "CheckOctavePackage" : CheckOctavePackage,
+    "CheckDataMD5" : CheckDataMD5,
   }
 )
 
@@ -48,6 +88,8 @@ if not env.GetOption('help'):
   progs = {
     "bp_genbank_ref_extractor"
       : "bp_genbank_ref_extractor - BioPerl's Bio-EUtilities application",
+    "octave"
+      : "GNU Octave must be installed",
     "perldoc"
       : "perldoc is required to create manual for bp_genbank_ref_extractor",
     "pod2latex"
@@ -59,6 +101,20 @@ if not env.GetOption('help'):
       print p_desc
       Exit(1)
 
+  for pkg in ['frap']:
+    if not conf.CheckOctavePackage(pkg):
+      print "Octave's %s package must be installed" % pkg
+      Exit(1)
+
+  with open(path4data("data-md5.json"), "r") as fid:
+    data_md5s = json.load(fid)
+  data_md5s = {path4data(fname) : md5 for fname, md5 in data_md5s.iteritems()}
+
+  for fpath in data_md5s.keys():
+    if not os.path.isfile(fpath):
+      print "Missing data file " + fpath
+      Exit(1)
+
 env = conf.Finish()
 
-Return(['genbank_ref_extractor_man'])
+Return(['frapinator', 'genbank_ref_extractor_man'])
