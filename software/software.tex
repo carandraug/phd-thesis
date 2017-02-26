@@ -514,16 +514,6 @@ Individual nuclei were segmented after automatic threshold with Otsu's
 method.  A background region was identified as the rectangle of a
 fixed size with lowest average intensity in the image.
 
-With all the steps automated, we created a single program in Octave
-which we named \command{frapinator} that would perform all the
-analysis for any number of images.  The multiple options were made
-available via command line options so that the user does not need to
-modify the source code.  To quickly filter out any faulty analysis,
-two images are created that work as a visual log, one showing the
-automatically identified regions \frefp{fig:kill-frap:roi} and another
-the recovery curves, intermediary analysis, and best fits
-\frefp{fig:kill-frap:frapinator}.
-
 \begin{figure}
   \centering
   \subbottom[pre-bleach]{
@@ -569,6 +559,17 @@ the recovery curves, intermediary analysis, and best fits
                  bleach spot, and background region.  }
                \label{fig:software:frap-roi}
 \end{figure}
+
+
+With all the steps automated, we created a single program in Octave
+which we named \command{frapinator} that would perform all the
+analysis for any number of images.  The multiple options were made
+available via command line options so that the user does not need to
+modify the source code.  To quickly filter out any faulty analysis,
+two images are created that work as a visual log, one showing the
+automatically identified regions \frefp{fig:software:frap-roi} and
+another the recovery curves, intermediary analysis, and best fits
+\frefp{fig:software:frapinator}.
 
 \begin{sidewaysfigure}
   \includegraphics[width=\textwidth]{results/frapinator.png}
