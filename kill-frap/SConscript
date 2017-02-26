@@ -61,12 +61,6 @@ def path4result(fname=""):
 
 kill_frap = [
   env.OctaveScript(
-    script = path4script("roi.m"),
-    source = path4data("Location8Cell1.lsm"),
-    target = [path4result(f) for f in ["roi-prebleach.png", "roi-postbleach.png",
-                                       "roi-subtracted.png", "roi-selected.png"]],
-  ),
-  env.OctaveScript(
     script = path4script("confluent.m"),
     source = path4data("H4 R45H_L3_Sum.lsm"),
     target = path4result("confluent-hela.png"),

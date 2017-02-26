@@ -8,6 +8,25 @@ import hashlib
 
 Import('env')
 
+vars = Variables()
+vars.Add('OCTAVE', default='octave',
+         help='The Octave interpreter')
+vars.Update(env)
+Help(vars.GenerateHelpText(env))
+
+## Simple Builder to call Octave scripts.  Note that the targets are
+## all in a single command.
+def octave_script(env, script, source, target, args=[]):
+  script = env.File(script)
+  octave_path = env.Dir('lib-octave')
+  c = env.Command(target, source, SCRIPT=script, OCTAVE_PATH=octave_path,
+                  action='$OCTAVE -W --quiet --path $OCTAVE_PATH $SCRIPT $SOURCE $TARGETS')
+  env.Depends(c, [script])
+  return c
+
+env.AddMethod(octave_script, "OctaveScript")
+
+
 def path4script(fname=""):
   return os.path.join("scripts", fname)
 def path4data(fname=""):
@@ -23,6 +42,14 @@ frapinator = env.Command(
             path4result('frapinator-data.txt')],
   action = '$SOURCES $TARGETS',
 )
+
+frap_roi = env.OctaveScript(
+  script = path4script("roi.m"),
+  source = path4data("Location8Cell1.lsm"),
+  target = [path4result(f) for f in ["roi-prebleach.png", "roi-postbleach.png",
+                                     "roi-subtracted.png", "roi-selected.png"]],
+)
+
 
 ## The man page for our program which will appear as an appendix.
 ## The ugly DUMMY is due to some bugs on pod2latex:
@@ -101,7 +128,7 @@ if not env.GetOption('help'):
       print p_desc
       Exit(1)
 
-  for pkg in ['frap']:
+  for pkg in ['frap', 'image']:
     if not conf.CheckOctavePackage(pkg):
       print "Octave's %s package must be installed" % pkg
       Exit(1)
@@ -117,4 +144,4 @@ if not env.GetOption('help'):
 
 env = conf.Finish()
 
-Return(['frapinator', 'genbank_ref_extractor_man'])
+Return(['frapinator', 'frap_roi', 'genbank_ref_extractor_man'])

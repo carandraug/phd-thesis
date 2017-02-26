@@ -2,51 +2,6 @@
 
   \subsection{FRAP analysis in Octave}
 
-      \begin{figure}
-        \centering
-        \subbottom[pre-bleach]{
-          \includegraphics[width=0.45\textwidth]
-          {results/roi-prebleach.png}
-          \label{fig:kill-frap:prebleach}
-        }
-        \hfill
-        \subbottom[post-bleach]{
-          \includegraphics[width=0.45\textwidth]
-          {results/roi-postbleach.png}
-          \label{fig:kill-frap:postbleach}
-        }
-        \subbottom[pre-bleach $-$ post-bleach]{
-          \includegraphics[width=0.45\textwidth]
-          {results/roi-subtracted.png}
-          \label{fig:kill-frap:subtracted}
-        }
-        \hfill
-        \subbottom[Identified ROIs]{
-          \includegraphics[width=0.45\textwidth]
-          {results/roi-selected.png}
-          \label{fig:kill-frap:selected}
-        }
-        \captionIntro{Automatic selection of ROIs for FRAP}
-          {
-            HeLa stable cell line expressing the H4~R45H mutant tagged with YFP,
-            are imaged every \SI{30}{\ms} in a confocal microscope. A circular
-            shape is used for photobleaching after 100~frames.
-            \subcaptionref{fig:kill-frap:prebleach} averaging of 50~pre-bleach
-            images removes most of the noise, allowing for a better refined
-            ROI;
-            \subcaptionref{fig:kill-frap:postbleach} average of
-            5 post-bleach images;
-            \subcaptionref{fig:kill-frap:subtracted} subtraction of the
-            post-bleach to the pre-bleach image, gives a clear indication
-            of the bleach spot, as well as faint signal for the nuclear
-            region due to unintentional photobleaching;
-            \subcaptionref{fig:kill-frap:prebleach} perimeter of the
-            automatically identified ROIs superimposed on the pre-bleach
-            image: cell nuclei, bleach spot, and background region.
-          }
-        \label{fig:kill-frap:roi}
-      \end{figure}
-
   \subsection{Tracking of cell nuclei}
 
     %% We could show this but it would only be to "encher chouricos"

@@ -480,86 +480,122 @@ package version 2.4.0.
 %%  * normxcorr2 in the image package.
 
 \section{Octave FRAP package}
+\label{sec:software:octave-frap}
 
-    In order to estimate binding constants from FRAP data, we ported
-    \textsc{Matlab} code for circle FRAP \citep{mueller2008evidence} to GNU Octave.
+For the work in \Cref{ch:kill-frap}, we required tools to estimate
+binding constants from FRAP recovery data.  We obtained the code for a
+previously reported circle FRAP model \citep{mcnally-frap-code} from
+personal communication with the authors under the GNU General Public
+Licence (GPL) version~3 or later.  This model includes multiple
+parameters and considers the profile of the photobleach, correction
+for observational photobleaching, finite size of the nucleus, and
+fitting to both a pure-diffusion model and a full model with binding
+states.
 
-    Functions for nonlinear regression were required for the model
-    fitting and were replaced by \texttt{leasqr}
-    from Octave-Forge's optim package. This function performs the
-    Levenberg--Marquardt nonlinear least squares algorithm which is the
-    same as the documented method for \texttt{nlinfit}.
-    Several sample images were analyzed
-    by the Octave port and the fitted values were found to be equal to
-    the values reported by the authors using the original code (data not shown).
-    Functions for graphical user interaction were mainly required
-    for manual selection of Regions Of Interest (ROIs) and options.
-    Selection of ROIs was replaced by automatic identifications
-    and parameter input was made command-line based for batch processing.
+This code was written in the Matlab programming language and was
+easily ported to Octave, the main difference being the replacement of
+the nonlinear fitting from \command{nlinfit} with \command{leasqr}
+from the Octave Forge optim package since both performs the same
+algorithm, Levenberg--Marquardt nonlinear least squares.
 
-    \subsubsection{ROI selection}
+Identification of the bleach spot, nucleus, and background regions are
+required for the circle FRAP model.  The bleach spot measures
+intensity recovery and also models the photobleach profile since it
+takes into account a non-uniform spatial distribution of the bleached
+spot.  The nucleus region defines the finite sized nucleus and takes
+into account the fluorescence loss due to observational
+photobleaching.  A small region outside the nucleus is used for
+background correction.
 
-      Bleach spot, nucleus region, and background region ROIs are required
-      for the circle FRAP model. The bleach spot measures intensity recovery
-      and also models the photobleach profile since it takes into account
-      a non-uniform spatial distribution of the bleached spot. The nucleus
-      region defines the finite sized nucleus and takes into account
-      the fluorescence loss during the photobleaching,
-      while a small region outside the nucleus is used for background correction.
+The identification of these regions was performed manually which in
+the interest of batch processing we automated.  The bleach spot was
+identified in the difference between the post and pre-bleach frames.
+Individual nuclei were segmented after automatic threshold with Otsu's
+method.  A background region was identified as the rectangle of a
+fixed size with lowest average intensity in the image.
 
-      Cells expressing GFP tagged histone proteins have well defined nuclei.
-      The large amount of histone protein and specificity for nuclear chromatin
-      produces a strong and clear signal for the nuclei contrasted on a dark background \frefp{fig:kill-frap:roi}.
+With all the steps automated, we created a single program in Octave
+which we named \command{frapinator} that would perform all the
+analysis for any number of images.  The multiple options were made
+available via command line options so that the user does not need to
+modify the source code.  To quickly filter out any faulty analysis,
+two images are created that work as a visual log, one showing the
+automatically identified regions \frefp{fig:kill-frap:roi} and another
+the recovery curves, intermediary analysis, and best fits
+\frefp{fig:kill-frap:frapinator}.
 
-      Subtraction of the post-bleach \frefp{fig:kill-frap:postbleach} from
-      the pre-bleach \frefp{fig:kill-frap:prebleach} images displays
-      a clear circular shape corresponding to the bleach spot \frefp{fig:kill-frap:subtracted}.
-      The centre for this spot was identified by finding the maximum of the convolution matrix
-      between the subtracted image and a disk kernel.
-      To reduce signal-to-noise ratios, multiple pre and post-bleach images of the cell
-      were averaged before image operations.
-      While the bleach spot is the most visible feature, there is a faint nuclear region signal
-      caused by background photobleaching during image collection.
+\begin{figure}
+  \centering
+  \subbottom[pre-bleach]{
+    \includegraphics[width=0.45\textwidth]
+                    {results/roi-prebleach.png}
+                    \label{subfig:software:frap-roi:prebleach}
+  }
+  \hfill
+  \subbottom[post-bleach]{
+    \includegraphics[width=0.45\textwidth]
+                    {results/roi-postbleach.png}
+                    \label{subfig:software:frap-roi:postbleach}
+  }
+  \subbottom[pre-bleach $-$ post-bleach]{
+    \includegraphics[width=0.45\textwidth]
+                    {results/roi-subtracted.png}
+                    \label{subfig:software:frap-roi:subtracted}
+  }
+  \hfill
+  \subbottom[Identified ROIs]{
+    \includegraphics[width=0.45\textwidth]
+                    {results/roi-selected.png}
+                    \label{subfig:software:frap-roi:selected}
+  }
+  \captionIntro{Automatic selection of regions for FRAP analysis}
+               {HeLa stable cell line expressing the H4~R45H mutant
+                 tagged with YFP, are imaged every \SI{30}{\ms} in a
+                 confocal microscope. A circular shape is used for
+                 photobleaching after 100~frames.
+                 \subcaptionref{subfig:software:frap-roi:prebleach}
+                 averaging of 50~pre-bleach images removes most of the
+                 noise, allowing for a better refined ROI;
+                 \subcaptionref{subfig:software:frap-roi:postbleach}
+                 average of 5 post-bleach images;
+                 \subcaptionref{subfig:software:frap-roi:subtracted}
+                 subtraction of the post-bleach to the pre-bleach
+                 image, gives a clear indication of the bleach spot,
+                 as well as faint signal for the nuclear region due to
+                 unintentional photobleaching;
+                 \subcaptionref{subfig:software:frap-roi:prebleach}
+                 perimeter of the automatically identified ROIs
+                 superimposed on the pre-bleach image: cell nuclei,
+                 bleach spot, and background region.  }
+               \label{fig:software:frap-roi}
+\end{figure}
 
-      An approximate border for cell nuclei could be readily defined using Otsu's method for image threshold.
-      As with the identification of bleach spots, multiple pre-bleach images
-      were averaged before threshold definition for a more accurate cell border \frefp{fig:kill-frap:selected}.
-      Since multiple nuclei often appeared in a single image, the coordinates for the bleach spot
-      were used as reference to select the correct nucleus.
-      The background region was identified by finding the minimum of the convolution matrix
-      between the averaged pre-bleach images and a small square of black intensity values.
+\begin{sidewaysfigure}
+  \includegraphics[width=\textwidth]{results/frapinator.png}
+  \captionIntro{Frapinator visual log files for batch processing}
+               {Each FRAP experiment generates a log file with 6
+                 different plots displaying the analysed values and
+                 the fitting to different models.  In conjunction with
+                 the images in \fref{fig:software:frap-roi} this
+                 provides a quick overview of the entire analysis
+                 process.  The top left plot displays the raw
+                 intensity for the background, bleach spot, and
+                 nucleus intensity over the duration of the FRAP
+                 experiment. This is followed by the normalized
+                 intensity for the bleach spot which is actually used
+                 for the fitting. The top right displays the intensity
+                 profile for the bleach spot, and its fit to a radial
+                 profile model. The three bottom panels display the
+                 data fitted to three different models: pure diffusion
+                 which has no terms for binding constants; full model
+                 with a fixed diffusion rate; and full model with all
+                 the 3 terms.  }
+               \label{fig:software:frapinator}
+\end{sidewaysfigure}
 
-
-      \begin{sidewaysfigure}
-        \includegraphics[width=\textwidth]{results/frapinator.png}
-        \captionIntro{Frapinator visual log files for batch processing}
-          {
-            Each FRAP experiment generates a log file with 6 different plots
-            displaying the analysed values and the fitting to different models.
-            In conjunction with the images in \fref{fig:kill-frap:roi} this
-            provides a quick overview of the entire analysis process.
-            The top left plot displays the raw intensity
-            for the background, bleach spot, and nucleus intensity over the
-            duration of the FRAP experiment. This is followed by the normalized
-            intensity for the bleach spot which is actually used for the
-            fitting. The top right displays the intensity
-            profile for the bleach spot, and its fit to a radial profile
-            model. The three bottom panels display the data fitted to three
-            different models: pure diffusion which has no terms for binding
-            constants; full model with a fixed diffusion rate; and full model
-            with all the 3 terms.
-          }
-        \label{fig:kill-frap:frapinator}
-      \end{sidewaysfigure}
-
-      The automated identification of ROIs was turned into a stand-alone program, frapinator.
-      This has the advanatge that the user can set command-line options without scripting.
-      Representative images are saved with results and all intermediate analysis is logged for post-processing analysis.
-      These include the automatically identified ROIs and
-      plots of measured intensities, bleach spot profile, and fitting to different models \frefp{fig:kill-frap:frapinator}.
-      Frapinator is available for public download under the GPL \footnote{\url{https://github.com/github/octave-frap}}.
-
-
+We packaged the \command{frapinator} program and all the FRAP analysis
+individual functions into an Octave FRAP package and made it available
+online at \url{https://github.com/carandraug/octave-frap}.
 
 \section{BioPerl}
 

@@ -17,3 +17,7 @@ corresponding md5sum):
 * `Image114.lsm` (0a616796e0fbed9cd6783087947c60dc) which will be in a
 directory named `2010-04-29 H3 T45E (no cell cycle check) Laser 5 Scan 30ms Interval 0msc Frames 2500 Diameter 20`.
 This image will be used to create the FRAPINATOR plots.
+
+* `Location8Cell1.lsm` (bca6b27a3b165bac348622dd24cd8f25) which will be in a
+directory named `2010-04-28 H4 R45H (11h after mitosis) 20px circle and 30ms scan and laser 7 2500frames`.
+This image will be used to show the automatic identification of ROIs.
