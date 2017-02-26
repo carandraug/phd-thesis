@@ -372,6 +372,9 @@ the possibility of histogram processing as a preceding step.
 %% The only copies of his work that I know of are on my github account
 %% (which I have since modified), and on https://archive.org/web
 
+All this changes have been released with the Octave Forge image
+package version 2.0.0.
+
 \subsection{Mathematical Morphology}
 
 %% This is not the complete story.  When we started, imdilate and
@@ -402,12 +405,59 @@ improvements for mathematical morphology since any performance
 improvement and support for new image types will be propagated to
 other morphology functions.
 
-\section{Octave FRAP package}
+%% The original imdilate and imerode used __spatial_filtering__ with
+%% the ordefiltn option.  We first optimised this by using convn which
+%% made it a lot faster but only for binary images.  We then modified
+%% __spatial_filtering__ so that it was faster in grayscale images
+%% too.  We ended up writing a specialised function for dilation and
+%% erosion.
 
+%% My notes say that perfomance gains were between 1.5-30x for erosion
+%% and dilation, and 1/5 to 2/5 faster for __spatial_filtering__.  At
+%% least the erosion and dilation were on my old blog which got lost
+%% after the server was damaged.
+%% SE specialisation == SE decomposition
+\command{imdilate} and \command{imerode} used the general purpose
+\command{\_\_spatial\_filtering\_\_} function of the image package.
+We rewrote the functions aimed at morphology operations with
+specialisations for different data types and SE.  For the SE
+specialisation, a new \command{strel} class was created which also
+supported both flat and non-flat SE.  This changes were released with
+the Octave Forge image package version 2.2.0.
 
-%% \subsubsection{Octave Forge zenity package}
+%% Not mentioning the rewrite of __spatial_filtering__ because the
+%% only reason to do so was performance.  While my notes mention nice
+%% values, I don't have the time to make proper performance comparison
+%% so better not even talk about it.
 
-%% \subsubsection{Other Octave Forge packages}
+\subsection{Image Regions of Interest}
+
+The function \command{regioprops} is used to measure different
+properties in image regions of interest such as a region centroid,
+area, or eccentricity.  However, this function was inappropriate for
+the measurement of multiple regions and properties because the whole
+image was analysed again for each region and property.  We rewrote
+this function.  The computation of area and intensity weighted
+centroid of 2000 regions which was not finished overnight in a
+standard desktop computer was finish in under 3 minutes after our
+rewrite.  This was released with the image package version 2.6.0.
+%% The images I used for testing were Ezequiel's histone modification
+%% markers, the images were 512x512x30 with slightly more than 2000
+%% very small objects.
+
+%% Actually there was a version of bwconncomp before but it didn't do
+%% this, it only identified the boundaries of each object.  So while
+%% technically, this function name existed, it was something else.
+%% Our first attempt made use bwlabeln but then it had to undo the
+%% labelling which is inefficient.  That was released with version
+%% 2.2.0.  The writing of it as a function performing flood-fill was
+%% done later and released with image 2.4.0.
+We also wrote the function \command{bwconncomp} to perform the
+identification of image regions with any number of dimensions.  It
+creates an array of indices for the image regions which is an
+alternative to labelled images with reduced memory usage.  It is used
+internally by \command{regionprops}.  It was released with the image
+package version 2.4.0.
 
 %% Other Octave that I am not mentioning:
 %%   * move all XMatrix as subclasses of XNDarray to reduce code
@@ -423,6 +473,13 @@ other morphology functions.
 %%  * signal package: xcorr2 coeff option
 %%  * statistics: hist3, grp2idx, squareform, and binostat
 %%  * mapping: a bunch of low hanging fruits
+%%  * dicom: add support for any version of gdcm.
+%%
+%%  * all the work on the zenity package.  Maybe I will still write
+%%    about it...
+%%  * normxcorr2 in the image package.
+
+\section{Octave FRAP package}
 
 
 \section{BioPerl}
