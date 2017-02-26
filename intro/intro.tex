@@ -6,8 +6,8 @@
   %% is negligible anyway, and we are talking about fitting it into the
   %% nucleus anyway.
   The human genome has a length of some \num{3.2e9}
-  base pairs long \citep{nature-first-human-genome-draft}
-  meaning that a human cell will
+  base pairs \citep{nature-first-human-genome-draft}
+  meaning that a diploid human cell will
   typically have \SI{6.4}{\giga\bp} of genomic information inside
   its nucleus.
   All of this is organised in a large DNA--protein complex known as chromatin.
@@ -17,20 +17,23 @@
   multiple levels of compaction \frefp{fig:intro:chromatin-structure} where
   the level of compaction increases as access to the underlying genomic
   information decreases.
-  One common view distinguishes
+  This is often simplistically distinguished as
   euchromatin and heterochromatin for low and
-  high compaction respectively.
-  This binary distinction is associated with active and inactive genes
-  since high level of compaction prevents DNA transcription by blocking
+  high compaction respectively although more detailed categories of
+  chromatin spatial organisation have been proposed.
+  This binary distinction is in turn associated with active and inactive genes
+  since a high level of compaction prevents DNA transcription by blocking
   the access of the required machinery\addref{}.
+
   Chromatin function is not limited by the compaction of DNA
   to fit into the cell nucleus.
   Instead, chromatin controls access
-  to the DNA which means mediating transcription, replication,
+  to the DNA by mediating transcription, replication,
   and recombination, as
-  well as protecting DNA from damage; controlled and efficient
+  well as protecting DNA from damage.  Hence, controlled and efficient
   access to genomic information is not simply a barrier problem for the sake
-  of compaction \citep{controlling-double-helix}.
+  of compaction but involves chromatin structure as an active
+  participant in genomic mechanisms \citep{controlling-double-helix}.
 
   \begin{figure}
     \centering
@@ -79,7 +82,7 @@
   \end{figure}
 
   The nucleosome is the
-  basic repeating unit in the chromatin hierarchical structure.
+  basic repeating unit in the hierarchical structure of chromatin.
   An array of nucleosomes is then folded into a chromatin fiber by
   short-range interactions between neighbouring nucleosomes
   and the subsequent interactions between chromatin fibers shape the
@@ -87,50 +90,53 @@
   While the nucleosome
   structure is well established \citep{luger1997-28angstrom},
   details on the structure of the
-  intermediary structures are still controversial and some recent models
+  intermediary assemblies are still controversial and some recent models
   eschew them altogether
   \citep{fussner2011-no-30nm-fibre, luger2012-chromatin-review}.
 
   The nucleosome itself is composed of a core particle
   consisting of \SI{147}{\bp} of DNA and a histone protein octamer,
   and a variable length linker DNA that connects
-  to the flanking core particles \frefp{fig:intro:nucleosome-top-view}.
-  Altogether, the nucleosome includes \SIrange{165}{245}{\bp} of DNA
-  \citep{widom1992-linker-length}.
+  flanking core particles \frefp{fig:intro:nucleosome-top-view}.
+  Altogether, the repeating nucleosome unit
+  includes \SIrange{165}{245}{\bp} of DNA depending on species and
+  cell type \citep{widom1992-linker-length}.
 
   Nucleosomes act as the substrate for almost all nuclear processes that
   require access to genomic DNA \citep{controlling-double-helix}.
-  Reconfigurations of local chromatin necessary for these processes can
-  be accomplished by changing nucleosome structure, or altering its
+  Reconfigurations of local chromatin necessary for these processes to
+  be accomplished by changing nucleosome structure, or altering nucleosome
   composition by incorporation of variant histones or post-translational
   modifications.
   Understanding chromatin structure and the nature of changes which can
-  occur requires understanding the biochemical properties of nucleosomes.
+  occur during genomic activities
+  requires understanding the biochemical properties of nucleosomes.
 
   \subsection{Histones}
 
-    Histones are a family of proteins that are the principal protein component
+    Histones are a family of proteins that are the principal protein components
     of chromatin.
     There are five histone types: H1, H2A, H2B, H3, and H4.
-    Histone H1 binds to the linker DNA and is not part of the nucleosome.
+    Histone H1 binds to the linker DNA and is not part of the
+    nucleosome core particle.
     The other four histones form the core
     nucleosome and are therefore referred to as core histones.
     The DNA polymer is negatively charged and the highly
     basic histone proteins bind to it, neutralizing the negative charge
     and facilitating the required compaction of DNA.
     The histones interact with each other in a defined way to form
-    a compact histone octamer structure that furthers
+    a compact histone octamer structure that enables this
     DNA compaction.
 
     The histone octamer is the central component of the nucleosome core particle
-    \frefp{fig:intro:nucleosome-top-view}
-    composed of two of each of the core histones arranged in four dimers
+    \frefp{fig:intro:nucleosome-top-view}.
+    It is composed of two of each of the core histones arranged in four dimers
     --- two H2A--H2B and two H3--H4.
     The two H3--H4 dimers form a disk-shaped (H3--H4)\textsubscript{2}
     tetramer at the centre \frefp{fig:intro:tetramer-side-view}
     with one H2A--H2B dimer on each face of the disk
     \frefp{fig:intro:octamer-side-view}
-    and the \SI{147}{\bp} of DNA wrapped around in 1.65~turns
+    and the \SI{147}{\bp} of DNA wrapped around the octamer in 1.65~turns
     \frefp{fig:intro:nucleosome-side-view}.
 
     \begin{figure}
@@ -176,26 +182,29 @@
 
     \subsubsection{Histone and nucleosome structure}
 
-      The linear organisation of the core histones proteins is divided
-      into three parts: the histone fold domain --- the central piece of a
-      histone involved in the formation of histone dimers, histone
-      fold extensions, and the histone tails --- regions of the histone
-      that extend beyond the nucleosome interacting with the DNA and
+      The linear organisation of each core histone protein is divided
+      into three parts: The histone fold domain is the central and
+      common region of the protein
+      involved in the formation of histone dimers.
+      This is supplemented by histone fold extensions such as
+      H3~\textalpha{}N helix and H2B~\textalpha{}C helix,
+      and the histone tails which are regions of polypeptide
+      that extend beyond the nucleosome to interact with DNA and
       other nucleosomes.
 
       %% Histone fold domain
       %% \textalpha1--L1--\textalpha2--L2--\textalpha3
-      Core histone proteins share a common
-      histone fold domain, which consists of a long central
+      Core histone proteins share the common
+      histone fold domain, which is comprised of a long central
       \textalpha-helix flanked on both sides by loops
       and shorter \textalpha-helices \citep{arents1991-31angstrom, arents1995histone-fold}.
       This domain allows for the characteristic ``handshake'' motif
-      of dimer assembly where the central \textalpha-helix of each
-      histone crosses each other and fits between the shorter
+      of histone fold dimer assembly where the central \textalpha-helix of each
+      histone crosses its dimeric partner and fits between the shorter
       \textalpha-helices of the other (\fref{fig:intro:h2a-h2b-structure}
       and \ref{fig:intro:h3-h4-structure}).
       This gives histones an extensive molecular contact interface
-      between each other.
+      within the dimer.
 
       \begin{figure}
         \centering
@@ -281,9 +290,10 @@
 
       %% Histone tails
 
-      Each of the four core histones has an unstructured N and/or C
-      terminal tail that extend beyond the DNA in the nucleosome core,
-      making the inter-nucleosome interactions and therefore an important
+      Each of the four core histones has unstructured N and/or C
+      terminal tails that extend beyond the DNA in the nucleosome core,
+      making the inter-nucleosome interactions and therefore
+      playing an important
       role on chromatin higher order structures.
       In addition, the tails are subject to a wide range of
       post-translational modifications
@@ -302,16 +312,16 @@
       They have been show to influence
       DNA processes such as DNA replication, repair, recombination,
       and transcription.
-      The most studied modifications have been related with transcription,
-      gene activation and gene silencing in
+      The most studied modifications have been related with transcriptional
+      gene activation and gene silencing as outlined in
       the original proposal for the histone code \citep{jenuwein200histone-code}
-      reducing chromatin structure to an either ``on'' or ``off'' state.
+      that simplified chromatin structure to either ``on'' or ``off'' state.
       For example,
       H3 K4 di-methylation and H3 K27 tri-methylation are well known
       markers for gene activation and silencing respectively.
       Similarly,
       phosphorylation of serine 139 H2AX is involved in DNA repair
-      in the recruitment of DNA repair-related proteins \Arefp{app:h2ax-review}.
+      in the recruitment of DNA repair-related proteins.
 
     \subsubsection{Histone variants}
 
@@ -329,8 +339,9 @@
       and perform a variety of specialized functions.  For example, the
       H2A variant H2AX has a longer C-terminal tail with unique locations
       for post-translational modifications involved in DNA damage
-      response \Arefp{app:h2ax-review}.  CENP-A is a H3 variant that
-      forms a more compact and rigid nucleosome and has a unique N-terminal
+      response.  CENP-A is a H3 variant that
+      forms a nucleosome with altered biophysical properties
+      and has a unique N-terminal
       tail that is involved in centromere formation \citep{black2011-cenpa}.
 
     \subsubsection{Histone H1}
@@ -347,38 +358,38 @@
       regulatory proteins,
       chromatin remodelling factors, and histone modification enzymes
       to their target sites.
-      As with the case of higher order chromatin structures, details
-      on H1 contribution to chromatin structure and function remains
+      Details
+      of the contribution of H1 to chromatin structure and function remains
       unclear but the typically accepted view is that it binds at
       the nucleosome DNA entry/exit points and that it shortens the
       length of the linker DNA bringing nucleosomes close together
       to form the \SI{30}{\nm} fibres \citep{harshman2013h1-review}.
 
       Similar to the canonical core histones, expression of histone H1 is
-      replication dependent, there are variant H1 with specialised
-      roles and tissue-specific expression, all canonical genes
+      replication dependent with variant H1 isoforms having specialised
+      roles and tissue-specific expression.  All canonical H1 genes
       are located at a histone gene cluster, and the H1 protein
-      is target to multiple post-translational modifications.
+      is also the target of multiple post-translational modifications.
       Structuraly, histones H1 consist of a short N terminal, a globular
       structure, and a variable length C terminal with a high lysine
       content, which is why they are also named lysine-rich histones.
 
+      ``Histon'' was the name given to the protein fraction of
+      the original crude chromatin extracts \citep{kossel1884-histones}
+      even though histone H1 was the first species to be separated from
+      the others \citep{stedman1951main-histones-separation}.
       There are fundamental differences in the functional roles of
       the core histones and histone H1.
       There is no sequence similarity between H1 and the core histones,
       histone H1 does not have a histone fold,
       histone H1 is not evolutionary conserved like core histones,
       and histone H1 is not required for nucleosome formation.
-      ``Histon'' was the name given to the protein fraction of
-      the original crude chromatin extracts \citep{kossel1884-histones}
-      even though histone H1 was the first species to be separated from
-      the others \citep{stedman1951main-histones-separation}.
 
     \subsubsection{Historical perspective on chromatin structure}
       %% History of study of the structure and function of chromatin.
 
       The first chromatin preparation \citep{kossel1884-histones}
-      at the time named nucleïn, was
+      at the time named Nucleïn, was
       separated in two components: one basic and protein-like which
       became known as histones, and one acid and unlike any cellular
       substance yet observed which became known as nucleic acid.
@@ -386,8 +397,7 @@
       molecule and genetic material, the discovery of DNA itself,
       the discovery of the nucleus as the recipient for genetic
       information, and even the discovery of proteins as polypeptides.
-
-      The series of discoveries that led to the nucleosome
+      The series of advances that led to the nucleosome
       structure form a timeline spanning over a century
       (\tref{tab:chromatin-discoveries-timeline},
       \cite{vanHolde-chapter1}).
@@ -548,13 +558,13 @@
 
   \subsection{Fluorescent proteins}
     Several fluorescent labels have been developed with different
-    properties, each best suited to different techniques.
+    properties suited to specific microscopy techniques.
     These are often split into two major classes:
     Synthetic fluorescent
     molecules such as DAPI or fluorescein, which either bind to the molecule of
     interest or can be chemically linked to it.
     These are added exogenously, which often requires cell
-    fixation and permeabilization disturbing intracellular structures.
+    fixation and permeabilization disturbing the intracellular structures.
     In contrast, Fluorescent Proteins (FPs)
     are genetically encodable and can be expressed by the cells themselves.
     FPs allow tagging of individual molecules inside live cell, allowing
@@ -572,22 +582,23 @@
     respectively \citep{gfp-first-expression-marker}.
     %% when was GFP first used as a gene tag?
 
-    Since then, many GFP variants have been engineered by mutating its
+    Since then many GFP variants have been engineered by mutating the
     original nucleotide sequence.  These not only increase fluorescence
     quantum yield, photostability, and improved folding, but also change
     the excitation and emission spectrum, providing a wide range of GFP
     derivatives with different colours.  FPs in other organisms were also
-    discovered and further engineered to provide further improved
-    variants \citep{FP-color-palette}.
+    discovered and further engineered to provide improved
+    variants and wider range of fluorescent wavelengths
+    \citep{FP-color-palette}.
 
     An important class of FPs that have been developed are the
     photo-controllable FPs.
     These have
-    fluorescent properties that can be controlled by excitation with specific
+    fluorescent properties that can be modulated by excitation with specific
     wavelengths allowing for individual cells and proteins to be optically
-    labeled making this proteins specially useful for studies of cell
+    labeled.  This strategy is specially useful for studies of cell
     lineage and protein movement.
-    They can be divided in three categories.
+    The photocontrollable FPs can be divided in three categories.
 
     %% Turns out that we not allowed to have a list of descriptions,
     %% or any list of any sort for that matter, so we must write this
@@ -599,7 +610,7 @@
         reported, was developed by mutating the original GFP
         \citep{pagfp-discovery} and is
         still the only green PA--FP.
-        It allows marking and tracking of a subset of molecules
+        It allows simple marking and tracking of subsets of molecules
         within cells.
 
     Photo-switchable FPs undergo
@@ -658,7 +669,7 @@
     transport and diffusion rates, as well as binding interactions.
 
     In the simplest case, a FRAP recovery curve is analysed
-    qualitatively.  By looking at the plotted data the qualitative
+    qualitatively.  Using the plotted data the qualitative
     recovery rate, presence of an immobile
     fraction and binding interactions, and how this changes
     between different cases can be interpreted
@@ -727,7 +738,7 @@
         \draw[loosely dashed] (2.0, 3.0) -- (9.5, 3.0);
       \end{tikzpicture}
 
-      \captionIntro{Basics of a FRAP experiment}%
+      \captionIntro{Concept of a FRAP experiment}%
                    {The fluorescent proteins of a small region are
                     permanently bleached by a laser event. The
                     intensity in the region is measured so that the
@@ -740,15 +751,16 @@
       \label{fig:intro:frap-curve-example}
     \end{figure}
 
-    In quantitate FRAP, data analysis involves fitting the recovery
+    In quantitative FRAP, data analysis involves fitting the recovery
     data to an idealized mathematical model.
     Many different models exist with different assumptions
-    and dependence on
+    and dependencies on
     parameters \citep{mcnally-frap-2010}.
     Kinetic parameters are typically \Kon{} and \Koff{}, for
     binding and unbinding rate constants, and $D_{f}$ for diffusion constant.
 
     A number of parameters go into the design of FRAP models.
+    \todo[inline]{Write in sentences please!}
     \begin{description}
     \item[compartment geometry] Are the boundaries of the compartment
       being considered at all or is it assumed to be an infinite space?
@@ -793,3 +805,10 @@
     complex, on the time and length scale of the recovery.
     These assumptions become difficult to maintain as the experiment
     times increases for slow moving molecules.
+
+    \todo[inline]{I'm not sure if you planned to put something about
+      software here?}
+
+\section{Aims and Objectives}
+  \todo[inline]{\textbf{Definitely} you need half a page outlining
+    your Aimds + Objectives for the rest of the thesis.}
