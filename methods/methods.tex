@@ -5,8 +5,111 @@
   %% \epigraph{The devil is in the details.}
 
   All chemicals used were purchased from Sigma unless otherwise stated. All
-  solutions were prepared according to \Aref{app:solutions} with Milli-Q
+  solutions were prepared according to \tref{tab:methods:solutions} with Milli-Q
   purified water, and autoclaved prior to use when appropriate.
+
+  %% FIXME Depending on what border and font size we use at the end,
+  %%       this may fit in a single page and then we can drop the use
+  %%       of longtable and have a regular table without need for
+  %%       afterpage.
+
+  %% longtable does not float so it would appear right here halfway
+  %% the very first page of the methods chapter.  We use afterpage to
+  %% delay it to the strat of the next page.
+  \afterpage{
+    %% The way we calculate the columns width (with eqparbox), doesn't work
+    %% with memoir's ctabular so we are using longtable instead.
+    %%
+    %% An alternative method to make this list is with description environment
+    %%
+    %% \begin{description}
+    %%   \item[Freezing media] \hfill \\
+    %%     91\% FCS;
+    %%     10\% DMSO
+    %%   \item[Growth medium (HeLa)] \hfill \\
+    %%     87\% DMEM;
+    %%     10\% FCS;
+    %%     1\% NEAA;
+    %%     ...
+    %% \end{description}
+    \begin{longtable}{>{\bfseries}\SolutionNameCol
+        p{\dimexpr(\textwidth-\eqboxwidth{SolutionNameBox}-4\tabcolsep)}}
+      \captionIntro{Recipe for solutions}{}
+      \label{tab:methods:solutions}
+      \endfirsthead
+      \endhead
+      \toprule
+      Name & Recipe\\
+      \midrule
+      2YT broth               & \SI{16}{\g\per\l} tryptone;
+      \SI{10}{\g\per\l} yeast extract;
+      \SI{5}{\g\per\l}  NaCl.\\
+
+      DMEM                    & \SI{4.5}{\g\per\l}   glucose;
+      \SI{110}{\mg\per\l}  L-glutamine;
+      \SI{584}{\ug\per\l}  sodium pyruvate;
+      \SI{15.9}{\mg\per\l} phenol red.\\
+
+      DNA loading buffer (\SI{10}{\X}) & \pcent{25} Ficoll ($w/v$);
+      \SI{100}{\mM}      Tris--HCl pH=\num{7.4};
+      \SI{100}{\mM}      EDTA.\\
+
+      FACS buffer             & \pcent{96} PBS ($v/v$);                   % 480.5 mL
+      \SI{2}{\mM} EDTA;                         % 2 mL
+      \SI{25}{\mM} HEPES buffer pH=\num{7.0};   % 12.5 mL
+      \pcent{1} FCS ($v/v$).\\                  % 5 mL
+
+      Freezing media          & \pcent{90} FCS ($v/v$);
+      \pcent{10} DMSO ($v/v$).\\
+
+      Growth medium (HeLa, HEp2) & \pcent{89}         DMEM ($v/v$);   % 500ml
+      \pcent{9}             FCS ($v/v$);    % 50ml
+      \SI{1}{\X}            NEAA solution;  % 5.5mL
+      \SI{50}{units\per\ml} penicillin;     % 5.5mL (Pen/Strep solution)
+      \SI{50}{\ug\per\ml}   streptomycin.\\ % 5.5mL (Pen/Strep solution)
+
+      Growth medium (horse)   & \pcent{81}            DMEM ($v/v$);   % 500ml
+      \pcent{16}            FCS ($v/v$);    % 100ml
+      \SI{2}{\X}            NEAA solution;  %  12mL
+      \SI{50}{units\per\ml} penicillin;     % 5.5mL (Pen/Strep solution)
+      \SI{50}{\ug\per\ml}   streptomycin.\\ % 5.5mL (Pen/Strep solution)
+
+      LB agar                 & \SI{20}{\g\per\l}  LB broth powder;
+      \SI{7.5}{\g\per\l} agar.\\
+
+      LB broth                & \SI{20}{\g\per\l} LB broth powder.\\
+
+      Ponceau S solution      & \pcent{5} Ponceau S ($w/v$);
+      \pcent{5} Acetic acid ($v/v$).\\
+
+      Running buffer          & \SI{1}{\X}  TG;
+      \pcent{0.1} SDS ($w/v$).\\
+
+      SSC (Saline Sodim Citrate) & \SI{150}{\mM} NaCl;
+      \SI{15}{\mM}     trisodium citrate.\\
+
+      TAE (Tris Acetate EDTA) & \SI{40}{\mM} Tris;
+      \SI{20}{\mM} acetic acid;
+      \SI{1}{\mM}  EDTA.\\
+
+      TBE (Tris Borate EDTA)  & \SI{89}{\mM} Tris;
+      \SI{89}{\mM} boric acid;
+      \SI{2}{\mM}  EDTA.\\
+
+      TBS (Tris Buffered Saline)  & \SI{50}{\mM} Tris--HCl pH=\num{7.5};
+      \SI{100}{\mM}    NaCl.\\
+
+      PBS-T (TBS-Tween)       & \pcent{99.95} PBS ($v/v$);
+      \pcent{0.05}  Tween 20 ($v/v$).\\
+
+      TG (Tris Glycine)       & \SI{25}{\mM}  Tris;
+      \SI{192}{\mM} glycine.\\
+
+      Transfer buffer         & \SI{1}{\X} TG;
+      \pcent{15} methanol ($v/v$).\\
+      \bottomrule
+    \end{longtable}
+  }
 
   Restriction enzymes, T4 DNA ligase, other DNA modifying enzymes, and DNA
   ladders were obtained from New England BioLabs. Protein ladders from Invitrogen.
@@ -268,7 +371,8 @@
       University of Pavia, Department of Genetics and Microbiology.
 
       All cell lines were maintained at \dc{37} and \pcent{5} CO$_2$ in \SI{10}{\cm}
-      diameter plates with \SI{10}{\ml} of their respective growth medium (see \Aref{app:solutions}).
+      diameter plates with \SI{10}{\ml} of their respective growth
+      medium \trefp{tab:methods:solutions}.
       Dulbecco's Phosphate Buffered
       Saline (DPBS) and trypsin--EDTA solutions were used, respectively, to wash
       and split the cells 1:10 once they reached a confluence of \SIrange{80}{90}{\percent}.
