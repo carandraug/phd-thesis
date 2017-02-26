@@ -795,21 +795,22 @@ figures, tables, and values.
 %% standarda mandates via automake, all Makefiles should support
 %% install, all, help, check, so users know immediately what each one
 %% does.
-Claerbout \citep{ReDoc-claerbout} was one of the first who recognised
-this and proposed a standard build system for the generation of
-figures and manuscript from author data and analysis software.
-This new system was an extension to GNU Make, one the most common
-build system.
+Claerbout \citep{ReDoc-claerbout} was the first who recognised this,
+coined the term ``reproducible research'', and proposed a standard
+build system for the generation of figures and manuscript from author
+data and analysis software.  This new system was an extension to GNU
+Make, one the most common build system.
 
-\todo[inline]{Need a couple more examples here?}
-
+Madagascar \citep{madagascar-scons} was another a software specialised
+for reproducible computational experiments, based on the software
+build system SCons.
 The SCons (from Software Construction) build
 system \citep{scons} was designed to be a
 replacement of Make and it still resembles Make in concept.  However, it has
 the advantage of being configured by Python which is a modern
 programming language often praised for its readability.
 
-%% Other people may mention other advantages but I disagree:
+%% Other people may mention other SCons advantages but I disagree:
 %% 1.SCons has builtin configure and dependency analysis.  Well, that
 %%   is bullshit.  First, it doesn't work properly.  Configure support
 %%   was a second thought and is very much incomplete.  Second,
