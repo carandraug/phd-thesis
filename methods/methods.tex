@@ -304,6 +304,158 @@
         PCRs were frequently used to screen plasmids for DNA sequences
         in the absence of opportune restriction sites or even plasmid maps.
 
+    \subsection{Plasmid construction}
+
+      \paragraph{pBOS--H2B--EGFP D25G V118I}
+      Plasmid was provided by Prof.\@ Kevin Sullivan (NUIG) from
+      previous work \citep{KevinH2BGFP}.  DNA sequencing identified
+      gene \gene{HIST1H2BJ} as the closest human H2B in RefSeq but
+      with missense mutations D25G and V118I.
+
+      \paragraph{pBOS--H2B--EGFP}
+      The D25G and V118I mutations in pBOS--H2B--EGFP were corrected
+      by PCR mutagenesis using primers AFG114 and AFG115, and AFG112
+      and AFG113 respectively.  The resulting product encodes the
+      \gene{HIST1H2BJ} RefSeq gene.
+
+      \paragraph{pBOS--EGFP}
+      The pBOS--H2B--EGFP was digested with KpnI and BamHI and the
+      band corresponding to the linearised vector without the H2B
+      sequence was purified by gel extraction.  This linearised vector
+      was used as backbone vector for the other pBOS constructed
+      plasmids.
+
+      \paragraph{pBOS--H2A--EGFP}
+      The \gene{HIST1H2AB} gene sequence was amplified from HeLa
+      genomic DNA with primers AFG116 and AFG118, the PCR product
+      digested with KpnI and BamHI, and then ligated into the
+      pBOS--EGFP vector.  The \gene{HIST1H2AB} was chosen because it
+      encodes the same protein as the H2A used in previous work
+      \citep{flaus2004sin}.  The only alternative encoding the same
+      protein was \gene{HIST1H2AE} but its sequence has a lower codon
+      adaptation index and predicted 5' mRNA secondary structures that
+      are more complex.
+
+      \paragraph{pBOS--H2AX--EGFP}
+      The \gene{H2AFX} gene sequence was amplified from HeLa genomic
+      DNA with primers AFG130 and AFG131.  The same strategy used in
+      the cloning of pBOS--H2A--EGFP was used.  An accidental
+      frameshift mutation near the stop codon was posteriorly fixed by
+      PCR mutagenesis using primers AFG400 and AFG401.
+
+      \paragraph{pBOS--H2AX--EGFP S139 mutants}
+      For H2AX S139 mutations, the \gene{H2AFX} gene sequence was
+      amplified from HeLa genomic DNA in the same reaction that the
+      mutations were introduced since their location is closed to the
+      sequence 3' end.  Primers AFG132, AFG133, and AFG134, were used
+      with AFG130 to introduce H2AX mutations S139A, S139D, and S139E
+      respectively.  The mutation to alanine blocks phosphorylation of
+      S139, while mutation to aspartic and glutamic acid mimic
+      phosphorylation of S139.  The same strategy used in the closing
+      of pBOS--H2AX--EGFP was used, including the correction of a
+      frameshift mutation with AFG400 and AFG401.
+
+      %% Note: not gene sequence so we don't talk about the gene and
+      %%       therefore not in italic (and we don't use \gene)
+      \paragraph{pBOS--H2A.Z--EGFP}
+      Due to the presence of introns in the \gene{H2AFZ} gene
+      sequence, the transcript sequence was amplified from HeLa cDNA
+      provided by Dr.\@ Nadine Quinn \citep{NadineThesis}.  The
+      amplification was performed with primers AFG121 and AFG122, and
+      the product cloned into the pBOS--EGFP with the same strategy
+      used for pBOS--H2A--EGFP.
+
+      \paragraph{pBOS--H3--EYFP.MC--N1}
+      Plasmid was provided by Prof.\@ Kevin Sullivan (NUIG).  DNA
+      sequencing identified the H3 sequence as the human RefSeq
+      \gene{HIST1H3B} gene, encoding H3.1 from histone cluster 1.
+
+      \paragraph{pBOS--H3--EYFP T45A and T45E}
+      Mutations to H3 T45 were inserted into pBOS--H3--EYFP.MC--N1 by
+      PCR mutagenesis. The primers AFG151 and AFG152 were used for the
+      T45E mutation, and AFG153 and AFG154 for T45A.
+
+      \paragraph{pBOS--H4--ECFP.M--N1}
+      Plasmid was provided by Prof.\@ Kevin Sullivan (NUIG).  DNA
+      sequencing identified the H4 sequence as the human RefSeq
+      \gene{HIST1H4J} or \gene{HIST1H4K}, both of which have the same
+      genomic sequence.
+
+      \paragraph{pBOS--H4--ECFP R45H}
+      The H4 R45H mutation was inserted into pBOS--H4--ECFP.M--N1 by
+      PCR mutagenesis using the primers AFG124 and AFG125. The codon
+      \texttt{CAC} was selected for the histidine amino acid due to
+      its higher codon usage in the human genome \citep{codon_usage}.
+
+      \paragraph{pBOS--H4--EYFP}
+      The plasmid pBOS--H3--EYFP.MC--N1 was digested with the
+      restriction enzymes BamHI and NotI to extract the EYFP sequence
+      which was purified by agarose gel extraction.  The pBOS--H4
+      sequence was prepared in the same manner from
+      pBOS--H4--ECFP.M--N1.  The two fragments were ligated to
+      construct pBOS-H4-EYFP.
+
+      \paragraph{pBOS--H4--EYFP R45H}
+      The same strategy used for the cloning of wild type
+      pBOS--H4--EYFP, was used for the R45H mutant using
+      pBOS--H4--ECFP R45H.
+
+      \paragraph{PA-GFP}
+      The PA-GFP sequence used as insert for other plamids was
+      amplified from pPA-GFP--N1 with primers AFG478 and AFG479.  The
+      amplicon was purified by agarose gel extraction, digested with
+      NotI and BamHI, and then cleaned by PCR purification.  The
+      pPA-GFP--N1 plasmid was a kind gift from Chelly van Vuuren
+      (NUIG).
+
+      \paragraph{pBOS--H2B--PA-GFP}
+      The plasmid pBOS--H2B--EGFP was digested with NotI and BamHI
+      which removed the EGFP sequence.  The vector was purified by
+      agarose gel extraction and ligated with the PA-GFP insert.  This
+      strategy introduced a Proline to Arginine mutation in the linker
+      sequence between H2B and PAGFP when compared to the linker
+      sequence between H2B and EGFP.
+      %% This mutation in the H2B linker (DPPVAT to DPRVAT) was not on
+      %% purpose but wasn't an accident either.  We knew about it and
+      %% could have easily avoid it but would cost us one extra primer
+      %% and it shouldn't be making a difference.
+
+      \paragraph{pBOS--H3--PA-GFP}
+      The plasmid pBOS--H3--EYFP.MC--N1 was digested with NotI and
+      BamHI which removed the EYFP sequence.  The vector was purified
+      by agarose gel extraction and ligated with the PA-GFP insert.
+      %% Unlike the H2B--PA-GFP plasmid, this did not introduce any
+      %% mutation in the linker sequence.
+
+      \paragraph{mCherry--\textalpha--tubulin}
+      Plasmid was a kind gift from Chelly van Vuuren (NUIG).
+
+      %% I'm actually not sure if Kevin gave me the pMH3.2--614 or the
+      %% pCA-TAG plasmid. I did not have any plasmid map or sequence, only
+      %% the very small Figure 5 of his paper PMID:9024683
+      %% I couldn't even use any standard sequencing primer and by the time
+      %% we cloned our genes there, we had already decided to kill the project
+      %% so we never got to actually try these in human cells.
+      \paragraph{pMH3.2--614}
+      The plasmid includes a mouse replication dependent histone H3.2
+      gene with upstream and downstream regulatory elements
+      \citep{pMH3-plasmid}.  It was provided by Prof.\@ Kevin
+      Sullivan.  Due to the absence of convenient restriction sites in
+      the plasmid, insertion of alternative histone gene sequence was
+      performed by blunt-end ligation of PCR products.  pMH3.2--614
+      was amplified with primers AFG417 and AFG418 which amplified the
+      vector backbone, including the upstream and downstream
+      regulatory elements but ignoring the H3.2 coding sequence.  The
+      amplified sequence was purified by agarose gel extraction.
+
+      \paragraph{pM-H2B--EGFP}
+      The H2B--EGFP insert sequence was generated by PCR amplification
+      with primers AFG419 and AFG420, purified by agarose gel
+      extraction, and ligated into the pMH3.2--614 vector.  The
+      primers for the insert, AFG419 and AFG420, were phosphorylated
+      by T4~PNK prior to PCR since T4~PNK is more efficient on single
+      stranded DNA.
+
   \section{Protein methods}
     \subsection{Phenol:chloroform extraction}
       \label{sec:phenol-extraction}
