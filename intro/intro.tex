@@ -764,28 +764,36 @@
     parameters \citep{mcnally-frap-2010}.
     Kinetic parameters are typically \Kon{} and \Koff{}, for
     binding and unbinding rate constants, and $D_{f}$ for diffusion constant.
+    A number of parameters go into the design of FRAP models
+    \citep{what-do-we-really-know}.
 
-    A number of parameters go into the design of FRAP models.
-    \todo[inline]{Write in sentences please!}
-    \begin{description}
-    \item[compartment geometry] Are the boundaries of the compartment
-      being considered at all or is it assumed to be an infinite space?
-      Is the compartment a three dimensional volume or a two
-      dimensional area only?
-    \item[bleach event] Is the bleaching profile of the bleached
-      region considered or is the bleaching assumed to be uniform?  Is
-      the time duration of the bleaching event considered?  Is
-      reversible photobleaching considered?
-    \item[diffusion] Is molecular diffusion incorporated or are
-      molecules movement assumed to be instantaneous?  Does it
-      incorporate the different diffusion rates in a non-homogeneous
-      compartment?
-    \item[binding states] How many binding states, if any, are
-      considered?  Are the binding states distributed equally within
-      the compartment?
-    \item[binding reaction] Is it modelled after a simple binding
-      reaction, an sequence of reactions, or something more complex?
-    \end{description}
+    The compartment geometry must be considered.  This includes
+    deciding whether there are boundaries to the compartment or
+    whether it is an infinite space.  The simplification of the
+    compartment from a three dimensional volume to a two dimensional
+    area can be applied.
+
+    The bleaching event is a can of worms in itself.
+    The time interval between the bleaching and the acquisition of the
+    first image is a window where recovery of a mobile fraction might
+    happen.  Likewise, the bleaching event on itself is not
+    instantaneous and will occur while molecules are exchanging.
+    The shape of the bleached area is a parameter on its own, but the
+    profile of the laser beam will also have an effect being modelled
+    either as gaussian or flat-top.
+
+    Diffusion rates may be fixed, fitted, or assumed to instantaneous,
+    and a single diffusion rate may be assumed for the whole
+    compartment or that non-homogeneous regions in the compartment
+    cause different diffusion rates.
+
+    Finally, the binding also has plenty of parameters.  Multiple
+    binding states may be present when binding reactions occur in a
+    series of steps involving multiple proteins.  The distribution of
+    the binding places may be not equal throughout the compartment.
+
+    While these may appear parameters on the mathematical model for
+    the fitting, they also affect how the experiment is performed.
 
     Two factors contribute for the widespread use of FRAP.
     Firstly, it does not require specialized instruments
