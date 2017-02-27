@@ -116,21 +116,6 @@
       consecutive image cropping and image registration.
       This approach was implemented as a program named CropReg.
 
-      Nuclei of interest were tracked by template-based matching using normalized cross-correlation.
-      Briefly, the nucleus to track was identified on the first frame and
-      used as template against the image on the subsequent frame.
-      For increased performance and robustness only the region surrounding the original position is used.
-      %% Should you state approximately how large this region was?
-      Sequentially applying this method created a stack of smaller images centred on the nuclei of interest.
-
-      Achieving this functionality required implementing a ``coeff'' option
-      for scaling in the \texttt{xcorr2} function in GNU Octave.
-      This was contributed and released in version 1.2.0 of the Octave Forge signal package.
-      %% TODO since there's more than one way to actually do the normalization,
-      %% it might be a good idea to write down the actual math formula
-      To correct for rotational movement around the $z$ axis,
-      frames were aligned using rigid body geometric transformation using ImageJ plugin StackReg \citep{stackreg}.
-
       \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{results/cropreg.png}
