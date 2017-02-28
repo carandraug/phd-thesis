@@ -90,7 +90,6 @@ env.Depends(thesis, [
   software,
   catalogue,
   kill_frap,
-  fancy_frap,
   discussion,
   h2ax_review,
 ])
