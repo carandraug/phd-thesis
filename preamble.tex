@@ -59,18 +59,13 @@
 \makeoddhead{NUIG}{}{}{\rightmark} % page marks in the edge
 \pagestyle{NUIG}
 
-%% NUIG style requires 4cm for the spine margine (actually, it
-%% requires 4 cm on the left margin, and 4 cm on the right margin if
-%% it is to be double sided so that is is ``adequate for binding''.
-%% Sounds like what matters is the spine margin and not right or left
-%% margin).  Anyway, for an A4 page with font size 10pt (the default),
-%% the memoir class default to ~3.5cm on the spine, and ~5.5cm on the
-%% other side.  I kinda like the default format and text width so if
-%% we add .5cm on one side, I'm taking it back from the other side.
-%% Those default margins are computed based on the font size so the
-%% text ends with roughly 66 characters per line.  Check the margin
-%% sizes again if we have to change the font size.
-\setlrmarginsandblock{4cm}{5cm}{*}
+%% Use our NUIG page style, even in pages with a chapter heading.
+\aliaspagestyle{chapter}{NUIG}
+
+%% NUIG only requires 4cm margin on the spine margin, the rest it's
+%% set to whatever makes Andrew happy.
+\setlrmarginsandblock{4cm}{3cm}{*}
+\setulmarginsandblock{3.5cm}{3.0cm}{*}
 \checkandfixthelayout
 
 %% remove colorlinks option when ready for print
