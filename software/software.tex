@@ -5,48 +5,39 @@
 
 \section{GNU Octave}
 
-The GNU Octave programming language was heavily used for the analysis
+The GNU Octave programming language was used extensively for the analysis
 of microscope images throughout this work.  Several features of the
 language such as its handling of multi-dimensional arrays, interactive
-top level, and extensive image processing functions, as well as
-its supportive community make it an attractive choice
+user interface, and extensive image processing functions, as well as
+its supportive community, make it an attractive choice
 for quantitative microscopy.
-
-Biological microscope images have a varying number of dimensions.
-In addition to the 2 dimensional plane of a standard image, microscope
-outputs typically include any combination of: $z$ dimension along
-the optical axis for a volume image; time dimension for time-lapse
-experiments; and wavelength for multi-channel experiments.  Recent microscopy
-techniques generate images with an even higher number of dimensions
-such as angle, phase, and lifetime.  This varying dimensionality adds
-complexity and makes it challenging to write generalized subroutines for
-microscope image analysis.
 
 %% All values are multi-dimensional arrays does not include objects
 %% wrapped from other languages such as java objects (and I guess it
 %% will be the same for python when the pytave project is finished).
-GNU Octave is an array programming language, high level programming
-languages where operations are generalised to multidimensional arrays,
-primarily intended for numerical computations \citep{octave}.
-In Octave, all values are multidimensional arrays which provides
+GNU Octave is an high level array programming
+language where operations are generalised to multidimensional arrays
+and is primarily intended for numerical computations \citep{octave}.
+In Octave, all values are multidimensional arrays and this provides
 an abstraction layer that is useful when writing code for an arbitrary
-number of dimensions as is the case for microscope image processing.
+number of dimensions.
 
 %% Doesn't seem to be any scientific study about REPL as an advantage
 %% for prototyping.  Similarly, none about being better for
 %% exploratory data analysis but I can't imagine anyone disagreeing
 %% with it.
 Octave also has a Read--Eval--Print Loop (REPL), or interactive top
-level, like IPython and Unix shells, which reduces the
+level user interface, like IPython and Unix shells.  This reduces the
 feedback time and provides an efficient
 environment for exploratory data analysis.
 
 %% No citation for this, only the anecdotal evidence of being the
 %% project leader of octave Forge for 6 years.
-The project has a large and active community
+The project has an active community
 mainly composed of
-scientists and engineers as a large support group of
+scientists and engineers who provide a large support group of
 specialists in numerical computations.
+
 The separate Octave Forge project hosts a vast number of
 packages that extend Octave into specific applications such as control
 systems \citep{octave-control}, time-frequency analysis
@@ -61,20 +52,32 @@ use of this feature and have contributed to improving Octave and its
 packages for the needs of quantitative microscopy.
 
 Finally, Octave comes with basic support for image processing and the
-Octave Forge image package extends it with a number of functions for
+Octave Forge Image package extends this with a number of functions for
 image processing such as geometric transformations, mathematical
 morphology, image registration, and noise reduction.
 
 %% These were actually lsm files but those are actually TIFFs.
 While Octave is well suited to image
-processing, we also identified several problems always related with
-the large image size or number of dimensions.  Our microscopy images
+processing, we identified several problems related to
+large image size or number of dimensions.
+
+Our microscopy images
 were several megabytes in size.  For example, the single cell
 FRAP experiments for histone dynamics generating TIFF files of 449
 These images had a field of view of 300
 by 300 pixels and 2500 time frames
 on acquisition by an 8-bit camera.
-Such files sizes are typical in the field of microscopy.
+Such files sizes are typical in the microscopy field.
+
+Biological microscope images have a varying number of dimensions.
+In addition to the 2 dimensional plane of a standard image, microscope
+outputs typically include any combination of $z$ dimension along
+the optical axis for a volume image; time dimension for time-lapse
+experiments; and wavelength for multi-channel experiments.  Recent microscopy
+techniques generate images with an even higher number of dimensions
+such as angle, phase, and lifetime.  This varying dimensionality adds
+complexity and makes it challenging to write generalized subroutines for
+microscope image analysis.
 
 \subsection{Reading and Writing of Image Files}
 
@@ -92,7 +95,7 @@ provided via the functions \command{imfinfo}, \command{imread}, and
 %% of performance for TIFF.  This is because of the structure of TIFFs
 %% where reading plane N means parsing all the IFDs before that.
 These three functions were rewritten with the aim of achieving
-reduced memory usage, increased performance, improved
+reduced memory usage, increased performance, an improved
 interface for multidimensional images, and new image types.
 New options were added to read and write a series of image planes
 in a single function call, to read specific regions of interest in
@@ -120,8 +123,8 @@ For example, it is now possible for packages to enable reading of
 microscope specific metadata from \command{imfinfo}.
 This system is available via the function \command{imformats}.
 
-Changes extended to other functions of Octave related to images
-including  functions involved in conversion between color
+Changes were required in other Octave functions related to images
+including those involved in conversion between color
 models, grayscale images, and indexed images to support integer and
 floating point data types, and multiple dimensions
 \trefp{tab:software:octave-core-functions}.
@@ -209,40 +212,40 @@ could be solved either by improving Octave or Bio-Formats.
 %% primitive, wrapper, and objects is though.  And on top of that,
 %% writing it without sounding dumb is just impossible.
 In Octave, we rewrote the handling of values returned from Java.
-Of special importance for BioFormats was the automatic conversion of
+Of special importance for BioFormats integration was the automatic conversion of
 Java arrays which are used to return pixel data.
 Support for conversion of multidimensional Java arrays was not implemented
-since we did not require it and it remains available for a future project.
+since we did not require it and this remains open as a future project.
 
-In Bio-Formats, we modified their Matlab toolbox so that it is
+In Bio-Formats, we modified the Matlab toolbox so that it is
 both Octave and Matlab compatible.
 This change simplifies the packaging of
 Bio-Formats for Matlab and Octave making them
 effectively the same code.
 Finally, we automated the creation of Octave packages in Bio-Formats
-so that they be made part as part of Bio-Formats releases.
+so that they be made as part of standard Bio-Formats releases.
 
 All changes were released with Octave since version 4.0.0 and
 Bio-Formats since version 5.1.2
 
-\section{Octave Forge image package}
+\section{Octave Forge Image package}
 
 The Octave programming language is primarily intended for numerical
-computations and provides a syntax and set of functions particularly
+computations and provides a syntax and set of functions that is particularly
 convenient for solving linear algebra and differential equations.  It
 also includes a collection of functions for the handling of image data
-but those are focused on the reading and writing of image files,
+but these are focused on the reading and writing of image files,
 conversion between colour models, and graphical display.
 
-The Octave Forge image package supplements Octave with a wide range of
+The Octave Forge Image package supplements Octave with a wide range of
 image analysis specialised functions.  While Octave syntax is
 identical for any number of dimensions and data type, we found that
-many of the image package functions were either limited to two
-dimensional images or inefficient for the large images we obtained in
+many of the Image package functions were either limited to two
+dimensional images or inefficient for the large images such as those used in
 microscopy.  We began a project with the purpose of eliminating any
-limitation on number of dimensions in the image package
-\trefp{tab:software:octave-image-functions} which has seen multiple
-releases, starting in version 2.0.0 and continuing in the current
+limitation on the number of dimensions in the Image package
+\trefp{tab:software:octave-image-functions}.  This has seen multiple
+releases, starting in version 2.0.0 and continuing to the current
 version 2.6.1.
 %% Other issues are when functions just treated higher number of
 %% dimensions as a long 2D image and introduced artifacts on image
@@ -254,7 +257,7 @@ version 2.6.1.
 %% mentioned work already made.
 
 \begin{table}
-  \captionIntro{New or improved functions in the Octave Forge image
+  \captionIntro{New or improved functions in the Octave Forge Image
     package}{}
   \label{tab:software:octave-image-functions}
   \begin{multicols}{3}
@@ -337,26 +340,28 @@ version 2.6.1.
 
 Image thresholding is a method for image segmentation where the image
 pixels are separated into classes based on their intensity values.
-The simplest of the thresholding methods uses a single fixed value and
+The simplest of thresholding methods uses a single fixed value and
 separates an image into background and foreground which are then
-represented in a binary, or black and white, image.  This is
-particularly useful in images of fluorescence microscopy where objects
-of interested show bright with high intensity values against a dark
-background with low intensity values.
+represented in a binary black or white image.  This is
+particularly useful for fluorescence microscopy images where objects
+of interest show bright high intensity values against a dark
+background of low intensity values.
 
 Multiple threshold algorithms exist to automate the choice of a
-threshold value, the most common of which being based on the analysis
+threshold value, the most common of which is based on the analysis
 of an image histogram \citep{analysis-hist-threshold}.  Otsu's method
-\citep{otsu-threshold} is among the most widespread of this methods
-and is available in the function \command{graythresh} of the image
+\citep{otsu-threshold} is among the most widely used
+and is available in the function \command{graythresh} in the Image
 package.  We rewrote this function to handle histograms of arbitrary
-length, vectorised for performance, and additional computation of a
-``goodness'' of the threshold value.  In addition, we ported to Octave
-the HistThresh toolbox, an unpublished collection of histogram
-threshold algorithms by Antti Niemistö, making them available as an
-option for \command{graythresh}.  Finally, the rewrite added the
+length and vectorised it for performance with additional computation of a
+``goodness'' measure of threshold value optimality.
+In addition, an unpublished collection of histogram
+threshold algorithms by Antti Niemistö (personal communication),
+making them available as an
+option for \command{graythresh} in Octave.  Finally, the rewrite
+of \command{graythresh} added the
 option of using an histogram as input instead of an image, enabling
-the possibility of histogram processing as a preceding step.
+the possibility of histogram processing as a preparatory step.
 
 %% We have no reference for Antti Niemistö work.  It was never
 %% published and only available on his University webpage at
@@ -370,7 +375,7 @@ the possibility of histogram processing as a preceding step.
 %% The only copies of his work that I know of are on my github account
 %% (which I have since modified), and on https://archive.org/web
 
-All this changes have been released with the Octave Forge image
+All these changes were released in the Octave Forge Image
 package version 2.0.0.
 
 \subsection{Mathematical Morphology}
@@ -383,25 +388,25 @@ package version 2.0.0.
 %% (before I started this), I can see that imerode and imdilate called
 %% ordfiltn for grayscale images which was bound to be quite slow, and
 %% filter2 for binary images which would limit to 2d images.
-Mathematical morphology is the theory for the analysis of spatial
+Mathematical morphology is the analysis of spatial
 structures which provides a powerful image analysis technique based on
 the shape and form of objects.  This is achieved by probing an image
-with a known shape, named Structuring Element (SE), and filtering the
-image based on whether the SE fits, or does not fit, on each location
+with a known shape known as the Structuring Element (SE), and filtering the
+image based on whether the SE fits at each location
 within the image.
 
-The fundamental morphological operations are named dilation and
-erosion which are available in the image package through the
+The fundamental operations of mathematical morphology are named dilation and
+erosion.  These are available in the Image package through the
 \command{imdilate} and \command{imerode} functions.  More complex
-morphological operations are built on top of this two operations.  For
-example, morphological top-hat transform corresponds is the difference
-between an image and its morphological opening which in turn
+morphological operations are built on top of these two operations.  For
+example, the morphological top-hat transform corresponds to the difference
+between an image and its morphological opening, which in turn
 corresponds to an erosion followed by a dilation.
 
-Being the two fundamental operations, they are the ideal targets of
-improvements for mathematical morphology since any performance
-improvement and support for new image types will be propagated to
-other morphology functions.
+As the two fundamental operations, dilation and erosion are ideal targets for
+improvement since any performance increase or
+support for new image types will be propagated to
+higher level morphology functions.
 
 %% The original imdilate and imerode used __spatial_filtering__ with
 %% the ordefiltn option.  We first optimised this by using convn which
@@ -416,12 +421,14 @@ other morphology functions.
 %% after the server was damaged.
 %% SE specialisation == SE decomposition
 \command{imdilate} and \command{imerode} used the general purpose
-\command{\_\_spatial\_filtering\_\_} function of the image package.
+\command{\_\_spatial\_filtering\_\_} function of the Image package.
 We rewrote the functions aimed at morphology operations with
-specialisations for different data types and SE.  For the SE
-specialisation, a new \command{strel} class was created which also
-supported both flat and non-flat SE.  This changes were released with
-the Octave Forge image package version 2.2.0.
+specialisations for different data types and SE.
+A new \command{strel} class was created for the SE specialisation which
+supported both flat and non-flat SE.
+
+These changes were released with
+the Octave Forge Image package version 2.2.0.
 
 %% Not mentioning the rewrite of __spatial_filtering__ because the
 %% only reason to do so was performance.  While my notes mention nice
@@ -434,11 +441,16 @@ The function \command{regioprops} is used to measure different
 properties in image regions of interest such as a region centroid,
 area, or eccentricity.  However, this function was inappropriate for
 the measurement of multiple regions and properties because the whole
-image was analysed again for each region and property.  We rewrote
-this function.  The computation of area and intensity weighted
-centroid of 2000 regions which was not finished overnight in a
-standard desktop computer was finish in under 3 minutes after our
-rewrite.  This was released with the image package version 2.6.0.
+image was analysed independently for each region and property.  We rewrote
+this function for improved efficiency so that
+computation of area and intensity weighted
+centroid of 2000 regions which previously took over 12 hours on a
+standard desktop computer was finish in under 3 minutes.
+This improvement was released with the Image package version 2.6.0.
+%% We say over 12 hours but actually they never finished.  Not having
+%% finished after so many hours (overnight) was absolutely not
+%% acceptable.  Estimates say that it would actually take over ~200
+%% hours to finish.
 %% The images I used for testing were Ezequiel's histone modification
 %% markers, the images were 512x512x30 with slightly more than 2000
 %% very small objects.
@@ -451,10 +463,12 @@ rewrite.  This was released with the image package version 2.6.0.
 %% 2.2.0.  The writing of it as a function performing flood-fill was
 %% done later and released with image 2.4.0.
 We also wrote the function \command{bwconncomp} to perform the
-identification of image regions with any number of dimensions.  It
-creates an array of indices for the image regions which is an
-alternative to labelled images with reduced memory usage.  It is used
-internally by \command{regionprops}.  It was released with the image
+identification of image regions with an arbitrary number of
+dimensions.
+\command{bwconncomp} is used internally by \command{regionprops} and
+creates an array of indices for the image regions as an
+alternative to labelled images which reduces memory usage.
+This was released with the Image
 package version 2.4.0.
 
 %% Other Octave that I am not mentioning:
@@ -480,7 +494,8 @@ package version 2.4.0.
 \section{Octave FRAP package}
 \label{sec:software:octave-frap}
 
-For the work in \Cref{ch:kill-frap}, we required tools to estimate
+For the FRAP analysis of histones
+in \Cref{ch:kill-frap} we required tools to estimate
 binding constants from FRAP recovery data.  We obtained the code for a
 previously reported circle FRAP model \citep{mcnally-frap-code} from
 personal communication with the authors under the GNU General Public
@@ -490,11 +505,11 @@ for observational photobleaching, finite size of the nucleus, and
 fitting to both a pure-diffusion model and a full model with binding
 states.
 
-This code was written in the Matlab programming language and was
-easily ported to Octave, the main difference being the replacement of
+This code was written in the Matlab programming language so was
+easily ported to Octave.  The main difference was the replacement of
 the nonlinear fitting from \command{nlinfit} with \command{leasqr}
-from the Octave Forge optim package since both performs the same
-algorithm, Levenberg--Marquardt nonlinear least squares.
+from the Octave Forge Optim package since both perform the same
+Levenberg--Marquardt nonlinear least squares algorithm.
 
 Identification of the bleach spot, nucleus, and background regions are
 required for the circle FRAP model.  The bleach spot measures
@@ -505,10 +520,10 @@ into account the fluorescence loss due to observational
 photobleaching.  A small region outside the nucleus is used for
 background correction.
 
-The identification of these regions was performed manually which in
-the interest of batch processing we automated.  The bleach spot was
-identified in the difference between the post and pre-bleach frames.
-Individual nuclei were segmented after automatic threshold with Otsu's
+We automated the identification of these regions to facilitate
+batch processing.  The bleach spot was
+identified from the difference between the post and pre-bleach frames.
+Individual nuclei were then segmented after automatic thresholding with Otsu's
 method.  A background region was identified as the rectangle of a
 fixed size with lowest average intensity in the image.
 
@@ -536,9 +551,11 @@ fixed size with lowest average intensity in the image.
                     {results/roi-selected.png}
                     \label{subfig:software:frap-roi:selected}
   }
+  %% These images are not the visual logs because then we would not be
+  %% able to have them as separate subfigures or add a scalebar.
   \captionIntro{Automatic selection of regions for FRAP analysis}
                {HeLa stable cell line expressing the H4~R45H mutant
-                 tagged with YFP, are imaged every \SI{30}{\ms} in a
+                 tagged with YFP were imaged every \SI{30}{\ms} in a
                  confocal microscope. A circular shape is used for
                  photobleaching after 100~frames.
                  \subcaptionref{subfig:software:frap-roi:prebleach}
@@ -560,13 +577,13 @@ fixed size with lowest average intensity in the image.
 
 
 With all the steps automated, we created a single program in Octave
-which we named \command{frapinator} that would perform all the
-analysis for any number of images.  The multiple options were made
-available via command line options so that the user does not need to
-modify the source code.  To quickly filter out any faulty analysis,
-two images are created that work as a visual log, one showing the
+named \command{frapinator} that would perform all the
+analysis for any number of images.  All options were made
+available as command line options.
+To quickly filter out any faulty analyses,
+two images are created that provide a visual log.  One image shows the
 automatically identified regions \frefp{fig:software:frap-roi} and
-another the recovery curves, intermediary analysis, and best fits
+another shows the recovery curves, intermediary analysis, and best fits
 \frefp{fig:software:frapinator}.
 
 \begin{sidewaysfigure}
@@ -576,7 +593,7 @@ another the recovery curves, intermediary analysis, and best fits
                  different plots displaying the analysed values and
                  the fitting to different models.  In conjunction with
                  the images in \fref{fig:software:frap-roi} this
-                 provides a quick overview of the entire analysis
+                 provides an overview of the entire analysis
                  process.  The top left plot displays the raw
                  intensity for the background, bleach spot, and
                  nucleus intensity over the duration of the FRAP
@@ -593,7 +610,7 @@ another the recovery curves, intermediary analysis, and best fits
 \end{sidewaysfigure}
 
 We packaged the \command{frapinator} program and all the FRAP analysis
-individual functions into an Octave FRAP package and made it available
+functions into an Octave FRAP package and made it available
 online at \url{https://github.com/carandraug/octave-frap}.
 
 \section{BioPerl}
@@ -602,8 +619,8 @@ The BioPerl project is an international association of developers of
 free Perl software for bioinformatics, genomics, and life science
 \citep{bioperl}.  It has created the BioPerl distribution of Perl
 modules which has almost 800 modules for management and manipulation
-of biological data to programmatic access of databases such as GenBank
-and SwissProt, and bioinformatics tools such as ClustalW and Blast+.
+of biological data as well as programmatic access to databases such as GenBank
+and SwissProt, and to bioinformatics tools such as ClustalW and Blast+.
 
 %% $ find bioperl-live/Bio/ -name '*.pm' -type f | wc -l
 %% 791
@@ -619,15 +636,15 @@ and SwissProt, and bioinformatics tools such as ClustalW and Blast+.
 %% BioPerl.  That only started in 2011 (see Changes file in
 %% bioperl-live).
 The large number of modules in BioPerl became a maintenance problem
-so in 2011, a new project to split BioPerl into
+so in 2011, a new project initiated to split BioPerl into
 more manageable distributions such as Bio-Biblio, Bio-FeatureIO, and
 Bio-Coordinate.  To reduce existing code, prevent duplication,
 and to make new releases
 a easier, Dist::Zilla and Pod::Weaver were adopted for
 the new distributions.
 
-Dist::Zilla is a program to make it easier to write, package, manage,
-and release free software targeted at libraries written in the Perl
+Dist::Zilla is a program facilitating the writing, packaging, management,
+and release of free software targeted at libraries written in the Perl
 programming language and released to the Comprehensive Perl Archive
 Network (CPAN) repository.  It comes with a series of plugins to automate the
 release process such as the addition of copyright notices, discovery
@@ -635,9 +652,10 @@ of dependencies, and uploading to CPAN.
 
 Pod::Weaver is a program to create documents in Plain Old
 Documentation (POD) format, a format mainly used to write
-documentation inlined in Perl modules.
+documentation incorporated inlined within Perl modules.
 Pod::Weaver includes a Dist::Zilla plugin
-that serves as bridge between the two, so that most boilerplate POD is
+that serves as bridge between the two, so that most
+standard generic POD content is
 generated automatically as part of the release process.
 
 As part of the restructure of the BioPerl distribution, we configured
@@ -657,7 +675,42 @@ software licenses, and each has their own author who is often not
 the copyright holder.
 
 Both new Pod::Weaver plugins and the BioPerl PluginBundle are available
-on CPAN.
+on CPAN \todo{since?}.
+
+\subsection{Bio-EUtilities}
+
+For the analysis of the canonical histone gene
+family \Crefp{ch:histone-catalogue} we required a tool to
+automate the search of histone genes and download associated sequences.
+We used the NCBI Gene database for searches and
+created a new program withing the Bio-EUtilities package from BioPerl.
+
+Gene is a public database hosted at the National Center for
+Biotechnology Information (NCBI) which maps known or predicted genes
+to other entries in the NCBI Reference Sequence (RefSeq).  Therefore, Gene
+links to the Genome, Nucleotide, and Protein databases \citep{gene-database}.
+
+Bio-EUtilities is part of the BioPerl project and provides a Perl
+interface to NCBI's Entrez Programming Utilities (E-Utilities).
+Entrez is a federated search engine for multiple databases of
+biomedical data including Gene.  Entrez has an
+interactive interface at \url{https://www.ncbi.nlm.nih.gov/} while
+E-Utilities provides an equivalent
+programming interface for queries using a fixed
+URL syntax.
+
+The program \command{bp\_genbank\_ref\_extractor} component was
+created to take as input a query to the Entrez Gene database and
+to downloads all genomic, transcript, and protein sequences as well
+as a CSV file with chromosome coordinates, names, and identifiers as output.
+It has several options such as download of flanking sequences, different
+output formats, choice of genome assembly, and skipping of non coding
+genes.  \command{bp\_genbank\_ref\_extractor}
+is provided with an extensive manual covering all options
+and examples \Arefp{app:pod-doc}.
+
+\command{bp\_genbank\_ref\_extractor} was released with
+Bio-EUtilities version 1.73.
 
 \subsection{Debian packaging}
 
@@ -671,8 +724,23 @@ This means that it is made of multiple components known as
 packages.  For example, in Debian there are packages for the Linux
 kernel, the Perl programming language, and Dist::Zilla.  Packages are
 managed by a package management system which handles their
-installation, configuration, and removal to simplify tasks which otherwise would
-have to be handled by the user.
+installation, configuration, and removal to simplify
+a multiplicity of tasks which otherwise would
+have to be handled individually by the user.
+
+%% Debian Jessie has 21024 source packages.  The binary number of
+%% packages would be much higher but while that number is what is
+%% usually used when making a point for Debian's high number of
+%% packages, it is misleading.  The point is how much of upstream
+%% projects are packaged, and that is the number of source packages.
+
+Debian is a widely used GNU/Linux
+distribution with more than 21000 packages and a large
+number of derivative distributions.  These new distributions
+inherit the base of their packages from Debian, and some like Ubuntu
+and Knoppix are in turn the parents of their own derivatives.  By packaging
+for Debian, we effectively prepare packages for the whole family of
+Debian based distributions.
 
 While Debian had a package for the main BioPerl distribution, it did
 not have one for Bio-EUtilities.  We packaged Bio-EUtilities for
@@ -721,66 +789,26 @@ as all the module distributions required by them
   \end{description}
 \end{table}
 
-%% Debian Jessie has 21024 source packages.  The binary number of
-%% packages would be much higher but while that number is what is
-%% usually used when making a point for Debian's high number of
-%% packages, it is misleading.  The point is how much of upstream
-%% projects are packaged, and that is the number of source packages.
-
-The choice of Debian was strategic.  Debian is a widely used GNU/Linux
-distribution with more than 21000 packages and a large
-number of derivative distributions.  These new distributions
-inherit the base of their packages from Debian, and some like Ubuntu
-and Knoppix, are in turn the parents of their own derivatives.  By packaging
-for Debian, we effectively prepare packages for the whole family of
-Debian based distributions.
-
-\subsection{Bio-EUtilities}
-
-For the work in \Cref{ch:histone-catalogue}, we required a tool to
-automate the search of histone genes and download associated sequences.
-We used the NCBI Gene database for the searches and
-created a new program for Bio-EUtilities from BioPerl.
-
-Gene is a public database hosted at the National Center for
-Biotechnology Information (NCBI) which maps known or predicted genes
-to other entries in the NCBI Reference Sequence (RefSeq).  Gene therefore
-links to the Genome, Nucleotide, and Protein databases \citep{gene-database}.
-
-Bio-EUtilities is part of the BioPerl project and provides a Perl
-interface to NCBI's Entrez Programming Utilities (E-Utilities).
-Entrez is a federated search engine for multiple databases of
-biomedical data including Gene.  Entrez has an
-interactive interface at \url{https://www.ncbi.nlm.nih.gov/} while
-E-Utilities provides an equivalent
-programming interface for queries using a fixed
-URL syntax.
-
-The program \command{bp\_genbank\_ref\_extractor} component we
-created requires a query to the Entrez Gene database and
-then downloads all genomic, transcript, and protein sequences as well
-as a CSV file with chromosome coordinates, names, and identifiers.  It
-has several options such as download of flanking sequences, different
-output format, choice of genome assembly, and skipping of non coding
-genes.  It is provided with an extensive manual covering all options
-and examples \Arefp{app:pod-doc}.
-\command{bp\_genbank\_ref\_extractor} was released with
-Bio-EUtilities version 1.73.
 
 \section{Build systems for reproducible research}
 
-Even if the original data is available and the runtime environment under
+Even if the original data is available for a computational biology
+investigation such as microscopy image or sequence analysis
+and the runtime environment under
 which the computational analysis was done can be duplicated, reproducing results
 is dependent on invoking the same commands and same
 options in the same order as the original analysis.
 The necessary information to achieve this is often undocumented
 and difficult to reconstruct.
 
-A build system is a software tool with the purpose of automating such
-steps.  It is mainly used in software engineering to automate software
-builds but the process of maintaining software has many parallels with
-from maintaining a reproducible research projects so the same tools
-can be used.  In a software project, object code is built from the
+A build system is a software tool that automates the process of
+performing a complex series of steps to create a single output.
+It is mainly used in software engineering to automate software
+compilation and packaging
+but the process of maintaining software has many parallels with
+maintaining a reproducible research projects in computational biology
+so the same tools
+can be used.  In a software compilation project, object code is built from the
 source code whereas in a research project, figures, tables, and values
 are built from raw
 data.  In a software project an executable program is built from multiple
@@ -794,19 +822,21 @@ figures, tables, and values.
 %% standarda mandates via automake, all Makefiles should support
 %% install, all, help, check, so users know immediately what each one
 %% does.
-Claerbout \citep{ReDoc-claerbout} was the first who recognised this,
-coined the term ``reproducible research'', and proposed a standard
+Claerbout and colleagues \citep{ReDoc-claerbout} proposed this
+parallel and
+coined the term ``reproducible research''.  They created a standard
 build system for the generation of figures and manuscript from author
-data and analysis software.  This new system was an extension to GNU
-Make, one the most common build system.
-
-Madagascar \citep{madagascar-scons} was another a software specialised
+data and analysis software as extension to GNU
+Make, one the most common build system.  Following from this,
+Madagascar \citep{madagascar-scons} was developed as a
+software solution specialised
 for reproducible computational experiments, based on the software
 build system SCons.
+
 The SCons (from Software Construction) build
 system \citep{scons} was designed to be a
-replacement of Make and it still resembles Make in concept.  However, it has
-the advantage of being configured by Python which is a modern
+replacement of Make and resembles Make in concept.  However, it has
+the advantage of being configured using Python which is a modern
 programming language often praised for its readability.
 
 %% Other people may mention other SCons advantages but I disagree:
@@ -828,12 +858,22 @@ For the work in \Cref{ch:histone-catalogue} we made extensive use of
 the Perl programming language which is not supported by default in
 SCons but commonly used in bioinformatics.
 To simplify the use of SCons for our project we created
-a SCons perl tool and made available at
-\url{https://bitbucket.org/carandraug/scons-perl5} under a free
-software licence.  The SCons perl5 tool adds automatic prerequesite
+a SCons perl tool which adds automatic prerequesite
 scanning, perl configuration options, and multiple functions for using
 Perl scripts.
+
+The SCons perl tool is available at
+\url{https://bitbucket.org/carandraug/scons-perl5} under a free
+software licence.
 
 %% automatic prerequesite scanning -> Scanner
 %% configuration options -> Variables
 %% multiple functions -> all the perl builders.
+
+\section{Conclusion}
+
+\todo[inline]{Needs a conclusion paragraph summing up that several
+separate software components were created to support the
+projects. These were all released as open source and furthered the
+aims of creating a mature software offering to enable ``reproducible
+research'' for all.}
