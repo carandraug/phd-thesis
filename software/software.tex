@@ -1,7 +1,50 @@
-\todo[inline]{Add one page general background to broad needs and
-  motivations of software.  Two sections on: Why software development
-  is essential for cell biology (1 page), and Why FOSS is important for
-  researchers (half page)}
+Today's biology research is mainly digital.  The generated data is so
+complicated that its analysis is done by software, and computer data
+acquisition and analysis is an integral part of a researchers work.
+Such work is then published, but it is only useful to the scientific
+community if it can be reproduced by their colleagues and further
+research can be performed on top of it.  Even if the software used is
+carefully described in the methods, modern programs are so
+complicated, and analysis is dependent on so many variables, that
+there's no hope for other scientists to reimplement the software.  This
+makes the original software used in research, a prerequesite for
+reproducibility.
+
+But sharing the code is not enough.  Programs that do the analaysis
+sit on top of several other components.  Specific versions of a
+library are used, on top of a specific programming language, running
+in a specific operating system on a hardware with a specification
+specification.  Reproducing this runtime environment is not trivial.
+
+Following free software, came the ideals of open and collaborative
+software development.  In the seminal assay ``The Cathedral and the
+Bazaar'' by \citet{raymond1999-cathedral-and-bazaar}, compares a system
+where software development happens in the public.  Anyone can see it
+and contribute to it.
+
+In free software, the source code for a program is available on the
+internet for anyone.  The bazaar takes this further by having every
+single change open on the internet in real time, before a new version
+of the software is released.  This invites users to contribute.
+Discussion about development happens in public forums, more inviting
+users to contribute.  The ideal is that any user can become a
+developer, they simply need to send their contributions to this public
+forum.  Users are motivated to do this because they ``are scratching
+their own itch'', they have a personal interest on enabling the
+program to support a specific feature that matters to them.  And they
+are motivated to contribute to the project because it is less work
+than writing their own project from scratch just to have the feature
+they lack.
+
+Free software projects are nowadays all virually developed in this way
+and so are many academic free software
+projects \citep{schindelin2012fiji, bioperl}.. We have faced such
+issues during our own research and had many ``itches'' to scratch.
+Using only free software we were able to scratch them and got involved
+in several of this projects free software projects that go beyond the
+boundaries of the typical research group.  While this advances allowed
+us to perform the acquisition of our data, we expect that this form
+will enable other researchers to advance their own research.
 
 \section{GNU Octave}
 
@@ -877,3 +920,11 @@ separate software components were created to support the
 projects. These were all released as open source and furthered the
 aims of creating a mature software offering to enable ``reproducible
 research'' for all.}
+
+
+we made few new programs, we mostly reused what was already there and
+worked on it. Hopefully making it better for other.  This comes at a
+cost of publications, there's little respect for contributions of
+existing software in the publishing.
+
+We described a part of the larger software changes.
