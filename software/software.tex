@@ -920,70 +920,88 @@ software licence.
 
 \section{Conclusion}
 
-Reproducible research has two reasons to be.  One is to allow other
-researchers to perform the same analysis.  This can be on the same
-dataset as the original research and identify possible errors on the
-methodology.  The same analysis can also be performed on another
-researcher dataset.  When associated with the freedom to inspect the
-source code, it also enables one to check for errors directly on the
-code.  There is nothing in this chapter to reproduce.
+Reproducible research has two principal motivations.  One is to allow other
+researchers to reliably perform the same analysis.  This can be on the same
+dataset as the original research in order to identify possible errors in the
+methodology.  This is the essential replicability requirement of science.
+The same analysis can also be performed on other
+datasets.  When associated with the freedom to inspect the
+source code, reproducible research also enables anyone
+to check for errors directly in the
+code.  All software used in this thesis is free and open source.
 
-The second reason, and the one of most concern in this chapter, is to
-enable others to use the new tools in new research directions.  This
-requires a different approach to the development of scientific
-software requiring more insight from software design and engineering.
-It is not enough to developed a software that solves our problem
-within the constraints of our problem, it must be configurable and
-generalised so that it can fit in other users.  For example, the
+The second reason, and the one of most important concern in this chapter, is to
+enable others to use the tools and insights
+developed for new research directions.  This
+necessitates a different approach to the development of scientific
+software requiring more insight in the software design and engineering.
+It is not sufficient to develop software that solves our problem
+within the constraints of our data
+because the software must also be configurable and
+generalised so that it can fit the needs of other users.  For example, the
 Pod::Weaver plugins we created to solve the problem of making BioPerl
-releases were implemented with extra options that are not needed.
-They could have even been implemented not as separate plugins but
-straight into the BioPerl plugin as if configuration.  However, having
-them as separate components enabled other software projects to use
-them.  Being free software we do not know exactly how many people use
-it and can only assume, and we only hear when they don't work.  We
-know people are using it because they have reported issues and even
-improvements to us.  For the case of our Pod::Weaver plugins, this has
-happened when users of our software were ahead of us in newer versions
-and reported issued before we even got there.
+releases was implemented with extra capabilities that are not yet needed.
+They could have also even been implemented
+directly in the BioPerl plugin as configurable options.  However, having
+them as separate plugin components enables other software projects to use
+them.
 
-Users reporting issues are signal of users interest on the software,
-the more users we have the more issues are reported to us.  In that
-light, our work in Octave is likely to have had the most impact,
-issues are reported or discussed about the Octave Forge image package
-several times a month.  However, in the case of Octave, our work has
-become so entangled with the work with others contributors that we
-wouldn't be able to measure the exact impact of contributors alone.
-This, even if we had the information of how many people use Octave,
-and how many use the Image package, and how many use the specific
+As free software, there is no sales data and
+we do not know exactly how many people use
+our work since we only hear when parts don't work.  We do
+know people are using it because they have reported issues and even suggested
+improvements to us.  This happened for the Pod::Weaver plugins
+when users with newer versions of BioPerl
+reported issues before we had tested them ourselves.
+
+Users reporting issues are an important signal of interest so
+the more users we have the more issues are reported to us.
+Our work with Octave is likely to have had the most impact since
+issues are reported or discussed for the Octave Forge Image package
+several times a month.  However, our work there has
+become entangled with that of other contributors
+so we cannot measure the exact impact of single contributors alone.
+This means that even if we have the information on how many people use Octave,
+and how many use the Image package, it is impossible to measure
+how many use the specific
 functions we improved.
 
-We recognize that full fledged programs impose limitations.  A program
-is easier to use but the availability of it as a library allows for
+We recognise that full fledged programs impose limitations even though
+they are popular with more users who want ``turn key'' solutions.
+A program is easier to make use of by novice users
+but the availability of the same functionality as a library allows
 reuse by other developers.
-One other aspect of writing code with potential to be useful for
-others is to write it modularity in mind so that it can be used in
-other people programs.  For example, when writing \command{frapinator}
+This can be addressed by writing code with potential to be useful for
+others by writing with modularity in mind so that any part can be used in
+other programs.  For example, when writing \command{frapinator}
 to perform our analysis of FRAP data, we wrote in such a way that the
 program is just a shell around our Octave FRAP
 package.  \command{frapinator} simply reads the options and then calls
-a series of a functions from the frap package.  This will allow other
-researchers to reuse the parts they need.  For example, they can pick
-the functions to identify the bleach spot but use alternative frap
-models, possibly from another such library.  Or vice-versa.
+a series of a functions from the FRAP package that we developed separately.
+This allows other
+researchers to reuse the parts they need.  For example, microscopists
+can utilise
+the functions to identify the bleach spot but implement alternative FRAP
+models, possibly from another such library.
 
-Going to the root of the problem is though and adds a lot of effort.
+Maintaining the balance of flexibility and usability requires
+additional effort.
 For example, our choice of work with Debian to package software we
-needed for our projects stemmed of the difficult members of out group
-had in installing some of the required dependencies.  We could have
-just installed it on their behalf but that wouldn't benefeciary other
-researchers.  It would also just happen again when they got a new
-machine.  Another alternative would be to include the software on our
-software.  This has its own problems.  halfway during our project,
-NCBI moved the E-Utilities services to a encrypted protocol.  This was
-fixed in Bio-Eutilities but if we had just included the code, then
-this owuld not have been fixed.
+needed for our projects stemmed from the difficulty members of our group
+had with installing some of the required dependencies.  We could have
+installed it on their behalf but that wouldn't benefit other
+researchers in the same position.
+The situation could also reoccur each time a user got a new
+machine or update.  Another alternative would be to include the
+dependencies in our software.  However, this has its own risks by
+making the dependencies opaque.  For example, halfway during our project
+NCBI moved their E-Utilities services to a encrypted protocol which was
+fixed in Bio-Eutilities but would have necessitated updating our
+entire \command{bp\_genbank\_ref\_extractor} component if we had
+included Bio-EUtilities in our release.
 
-These are the tools we wished existed at every turn of our research.
-Had they already exist, we have no doubt we would be reporting other
-tools that we would find missing at the turns we didn't reach.
+The various software tools reported in this chapter were developed
+because they were needed for our research.  Reports from users suggest
+that they have been useful for others.  Furthermore, the software has
+been developed in a modular way to facilitate reuse, but also made
+available with packaging to enhance general uptake.
