@@ -82,7 +82,9 @@
   %% with values for mice genome but the command names.  So we define
   %% the commands locally to this group.  See:
   %% https://tex.stackexchange.com/questions/353002/redefine-existing-commands-outside-preamble
-  \chapter{Human Canonical Core Histone Catalogue}
+  \chapter[Human Canonical Core Histone Catalogue]%
+          [Histone Catalogue]%
+          {Human Canonical Core Histone Catalogue}
   \label{ch:histone-catalogue}
   \begingroup
   \newcommand{\ResultsDir}{results-homo-sapiens}
@@ -92,11 +94,15 @@
   \subinputfrom{histone-catalogue/}{manuscript}
   \endgroup
 
-  \chapter{Application of FRAP to Histones in Human Cell Nuclei}
+  \chapter[Application of FRAP to Histones in Human Cell Nuclei]%
+          [Application of FRAP to Histones]%
+          {Application of FRAP to Histones in Human Cell Nuclei}
   \label{ch:kill-frap}
   \subinputfrom{kill-frap/}{kill-frap}
 
-  \chapter{Software Tools for Image and Sequence Analysis}
+  \chapter[Software Tools for Image and Sequence Analysis]%
+          [Software Tools]%
+          {Software Tools for Image and Sequence Analysis}
   \label{ch:software}
   \subinputfrom{software/}{software}
 
