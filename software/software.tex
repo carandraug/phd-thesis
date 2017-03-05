@@ -934,24 +934,25 @@ The second reason, and the one of most important concern in this chapter, is to
 enable others to use the tools and insights
 developed for new research directions.  This
 necessitates a different approach to the development of scientific
-software requiring more insight in the software design and engineering.
+software, requiring more insight in the software design and engineering.
 It is not sufficient to develop software that solves our problem
 within the constraints of our data
 because the software must also be configurable and
 generalised so that it can fit the needs of other users.  For example, the
 Pod::Weaver plugins we created to solve the problem of making BioPerl
-releases was implemented with extra capabilities that are not yet needed.
+releases was implemented with extra capabilities that were not needed
+for the project.
 They could have also even been implemented
-directly in the BioPerl plugin as configurable options.  However, having
+directly in the BioPerl PluginBundle.  However, having
 them as separate plugin components enables other software projects to use
 them.
 
-As free software, there is no sales data and
+As free software, there is no sales or reliable download data
 we do not know exactly how many people use
-our work since we only hear when parts don't work.  We do
+our work since we mainly hear when parts don't work.  We do
 know people are using it because they have reported issues and even suggested
 improvements to us.  This happened for the Pod::Weaver plugins
-when users with newer versions of BioPerl
+when users with newer versions of Perl
 reported issues before we had tested them ourselves.
 
 Users reporting issues are an important signal of interest so
@@ -969,17 +970,17 @@ functions we improved.
 We recognise that full fledged programs impose limitations even though
 they are popular with more users who want ``turn key'' solutions.
 A program is easier to make use of by novice users
-but the availability of the same functionality as a library allows
-reuse by other developers.
+but the availability of the same functionality as a software library allows
+reuse by other software developers.
 This can be addressed by writing code with potential to be useful for
 others by writing with modularity in mind so that any part can be used in
 other programs.  For example, when writing \command{frapinator}
 to perform our analysis of FRAP data, we wrote in such a way that the
 program is just a shell around our Octave FRAP
 package.  \command{frapinator} simply reads the options and then calls
-a series of a functions from the FRAP package that we developed separately.
+a series of a functions from the FRAP package.
 This allows other
-researchers to reuse the parts they need.  For example, microscopists
+researchers to reuse the parts they need.  For example, image analysts
 can utilise
 the functions to identify the bleach spot but implement alternative FRAP
 models, possibly from another such library.
@@ -997,8 +998,8 @@ dependencies in our software.  However, this has its own risks by
 making the dependencies opaque.  For example, halfway during our project
 NCBI moved their E-Utilities services to a encrypted protocol which was
 fixed in Bio-Eutilities but would have necessitated updating our
-entire \command{bp\_genbank\_ref\_extractor} component if we had
-included Bio-EUtilities in our release.
+entire histone catalogue \Crefp{ch:histone-catalogue} if we had
+included Bio-EUtilities with it.
 
 The various software tools reported in this chapter were developed
 because they were needed for our research.  Reports from users suggest
