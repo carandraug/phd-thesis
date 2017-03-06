@@ -942,12 +942,12 @@ generalised so that it can fit the needs of other users.  For example, the
 Pod::Weaver plugins we created to solve the problem of making BioPerl
 releases was implemented with extra capabilities that were not needed
 for the project.
-They could have also even been implemented
+They could have also been implemented
 directly in the BioPerl PluginBundle.  However, having
-them as separate plugin components enables other software projects to use
+them as separate individual plugins enables other software projects to use
 them.
 
-As free software, there is no sales or reliable download data
+As free software, there is no sales or reliable download data, so
 we do not know exactly how many people use
 our work since we mainly hear when parts don't work.  We do
 know people are using it because they have reported issues and even suggested
@@ -971,7 +971,7 @@ We recognise that full fledged programs impose limitations even though
 they are popular with more users who want ``turn key'' solutions.
 A program is easier to make use of by novice users
 but the availability of the same functionality as a software library allows
-reuse by other software developers.
+reuse by other software developers, and the two are not mutually exclusive.
 This can be addressed by writing code with potential to be useful for
 others by writing with modularity in mind so that any part can be used in
 other programs.  For example, when writing \command{frapinator}
@@ -996,7 +996,7 @@ The situation could also reoccur each time a user got a new
 machine or update.  Another alternative would be to include the
 dependencies in our software.  However, this has its own risks by
 making the dependencies opaque.  For example, halfway during our project
-NCBI moved their E-Utilities services to a encrypted protocol which was
+NCBI moved their E-Utilities services to an encrypted protocol which was
 fixed in Bio-Eutilities but would have necessitated updating our
 entire histone catalogue \Crefp{ch:histone-catalogue} if we had
 included Bio-EUtilities with it.
