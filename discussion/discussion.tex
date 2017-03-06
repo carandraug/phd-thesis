@@ -3,15 +3,15 @@
 %%           cups too hot.}{Doghouse diaries #5051}
 
 Research on research is a very topical area, after a series of recent
-studies showing low reproduciblity rates for published research\addref{}.  The
-biggest studies have been on the field of psychology and
-computational science, but the same trend appears to be in the biomedical
-sciences\addref{}.  The main cause for difficulties with
+studies showing low reproduciblity rates for
+published research \citep{ioannidis2015meta}.  The
+biggest studies have been on the field of
+psychology \citep{open2015estimating},
+computational science \citep{collberg2016repeatability},
+and cancer biology \citep{prinz2011believe, ioannidis2009repeatability}.
+The main cause for difficulties with
 reproducibility has been the lack of availability of
 data and lack of details on methodology in analysis steps.
-In the field of computational science, the main issue has been the absence of
-availability
-of the code developed \addref{}.
 
 In this thesis, we attempt to follow the best practices for
 reproducibility.  Figures and tables can be traced back to the raw
@@ -24,8 +24,10 @@ inset figures are all made public.  Even in the introduction and
 explanatory sections, we
 automated the generation of all figures.  For example,
 \fref{fig:intro:histone-fold-domain} can be regenerated from the
-crystal structure, as we include PyMOL \addref{} scripts for their creation, and
-\fref{fig:intro:frap-curve-example} has the Ti\textit{k}Z source code so that
+crystal structure, as we include PyMOL \citep{PyMOL}
+scripts for their creation, and
+\fref{fig:intro:frap-curve-example} has the Ti\textit{k}Z source code
+for \LaTeX{} so that
 others can improve it.  Only one exception exists in this thesis.  Figures in
 \Cref{ch:kill-frap} from the DeltaVision microscope were deconvolved after
 acquisition by SoftWoRx which is non-free software.  As this was the
@@ -55,7 +57,7 @@ modified.  A version control system associates each change with a
 message so that each line of the analysis can be traced back in
 history to an explanation on why it was done that way.
 
-In addition, we used a software build system (SCons) to automate the analysis
+In addition, we used SCons, a software build system, to automate the analysis
 steps with all options specified.  This still requires a research
 wishing to reproduce
 our results to install all the required software which is not a
@@ -83,11 +85,12 @@ When we started the Histone Catalogue project, the last publication on
 the subject was from 2002 and was becoming outdated.  We initiated
 this project with the aim of making a catalogue that would be
 constantly up to date.  One year later in 2011, the Histone database
-\todo{wwww....}
+\url{http://research.nhgri.nih.gov/histones/}
 website with an up-to-date database specialised for histones
-was released \addref{}.
+was released \citep{histonedb-2011}.
 However, no update was made until 2016 with the version 2.0 of
-the database\addref{}.  We can only assume that update will typically
+the database \citep{histonedb-2016}.
+We can only assume that update will typically
 be infrequent and dependent on funding.
 The Histone Database is a manually curated database of histone
 genes for all species.  While this means it reflects a fixed point in time,
