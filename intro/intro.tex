@@ -925,7 +925,7 @@
   computers, the images acquired by electronic cameras such that
   eyepieces are now optional.  Even
   the literature review is performed in a computer, new publications
-  are searched in such databases rather than
+  are searched in online databases rather than
   by browsing issues in libraries.  Software is
   thus essential for science and is a daily tool of the scientist.
 
@@ -933,29 +933,28 @@
   struggle to find appropriate researchers capable to handle the data
   \citep{lakhani2013prize}.  Just like the development of tools has
   been lagging behind since 1990's so has the training of biologists
-  for bioinformatics \citep{altman1998curriculum} although the
-  challenges for career progression bioinformaticians face provides
-  little incentive for change \citep{wren2016bioinformatics}.
+  for bioinformatics \citep{altman1998curriculum}.
+  This has been attributed in part to the fact that bioinformaticians
+  mainly fill a role of support which adds to the challenge of career
+  progression in academia \citep{wren2016bioinformatics}.
 
   \subsection{Free Software and Scientific Advances}
 
   Scientific discoveries are almost always incremental on previous work.
-  This is true not only for new hypotheses but also
+  This is true not only for new theories but also
   for methods since new techniques are usually
   a constant iteration of improvements.  Software used by
   scientists is also a tool and therefore should allow for the same
   series of iterative improvements.
-  Unfortunately, this often is not the case as
-  many studies are published without the source code for the software used.
 
-  Outside of academia, lack of access to the source code of software
-  one uses is also an issue.
+  Outside of academia, lack of access to the source code of the software
+  used is also an issue.
   Multiple organisations exist to promote the ability of users of software
   to modify the software they use so it works for their
   purposes.  Two of the main proponents of this philosophy
   are the Free Software Foundation and the
   Open Source Initiative.  The Free Software Foundation defines free
-  software as software having four basic freedoms: freedom to run a
+  software as software providing the four basic freedoms: freedom to run a
   program for any purpose, freedom to study the source code of the program,
   freedom to distribute the program,
   and freedom to distribute modified versions of the program
@@ -963,74 +962,59 @@
 
   %% Stallman quit the job at MIT to develop GNU but the AI lab let
   %% him stay around for the work anyway.
-  The free software movement began in academia itself, created by
-  Richard Stallman at the MIT Artifical Intelligence lab after a
-  spin-off from the lab made its software non-free and the lab large
-  computer was replaced with another that ran on non-free software
+  The free software movement began in academia itself, founded by
+  Richard Stallman at the MIT Artifical Intelligence lab.  This was
+  triggered by a series of events caused by non-free software, namely
+  an AI lab spin-off that made its software non-free, and the lab mainframe
+  being replaced with another that ran on non-free software
   \citep{stallman-essays}.
 
   \subsection{Meta-research}
 
-  Beyond delaying research by obliging researchers to redo the work of
-  others or preventing them from adapting it, the absence of code used
-  in previous research has an additional issue.
-  It also delays progress because it increases the
-  difficulty for other researchers to
+  The absence of the code in publications not only delays research by
+  obliging investigators to redo the work of others but also by
+  increasing the difficulty for other researchers to
   validate the original work by reproducing the published experiments.
   For example, for a survey of 18 published microarray gene-expression
-  studies, it took a team of data analysts an average of half week to
-  try and replicate a single figure or table, with some taking more
-  than one week.  Still, only two of the 18 were reproducible in
-  principle.  While the main problem identified was the unavailability
-  of data, the second was the lack of detail on how to perform the
-  analysis \citep{ioannidis2009repeatability}.  The problem is not
-  unique to the biomedical sciences, with similar studies in computer
-  science testing hundreds of publications for reproducibility where
-  the software is the main focus of the publication.
+  studies, it took a team of data analysts an average of half a week to
+  try and replicate a single figure or table, with some figures taking more
+  than one week.  Still, only two of the 18 were ``reproducible in
+  principle'', that is, with differences that were felt as minor
+  \citep{ioannidis2009repeatability}.
+  The results did not imply that results have been fabricated.
+  While the main problem identified was the unavailability
+  of the data, the second was the lack of detail on how to perform the
+  analysis.
 
   This reproducibility has become an issue in recent years and led to
-  the creation of a new field, meta-research, for the research of the
+  the creation of the new field of meta-research, for the investigation of the
   research practice \citep{ioannidis2015meta, collins2014researching}.
-  This explains the current lack of detailed data on the issue of
-  reproducibility.
+  The newness of the field, explains the lack of detailed data on the
+  extent of reproducibility, or lack of it thereof.
 
-  This does not mean that results have
-  been fabricated.
-  In the majority of the cases, authors are
-  unable to provide the necessary data, protocols, or code.
-  In the small number of cases where the authors
-  were able to give the code and data, results are not reproducible,
-  often due to the complications of reproducing a runtime environment.
-
-  One reason for this difficulty is that
-  scientists are not usually expected to describe
-  the software they used in a level of detail that would allow
-  their colleagues to repeat or improve on their work.
+  With computers being central in the step of analysis, one would
+  expect that this step could be shared in the form of source code.
+  However, that is not the case.  Publications favour a natural
+  language description of the analysis which lacks the level of
+  detail that would allow their colleagues to repeat or improve on
+  their work \citep{ince2012case}.
   One reason for this anomaly is that
-  scientists sharing their work through print-centred articles
+  scientists share their work through print-centred articles
   and books that are far from ideal media to share complicated source
-  code, algorithms or procedural instructions.
-
+  code or procedural instructions.
   There is a growing
-  interest within the scientific community to change the state.  Funding
-  bodies such the National Institutes of Health (NIH)
-  as well as some universities hosting research have issued
-  requirements or made requests
-  that code from publications should be openly shared.
-  Likewise, journals have been
-  changing their policies to promote code sharing.
-  Furthermore, code hosting
-  providers such as github and bitbucket
-  are increasingly used by scientists.
-  %Ironically, these platforms are not free software themselves.
+  interest within the scientific community to change the current state
+  and journals have been changing their policies to promote sharing of
+  source code \citep{nature-code-share-editorial, gmd-editorial-2013,
+    stodden2013toward}.
 
   This growing openness and sharing of code to enable incremental
   development of scientific software is becoming recognised as an
   important driver of progress in data driven fields.
 
   \subsection{Free Software Projects in Academia}
-  Despite the lack of source code for many of the publications,
-  free software is still widely used in biological research,
+  Despite the lack of computational details for the data analysis,
+  free software is widely used in biological research,
   and multiple widespread projects exist
   for enabling data analysis in molecular cell biology
   making a case that free software does enable research.
@@ -1049,26 +1033,6 @@
   ImageJ for image analysis \citep{imagej1}, GBrowse for
   annotation and browsing genomic data \citep{gbrowse},
   and OMERO for data storage \citep{omero}.
-
-    %% I guess this is mostly philosophical so not really material
-    %% suitable for the thesis.
-    %% \subsubsection{Free and Open Source Software}
-    %%   In the English language, the word ``free'' means both having
-    %%   liberty and autonomy, the free in ``free speech'', but also
-    %%   having no charge or monetary cost, the free in ``free beer''.
-    %%   The Portuguese language has both ``livre'' and ``gratis'' for
-    %%   the two meanings of the English word ``free'', as do many other
-    %%   languages.  This ambiguity becomes an issue in the topic of
-    %%   software freedom since the expression ``free software'' can be
-    %%   interpreted as software that is distributed at no cost despite
-    %%   being proprietary software.
-
-    %%   %% It is unfortunate of the English language [...].
-    %%   %% It is unfortunate of today's society that even thought there's
-    %%   %% multiple entries on a dictionary associating free to freedom,
-    %%   %% the expression free software is invariably associated to lack of
-    %%   %% cost.  The issue of software freedom is not even registered in
-    %%   %% today's society.
 
 \section{Aims and Objectives}
 
