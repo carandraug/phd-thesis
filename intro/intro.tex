@@ -626,32 +626,39 @@
 
 \section{Fluorescence microscopy}
 
-  Fluorescence microscopy is an essential tool
-  for the visualisation of cells and tissues.
-  Fluorophores emit light at a specific wavelength after
-  being exposed to another shorter wavelength, named
-  emission and excitation wavelength respectively.
-  Illumination of a sample with the excitation wavelength, and filtering
-  out all but the emission wavelength, allows
-  the localisation of fluorophores in a dark background.
-  If specific molecules and cells can be associated with a fluorophore,
-  their localization can be inferred.  By choosing fluorophores
-  with different emission wavelengths multiple molecules can be
-  simultaneously identified.
+  Fluorophores are molecules that absorb light at one range of
+  wavelengths, the excitation wavelengths, and emit light at a range
+  of longer wavelengths, the emission wavelengths.  Illumination of a
+  sample with the excitation wavelength, and filtering out all but the
+  emission wavelength, allows the localisation of fluorophores in a
+  dark background.  If specific molecules and cells can be associated
+  with a fluorophore, their localisation can be inferred, and by
+  choosing fluorophores with different emission wavelengths multiple
+  molecules can be simultaneously identified.
+
+  In a typical widefield microscope configured for such experiment,
+  light in the excitation wavelengths is selected by an optical
+  filter, the excitation filter, from a wide-spectrum and
+  high-intensity light source.  The excitation light is then reflected
+  by a dichroic mirror, and directed through an objective onto the
+  sample, some of which is absorbed by the fluorophores causing some
+  of them to be excited and emit light at an higher wavelength.  Some
+  of this emitted light is directed back through the same objective
+  and passes through the dichroic mirror to produce the visualised
+  image.  The dichroic mirror is the central piece in such
+  configuration since it both reflects the excitation light but passes
+  the emitted light.  This is known as epifluorescence microscopy.
 
   \subsection{Fluorescent proteins}
-    Several fluorescent labels have been developed with different
+    Countless fluorescent labels have been developed with different
     properties suited to specific microscopy techniques \addref{}.
     These are often split into two major classes:
     Synthetic fluorescent
     molecules such as DAPI or fluorescein, either bind to the molecule of
     interest or can be chemically linked to it.
-    These are added exogenously, which often requires cell
-    fixation and permeabilisation that can potentially
-    disturb intracellular structures.
     In contrast, Fluorescent Proteins (FPs)
     are genetically encodable and can be expressed by the cells themselves.
-    FPs allow tagging of individual molecules inside live cells, enabling
+    FPs can be fused to a protein of interest inside live cells, enabling
     visualisation of dynamics by real-time live-cell imaging
     \addref{general ref}.
     %% TODO mention synthethic moleculus that bing to proteins with tag like snap
@@ -681,9 +688,10 @@
     These have
     fluorescent properties that can be modulated by excitation with specific
     wavelengths allowing for individual cells and proteins to be optically
-    labeled.  This strategy is specially useful for studies of cell
+    labelled.  This strategy is especially useful for studies of cell
     lineage and protein movement.
-    The photocontrollable FPs can be divided in three categories.
+    The photocontrollable FPs can be divided in three categories,
+    photo-activatable, photo-switchable, and reversible photo-switchable.
 
     %% Turns out that we not allowed to have a list of descriptions,
     %% or any list of any sort for that matter, so we must write this
@@ -718,6 +726,11 @@
         single molecule localization
         microscopy, a type of super-resolution microscopy, due to the
         low energy required for the transition between states.
+        \todo{this is not what makes them usable for localisation
+          microscopy, this is what makes them better than other
+          switching options, it is the switching of subpopulations
+          that is important, you can use PAGFP or chemical switchers
+          for LM}
         %% We could mention RESOLFT but that would be too much detail.
 
   \subsection{FRAP}
@@ -728,12 +741,11 @@
     Originally developed in the 1970s for quantitative dynamics of lipids
     in cell membrane under the name Fluorescence Photobleaching
     Recovery (FPR) \citep{axelrod1976mobility}, it has
-    been extensively used to obtain qualitative and quantitative
-    insight into the kinetic properties of proteins when combined with
-    the development
-    of GFP tagging.
+    became extensively used to obtain qualitative and quantitative
+    insight into the kinetic properties of proteins after the
+    development of GFP tagging.
 
-    FRAP is a ubiquitous technique in the field of cell biology,
+    FRAP is a widespread technique in the field of cell biology,
     enabling a wide range of studies into dynamics
     including cell membrane protein diffusion, dynamics of
     protein complex assembly, and protein aggregate degradation, to
@@ -746,22 +758,27 @@
     %% this was pointless because there's plenty of reviews out there,
     %% coming out every other year.
 
-    In this technique, fluorescently tagged molecules in a small region
-    are photobleached.  The fluorescent intensity in the region is
-    measured over time to obtain a recovery curve.  The recovery is a
-    function of the molecule dynamics of unbleached
-    molecules from outside the bleached region moving into the
-    photobleached region.  The molecule dynamics is dependent on the
-    transport and diffusion rates, as well as binding interactions.
+    In the FRAP technique, fluorescently tagged molecules in a small region
+    are photobleached and the fluorescent intensity in the bleached region is
+    measured over time to obtain a recovery curve which provides an
+    insight on the dynamics of the molecule.  The recovery is a
+    function of many parameters, specific to each FRAP experiment.
+    For example, freely diffusing fluorescent molecules in a cellular
+    compartment can be bleached and recovery happens thought transport
+    of unbleached molecules from the cytoplasm providing an estimate
+    to transport rates.
+    Alternatively, fluorescent molecules are bound to an immobile
+    complex and the recovery is due to unbleached molecules from
+    outside the bleached region moving into the photobleached region
+    and binding to the complexes there.  This provides estimates for
+    association and dissociation rates.
 
-    Two factors contribute for the widespread use of FRAP.
-    Firstly, it does not require specialized instruments
-    so it can be performed with
-    any standard confocal or widefield microscope with a laser
+    Two factors contribute to the widespread use of FRAP.
+    Firstly, it does not require specialised instruments beyond
+    a standard confocal or widefield microscope with a laser
     module.
-    Secondly, recovery curves are easy to understand
-    making it straightforward to
-    identify artefacts.  This is not the case with alternative techniques
+    Secondly, recovery curves are intuitive to understand.
+    This is not the case with alternative techniques
     such as Fluorescence Correlation Microscopy (FCS) or single molecule
     tracking.
 
@@ -879,7 +896,8 @@
     compartment, or non-homogeneous regions in the compartment
     can have different diffusion rates.
 
-    Finally, the binding also has a plethora of potential parameters.  Multiple
+    Finally, if binding to a complex is consider, it also has a
+    plethora of potential parameters.  Multiple
     binding states may be present when binding reactions occur in a
     series of steps involving multiple proteins.  The distribution of
     the binding sites may be not equal throughout the compartment.
@@ -897,7 +915,7 @@
     must remain constant throughout the experiment.
     Secondly, the distribution of the tagged protein mimics the endogenous
     protein.
-    And finally, the binding sites for the recovering ligand
+    And finally, the binding sites
     should be part of a large, relatively immobile
     complex on the time and length scale of the recovery.
     These assumptions become difficult to maintain as the experiment
