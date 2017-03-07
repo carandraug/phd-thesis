@@ -54,7 +54,7 @@
       \SI{100}{\mM}      Tris--HCl pH=\num{7.4};
       \SI{100}{\mM}      EDTA.\\
 
-      FACS buffer             & \pcent{96} PBS ($v/v$);                   % 480.5 mL
+      FACS buffer             & \pcent{96} PBS ($v/v$); % 480.5 mL
       \SI{2}{\mM} EDTA;                         % 2 mL
       \SI{25}{\mM} HEPES buffer pH=\num{7.0};   % 12.5 mL
       \pcent{1} FCS ($v/v$).\\                  % 5 mL
@@ -179,7 +179,7 @@
       The DNA solution was mixed with \num{2.5} volumes of \pcent{100} ethanol
       and \num{1/10} volumes of Sodium Acetate (\SI{3}{\Molar}, pH=\num{5.2}),
       and incubated at \dc{4} for 15 minutes. When DNA concentrations were below
-      \SI{50}{\ng\per\ul}, incubations were performed overnight.
+      \SI{50}{\ng\per\ul}, incubation was performed overnight.
       DNA solution was then centrifuged at
       \SI{18000}{\gn} for 30 minutes at \dc{4} and the supernatant discarded.
       The pellet was left to dry until all traces of solvent evaporated.
@@ -198,7 +198,7 @@
       performed in Owl EasyCast electrophoresis chambers with
       \SI{1}{\X}~TAE buffer at
       \SIrange{80}{120}{\volt} until the required separation was achieved.
-      Gels were visualized using a
+      Gels were visualised using a
       Alpha Innotech ChemiImager 5500 UV transilluminator.
 
     \subsection{DNA sequencing and oligonucleotide preparation}
@@ -289,32 +289,34 @@
         extended to introduce restriction sites and create DNA linkers.
         Additional extensions were added to the
         5' end of primers to account for the minimum
-        required \si{\bp} around the restriction sites
-        \citep{neb_catalogue_2011} \todo{correct format}.
+        required \si{\bp} around the restriction sites as recommended
+        by the restriction enzyme manufacturer, New England BioLabs.
 
-      \subsubsection{Mutagenesis}
-        PCR mutagenesis
-        \footnote{
-          In PCR mutagenesis, since the newly synthesized strands will
-          be linear and cannot be used as template, the amplification
-          is linear rather than exponential. Because of this, the name
-          PCR mutagenesis is misleading. There is in fact no chain reaction.
-        }
-        was used to insert or correct mutations in plasmids.
-        Where possible, the selected codon used for mutation was the one
+      \subsubsection{Site-directed mutagenesis}
+        Site-directed mutagenesis by PCR was used to insert or correct
+        mutations in plasmids.
+        Oligonucleotides were designed by flanking the
+        desired mutation with regions at least \SI{16}{\bp} long
+        and equal predicted melting temperature ($T_m$) of at least \dc{55}.
+        When possible, the selected codon for mutation was the one
         with highest frequency in the organism used for expression
         in accordance with the
-        codon usage database \citep{codon_usage}. After amplification,
-        \SI{1.5}{\ul} of the restriction enzyme DpnI
-        \footnote{
-          Because DpnI activity is blocked by DNA methylation, it will
-          only digest the template DNA which was synthesized in bacteria,
-          leaving the newly \textit{in vitro} synthesized DNA intact.
-        }
-        was added directly to the PCR mixture, and incubated overnight at
-        \dc{37}. \SI{1}{\ul} of reaction product
-        was used for transformation and individual
-        clones screened by sequencing.
+        codon usage database \citep{codon_usage}.
+        To remove the template DNA post amplification, \SI{1.5}{\ul} of the
+        restriction enzyme DpnI was added directly to the PCR mixture
+        and incubated overnight at \dc{37}.
+        Because DpnI requires the site to be methylated it
+        will cleave the template DNA which was synthesised in
+        bacteria, the template, leaving the newly \textit{in vitro}
+        synthesised DNA.
+        \SI{1}{\ul} of the digestion product was used for
+        transformation directly without any clean up step.
+        Individual clones were screened by sequencing.
+        In PCR site-directed mutagenesis, the newly synthesised
+        strands will be linear and so cannot be used as template for
+        the following PCR cycle.
+        This means that the amplification is linear rather than
+        exponential and so the PCR is not actually a chain reaction.
 
       \subsubsection{Screening plasmid}
         PCRs were frequently used to screen plasmids for DNA sequences
@@ -564,7 +566,7 @@
 
     \subsection{Whole cell extract}
       \label{sec:cell-extract}
-      To obtain whole cell extracts, HeLa cells were trypsinized as usual. Growth
+      To obtain whole cell extracts, HeLa cells were trypsinised as usual. Growth
       medium added and the suspension was centrifuged at \SI{900}{\gn}
       for 10 minutes.
       Subsequent steps were carried out at \dc{4} and with previously
@@ -647,7 +649,7 @@
       approximately \SI{10e6}{cells}) were centrifuged at \SI{160}{\gn} for 5~minutes.
       The supernatant was discarded and a volume of \SI{2}{\ul} of plasmid at
       a concentration of \SI{500}{\ng\per\ul} was added to the top of the pellet.
-      The cell pellet was ressuspended in \SI{100}{\ul} of Mirus Bio Ingenio
+      The cell pellet was resuspended in \SI{100}{\ul} of Mirus Bio Ingenio
       Electroporation solution and transferred to \SI{0.2}{\cm} cuvettes for
       electroporation in an Amaxa nucleofector. According to the manufacturers
       instructions, the preset programs I-013 and O-17 were used to transfect
@@ -727,4 +729,5 @@
     \OctaveSignalVersion{} respectively.
 
     ImageJ, as distributed by the Fiji project, was routinely used
-    for microscope image visualization.
+    for microscope image visualisation.  PyMOL, by Schrödinger, LLC,
+    was used for visualisation of protein structures.
