@@ -2,36 +2,41 @@
 %% \epigraph{when the going gets tough, the tough get cardboard sleeves because the
 %%           cups too hot.}{Doghouse diaries #5051}
 
-Research on research is a very topical area, after a series of recent
+Research on research is a very topical area, and has become widely
+discussed after a series of recent
 studies showing low reproduciblity rates for
 published research \citep{ioannidis2015meta}.  The
-biggest studies have been on the field of
+biggest of these studies have been on the field of
 psychology \citep{open2015estimating},
 computational science \citep{collberg2016repeatability},
-and cancer biology \citep{prinz2011believe, ioannidis2009repeatability}.
-The main cause for difficulties with
+and cancer biology \citep{prinz2011believe, ioannidis2009repeatability},
+and the main cause of difficulties with
 reproducibility has been the lack of availability of
 data and lack of details on methodology in analysis steps.
 
 In this thesis, we attempt to follow the best practices for
-reproducibility.  Figures and tables can be traced back to the raw
+reproducibility with computational analysis of biological data.
+Figures and tables can be traced back to the raw
 data and the code used to generate them has been made freely available.  In
 \Cref{ch:histone-catalogue}, references to values are inserted in the
 text as part of the analysis to avoid loss of validity as the data
 changes and our analysis improves.  In \Cref{ch:kill-frap}, the
 individual images, regions, and scaling options used to create the
-inset figures are all made public.  Even in the introduction and
-explanatory sections, we
+inset figures are all made public.  Even in the Introduction and
+Discussion sections, we
 automated the generation of all figures.  For example,
 \fref{fig:intro:histone-fold-domain} can be regenerated from the
-crystal structure, as we include PyMOL \citep{PyMOL}
+crystal structure, as we include PyMOL
 scripts for their creation, and
 \fref{fig:intro:frap-curve-example} has the Ti\textit{k}Z source code
 for \LaTeX{} so that
-others can improve it.  Only one exception exists in this thesis.  Figures in
+others can improve it.  Only one exception to complete transparency
+exists in this thesis.  Figures in
 \Cref{ch:kill-frap} from the DeltaVision microscope were deconvolved after
-acquisition by SoftWoRx which is non-free software.  As this was the
-very first step after image acquisition, we trace all the steps to the
+acquisition by SoftWoRx which is non-free software and for which there
+is no reasonable alternative available.
+As this was the
+very first step after image acquisition, we trace all the steps from these
 deconvolved images.
 
 %% \todo{There's one other exception, the FACS figure
@@ -43,30 +48,35 @@ deconvolved images.
 The entire development of this thesis is available online as a git
 repository at \url{https://github.com/carandraug/phd-thesis}.  The use
 of a version control system provides access not only the thesis at the
-point of submission, but also to its entire history.  This is of less use
+point of submission, but also to its entire history.
+
+This is of less use
 in a PhD thesis which is started and written only at the end of the
 project.
-
 However,
-\Cref{ch:histone-catalogue} has been written as an individual
+\Cref{ch:histone-catalogue} describing the Histone Catalogue
+has been written as an individual
 manuscript with the same ideals and is online at
 \url{https://github.com/af-lab/histone-catalogue}.  The core
-representation of an histone gene in that project has gone through
+representation of an histone gene
+which is central to the project has gone through
 three major revisions and individual analysis scripts were constantly
 modified.  A version control system associates each change with a
 message so that each line of the analysis can be traced back in
 history to an explanation on why it was done that way.
 
 In addition, we used SCons, a software build system, to automate the analysis
-steps with all options specified.  This still requires a research
-wishing to reproduce
+steps in \Cref{ch:kill-frap} with all options specified.
+This still requires a researcher wishing to reproduce
 our results to install all the required software which is not a
-trivial task.  To identity this issue as early as possible, we include
+trivial task.  To support this challenge as much as possible, we include
 configure scripts which are run at the start of the build system and
-identify any missing tool or feature.  GNU/Linux distributions ease
+identify to missing tool or feature. \todp{also test of software}
+GNU/Linux distributions ease
 the task of installing the multiple tools required by providing a
-package manager so we have contributed to the packaging of
-some of these requirements for the Histone Catalogue case based on the
+package manager so we have also contributed to the packaging of
+some of these required software components
+for the Histone Catalogue case based on the
 widely used Debian distribution.
 
 \todo[inline]{Could you say some about \Cref{ch:kill-frap}? This is
@@ -76,120 +86,133 @@ widely used Debian distribution.
 \section{Data in Flux}
 
 We found that our Histone Catalogue project was particularly well suited
-to this approach.  Not only are all the steps of a computational
+to this approach to transparent generation of a manuscript from
+original data.  Not only are all the steps of a computational
 nature without any wet-lab work, but the transitory nature of sequence data
-makes the automated nature of the reproducible research approach interesting
+makes the automated implementation of reproducible research useful
 beyond the intellectual of just making it reproducible.
 
-When we started the Histone Catalogue project, the last publication on
-the subject was from 2002 and was becoming outdated.  We initiated
+When we started the Histone Catalogue project, the last publication of
+an equivalent catalogue
+was from 2002 and was becoming outdated.  We initiated
 this project with the aim of making a catalogue that would be
 constantly up to date.  One year later in 2011, the Histone database
 \url{http://research.nhgri.nih.gov/histones/}
 website with an up-to-date database specialised for histones
 was released \citep{histonedb-2011}.
-However, no update was made until 2016 with the version 2.0 of
-the database \citep{histonedb-2016}.
-We can only assume that update will typically
-be infrequent and dependent on funding.
+However, no update was made to that database until 2016 with a version 2.0
+release \citep{histonedb-2016}.
+We assume that further updates will
+be infrequent and depend on funding.
 The Histone Database is a manually curated database of histone
-genes for all species.  While this means it reflects a fixed point in time,
-the manual curation potentially enables an higher quality database.
+genes of all species so it holds the same human sequences as we have
+catalogued.  While the database reflects a fixed point in time,
+the manual curation could give a higher quality database.
+
 Our automated
 approach is inferior in principle because it is dependent on the
 annotation of the existing genes in public repositories
-while the Histone Database is based on searching for
+while the Histone Database uses searches for
 sequences with specific predicted structural motifs.  However, our
 Histone Catalogue could be adapted to a search by
 encoding the search logic as part of our build system.
+Alternatively, anomalies can be fixed by manually updating the
+annotation via the RefSeq feedback channel, as we have done many times.
 
 The main point of our approach is that readers will have access to the
 code.  They will not be limited to downloading the sequences we found
-at a certain time since
+at a certain time, since
 they can get the sequences at their time point and can modify the
-code to perform alternative analysis.
-The design of our catalogue was
-modular such that the source of data is just a block where the rest of the
+code to perform alternative analyses.
+The design of our catalogue is
+modular such that the choice of source data is just a block after
+which the rest of the
 analysis sits.  Similarly, all tables and figures are individual
-blocks, so new tables and figures could be added to a new catalogue.
-By making the whole code public we are providing the full opportunity
+blocks, so new tables and figures could be added to a new type of catalogue.
+By making the whole code base public we are providing the full opportunity
 to expand it.
 
 The initial purpose of the Histone Catalogue
 was to tabulate all human histone genes and the differences between
-their coding sequences.  With time, we kept adding other figures and became
+their coding sequences.  With time, we added other figures and became
 curious about the histone unique regulatory elements which
 led to the addition of an option to download downstream sequences in
 Bio-EUtilities and then to the identification of multiple regulatory
 elements that were not annotated in the reference sequences.  We were
 happy to find NCBI responsive to such corrections and they made
 our submissions live for all RefSeq users.
-We then created a new table that compares
+We then created a new table \trefp{tab:curation-anomalies} that compares
 the current annotations with the existing assumptions of histone genes
 structures and generates a list of current anomalies.
 
 We also tested the advantage of modifying the code ourselves for new
 purposes.  The original catalogue was limited to human genes but it
-failed when attempted to analyse the mouse genome.  Therefore, we changed
-the catalogue to make it organism independent (see
-\Aref{ch:mouse-catalogue}).  We envision that a similar catalogue
-could be generated by adapting the code base to other gene families.
+failed when attempted to analyse the mouse genome.  We changed
+the software catalogue to make it organism independent and have
+demonstrated its functionality by building a complete set of figures
+for mouse canonical core histones
+\Arefp{ch:mouse-catalogue}.  We envision that a similar catalogue
+could be generated for other gene families by adapting the code base.
 
-While researches can, and we hope they will, work on top of our
+While researchers can, and we hope will, work on top of our
 Histone Catalogue, the level of skill required to reproduce it is not
-common in the cell biology community.  Without a local bioinformatician, the
-usefulfness of this power is lost.  This means that training
+common in the biochemistry and cell biology community.
+Without a local bioinformatician, the
+usefulfness of this power can be lost.  This means that training
 opportunities and encouragement needs to be provided to increase the
 relevant skills of typical molecular cell biologists if the vast
 resources of data available are to be fully used.
+
 For situations where data is in
 flux as is the case of unversioned public databases such as RefSeq
 used in our project, the software
 principle of continuous delivery could be applied to sequence data
-analysis.  In this concept,
+analysis.  In this approach,
 software is developed and is always in a state that can be
 released.  Instantaneous releases are automated and anyone can download the
-release with the latest change.  Compared to the Histone Catalogue, the
-source is the data so software tools to distribute new releases
-triggered by changes to the data can be configured to
-trigger a build of the sequence catalogue.  This would allow the biochemist
+release with the latest change.  In the case of the Histone Catalogue,
+changes to the data could be configured to
+trigger a build of the sequence catalogue.  This would allow a biochemist
 without bioinformatics aspirations to download the latest analysis.
-Our Histone Catalogue is not yet triggered by data updates but can be
-scripted to run on defined cycles, or on demand.
+Our Histone Catalogue is not yet triggered by data updates but can
+easily be
+scripted to run at defined periods, or on demand.
 
 \section{Data not in Flux}
 
-By using sequence data already available in public by others,
+By using sequence data already available in public by others for the
+Histone Catalogue,
 we avoided the issue
-of making our own ongoing research public.  This could also apply
-issue for many data types as there are dedicated repositories for
+of making our own primary research results public.  This could applies
+for many data types where there are dedicated repositories such as for
 microarrays, sequencing, mass spectrometry, and flow cytometry.
 Databases for microscopy data are much more limited and tailored to
 specific groups \todo{check tools on 2016 Image Data Resource paper}.
 
 For the microscopy data we acquired in \Cref{ch:kill-frap} we planned
 to have a public OMERO server where we would host our data and we
-could share with others.  With the infrastructure provided to us from
+share it with others.  With infrastructure provided by
 e-INIS, the Irish National e-Infrastructure project to provide the
-Irish research community with computational support
-infrastructure,  we setup an instance of an OMERO server for use by
-microscope users in our Centre for Chromosome Biology.
-This was planned to provide the
-centre with a centralised location for sharing the data between each
-others, and possibly with the outside community.  However, few users
+Irish research community with computational support,
+we set up an instance of an OMERO server for use by
+microscope users in our Centre for Chromosome Biology (CCB).
+This was planned to provide the CCB
+with a centralised location for sharing data between each
+other and possibly with the outside community.  However, few CCB users
 trialled the system and it did not achieve the uptake we would like.
 Ultimately, the e-INIS project was closed and we
 shut down the server.
 
-Even if e-INIS project had not terminated, maintenance of the service
+Even if the e-INIS project had not terminated, maintenance of the service
 for the rest of the user group was not trivial so there would have been need
 for a specialised system administrator.  For sequence data,
-centralised services already exist.
-For example, NCBI and EMBL provide users with a
+centralised services already exist such as
+NCBI and EMBL who provide users with a
 location to share their sequencing data, and even provide tools for
-easy search and collaborative annotation.  In contrast, imaging data
+searching and collaborative annotation.  In contrast, imaging data
 has challenges with proprietary formats and much larger dataset sizes
-so presents a much higher cost.
+so presents a much higher cost for implementing a centralised data
+sharing capability.
 
 \todo[inline]{Need 2 sentences explaining how this is relevant? I
   think you are saying that publishing chapter 4 has different
@@ -198,6 +221,7 @@ so presents a much higher cost.
   reproducible and updatable research could improve the FRAP project.
   For example by showing how more data or new models could converge on
   an accurate estimate for histone kinetics.}
+\todo[inline]{To what extent is Chapter 4 limited compared to chapter 3?}
 
 \todo[inline]{
 There is zenodo now which seems promising.  They have a limit of 50GB
@@ -213,71 +237,81 @@ investigate it either.}
 
 In computational research, one of the largest challenges
 is with the reproducibility of
-runtime environments.  At a most simple level, it may seem that
+runtime environments.  At the most simple level, it may seem that
 computation is a
 matter of installing the required software.  However, the
 interdependency between software at all levels can have an impact on
 the results.  Even hardware can be an issue although higher levels
-languages such as Python, R, and Octave maintain an abstraction from
+languages such as Python, R, and Octave do maintain an abstraction from
 hardware that reduces this.
 
-One proposal is the distribution of Virtual Machines (VM) which
-reproduce the exact environment.  However, this seems to be redundant with
-the repositories of the GNU/Linux distributions they are based on.
+One proposal is the distribution of Virtual Machine (VM) packages which
+reproduce the exact environment.  However, this is effectively redundant with
+the repositories of the GNU/Linux distributions they are based on so
+very wasteful in storage space.
 There has been a recent project to make the build of all packages in
 Debian reproducible with the details for that build in a
 \texttt{buildinfo} textfile with all the dependencies listed.
-This could greatly simplify the management of such VM.  Only
-a copy of the repositories, which would be shared between the VM, would
-have to be stored and the VM would be reduced to the buildinfo.
-This would require for all software to be packaged.
+This approach could greatly simplify the management of such VMs.  Only
+a copy of the repositories would
+have to be stored and the exact VM would be built from a standard base
+using the buildinfo.
+This would also require all software to be packaged.
 However, the creation of reproducible package builds is also not a trivial and
 still a work in progress.
 
 \section{Version Control}
 
-The goal of version control is to track changes to files which is
-distinct from the goal of reproducing analyses.  As we used \LaTeX{} for
-writing our manuscript, we were also able to also use version control for
-the writing of the manuscript.  One of the main reasons for this
-is help with the merging of changes between multiple authors
+The goal of version control is to track changes to files which is a
+distinct task from the goal of reproducing complete analyses.
+As we used \LaTeX{} for
+writing our chapters, we were also able to use version control for
+the writing of the manuscripts.
+Overall, this collaborative authoring process was very successful.
+
+One of the main reasons for this
+is the support it provides for merging of changes between multiple authors
 editing the same document in parallel.  However, the tools for
 handling the merging are specialised for source code and work on
-lines which is very different from text where differences
+lines, which is very different from text where differences
 happen in sentences.  The creation of merge tools for text could
 simplify this greatly by making changes easier to track and commit
 messages more meaningful to the authoring process.
 
 Even if such tool was available, the concept of a manuscript as a text
 file that is compiled into a document, the syntax of \LaTeX, and the
-alternative formats are very new concepts in academia.  Interestingly, this is
+alternative formats are all very new concepts in academia.
+Interestingly, this is
 exactly the only topic with two recommendations in the ``Good Enough
 Practices in Scientific Computing'' to recognise the difficulty of
 this tools, having been pushed by the reviewers \todo{?}.
 
-The availability of the history of a project, made public in a such a
-way could also be used for meta-research because it would have data on the
+The availability of the history of a project
+could also be used for meta-research because it would provide data on the
 method of writing scientific publications.
 
 \section{Tools for Software Engineering}
 
-We faced many issues with this project due to our lack of training in
+We faced many issues with this project due to our lack of knowledge in
 software engineering.  Biologists do not typically receive the training for this
-type of work during their studies.  Our observation is that all the
-problems had a solution that was a obvious to software engineers but
-alien in a biology laboratory
+type of work during their studies.  Our observation is that all our
+problems had solutions that were obvious to software engineers, but
+alien in a biology laboratory.
 
 Concepts such as a build system, version control, test units,
-and reproducible builds are not new in field of software engineering but
+and reproducible builds are not new in the field of software engineering but
 biologists are still catching up.  This is why new
-organisations like software carpentry and data carpentry have been
-established to teach biologists the
-methods that are already practised in software engineering.
+organisations like software carpentry and data carpentry\todo{weblinks?}
+have been
+established to teach biologists
+methods and perspectives that are already practised in software engineering.
 
-This also opens the question of how much biologists implement
+This also opens the question of how much more that biologists could
+gain from implementing
 tools for software engineering.  For example, can
-bug trackers, tools to report issues with software and track the
-development of their fixed, could be used by other researchers to report
-reproducibility issues or feature requests to the original experimenters.
+bug trackers which are tools to report issues with software and track the
+development of their fixes also be used by biology to report
+reproducibility issues or record questions and
+feature requests to the original experimenters.
 
 \todo[inline]{Need another paragraph or two summing up the thesis?}
