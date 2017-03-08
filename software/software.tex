@@ -562,6 +562,10 @@ easily ported to Octave.  The main difference was the replacement of
 the nonlinear fitting from \command{nlinfit} with \command{leasqr}
 from the Octave Forge Optim package since both perform the same
 Levenberg--Marquardt nonlinear least squares algorithm.
+To validate our port to Octave, we compared the results obtained with
+our Octave port against the results obtained by the original authors
+in Matlab.  We picked three of our datasets and both implementations
+returned the same results.
 
 Identification of the bleach spot, nucleus, and background regions are
 required for the circle FRAP model.  The bleach spot analysis measures
@@ -639,7 +643,8 @@ another shows the recovery curves, intermediary analysis, and best fits
 \frefp{fig:software:frapinator}.
 
 \begin{sidewaysfigure}
-  \includegraphics[width=\textwidth]{results/frapinator.png}
+  \includegraphics[trim=7cm 3cm 5cm 2.5cm, clip=true, width=\textwidth]%
+                  {results/frapinator.png}
   \captionIntro{Frapinator visual log files for batch processing}
                {Each FRAP experiment generates a log file with 6
                  different plots displaying the analysed values and
