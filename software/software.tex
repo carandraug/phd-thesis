@@ -1,60 +1,61 @@
 Today's biology research is mainly digital.  Data being generated is so
 complicated and extensive that analysis is done by software, with computer data
-acquisition and analysis as an integral part of a researchers work.
+acquisition and analysis as an integral part of a researcher's work.
 Such work is then published, but it is only useful to the scientific
 community if it can be reproduced by colleagues and further
 research can be performed to extend from it.  Even if the software used is
 carefully described in the methods, modern programs are so
-complicated, and analysis is dependent on so many variables, that
-there is limited hope for other scientists to recreate the implementation.  This
+complicated, and analysis is so dependent on so many variables, that
+there is limited hope for other scientists to recreate the
+implementation from brief descriptions.  This
 makes access to the original software used in research a prerequesite for
 reproducibility.
 
-Sharing the code is not enough.  Programs that undertake the analaysis
-sit on top of several other components.  Specific versions of a
-library are used, on top of a specific programming language, running
-in a specific operating system on a hardware with a specification
+Sharing the code is not enough.  Programs that undertake the direct analysis
+tasks sit on top of several other components.  Specific versions of
+libraries are used, on top of a specific programming language, running
+in a specific operating system on hardware with a particular
 specification.  Reproducing this runtime environment is not trivial.
 
-Following on free software came the ideals of open and collaborative
+Following from free software came the ideals of open and collaborative
 software development.  The seminal essay ``The Cathedral and the
-Bazaar'' by \citet{raymond1999-cathedral-and-bazaar}, compares the
-methods of free software development by an exclusive group, in the
-``Cathedral'',  where the source code is only made public for releases,
+Bazaar'' by \citet{raymond1999-cathedral-and-bazaar} compares the
+methods of free software development by an exclusive group, in a
+``Cathedral'' where the source code is only made public for releases,
 with a method where development
-happens in the public domain, the ``Bazaar'', where anyone can see
+happens in the public domain, a ``bazaar'', where anyone can see
 and contribute to it.
 In free software, the source code for a program is available on the
-internet for anyone.  The bazaar takes this further by having every
-single change open on the internet in real time, before a new version
+internet for anyone.  The ``bazaar'' takes this further by having every
+single change open on the internet in real time, even before a new version
 of the software is formally released.  This invites users to contribute
-through discussion about development in public forums, inviting
-users to contribute.  The ideal is that any user can become a
+through discussion about development in public forums.
+The ideal is that any user can become a
 developer, simply by sending their contributions to the appropriate public
 forum.  Users are motivated to do this because they
-have a personal interest on enabling the
+have a personal interest in enabling the
 program to support a specific feature that matters to them.  And they
 are incentivised to contribute to the project because it is less work
-than writing their own project just to have the feature
+to participate in the collective
+than to write their own project just to have the feature
 they lack.
+Free software projects \citep{schindelin2012fiji, bioperl} are now
+now almost all developed using the ``bazaar'' approach.
 
-Free software projects such as academic free software
-projects \citep{schindelin2012fiji, bioperl} are now
-now almost all developed in this way.
 We faced many computational challenges
 during our research presented in \Cref{ch:histone-catalogue}
 and \Cref{ch:kill-frap}.
 Using only free software we were able to contribute our work to several
 free software projects in collaborations that go beyond the
-boundaries of the typical research group.  While this advances allowed
+boundaries of the typical research group.  While the advances allowed
 us to perform the acquisition and analysis of our own data,
 we expect that these open contributions
-will enable other researchers to advance their own research.
+will also enable other researchers to advance their own research.
 
 \section{GNU Octave}
 
 The GNU Octave programming language was used extensively for the analysis
-of microscope images throughout this work.  Several features of the
+of microscope images in \Cref{ch:kill-frap}.  Several features of the
 language such as its handling of multi-dimensional arrays, interactive
 user interface, and extensive image processing functions, as well as
 its supportive community, make it an attractive choice
@@ -63,10 +64,10 @@ for quantitative microscopy.
 %% All values are multi-dimensional arrays does not include objects
 %% wrapped from other languages such as java objects (and I guess it
 %% will be the same for python when the pytave project is finished).
-GNU Octave is an high level array programming
+GNU Octave is a high level array programming
 language where operations are generalised to multidimensional arrays
-and is primarily intended for numerical computations \citep{octave}.
-In Octave, all values are multidimensional arrays and this provides
+and Octave is primarily intended for numerical computations \citep{octave}.
+All values are multidimensional arrays and this provides
 an abstraction layer that is useful when writing code for an arbitrary
 number of dimensions.
 
@@ -75,7 +76,7 @@ number of dimensions.
 %% exploratory data analysis but I can't imagine anyone disagreeing
 %% with it.
 Octave also has a Read--Eval--Print Loop (REPL), or interactive top
-level user interface, like IPython and Unix shells.  This reduces the
+level user interface, similar to the IPython and Unix shells.  This reduces the
 feedback time and provides an efficient
 environment for exploratory data analysis.
 
@@ -86,7 +87,7 @@ mainly composed of
 scientists and engineers who provide a large support group of
 specialists in numerical computations.
 
-The separate Octave Forge project hosts a vast number of
+The separate Octave Forge project hosts a large number of
 packages that extend Octave into specific applications such as control
 systems \citep{octave-control}, time-frequency analysis
 \citep{octave-ltfat}, or level sets \citep{octave-level-set}.
@@ -111,7 +112,8 @@ large image size or number of dimensions.
 
 Our microscopy images
 were several megabytes in size.  For example, the single cell
-FRAP experiments for histone dynamics generating TIFF files of 449
+FRAP experiments for histone dynamics generating
+TIFF files of \SI{489}{\mebi\byte}.
 These images had a field of view of 300
 by 300 pixels and 2500 time frames
 on acquisition by an 8-bit camera.
@@ -122,9 +124,9 @@ In addition to the 2 dimensional plane of a standard image, microscope
 outputs typically include any combination of $z$ dimension along
 the optical axis for a volume image; time dimension for time-lapse
 experiments; and wavelength for multi-channel experiments.  Recent microscopy
-techniques generate images with an even higher number of dimensions
+techniques generate images with additional dimensions
 such as angle, phase, and lifetime.  This varying dimensionality adds
-complexity and makes it challenging to write generalized subroutines for
+complexity and makes it challenging to write generalised subroutines for
 microscope image analysis.
 
 \subsection{Reading and Writing of Image Files}
@@ -142,7 +144,7 @@ provided via the functions \command{imfinfo}, \command{imread}, and
 %% The importance of reading all planes in a single call to imread is
 %% of performance for TIFF.  This is because of the structure of TIFFs
 %% where reading plane N means parsing all the IFDs before that.
-These three functions were rewritten with the aim of achieving
+We rewrote these three functions with the aim of achieving
 reduced memory usage, increased performance, an improved
 interface for multidimensional images, and new image types.
 New options were added to read and write a series of image planes
@@ -271,7 +273,7 @@ This change simplifies the packaging of
 Bio-Formats for Matlab and Octave making them
 effectively the same code.
 Finally, we automated the creation of Octave packages in Bio-Formats
-so that they be made as part of standard Bio-Formats releases.
+so that they can be made available as part of standard Bio-Formats releases.
 
 All changes were released with Octave since version 4.0.0 and
 Bio-Formats since version 5.1.2
@@ -286,11 +288,11 @@ but these are focused on the reading and writing of image files,
 conversion between colour models, and graphical display.
 
 The Octave Forge Image package supplements Octave with a wide range of
-image analysis specialised functions.  While Octave syntax is
+specialised functions image analysis.  While Octave syntax is
 identical for any number of dimensions and data type, we found that
 many of the Image package functions were either limited to two
 dimensional images or inefficient for the large images such as those used in
-microscopy.  We began a project with the purpose of eliminating any
+microscopy.  We began an effort to eliminate any
 limitation on the number of dimensions in the Image package
 \trefp{tab:software:octave-image-functions}.  This has seen multiple
 releases, starting in version 2.0.0 and continuing to the current
@@ -398,17 +400,17 @@ background of low intensity values.
 Multiple threshold algorithms exist to automate the choice of a
 threshold value, the most common of which is based on the analysis
 of an image histogram \citep{analysis-hist-threshold}.  Otsu's method
-\citep{otsu-threshold} is among the most widely used
+\citep{otsu-threshold} is among the most widely used approach
 and is available in the function \command{graythresh} in the Image
 package.  We rewrote this function to handle histograms of arbitrary
 length and vectorised it for performance with additional computation of a
 ``goodness'' measure of threshold value optimality.
 In addition, an unpublished collection of histogram
-threshold algorithms by Antti Niemistö (personal communication),
-making them available as an
-option for \command{graythresh} in Octave.  Finally, the rewrite
+threshold algorithms by Antti Niemistö (personal communication)
+was made available as an
+option for \command{graythresh}.  Finally, the rewrite
 of \command{graythresh} added the
-option of using an histogram as input instead of an image, enabling
+option of using a histogram as input instead of an image, enabling
 the possibility of histogram processing as a preparatory step.
 
 %% We have no reference for Antti Niemistö work.  It was never
@@ -437,11 +439,13 @@ package version 2.0.0.
 %% ordfiltn for grayscale images which was bound to be quite slow, and
 %% filter2 for binary images which would limit to 2d images.
 Mathematical morphology is the analysis of spatial
-structures which provides a powerful image analysis technique based on
-the shape and form of objects.  This is achieved by probing an image
-with a known shape known as the Structuring Element (SE), and filtering the
+structures, and this provides a powerful image analysis technique based on
+the shape and form of objects.  It is achieved by probing an image
+with a known shape called the Structuring Element (SE), and filtering the
 image based on whether the SE fits at each location
 within the image.
+Mathematical morphology is a very relevant tool for identifying cell
+locations and features in microscopy images.
 
 The fundamental operations of mathematical morphology are named dilation and
 erosion.  These are available in the Image package through the
@@ -486,15 +490,15 @@ the Octave Forge Image package version 2.2.0.
 \subsection{Image Regions of Interest}
 
 The function \command{regioprops} is used to measure different
-properties in image regions of interest such as a region centroid,
-area, or eccentricity.  However, this function was inappropriate for
+properties of regions of interest in an image such as its centroid,
+area, or eccentricity.  However, the function was inappropriate for
 the measurement of multiple regions and properties because the whole
 image was analysed independently for each region and property.  We rewrote
 this function for improved efficiency so that
 computation of area and intensity weighted
 centroid of 2000 regions which previously took over 12 hours on a
 standard desktop computer was finish in under 3 minutes.
-This improvement was released with the Image package version 2.6.0.
+This improvement was released with the Octave Forge Image package version 2.6.0.
 %% We say over 12 hours but actually they never finished.  Not having
 %% finished after so many hours (overnight) was absolutely not
 %% acceptable.  Estimates say that it would actually take over ~200
@@ -516,7 +520,7 @@ dimensions.
 \command{bwconncomp} is used internally by \command{regionprops} and
 creates an array of indices for the image regions as an
 alternative to labelled images which reduces memory usage.
-This was released with the Image
+This was released with the Octave Forge Image
 package version 2.4.0.
 
 %% Other Octave that I am not mentioning:
@@ -545,10 +549,10 @@ package version 2.4.0.
 For the FRAP analysis of histones
 in \Cref{ch:kill-frap} we required tools to estimate
 binding constants from FRAP recovery data.  We obtained the code for a
-previously reported circle FRAP model \citep{mcnally-frap-code} from
-personal communication with the authors under the GNU General Public
-Licence (GPL) version~3 or later.  This model includes multiple
-parameters and considers the profile of the photobleach, correction
+previously reported circle FRAP model \citep{mcnally-frap-code} by
+personal communication with the authors (under the GNU General Public
+Licence (GPL) version~3 or later).  This model includes multiple
+biophysical parameters including the profile of the photobleach, correction
 for observational photobleaching, finite size of the nucleus, and
 fitting to both a pure-diffusion model and a full model with binding
 states.
@@ -560,15 +564,15 @@ from the Octave Forge Optim package since both perform the same
 Levenberg--Marquardt nonlinear least squares algorithm.
 
 Identification of the bleach spot, nucleus, and background regions are
-required for the circle FRAP model.  The bleach spot measures
+required for the circle FRAP model.  The bleach spot analysis measures
 intensity recovery and also models the photobleach profile since it
 takes into account a non-uniform spatial distribution of the bleached
-spot.  The nucleus region defines the finite sized nucleus and takes
+spot.  The nucleus region analysis defines the finite sized nucleus and takes
 into account the fluorescence loss due to observational
 photobleaching.  A small region outside the nucleus is used for
 background correction.
 
-We automated the identification of these regions to facilitate
+We automated the identification of all these regions to facilitate
 batch processing.  The bleach spot was
 identified from the difference between the post and pre-bleach frames.
 Individual nuclei were then segmented after automatic thresholding with Otsu's
@@ -624,12 +628,12 @@ fixed size with lowest average intensity in the image.
 \end{figure}
 
 
-With all the steps automated, we created a single program in Octave
-named \command{frapinator} that would perform all the
+With all the steps automated, we created a single program written in Octave
+that we named \command{frapinator} to perform all the
 analysis for any number of images.  All options were made
 available as command line options.
-To quickly filter out any faulty analyses,
-two images are created that provide a visual log.  One image shows the
+To quickly filter out any faulty analyses, two multi-panel
+images are created that provide a visual log.  One image shows the
 automatically identified regions \frefp{fig:software:frap-roi} and
 another shows the recovery curves, intermediary analysis, and best fits
 \frefp{fig:software:frapinator}.
@@ -645,7 +649,7 @@ another shows the recovery curves, intermediary analysis, and best fits
                  process.  The top left plot displays the raw
                  intensity for the background, bleach spot, and
                  nucleus intensity over the duration of the FRAP
-                 experiment. This is followed by the normalized
+                 experiment. This is followed by the normalised
                  intensity for the bleach spot which is actually used
                  for the fitting. The top right displays the intensity
                  profile for the bleach spot, and its fit to a radial
@@ -666,7 +670,7 @@ online at \url{https://github.com/carandraug/octave-frap}.
 The BioPerl project is an international association of developers of
 free Perl software for bioinformatics, genomics, and life science
 \citep{bioperl}.  It has created the BioPerl distribution of Perl
-modules which has almost 800 modules for management and manipulation
+modules which contains almost 800 modules for management and manipulation
 of biological data as well as programmatic access to databases such as GenBank
 and SwissProt, and to bioinformatics tools such as ClustalW and Blast+.
 
@@ -676,23 +680,25 @@ and SwissProt, and to bioinformatics tools such as ClustalW and Blast+.
 %% This number no longer includes the modules already moved out of
 %% BioPerl and into their own distributions.
 
-\subsection{Dist::Zilla and Pod::Weaver}
-
 %% Technically, the first one to be moved out of BioPerl was
 %% Bio-Graphics and that was in 2009.  However, that was an
 %% independent event, not part of a concerted effort of reorganising
 %% BioPerl.  That only started in 2011 (see Changes file in
 %% bioperl-live).
 The large number of modules in BioPerl became a maintenance problem
-so in 2011, a new project initiated to split BioPerl into
+so in 2011, a new project was initiated to split BioPerl into
 more manageable distributions such as Bio-Biblio, Bio-FeatureIO, and
-Bio-Coordinate.  To reduce existing code, prevent duplication,
+Bio-Coordinate.
+
+\subsection{Dist::Zilla and Pod::Weaver}
+
+To reduce existing code, prevent duplication,
 and to make new releases
 a easier, Dist::Zilla and Pod::Weaver were adopted for
 the new distributions.
 
 Dist::Zilla is a program facilitating the writing, packaging, management,
-and release of free software targeted at libraries written in the Perl
+and release of free software for libraries that are written in the Perl
 programming language and released to the Comprehensive Perl Archive
 Network (CPAN) repository.  It comes with a series of plugins to automate the
 release process such as the addition of copyright notices, discovery
@@ -700,10 +706,9 @@ of dependencies, and uploading to CPAN.
 
 Pod::Weaver is a program to create documents in Plain Old
 Documentation (POD) format, a format mainly used to write
-documentation incorporated inlined within Perl modules.
+documentation incorporated inline within Perl modules.
 Pod::Weaver includes a Dist::Zilla plugin
-that serves as bridge between the two, so that most
-standard generic POD content is
+so that most standard generic POD content is
 generated automatically as part of the release process.
 
 As part of the restructure of the BioPerl distribution, we configured
@@ -716,14 +721,16 @@ of individual modules
 with distribution specific details such as links to the online
 repository.
 
-Legal::Complicated creates a POD section for the copyright details
-based on comments in individual modules.  While BioPerl is free
+Legal::Complicated creates a POD section for copyright details
+based on comments in individual modules.  This is useful because while
+BioPerl is free
 software, individual modules may be released under different free
 software licenses, and each has their own author who is often not
 the copyright holder.
 
 Both new Pod::Weaver plugins and the BioPerl PluginBundle are available
-on CPAN since 2013.
+on CPAN since 2013.  They were used for our contributions to the
+Bio-EUtilities package.
 
 \subsection{Bio-EUtilities}
 
@@ -731,12 +738,8 @@ For the analysis of the canonical histone gene
 family \Crefp{ch:histone-catalogue} we required a tool to
 automate the search of histone genes and download associated sequences.
 We used the NCBI Gene database for searches and
-created a new program withing the Bio-EUtilities package from BioPerl.
-
-Gene is a public database hosted at the National Center for
-Biotechnology Information (NCBI) which maps known or predicted genes
-to other entries in the NCBI Reference Sequence (RefSeq).  Therefore, Gene
-links to the Genome, Nucleotide, and Protein databases \citep{gene-database}.
+created a new program \command{bp\_genbank\_ref\_extractor}
+within the Bio-EUtilities package of BioPerl.
 
 Bio-EUtilities is part of the BioPerl project and provides a Perl
 interface to NCBI's Entrez Programming Utilities (E-Utilities).
@@ -747,13 +750,21 @@ E-Utilities provides an equivalent
 programming interface for queries using a fixed
 URL syntax.
 
-The program \command{bp\_genbank\_ref\_extractor} component was
-created to take as input a query to the Entrez Gene database and
+Gene is a public database hosted at the National Center for
+Biotechnology Information (NCBI) which maps known or predicted genes
+to other entries in the NCBI Reference Sequence (RefSeq).  Therefore, Gene
+links to the Genome, Nucleotide, and Protein databases \citep{gene-database}.
+
+The program \command{bp\_genbank\_ref\_extractor} was
+created to take a query to the Entrez Gene database as input and
 to downloads all genomic, transcript, and protein sequences as well
-as a CSV file with chromosome coordinates, names, and identifiers as output.
+as a CSV file with chromosome coordinates, names, and identifiers of
+returned genes as output.
 It has several options such as download of flanking sequences, different
 output formats, choice of genome assembly, and skipping of non coding
-genes.  \command{bp\_genbank\_ref\_extractor}
+genes.
+
+\command{bp\_genbank\_ref\_extractor}
 is provided with an extensive manual covering all options
 and examples \Arefp{app:pod-doc}.
 
@@ -762,19 +773,18 @@ Bio-EUtilities version 1.73.
 
 \subsection{Debian packaging}
 
-Debian is a computer operating system, the set of low-level software
-that manages a computer hardware and resources for computer programs.
-Debian is
-composed entirely of free software and one of the earliest GNU/Linux
+Debian is a computer operating system
+composed entirely of free software and is one of the earliest GNU/Linux
 distributions.
-Debian is package based like all free operating systems today.
-This means that it is made of multiple components known as
+
+Debian is package based like all modern free operating systems.
+This means that it is made out of multiple components known as
 packages.  For example, in Debian there are packages for the Linux
 kernel, the Perl programming language, and Dist::Zilla.  Packages are
 managed by a package management system which handles their
 installation, configuration, and removal to simplify
-a multiplicity of tasks which otherwise would
-have to be handled individually by the user.
+a multiplicity of small steps that would otherwise
+have to be handled manually by the user.
 
 %% Debian Jessie has 21024 source packages.  The binary number of
 %% packages would be much higher but while that number is what is
@@ -787,7 +797,7 @@ distribution with more than 21000 packages and a large
 number of derivative distributions.  These new distributions
 inherit the base of their packages from Debian, and some like Ubuntu
 and Knoppix are in turn the parents of their own derivatives.  By packaging
-for Debian, we effectively prepare packages for the whole family of
+for Debian, a packager effectively prepares packages for the whole family of
 Debian based distributions.
 
 While Debian had a package for the main BioPerl distribution, it did
@@ -841,25 +851,26 @@ as all the module distributions required by them
 \section{Build systems for reproducible research}
 
 Even if the original data is available for a computational biology
-investigation such as microscopy image or sequence analysis
-and the runtime environment under
-which the computational analysis was done can be duplicated, reproducing results
+investigation such as microscopy image or genome sequence analysis
+and the runtime environment can be duplicated, reproducing results
 is dependent on invoking the same commands and same
 options in the same order as the original analysis.
 The necessary information to achieve this is often undocumented
 and difficult to reconstruct.
 
 A build system is a software tool that automates the process of
-performing a complex series of steps for the generation of an artifact.
+performing a complex series of steps for the generation of an artefact.
 It is mainly used in software engineering to automate software
 compilation and packaging
 but the process of maintaining software has many parallels with
-maintaining a reproducible research projects in computational biology
+maintaining reproducible research projects in computational biology
 so the same tools
-can be used.  In a software compilation project, object code is built from the
+can be used.  For example,
+in a software compilation project, object code is built from the
 source code whereas in a research project, figures, tables, and values
 are built from raw
-data.  In a software project an executable program is built from multiple
+data.  Likewise,
+in a software project, an executable program is built from multiple
 object code whereas in a research project a manuscript is built from the
 figures, tables, and values.
 
@@ -871,11 +882,11 @@ figures, tables, and values.
 %% install, all, help, check, so users know immediately what each one
 %% does.
 Claerbout and colleagues \citep{ReDoc-claerbout} proposed this
-parallel and
+parallel between software engineering and research projects, and
 coined the term ``reproducible research''.  They created a standard
 build system for the generation of figures and manuscript from author
-data and analysis software as extension to GNU
-Make, one the most common build system.  Following from this,
+data and analysis software as an extension to GNU
+Make, one the most common build system.  Following on from this,
 Madagascar \citep{madagascar-scons} was developed as a
 software solution specialised
 for reproducible computational experiments, based on the software
@@ -904,7 +915,7 @@ programming language often praised for its readability.
 
 For the work in \Cref{ch:histone-catalogue} we made extensive use of
 the Perl programming language which is not supported by default in
-SCons but commonly used in bioinformatics.
+SCons but is commonly used in bioinformatics.
 To simplify the use of SCons for our project we created
 a SCons perl tool which adds automatic prerequesite
 scanning, perl configuration options, and multiple functions for using
@@ -918,33 +929,37 @@ software licence.
 %% configuration options -> Variables
 %% multiple functions -> all the perl builders.
 
-\section{Conclusion}
+\section{Discussion}
 
-Reproducible research has two principal motivations.  One is to allow other
+Reproducible research has two principal motivations.
+One reason is to allow other
 researchers to reliably perform the same analysis.  This can be on the same
 dataset as the original research in order to identify possible errors in the
-methodology.  This is the essential replicability requirement of science.
-The same analysis can also be performed on other
-datasets.  When associated with the freedom to inspect the
-source code, reproducible research also enables anyone
+methodology and reflects the essential replicability requirement of all science.
+When associated with the freedom to inspect the
+source code, reproducible research enables anyone
 to check for errors directly in the
-code.  All software used in this thesis is free and open source.
+code.  All software used in this thesis is free and open source so any
+part of it can be interrogated and replicated.
 
-The second reason, and the one of most important concern in this chapter, is to
+The second reason, and the one of most important concerns of this chapter, is to
 enable others to use the tools and insights
 developed for new research directions.  This
-necessitates a different approach to the development of scientific
-software, requiring more insight in the software design and engineering.
+necessitates a particular approach to the development of scientific
+software, requiring more insight in the software design and
+engineering to ensure its usefulness.
+
 It is not sufficient to develop software that solves our problem
 within the constraints of our data
 because the software must also be configurable and
 generalised so that it can fit the needs of other users.  For example, the
 Pod::Weaver plugins we created to solve the problem of making BioPerl
-releases was implemented with extra capabilities that were not needed
+releases self-documenting was implemented
+with extra capabilities that were not needed
 for the project.
-They could have also been implemented
-directly in the BioPerl PluginBundle.  However, having
-them as separate individual plugins enables other software projects to use
+The code could also have been implemented
+directly in the BioPerl PluginBundle but having
+them as separate individual plugins enables other Perl software projects to use
 them.
 
 As free software, there is no sales or reliable download data, so
@@ -960,11 +975,11 @@ the more users we have the more issues are reported to us.
 Our work with Octave is likely to have had the most impact since
 issues are reported or discussed for the Octave Forge Image package
 several times a month.  However, our work there has
-become entangled with that of other contributors
+become positively entangled with that of other contributors
 so we cannot measure the exact impact of single contributors alone.
 This means that even if we have the information on how many people use Octave,
 and how many use the Image package, it is impossible to measure
-how many use the specific
+how much use is being made of the specific
 functions we improved.
 
 We recognise that full fledged programs impose limitations even though
@@ -972,11 +987,11 @@ they are popular with more users who want ``turn key'' solutions.
 A program is easier to make use of by novice users
 but the availability of the same functionality as a software library allows
 reuse by other software developers, and the two are not mutually exclusive.
-This can be addressed by writing code with potential to be useful for
+This can be addressed by coding with the potential to be useful for
 others by writing with modularity in mind so that any part can be used in
 other programs.  For example, when writing \command{frapinator}
 to perform our analysis of FRAP data, we wrote in such a way that the
-program is just a shell around our Octave FRAP
+program is a shell around our Octave FRAP
 package.  \command{frapinator} simply reads the options and then calls
 a series of a functions from the FRAP package.
 This allows other
@@ -987,19 +1002,24 @@ models, possibly from another such library.
 
 Maintaining the balance of flexibility and usability requires
 additional effort.
-For example, our choice of work with Debian to package software we
+For example, our choice to work with the Debian base to package software we
 needed for our projects stemmed from the difficulty members of our group
 had with installing some of the required dependencies.  We could have
 installed it on their behalf but that wouldn't benefit other
 researchers in the same position.
 The situation could also reoccur each time a user got a new
-machine or update.  Another alternative would be to include the
-dependencies in our software.  However, this has its own risks by
-making the dependencies opaque.  For example, halfway during our project
-NCBI moved their E-Utilities services to an encrypted protocol which was
-fixed in Bio-Eutilities but would have necessitated updating our
+machine or update.
+
+Another alternative would be to include
+dependencies within our software.  However, this has its own risks by
+making the dependencies opaque.  For example, part way through our project
+NCBI moved their E-Utilities services to an encrypted network protocol which had
+been quickly addressed in Bio-Eutilities
+but would have necessitated updating our
 entire histone catalogue \Crefp{ch:histone-catalogue} if we had
-included Bio-EUtilities with it.
+included an outdated version of Bio-EUtilities directly with it.
+
+\section{Conclusion}
 
 The various software tools reported in this chapter were developed
 because they were needed for our research.  Reports from users suggest
