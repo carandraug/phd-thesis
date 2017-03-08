@@ -62,6 +62,14 @@
 %% Use our NUIG page style, even in pages with a chapter heading.
 \aliaspagestyle{chapter}{NUIG}
 
+%% For some reason, the page with the abstract keeps the header with
+%% the last page mark (The last "Table of ...").  We don't want to
+%% have anything other than the page number on the center as per NUIG
+%% requirements.
+\copypagestyle{abstract}{empty}
+\makeevenfoot{abstract}{}{\thepage}{} % page numbers in the centre
+\makeoddfoot{abstract}{}{\thepage}{} % page numbers at the centre
+
 %% NUIG only requires 4cm margin on the spine margin, the rest it's
 %% set to whatever makes Andrew happy.
 \setlrmarginsandblock{4cm}{3cm}{*}
