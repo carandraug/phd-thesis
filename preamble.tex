@@ -70,9 +70,12 @@
 \makeevenfoot{abstract}{}{\thepage}{} % page numbers in the centre
 \makeoddfoot{abstract}{}{\thepage}{} % page numbers at the centre
 
-%% NUIG only requires 4cm margin on the spine margin, the rest it's
-%% set to whatever makes Andrew happy.
-\setlrmarginsandblock{4cm}{3cm}{*}
+%% NUIG only requires 4cm margin on the spine margin (well, they say
+%% 4cm on each side because of double side so I guess they actually
+%% mean only the spine).  With font of 12pt, the default margin is 3.2
+%% on the spine and 4.4 on the outside.  To keep the ratio and
+%% increase the spine to 4cm, we set the outside to 3.6.
+\setlrmarginsandblock{4cm}{3.6cm}{*}
 \setulmarginsandblock{3.5cm}{3.0cm}{*}
 \checkandfixthelayout
 
