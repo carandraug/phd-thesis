@@ -1,40 +1,50 @@
 \section{Materials and Methods}
 
-  HeLa cells were transformed by lipofection
-  \Srefp{methods:lipofection}.  For the generation of stable cell
-  lines, cells were split to a low confluence and treated with
-  \SI{3}{\ug\per\ml} Blasticidin-S.  Colonies were screened by
-  fluorescence microscopy, and positive individual colonies were
-  selected for further growth.  High fluorescence cells were sorted by
-  FACS to generate an homogeneous cell line.  For transient expressing
-  cells, transfection was performed 48h before imaging.
+  Stable HeLa cell lines were created for H2B--EGFP, H2B--EGFP D25G V118I,
+  H3-EYFP, H3--EYFP T45A, H3--EYFP T45E, H4--EYFP, and H4--EYFP R45H.
+  Cells were transformed by lipofection \Srefp{methods:lipofection},
+  split to a low confluence, and treated
+  with \SI{3}{\ug\per\ml} \mbox{Blasticidin-S} for one week.
+  Colonies were screened by fluorescence microscopy
+  and positive individual colonies were selected for growth
+  and by Fluorescence Activated Cell Sorting (FACS) to generate
+  homogeneous highly fluorescing cell lines.
+  Transiently expressing cell lines, both HeLa and horse fibroblasts,
+  were transformed by lipofection in
+  the same manner, and imaging performed 48~hours later.
+  Primary horse fibrolasts were a gift from Prof.\@ Elena Giulotto
+  (University of Pavia). HeLa cells were ATCC line CCL-2.
 
-  Confocal microscopy was performed in a Zeiss LSM510 Meta microscope
+  Confocal microscopy was performed on a Zeiss LSM510 Meta microscope
   using glass bottom LabTek~II chambers.  Wide-field fluorescence
   microscopy was performed with an Applied Precision DeltaVision Core
   system using \SI{35}{\mm} glass bottom MatTek dishes.  In both
   cases, imaging was performed within an acrylic environmental chamber
-  that fully enclosed the stage plate and microscope objectives.  A
-  temperature of \dc{37} and \pcent{5} CO$_2$ levels were maintained
-  via separate units connected to the environmental chamber.
+  at a temperature of \dc{37} and \pcent{5} CO$_2$.
+  Images were acquired and deconvolved on the DeltaVision system.
 
   %% See the CropReg.m script for more details.  For example, only the
   %% region surrounding the original position was used for performance
   %% and robustness.
-  Cell movement between time frames was performed by consecutive
-  template-based registration by normalised cross-correlation.  Nuclei
-  of interest were identified on the first time frame and used as
-  template on the subsequent image.  To correct for rotational
-  movement around the $z$ dimension along the optical axis, registered
-  frames were aligned by rigid body geometric transformation in the
-  ImageJ \citep{imagej1} plugin StackReg \citep{stackreg}.
+
+  Cell movement between time frames was calculated by consecutive
+  template-based registration using normalised cross-correlation.
+  The CropReg script developed for this purpose is available
+  as free open source software in this manuscript repository.
+  Nuclei of interest were identified
+  on the first frame and used as templates on subsequent images.
+  To correct for rotational movement
+  around the $z$ dimension of the optical axis system,
+  registered frames were aligned by rigid body geometric transformation
+  using the ImageJ \citep{imagej1} plugin StackReg \citep{stackreg}.
 
   Automatic extraction and processing of FRAP recovery curves was
   performed with the GNU Octave programming language \citep{octave}
-  and the Octave Forge image package.  Source code written in Matlab
-  for a previously reported circle FRAP model
-  \citep{mcnally-frap-code} was kindly offered by the original authors
-  and ported to Octave.  A new program to perform this analysis steps
-  with several options, \command{frapinator}, was released in a new
-  FRAP Octave package, including all individual functions for images
+  and the Octave Forge Image package.  Source code written in Matlab
+  for a previously reported circle FRAP model \citep{mcnally-frap-code}
+  was kindly gifted by the original authors and ported to GNU Octave.
+  We developed \command{frapinator}, a new program written in GNU Octave
+  to automate analysis with multiple command line options
+  and released it in the FRAP Octave package as free open source software.
+  \command{frapinator} includes all individual functions for image
   pre-processing and FRAP fitting \Srefp{sec:software:octave-frap}.

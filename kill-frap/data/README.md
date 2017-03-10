@@ -14,6 +14,20 @@ So, for a correct build of the thesis, the following files will needed to
 be copied into the `data` directory (the hash in front of their names is the
 corresponding md5sum):
 
+* `test8_R3D.dv` (ade140ad8a5acc3f3c195b25962aa4b2) which will be in a
+directory named `long time FRAP/first FRAP`. This image will be used
+to display our initial problem, cell movement.  Close look will also
+show reshape of the bleach spot.
+
+* `New_L1_Sum.lsm` (ac7467e6be0ece4f67adc4823fb7e58a) which will be in
+a directory named `2010-05-01 H4 (no cell cycle check) 4hours long` of
+the images taken on the LSM during the stay at NIH.  The `Sum` on the
+filename is because it's the collection of all time points.  The Zen
+software would save each time point in a separate files and at the end
+of the experiment it puts them all together into a single lsm with
+`Sum` on the name.  It is /not/ a sum of a Z-stack or any other kind
+of projection.
+
 * `H4 R45H_L3_Sum.lsm` (cc0b48e579cb8a9f9b0fc02662f7b071) which will be in a
 directory named `2010-02-03 H4 R45H slow recovery`. This image will be used
 to display cell movement with confluent cells.
