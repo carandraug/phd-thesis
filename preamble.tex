@@ -59,8 +59,11 @@
 \makeoddhead{NUIG}{}{}{\rightmark} % page marks in the edge
 \pagestyle{NUIG}
 
-%% Use our NUIG page style, even in pages with a chapter heading.
-\aliaspagestyle{chapter}{NUIG}
+%% Use our NUIG page style, even in pages with a chapter heading but
+%% remove the markers at the top of the page.
+\copypagestyle{chapter}{NUIG}
+\makeevenhead{chapter}{}{}{}
+\makeoddhead{chapter}{}{}{}
 
 %% For some reason, the page with the abstract keeps the header with
 %% the last page mark (The last "Table of ...").  We don't want to
