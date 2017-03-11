@@ -184,6 +184,17 @@
 
 \renewcommand{\abstractname}{Summary}
 
+%% Andrew does not like having a different font or margins on the
+%% abstract so change all that.  Find more details on the Chapter
+%% Abstracts (Chapter 5) on the manual of the memoir document class.
+%% The flip side of this is that the abstract of results chapter look
+%% very weird, as if they are part of the text.  So consider using
+%% chapterprecis (chapterprecishere) for that.
+\renewcommand{\abstractnamefont}{\normalfont\bfseries}
+\renewcommand{\abstracttextfont}{\normalfont}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
 %% make it easy to center any dedication
 \newcommand{\dedication}[1]{
 {\clearpage\mbox{}\vfill\centering #1 \par\vfill\clearpage}}
