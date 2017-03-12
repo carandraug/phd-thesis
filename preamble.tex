@@ -48,8 +48,21 @@
 %% This is pretty much repeated in Appendix 1 --- Regulations for
 %% Higher Research Degrees, Section 10 Submission of the Thesis.
 
-\chapterstyle{veelo}
+\chapterstyle{madsen}
+%% This style has a quite large (40pt) gap between the header and the
+%% start of the text.  Because of the long abstracts in the results
+%% chapters, there's only 2-3 lines of actual text on the first page,
+%% sometimes none, which looks kinda odd.  So we reduce it which helps
+%% a little.
+\setlength{\afterchapskip}{20pt}
 
+%% NUIG guidelines say "maximum of one-and-half".  While I would like
+%% to use single spacing, the standard before was to have it printed
+%% in double spacing.  Changing to single spacing would look too
+%% different and Andrew doesn't like that.  I think part of it is that
+%% thesis are expected to be of a certain length which is measure in
+%% pages and not content, and a single spaced thesis would look much
+%% smaller.
 \OnehalfSpacing
 
 \makepagestyle{NUIG}
@@ -74,10 +87,12 @@
 \makeoddfoot{abstract}{}{\thepage}{} % page numbers at the centre
 
 %% NUIG only requires 4cm margin on the spine margin (well, they say
-%% 4cm on each side because of double side so I guess they actually
-%% mean only the spine).  With font of 12pt, the default margin is 3.2
-%% on the spine and 4.4 on the outside.  To keep the ratio and
-%% increase the spine to 4cm, we set the outside to 3.6.
+%% 4cm on each margin for double-side printing so I guess what they
+%% really meant was to have 4cm margin the spine).  With font of 12pt,
+%% the default margin is 3.2 on the spine and 4.4 on the outside.  To
+%% keep the default text width (which I understand is adjusted to have
+%% ~66 characters per line for best readability) and increase the
+%% spine to 4cm, we set the outside to 3.6.
 \setlrmarginsandblock{4cm}{3.6cm}{*}
 \setulmarginsandblock{3.5cm}{3.0cm}{*}
 \checkandfixthelayout
@@ -185,18 +200,23 @@
 
 \newcommand{\G}[1]{G$_#1$}  % for G0, G1, and G2 phases
 
-\renewcommand{\abstractname}{Summary}
-
 %% Andrew does not like having a different font or margins on the
 %% abstract so change all that.  Find more details on the Chapter
 %% Abstracts (Chapter 5) on the manual of the memoir document class.
 %% The flip side of this is that the abstract of results chapter look
-%% very weird, as if they are part of the text.  So consider using
-%% chapterprecis (chapterprecishere) for that.
+%% very weird, as if they are part of the text.  So instead we created
+%% a new chapterabstract environment.
+\renewcommand{\abstractname}{Summary}
 \renewcommand{\abstractnamefont}{\normalfont\bfseries}
 \renewcommand{\abstracttextfont}{\normalfont}
 \setlength{\absleftindent}{0pt}
 \setlength{\absrightindent}{0pt}
+
+\newenvironment{chapterabstract}
+    {\begin{SingleSpace}
+    \normalfont\small\list{}{\rightmargin=0.5cm \leftmargin=0.5cm}%
+    \item\textbf{Abstract.}\relax}
+    {\endlist\end{SingleSpace}}
 
 %% make it easy to center any dedication
 \newcommand{\dedication}[1]{
