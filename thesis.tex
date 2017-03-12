@@ -24,8 +24,53 @@
 \begin{document}
   \frontmatter
 
-  \maketitle
+  %% Memoir manual chapter on Titles (Chapter 4) recommends forgetting
+  %% about the \maketitle command and designing our own page layout
+  %% instead.  The latex TitlePages "package'', recommends the same.
+  %% We don't have that many rules for the title page from NUIG, only
+  %% that it must contain:
+  %%  a. The full title (and subtitle, if any)
+  %%  b. The volume number and total number of volumes, if more than one
+  %%  c. The full name of the candidate, followed, if desired, by any
+  %%     degree and/or professional qualification(s)
+  %%  d. The name(s) of the supervisor(s), School(s), component
+  %%     Discipline(s), Institution
+  %%  e. The month and year of submission.
+  %%
+  %% This title page is based on titleGM from TitlePages
+  %% http://mirror.ctan.org/info/latex-samples/TitlePages/
+  \thispagestyle{empty}
+  \begingroup
+  \vfill
+  \hbox{%
+    \hspace*{0.1\textwidth}%
+    \rule{1pt}{\textheight}%
+    \hspace*{0.05\textwidth}%
+    \parbox[b]{0.85\textwidth}{%
+      \vbox{%
+        \raggedright%
+        {\noindent\HUGE\bfseries \thetitle}\\[4\baselineskip]
+        {\Large\itshape
+          A thesis presented for the degree of
+          \mbox{Doctor of Philosophy} by}\\[\baselineskip]
+        {\Large\scshape \theauthor}\\[\baselineskip]
+        \vspace{0.3\textheight}
+        {\large\itshape Supervisor:}\newline
+        {\large\scshape \supervisor}\\[\baselineskip]
+        {\large\itshape Co-supervisor:}\newline
+        {\large\scshape \cosupervisor}\\[2\baselineskip]
+        {\noindent
+         Discipline of Biochemistry\\
+         School of Natural Sciences\\
+         National University of Ireland, Galway}\\[\baselineskip]
+        {\noindent \thedate}\\[\baselineskip]
+      }%
+    }%
+  }%
+  \vfill
+  \endgroup
 
+  %% \cleardoublepage
   %% \dedication{Just get it done.}
 
   \cleardoublepage
