@@ -1,0 +1,125 @@
+{
+    "AFG112" : {
+        "sequence" : "TGTCCGAGGGTACTAAGGCCGTCACCAAGTACACCAGCGCT",
+        "description" : "HIST1H2BJ V118I correction site-directed mutagenesis (forward)" },
+    "AFG113" : {
+        "sequence" : "AGCGCTGGTGTACTTGGTGACGGCCTTAGTACCCTCGGACA",
+        "description" : "HIST1H2BJ V118I correction site-directed mutagenesis (reverse)" },
+    "AFG114" : {
+        "sequence" : "GACTAAGGCGCAGAAGAAAGACGGCAAGAAGCGCAAGCGCA",
+        "description" : "HIST1H2BJ D25G correction site-directed mutagenesis (forward)" },
+    "AFG115" : {
+        "sequence" : "TGCGCTTGCGCTTCTTGCCGTCTTTCTTCTGCGCCTTAGTC",
+        "description" : "HIST1H2BJ D25G correction site-directed mutagenesis (reverse)" },
+    "AFG116" : {
+        "sequence" : "CGCGGTACCGCCACCATGTCTGGTCGCGGCAAACA",
+        "description" : "KpnI + HIST1H2AB (forward)" },
+    "AFG118" : {
+        "sequence" : "GCGGATCCCTTTCCCTTGGCCTTATGATGG",
+        "description" : "HIST1H2AB + BamHI (reverse)" },
+    "AFG119" : {
+        "sequence" : "GTGACTAAGGCGCAGAAGAAAGA",
+        "description" : "HIST1H2BJ D25G screening (forward) for use with AFG113" },
+    "AFG120" : {
+        "sequence" : "AGCGCTGGTGTACTTGGTGAC",
+        "description" : "HIST1H2BJ V118I screening (reverse) for use with AFG114" },
+    "AFG121" : {
+        "sequence" : "CGCGGTACCGCCACCATGGCTGGCGGTAAGGCTG",
+        "description" : "KpnI + H2AFZ (forward)" },
+    "AFG122" : {
+        "sequence" : "GCGGATCCGACAGTCTTCTGTTGTCCTTTCTTC",
+        "description" : "H2AFZ + BamHI (reverse)" },
+    "AFG123" : {
+        "sequence" : "CCGCGGCGGCGTGAAGCACATCTCCGGCCTCATCTACGAG",
+        "description" : "HIST1H4J R45H (CGC to CAC) site-directed mutagenesis (forward)" },
+    "AFG124" : {
+        "sequence" : "CTCGTAGATGAGGCCGGAGATGTGCTTCACGCCGCCGCGG",
+        "description" : "HIST1H4J R45H (CGC to CAC) site-directed mutagenesis (reverse)" },
+    "AFG130" : {
+        "sequence" : "CGCGGTACCGCCACCATGTCGGGCCGCGGCAA",
+        "description" : "KpnI + H2AFX (forward)" },
+    "AFG131" : {
+        "sequence" : "GCGGATCCGTACTCCTGGGA GGCCTG",
+        "description" : "H2AFX + BamHI (reverse)" },
+    "AFG132" : {
+        "sequence" : "GCGGATCCGTACTCCTGGGCGGCCTGGGTGGCCTTCTT",
+        "description" : "H2AFX S139A (TCC to GCC) + BamHI (reverse)" },
+    "AFG133" : {
+        "sequence" : "GCGGATCCGTACTCCTGGTCGGCCTGGGTGGCCTTCTT",
+        "description" : "H2AFX S139D (TCC to GAC) + BamHI (reverse)" },
+    "AFG134" : {
+        "sequence" : "GCGGATCCGTACTCCTGCTCGGCCTGGGTGGCCTTCTT",
+        "description" : "H2AFX S139E (TTC to GAG) + BamHI (reverse)" },
+    "AFG400" : {
+        "sequence" : "CAGGAGTACGATCCACCGGTCGCCACC",
+        "description" : "H2AFX frameshift correction site-directed mutagenesis (forward)"},
+    "AFG401" : {
+        "sequence" : "GGTGGCGACCGGTGGATCGTACTCCTG",
+        "description" : "H2AFX frameshift correction site-directed mutagenesis (reverse)"},
+    "AFG151" : {
+        "sequence" : "CTCACCGTTACCGCCCGGGCGAGGTGGCTCTGCGCGAGATCCG",
+        "description" : "HIST1H3B T45E (GAG) site-directed mutagenesis (forward)"},
+    "AFG152" : {
+        "sequence" : "CGGATCTCGCGCAGAGCCACCTCGCCCGGGCGGTAACGGTGAG",
+        "description" : "HIST1H3B T45E (GAG) site-directed mutagenesis (reverse)"},
+    "AFG153" : {
+        "sequence" : "CTCACCGTTACCGCCCGGGCGCCGTGGCTCTGCGCGAGATCCG",
+        "description" : "HIST1H3B T45A (GCC) site-directed mutagenesis (forward)"},
+    "AFG154" : {
+        "sequence" : "CGGATCTCGCGCAGAGCCACGGCGCCCGGGCGGTAACGGTGAG",
+        "description" : "HIST1H3B T45A (GCC) site-directed mutagenesis (reverse)"},
+    "AFG155" : {
+        "sequence" : "CGCGGTACCGCCACCATGTCTGGACGAGGGAAGCAG",
+        "description" : "KpnI + HIST1H2AA (forward)"},
+    "AFG156" : {
+        "sequence" : "GCGGATCCCTTGCTTTGGGCTTTATGGTGG",
+        "description" : "HIST1H2AA + BamHI (reverse)"},
+    "AFG157" : {
+        "sequence" : "CGCGGTACCGCCACCATGTCAGGACGCGGAAAGCAG",
+        "description" : "KpnI + HIST2H2AB (forward)"},
+    "AFG158" : {
+        "sequence" : "GCGGATCCCTTGTTCTTGCCAGGCTTGTG",
+        "description" : "HIST2H2AB + BamHI (reverse)"},
+    "AFG395" : {
+        "sequence" : "CAGGGGGAGGTGTGGGAGG",
+        "description" : "GFP sequencing primer for pBOS.  Binds to the 3' UTR on the pBOS plasmid"},
+    "AFG396" : {
+        "sequence" : "GCCATCATAAGGCCAAGGGAAAGgatccaccggtcgccacc",
+        "description" : "HIST1H2AB frameshift correction site-directed mutagenesis (forward)"},
+    "AFG397" : {
+        "sequence" : "GGTGGCGACCGGTGGATCCTTTCCCTTGGCCTTATGATGGC",
+        "description" : "HIST1H2AB frameshift correction site-directed mutagenesis (reverse)"},
+    "AFG398" : {
+        "sequence" : "GAAGAAAGGACAACAGAAGACTGTGgatccaccggtcgccacc",
+        "description" : "H2AFZ frameshift correction site-directed mutagenesis (forward)"},
+    "AFG399" : {
+        "sequence" : "GGTGGCGACCGGTGGATCCACAGTCTTCTGTTGTCCTTTCTTC",
+        "description" : "H2AFZ frameshift correction site-directed mutagenesis (reverse)"},
+    "AFG417" : {
+        "sequence" : "GCGCCCTGTCTCCCATCC",
+        "description" : "pMH3.2-614 vector amplification.  Primer for sequence after the stop codon (forward)"},
+    "AFG418" : {
+        "sequence" : "GGCGAAGACGGAAGACGCC",
+        "description" : "pMH3.2--614 vector amplification.  Reverse complement for the sequence before the start codon (reverse)"},
+    "AFG419" : {
+        "sequence" : "ATGCCAGAGCCAGCGAAGTC",
+        "description" : "H2B-EGFP amplification for blunt end cloning (forward)"},
+    "AFG420" : {
+        "sequence" : "TTACTTGTACAGCTCGTCCATGCC",
+        "description" : "H2B-EGFP amplification for blunt end cloning (reverse)"},
+    "AFG424" : {
+        "sequence" : "ATGGCTCGTACTAAACAGACAGCTC",
+        "description" : "H3-EYFP amplification for blunt end cloning (forward)"},
+    "AFG457" : {
+        "sequence" : "CGCGCGCATATGGTGAGCAAGGGCGAGGAG",
+        "description" : "NdeI + EGFP for cloning from pBOS into pET (forward)"},
+    "AFG458" : {
+        "sequence" : "GCGGGATCCATTACTTGTACAGCTCGTCCATGCCG",
+        "description" : "EGFP + BamHI for cloning from pBOS into pET (reverse)"},
+    "AFG478" : {
+        "sequence" : "CCGGATCCACGGGTCGCCACCATGGTGAGCAAGGGCGAG",
+        "description" : "BamHI + PAGFP (forward)"},
+    "AFG479" : {
+        "sequence" : "CGCGGCCgcggccgctTTACTTGTACAGCTCGTCCATG",
+        "description" : "PAGFP + NotI (reverse)"}
+}

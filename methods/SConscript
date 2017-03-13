@@ -5,6 +5,8 @@ import os.path
 
 Import('env')
 
+def path4data(fname=""):
+  return os.path.join("data", fname)
 def path4script(fname=""):
   return os.path.join("scripts", fname)
 def path4results(fname=""):
@@ -15,9 +17,14 @@ versions = env.Command(
   source=path4script("software_versions.sh"),
   action="$SOURCE > $TARGET",
 )
+primers = env.PythonOutput(
+  script=env.File(path4script('primers-list.py')),
+  target=path4results('primers-list.tex'),
+  source=env.File(path4data('primers.json')))
 
 methods = [
   versions,
+  primers,
 ]
 
 Return(['methods'])
