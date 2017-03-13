@@ -4,123 +4,96 @@
   %% \epigraph{As palavras que nunca te direi.}{Translation of ``Message in a bottle''}
   %% \epigraph{The devil is in the details.}
 
+  \section{Source of chemicals, enzymes, and solutions}
   All chemicals used were purchased from Sigma unless otherwise stated. All
   solutions were prepared according to \tref{tab:methods:solutions} with Milli-Q
   purified water, and autoclaved prior to use when appropriate.
 
-  %% FIXME Depending on what border and font size we use at the end,
-  %%       this may fit in a single page and then we can drop the use
-  %%       of longtable and have a regular table without need for
-  %%       afterpage.
-
-  %% longtable does not float so it would appear right here halfway
-  %% the very first page of the methods chapter.  We use afterpage to
-  %% delay it to the strat of the next page.
-  \afterpage{
-    %% The way we calculate the columns width (with eqparbox), doesn't work
-    %% with memoir's ctabular so we are using longtable instead.
-    %%
-    %% An alternative method to make this list is with description environment
-    %%
-    %% \begin{description}
-    %%   \item[Freezing media] \hfill \\
-    %%     91\% FCS;
-    %%     10\% DMSO
-    %%   \item[Growth medium (HeLa)] \hfill \\
-    %%     87\% DMEM;
-    %%     10\% FCS;
-    %%     1\% NEAA;
-    %%     ...
-    %% \end{description}
-    \begin{longtable}{>{\bfseries}\SolutionNameCol
-        p{\dimexpr(\textwidth-\eqboxwidth{SolutionNameBox}-4\tabcolsep)}}
-      \captionIntro{Commonly used buffers and media}{}
-      \label{tab:methods:solutions}
-      \endfirsthead
-      \endhead
-      \toprule
-      Name & Recipe\\
-      \midrule
-      2YT broth               & \SI{16}{\g\per\l} tryptone;
-      \SI{10}{\g\per\l} yeast extract;
-      \SI{5}{\g\per\l}  NaCl.\\
-
-      DMEM                    & \SI{4.5}{\g\per\l}   glucose;
+  \begin{table}
+    \captionIntro{Commonly used buffers and media}{}
+    \label{tab:methods:solutions}
+    \begin{description}
+    \item[DMEM] \hfill \\
+      \SI{4.5}{\g\per\l}   glucose;
       \SI{110}{\mg\per\l}  L-glutamine;
       \SI{584}{\ug\per\l}  sodium pyruvate;
-      \SI{15.9}{\mg\per\l} phenol red.\\
+      \SI{15.9}{\mg\per\l} phenol red.
 
-      DNA loading buffer (\SI{10}{\X}) & \pcent{25} Ficoll ($w/v$);
+    \item[DNA loading buffer (\SI{10}{\X})] \hfill \\
+      \pcent{25} Ficoll ($w/v$);
       \SI{100}{\mM}      Tris--HCl pH=\num{7.4};
-      \SI{100}{\mM}      EDTA.\\
+      \SI{100}{\mM}      EDTA.
 
-      FACS buffer             & \pcent{96} PBS ($v/v$); % 480.5 mL
+    \item[FACS buffer] \hfill \\
+      \pcent{96} DPBS ($v/v$); % 480.5 mL
       \SI{2}{\mM} EDTA;                         % 2 mL
       \SI{25}{\mM} HEPES buffer pH=\num{7.0};   % 12.5 mL
-      \pcent{1} FCS ($v/v$).\\                  % 5 mL
+      \pcent{1} Fetal Calf Serum (FCS) ($v/v$).                    % 5 mL
 
-      Freezing media          & \pcent{90} FCS ($v/v$);
-      \pcent{10} DMSO ($v/v$).\\
+    \item[Freezing media] \hfill \\
+      \pcent{90} FCS ($v/v$);
+      \pcent{10} DMSO ($v/v$).
 
-      Growth medium (HeLa, HEp2) & \pcent{89}         DMEM ($v/v$);   % 500ml
+    \item[Growth medium (HeLa, HEp2)] \hfill \\
+      \pcent{89}            DMEM ($v/v$);   % 500ml
       \pcent{9}             FCS ($v/v$);    % 50ml
       \SI{1}{\X}            NEAA solution;  % 5.5mL
       \SI{50}{units\per\ml} penicillin;     % 5.5mL (Pen/Strep solution)
-      \SI{50}{\ug\per\ml}   streptomycin.\\ % 5.5mL (Pen/Strep solution)
+      \SI{50}{\ug\per\ml}   streptomycin.   % 5.5mL (Pen/Strep solution)
 
-      Growth medium (horse)   & \pcent{81}            DMEM ($v/v$);   % 500ml
+    \item[Growth medium (horse)] \hfill \\
+      \pcent{81}            DMEM ($v/v$);   % 500ml
       \pcent{16}            FCS ($v/v$);    % 100ml
       \SI{2}{\X}            NEAA solution;  %  12mL
       \SI{50}{units\per\ml} penicillin;     % 5.5mL (Pen/Strep solution)
-      \SI{50}{\ug\per\ml}   streptomycin.\\ % 5.5mL (Pen/Strep solution)
+      \SI{50}{\ug\per\ml}   streptomycin.   % 5.5mL (Pen/Strep solution)
 
-      LB agar                 & \SI{20}{\g\per\l}  LB broth powder;
-      \SI{7.5}{\g\per\l} agar.\\
+    \item[LB agar] \hfill \\
+      \SI{20}{\g\per\l}  LB broth powder;
+      \SI{7.5}{\g\per\l} agar.
 
-      LB broth                & \SI{20}{\g\per\l} LB broth powder.\\
+    \item[LB broth] \hfill \\
+      \SI{20}{\g\per\l} LB broth powder.
 
-      Ponceau S solution      & \pcent{5} Ponceau S ($w/v$);
-      \pcent{5} Acetic acid ($v/v$).\\
+    \item[Running buffer] \hfill \\
+      \SI{1}{\X}  TG;
+      \pcent{0.1} SDS ($w/v$).
 
-      Running buffer          & \SI{1}{\X}  TG;
-      \pcent{0.1} SDS ($w/v$).\\
-
-      SSC (Saline Sodim Citrate) & \SI{150}{\mM} NaCl;
-      \SI{15}{\mM}     trisodium citrate.\\
-
-      TAE (Tris Acetate EDTA) & \SI{40}{\mM} Tris;
+    \item[TAE (Tris Acetate EDTA)] \hfill \\
+      \SI{40}{\mM} Tris;
       \SI{20}{\mM} acetic acid;
-      \SI{1}{\mM}  EDTA.\\
+      \SI{1}{\mM}  EDTA.
 
-      TBE (Tris Borate EDTA)  & \SI{89}{\mM} Tris;
-      \SI{89}{\mM} boric acid;
-      \SI{2}{\mM}  EDTA.\\
+    \item[TBS (Tris Buffered Saline)] \hfill \\
+      \SI{50}{\mM} Tris--HCl pH=\num{7.5};
+      \SI{100}{\mM}    NaCl.
 
-      TBS (Tris Buffered Saline)  & \SI{50}{\mM} Tris--HCl pH=\num{7.5};
-      \SI{100}{\mM}    NaCl.\\
+    \item[TBS-T (TBS-Tween)] \hfill \\
+      \pcent{99.95} TBS ($v/v$);
+      \pcent{0.05}  Tween 20 ($v/v$).
 
-      PBS-T (TBS-Tween)       & \pcent{99.95} PBS ($v/v$);
-      \pcent{0.05}  Tween 20 ($v/v$).\\
+    \item[TG (Tris Glycine)] \hfill \\
+      \SI{25}{\mM}  Tris;
+      \SI{192}{\mM} glycine.
 
-      TG (Tris Glycine)       & \SI{25}{\mM}  Tris;
-      \SI{192}{\mM} glycine.\\
+    \item[Transfer buffer] \hfill \\
+      \SI{1}{\X} TG;
+      \pcent{15} methanol ($v/v$).
+    \end{description}
+  \end{table}
 
-      Transfer buffer         & \SI{1}{\X} TG;
-      \pcent{15} methanol ($v/v$).\\
-      \bottomrule
-    \end{longtable}
-  }
-
-  Restriction enzymes, T4 DNA ligase, other DNA modifying enzymes, and DNA
+  Restriction enzymes, T4 DNA ligase, T4 Polynucleotide Kinase (PNK), and DNA
   ladders were obtained from New England BioLabs.
   Protein ladders were obtained from Invitrogen.
 
-  For use in tissue culture, FCS and DMEM (without phenol red and L-glutamine)
-  were obtained from Lonza.  DMEM (supplemented with glucose, sodium pyruvate,
-  L-glutamine and phenol red), Non-Essential Amino Acid (NEAA) solution, and
-  PBS (without Ca$^{2+}$ and Mg$^{2+}$) were obtained from Sigma.
-  Penicillin--Streptomycin
-  solution and Trypsin--EDTA were obtained from Gibco.
+  For use in tissue culture, Fetal Calf Serum (FCS), and
+  Dulbecco's Modified Eagle's Medium (DMEM) without phenol red and L-glutamine,
+  were obtained from Lonza.  Non-Essential Amino Acid (NEAA) solution,
+  Dulbecco's Phosphate-Buffered Solution (DPBS) without Ca$^{2+}$ and Mg$^{2+}$,
+  and DMEM supplemented with glucose, sodium pyruvate, L-glutamine,
+  and phenol red, were obtained from Sigma.
+  Trypsin--EDTA and Penicillin--Streptomycin
+  solution were obtained from Gibco.
 
   \section{DNA methods}
     \subsection{Bacterial cultures}
@@ -288,7 +261,7 @@
         PCRs were used to clone and subclone genes from genomic DNA and
         plasmids, into different vectors. Primers were usually
         extended to introduce restriction sites and create DNA linkers.
-        Additional extensions were added to the
+        Additional extensions of cytosine and guanine were added to the
         5' end of primers to account for the minimum
         required \si{\bp} around the restriction sites as recommended
         by the restriction enzyme manufacturer, New England BioLabs.
@@ -604,7 +577,6 @@
       precipitation (\Sref{sec:ethanol-precipitation}).
 
     \subsection{Viable cells count}
-      \label{sec:methods:trypan-blue}
       Trypan blue was used to assess the number of viable cells.
       After trypsinisation, cells were diluted in growth media,
       to a final concentration of \SI{2e5}{cells\per\ml}.
@@ -623,7 +595,7 @@
       with the same antibiotic concentrations. After 4 days, a total of
       one week after addition of antibiotics, cells were trypsinised and a count
       of viable cells was performed with
-      Trypan Blue (\Sref{sec:methods:trypan-blue}).
+      Trypan Blue.
 
       The highest concentration tested with no viable cells in all
       replicas after 7 days was used for selection of transfected
@@ -667,7 +639,7 @@
       \SI{10}{\cm} dishes 24~hours after transfection.  After another
       24 hours, the appropriate antibiotic was added to the medium
       with a final concentration as determined by performing an
-      antibiotic kill-curve \Srefp{sec:methods:kill-curve}.  Cell
+      antibiotic kill-curve.  Cell
       growth was observed daily followed and medium replaced every 3
       days.  As cell colonies started to be visible by the naked eye,
       approximately 3~weeks after plating, these were screened by
@@ -697,7 +669,8 @@
       Cells were trypsinised and after addition of medium, centrifuged
       at \SI{160}{\gn} for 5~minutes. The supernatant was discarded and the
       pellet washed with PBS. The sample was centrifuged one more time at
-      \SI{160}{\gn} for 5~minutes. The supernatant was discarded and the
+      \SI{160}{\gn} for 5~minutes. The supernatant was discarded again
+      and the new
       pellet resuspended in Fluorescence-Activated Cell Sorting (FACS) buffer.
 
       Populations with mixed levels of fluorescent intensity were
@@ -725,10 +698,6 @@
 
   \section{Software used}
     \label{sec:methods:software}
-    The European Molecular Biology Open Software Suite (EMBOSS) version 6.4.0
-    was used for analysis of codon usage, RNA folding, and reading of
-    chromatogram files.
-
     Image analysis was performed using GNU Octave version \OctaveVersion{},
     and Octave Forge Image, Optim, Statistics, Bioformats, and Signal
     packages, versions \OctaveImageVersion{}, \OctaveOptimVersion{},
@@ -738,3 +707,19 @@
     ImageJ, as distributed by the Fiji project, was routinely used
     for microscope image visualisation.  PyMOL, by Schrödinger, LLC,
     was used for visualisation of protein structures.
+    The European Molecular Biology Open Software Suite (EMBOSS)
+    was used for analysis of codon usage, RNA folding, and reading of
+    chromatogram files.
+
+  \section{Source Code and Data}
+    Source code to reproduce this thesis is available online,
+    including its entire development history as a git repository, at
+    \url{https://github.com/carandraug/phd-thesis.git}.  The SCons build
+    system is used to automate the build.  Multiple dependencies will
+    be required, namely GNU Octave, the Octave Forge Image package,
+    BioPerl, and the Perl Bio-EUtilities module distribution, all of
+    which will be confirmed by SCons.  All the data required for the
+    build is available online at Zenodo with record ID 377035 and
+    DOI \texttt{10.5281/zenodo.377035}.  The script
+    \command{bootstrap.sh} is included in the thesis repository and
+    can be used to download all data into the correct locations.
