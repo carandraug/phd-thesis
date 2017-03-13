@@ -203,10 +203,10 @@
 \setlength{\absrightindent}{0pt}
 
 \newenvironment{chapterabstract}
-    {\begin{SingleSpace}
+    {\begin{SingleSpace}%
     \normalfont\small\list{}{\rightmargin=0.5cm \leftmargin=0.5cm}%
     \item\textbf{Abstract.}\relax}
-    {\endlist\end{SingleSpace}}
+    {\endlist\end{SingleSpace}\par\vfill}
 
 %% make it easy to center any dedication
 \newcommand{\dedication}[1]{
