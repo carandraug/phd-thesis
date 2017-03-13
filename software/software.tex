@@ -12,8 +12,8 @@
   projects including the Octave programming language, the BioPerl
   suite of scientific data tools, and the Debian GNU/Linux operating
   system.  This included implementing new algorithms, refactoring code
-  for efficiency and consistency, adding new function libraries,
-  creating supporting plugin tools, and packaging software for ease of
+  for efficiency and consistency,
+  creating maintenance support tools, and packaging software for ease of
   installation by non-expert users.  The software developed and
   contributed to public repositories should enable other researchers
   to reproduce our work, and to implement a diverse variety of their
@@ -38,7 +38,7 @@ reproducibility.
 Sharing the code is not enough.  Programs that undertake the direct analysis
 tasks sit on top of several other components.  Specific versions of
 libraries are used, on top of a specific programming language, running
-in a specific operating system on hardware with a particular
+in a specific operating system, on hardware with a particular
 specification.  Reproducing this runtime environment is not trivial.
 
 Following from free software came the ideals of open and collaborative
@@ -137,7 +137,7 @@ large image size or number of dimensions.
 Our microscopy images
 were several megabytes in size.  For example, the single cell
 FRAP experiments for histone dynamics generating
-TIFF files of \SI{489}{\mebi\byte}.
+TIFF files were \SI{489}{\mebi\byte} in size.
 These images had a field of view of 300
 by 300 pixels and 2500 time frames
 on acquisition by an 8-bit camera.
@@ -263,7 +263,7 @@ For example, Zeiss confocal microscopes saves
 images in the LSM file format which is a proprietary extension of TIFF.
 Although GraphicsMagick reads LSM pixel data,
 the file metadata such as pixel size, time interval, or region of
-bleaching event cannot be retrieved.
+bleaching event are not retrieved.
 
 Bio-Formats is a free software library for reading and writing image
 data with a strong focus on microscopy image file formats
@@ -650,7 +650,7 @@ fixed size with lowest average intensity in the image.
                  unintentional photobleaching;
                  \subcaptionref{subfig:software:frap-roi:prebleach}
                  perimeter of the automatically identified ROIs
-                 superimposed on the pre-bleach image: cell nuclei,
+                 superimposed on the pre-bleach image: Cell nuclei,
                  bleach spot, and background region.  }
                \label{fig:software:frap-roi}
 \end{figure}
@@ -679,13 +679,13 @@ another shows the recovery curves, intermediary analysis, and best fits
                  intensity for the background, bleach spot, and
                  nucleus intensity over the duration of the FRAP
                  experiment. This is followed by the normalised
-                 intensity for the bleach spot which is actually used
+                 intensity for the bleach spot which is then used
                  for the fitting. The top right displays the intensity
                  profile for the bleach spot, and its fit to a radial
                  profile model. The three bottom panels display the
-                 data fitted to three different models: pure diffusion
-                 which has no terms for binding constants; full model
-                 with a fixed diffusion rate; and full model with all
+                 data fitted to three different models: Pure diffusion
+                 which has no terms for binding constants, full model
+                 with a fixed diffusion rate, and full model with all
                  the 3 terms.  }
                \label{fig:software:frapinator}
 \end{sidewaysfigure}
@@ -716,7 +716,7 @@ and SwissProt, and to bioinformatics tools such as ClustalW and Blast+.
 %% bioperl-live).
 The large number of modules in BioPerl became a maintenance problem
 so in 2011, a new project was initiated to split BioPerl into
-more manageable distributions such as Bio-Biblio, Bio-FeatureIO, and
+more manageable module distributions such as Bio-Biblio, Bio-FeatureIO, and
 Bio-Coordinate.
 
 \subsection{Dist::Zilla and Pod::Weaver}
@@ -754,8 +754,8 @@ Legal::Complicated creates a POD section for copyright details
 based on comments in individual modules.  This is useful because while
 BioPerl is free
 software, individual modules may be released under different free
-software licenses, and each has their own author who is often not
-the copyright holder.
+software licenses, and each module has its own author who may
+differ from the copyright holder.
 
 Both new Pod::Weaver plugins and the BioPerl PluginBundle are available
 on CPAN since 2013.  They were used for our contributions to the
@@ -825,7 +825,8 @@ Debian is a widely used GNU/Linux
 distribution with more than 21000 packages and a large
 number of derivative distributions.  These new distributions
 inherit the base of their packages from Debian, and some like Ubuntu
-and Knoppix are in turn the parents of their own derivatives.  By packaging
+and Knoppix are in turn the parents of their own derivative
+distributions.  By packaging
 for Debian, a packager effectively prepares packages for the whole family of
 Debian based distributions.
 
