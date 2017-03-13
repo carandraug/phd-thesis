@@ -324,13 +324,20 @@ correlation could be more directly related to a structural constraint
 such as the variation in internucleosomal repeat lengths of organisms
 which itself shows linkage with evolutionary complexity.
 
-\begin{figure}
-%% FIXME  we want the side caption to appear on the outside. However, setting
-%%        this to "outer" (default), seems to put it on the inside.  So we are
-%%        reversing the logic by why is it failing?
-\sidecapmargin{inner} % put memoir figure's sidecaption on the outerside
-\setsidecappos{t}
-\begin{sidecaption}[Sequence logo of human canonical H2A isoforms and H2AX]%
+\begin{sidewaysfigure}
+\centering
+%% The figure is already rotated on the file (at the time we didn't
+%% know better) which means that it may be right or wrong depending on
+%% whether it falls on an odd or even page.  We need to change the
+%% signal of the rotation depending on where it falls.  On the
+%% publication, the caption is also on the margin.  Here we exercise
+%% editor rights to put the caption on the side as it happens on all
+%% other tables and figures of the thesis (also we don't have margins
+%% wide enough for captions).
+
+\includegraphics[angle=-90,width=\textheight]{h2ax-review/figs/Fig3}
+\raggedleft
+\caption[Sequence logo of human canonical H2A isoforms and H2AX]%
                    {Sequence logo of all human canonical H2A isoforms
                      showing differences with H2AX below. The 4
                      residues changes from H2A to H2AX outside the
@@ -340,11 +347,8 @@ which itself shows linkage with evolutionary complexity.
                      \citep{Mor99} from EMBOSS
                      \citep{RLB00} and WebLogo 3
                      \citep{weblogo}.}%
-                   [fig:h2ax-review:H2AX-logo]
-\centering
-\includegraphics[height=\textheight]{h2ax-review/figs/Fig3}
-\end{sidecaption}
-\end{figure}
+\label{fig:h2ax-review:H2AX-logo}
+\end{sidewaysfigure}
 
 In addition to the C-terminal motif, amino acid residues 6, 16, 38
 and 99 of H2AX are different from the human H2A.1 consensus
