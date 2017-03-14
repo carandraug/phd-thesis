@@ -130,7 +130,9 @@ function aligned = stackreg (img)
 endfunction
 
 function main (argv)
-  montage_size = [5 3];
+  montage_size = [2 3];
+  yx_pixelsize = [0.1074080]; # micron
+  yx_scalebar = [1 20]; # height and width in microns
 
   if (numel (argv ()) != 2)
     error ("Requires exactly 2 arguments")
@@ -143,30 +145,27 @@ function main (argv)
   ## the image has been deconvolved so we need to trim the borders
   img = img(31:end-30,31:end-30,:,:);
 
-  img = imadjust (img, stretchlim (img(:,:,:,1), 0));
+  img = imadjust (img, stretchlim (img(:), 0));
 
   rect = [570   250   280   300];
   [seed, rect] = imcrop (img(:,:,:,1), rect);
-  tracked = Crop_Reg (img, seed, rect, 0.2);
+  tracked = Crop_Reg (img(:,:,:,:), seed, rect, 0.2);
   aligned = stackreg (tracked);
 
-  ## inset the aligned image on the top left corner of the corresponding
-  ## frame, with a small white border around it
+  ## ## inset the aligned image on the top left corner of the corresponding
+  ## ## frame, with a small white border around it
   aligned = padarray (aligned, [5 5], getrangefromclass (aligned)(2), "post");
   img(1:rows (aligned), 1:columns (aligned),:,:) = aligned;
 
-  ## add an arrow to the image, pointing to the cell being tracked,
-  ## but only on the first frame
-  arrow = imdilate (logical (eye (100)), strel ("square", 5));
-  arrow(end-49:end, end-49:end) |= logical (imrotate (tril (ones(50)), 90));
-  [r, c] = find (arrow);
-  ind    = sub2ind (size (img), r + rect(2) -50, c + rect(1) -50);
-  img(ind) = getrangefromclass (img)(2);
+  ## Add a scalebar only to the pre bleach frames, top left corner.
+  bar_length = round (yx_scalebar ./ yx_pixelsize); # in pixels
+  bar_color = getrangefromclass (img)(2);
+  img(900:900+bar_length(1), 700:700+bar_length(2), :, 7) = bar_color;
 
   mont_img = montage_cdata (img,
     "Size", montage_size,
     "MarginWidth", 10,
-    "Indices", [1 2:2:size(img, 4)](1:prod (montage_size))
+    "Indices", [7:6:37]
   );
   imwrite (mont_img, out_img);
 endfunction

@@ -128,12 +128,7 @@
       \begin{tikzpicture}[inner sep=0pt]
         \node at (0,0) {\includegraphics[width=\linewidth]%
                         {"results/confluent-hela"}};
-        %% See http://tex.stackexchange.com/a/64458/24374
-        %% for the countouring of text (only works for pdf)
-        \node at (-5.41,2.90) {\pgfsetstrokecolor{black}
-                             \pgfsetfillcolor{white}
-                             \pdfliteral{2 Tr}
-                             \SI{10}{\um}};
+        \node at (-5.90,3.22) {\SI{10}{\um}};
       \end{tikzpicture}%
       %% We show only the outline of the nuclei so to not distract
       %% from the message which is how the nuclei kept moving.
@@ -222,15 +217,20 @@
 
     \begin{figure}
       \centering
-      \includegraphics[width=\textwidth]{results/cropreg.png}
+      \begin{tikzpicture}[inner sep=0pt]
+        \node at (0,0) {\includegraphics[width=\linewidth]%
+                       {results/cropreg.png}};
+        \node[text=white] at (-3.1,0.55) {\SI{20}{\um}};
+        \draw[->,white,very thick] (-3.4,3.4) -- (-3.4, 2.9);
+      \end{tikzpicture}
       \captionIntro{Automatic tracking and alignment of moving cells}
         {
-         HeLa-derived stable cell line expressing H3--YFP
-         with circle FRAP performed in a widefield microscope over 8~hours.
-         Pre-bleach image at top left followed by
-         image sequence at 20~min intervals.
-         The top left of each image displays the cell tracked and transformed
-         by automated cropping and registration.
+         HeLa-derived stable cell line expressing H3--EYFP
+         observed in a widefield microscope.  Imaging was performed
+         for a total of 6~hours with 10~min imaging interval.
+         White arrow on the first panel corresponds to the cell that
+         is being automatically tracked and aligned, and is inset on
+         the top left corner of each panel.
         }
       \label{fig:kill-frap:cropreg}
     \end{figure}
@@ -254,12 +254,12 @@
       \begin{tikzpicture}[inner sep=0pt]
         \node at (0,0) {\includegraphics[width=\linewidth]%
                        {results/spot-distortion.png}};
-        \node[text=white] at (-5.4,3.9) {\SI{5}{\um}};
-        \draw[black,very thick] (-5.2,3.2) circle (7pt);
-        \draw[->,black,very thick] (-2.1,2.5) -- (-2.1, 2.9);
-        \draw[->,black,very thick] (1.0,2.5) -- (1.0, 2.9);
-        \draw[->,black,very thick] (-1.9,-3.4) -- (-1.9, -3.0);
-        \draw[->,black,very thick] (1.2,-3.4) -- (1.2, -3.0);
+        \node[text=white] at (-6.05,4.4) {\SI{5}{\um}};
+        \draw[black,very thick] (-5.8,3.5) circle (7pt);
+        \draw[->,black,very thick] (-2.35,2.7) -- (-2.35, 3.1);
+        \draw[->,black,very thick] (1.0,2.7) -- (1.0, 3.1);
+        \draw[->,black,very thick] (-2.0,-4.0) -- (-2.0, -3.6);
+        \draw[->,black,very thick] (1.2,-4.0) -- (1.2, -3.6);
       \end{tikzpicture}
       \captionIntro{Movement of nuclear features and bleach spot distortion}
         {
@@ -352,7 +352,7 @@
         \begin{tikzpicture}[inner sep=0pt]
           \node at (0,0) {\includegraphics[width=0.45\linewidth]%
                           {results/ifrap-pre.png}};
-          \node[text=white] at (1.6,-1.6) {\SI{10}{\um}};
+          \node[text=white] at (1.8,-1.9) {\SI{10}{\um}};
         \end{tikzpicture}
       }
       \hfill
@@ -366,7 +366,7 @@
         \begin{tikzpicture}[inner sep=0pt]
           \node at (0,0) {\includegraphics[width=\linewidth]%
                           {results/ifrap.png}};
-          \node[text=white] at (-5.4,3.1) {\SI{2}{\um}};
+          \node[text=white] at (-6.0,3.5) {\SI{2}{\um}};
         \end{tikzpicture}
       }
       %% Can you add an additional section in ifrap figure with 3-4
