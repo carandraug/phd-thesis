@@ -216,3 +216,21 @@
 \usepackage[UKenglish,abbreviations]{foreign}
 
 \input{methods/results/software_versions}
+
+%% Somewhere in between \fussy (default) and \sloppy to avoid overfull
+%% lines while also not varying too much the interword spacing.
+\midsloppy
+
+%% Some words that LaTeX can't hyphenate and is causing overfull \hbox
+\hyphenation{methyl-a-tion}
+\hyphenation{ly-o-phil-ised}
+\hyphenation{mo-le-cul-es}
+\hyphenation{co-lo-nies}
+\hyphenation{rap-idly}
+\hyphenation{data-base}
+\hyphenation{mi-cro-s-c-o-py}
+
+%% To avoid last line of a paragraph at the top of a new page.
+\clubpenalty=10000
+\widowpenalty=10000
+\raggedbottom
