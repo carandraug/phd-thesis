@@ -18,55 +18,58 @@
 
     \begin{figure*}
       \centering
+      %% The total width of this figure is longer than the textwidth.
+      %% That is because it was originally designed for a document
+      %% with longer margins (and smaller fonts)
       \subbottom[canonical coding gene]{%
-        \begin{minipage}{0.37\textwidth}
+        \begin{minipage}{0.34\textwidth}
           \centering
-          \Huge{%
-            \colorbox{red}{\strut HIST1}%
-            \colorbox{green}{\strut H2B}%
+          \LARGE{%
+            \colorbox{red!60}{\strut HIST1}%
+            \colorbox{green!60}{\strut H2B}%
             \colorbox{blue!40}{\strut D}%
           }
 
           \scriptsize{%
-            \colorbox{blue!40}{\strut 4\textsuperscript{th}}
-            \colorbox{green}{\strut H2B}
-            \colorbox{red}{\strut in Histone cluster 1}
+            \colorbox{blue!40}{\strut 4\textsuperscript{th}}%
+            \colorbox{green!60}{\strut H2B}%
+            \colorbox{red!60}{\strut in Histone cluster 1}
           }
         \end{minipage}
         \label{subfig:nomenclature-coding-canonical}
-      }
+      }%
       \subbottom[canonical pseudogene]{%
-        \begin{minipage}{0.37\textwidth}
+        \begin{minipage}{0.41\textwidth}
           \centering
-          \Huge{%
-            \colorbox{red}{\strut HIST2}%
-            \colorbox{green}{\strut H3}%
-            \colorbox{yellow}{\strut PS}%
+          \LARGE{%
+            \colorbox{red!60}{\strut HIST2}%
+            \colorbox{green!60}{\strut H3}%
+            \colorbox{yellow!60}{\strut PS}%
             \colorbox{blue!40}{\strut 2}%
           }
 
           \scriptsize{%
-            \colorbox{blue!43}{\strut 2\textsuperscript{nd}}
-            \colorbox{green}{\strut H3}
-            \colorbox{yellow}{\strut pseudogene}
-            \colorbox{blue!40}{\strut found}
-            \colorbox{red}{\strut in cluster 2}
+            \colorbox{blue!43}{\strut 2\textsuperscript{nd}}%
+            \colorbox{green!60}{\strut H3}%
+            \colorbox{yellow!60}{\strut pseudogene}%
+            \colorbox{blue!40}{\strut found}%
+            \colorbox{red!60}{\strut in cluster 2}
           }
         \end{minipage}
         \label{subfig:nomenclature-pseudo-canonical}
-      }
+      }%
       \subbottom[variant]{%
-        \begin{minipage}{0.22\textwidth}
+        \begin{minipage}{0.25\textwidth}
           \centering
-          \Huge{%
-            \colorbox{red}{\strut H2A}%
-            \colorbox{green}{\strut F}%
+          \LARGE{%
+            \colorbox{red!60}{\strut H2A}%
+            \colorbox{green!60}{\strut F}%
             \colorbox{blue!40}{\strut X}%
           }
 
           \scriptsize{%
-            \colorbox{red}{\strut H2A}
-            \colorbox{green}{\strut Family}
+            \colorbox{red!60}{\strut H2A }%
+            \colorbox{green!60}{\strut Family }%
             \colorbox{blue!40}{\strut member X}
           }
         \end{minipage}
@@ -123,7 +126,7 @@
     The human canonical core histone genes are located in clusters HIST1 to HIST\NumberOfClusters{},
     named in order of decreasing histone gene count (\tref{tab:histone-gene-count}).
     HIST1 is the major histone gene cluster at locus~\HISTOneLocus{}
-    with \CoreCodingGenesInHISTOne{}~functional core histone genes plus all canonical H1 histones,
+    with \CoreCodingGenesInHISTOne{} functional core histone genes plus all canonical H1 histones,
     representing \FPround{\result}{\PercentageGenesInHISTOne}{0} \SI{\result}{\percent}
     of all canonical core histone genes.
     HIST2 at locus \HISTTwoLocus{} contains \CoreCodingGenesInHISTTwo{}~coding genes,
