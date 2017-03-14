@@ -64,7 +64,7 @@ kill_frap = [
     script = path4script("first-frap.m"),
     source = path4data("test8_R3D.dv"),
     target = [path4result("first-frap-%d.png") %(i) \
-              for i in [20, 21, 55, 65, 75, 85]],
+              for i in [20, 21, 55, 65, 75]],
   ),
   env.OctaveScript(
     script = path4script("spot-distortion.m"),

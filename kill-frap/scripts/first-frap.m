@@ -22,7 +22,7 @@ yx_scalebar = [1 10]; # height and width in microns
 
 n_prebleach = 20; # last frame before bleaching
 
-if (numel (argv ()) != 7)
+if (numel (argv ()) != 6)
   error ("Requires exactly 7 arguments")
 endif
 in_fpath = argv (){1};
@@ -43,7 +43,7 @@ img(25:25+bar_length(1), 25:25+bar_length(2), :, 1:n_prebleach) = bar_color;
 
 ## We don't really need this but having this checks means if we change
 ## somewhere we will remember to fix the rest.
-frames = [20 21 55 65 75 85];
+frames = [20 21 55 65 75];
 
 for i = 1:numel(out_fpaths)
   fpath = out_fpaths{i};
