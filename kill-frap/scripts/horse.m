@@ -17,7 +17,10 @@
 
 pkg load image;
 
-montage_size = [6 5];
+yx_pixelsize = [0.0644]; # micron
+yx_scalebar = [10 1]; # height and width in microns
+
+montage_size = [2 5];
 
 if (numel (argv ()) != 2)
   error ("Requires exactly 2 arguments")
@@ -29,15 +32,19 @@ img = imread_dv (argv (){1});
 img = img(31:end-30,31:end-30,:,:);
 
 ## the image is mostly black, this is the only cell, so we crop it
-img = imcrop (img, [110 1 400 550]);
+img = imcrop (img, [150 51 360 500]);
 
-## although file bitdepth is 16bit, DeltaVision was actually only 12bit
-## so this needs to be readjusted
-img *= 2^(16-12);
+## Scale to the min and max of the whole scale for display.
+img = imadjust (img, stretchlim (img(:), 0));
+
+## Add a scalebar only to the pre bleach frames, top left corner.
+bar_length = round (yx_scalebar ./ yx_pixelsize); # in pixels
+bar_color = getrangefromclass (img)(2);
+img(25:25+bar_length(1), 25:25+bar_length(2), :, 1) = bar_color;
 
 mont_img = montage_cdata (img,
   "Size", montage_size,
   "MarginWidth", 10,
-  "Indices", 1:(montage_size(1)*montage_size(2))
+  "Indices", 1:10
 );
 imwrite (mont_img, argv (){2});

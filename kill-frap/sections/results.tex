@@ -189,14 +189,20 @@
 
     \begin{figure}
       \centering
-      \includegraphics[width=\textwidth]{results/confluent-horse.png}
+      \begin{tikzpicture}[inner sep=0pt]
+        \node at (0,0) {\includegraphics[width=\textwidth]%
+                        {"results/confluent-horse"}};
+        \node[text=white] at (-5.70,3.25) {\SI{10}{\um}};
+        \draw[red,thick] (-5.15,1.45) circle (5pt);
+      \end{tikzpicture}%
       \captionIntro{Movement of confluent primary horse
-                    cells during a FRAP experiment}
+                    cells during a circle FRAP experiment}
         {
-          Immortalised horse cells were transfected with pBOS--H2B-EGFP
-          with circle FRAP performed in a widefield microscope over 8~hours.
-          Pre-bleach image at top left followed by
-          image sequence at \SI{15}{\min} intervals.
+          Primary horse fibroblast transiently expressing H2B-EGFP
+          imaged in a widefield microscope.  Red circle on the first
+          image shows the location of the bleaching event.  Following
+          images shows the nuclei movement at \SI{15}{\min} intervals
+          for a total of 2 hours.
         }
       \label{fig:kill-frap:confluent-horse}
     \end{figure}
