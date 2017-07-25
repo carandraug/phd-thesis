@@ -137,7 +137,8 @@
     with one H2A--H2B dimer on each face of the disk
     \frefp{fig:intro:octamer-side-view}
     and the \SI{147}{\bp} of DNA wrapped around the octamer in 1.65~turns
-    to form the core particle \frefp{fig:intro:nucleosome-side-view}.
+    to form the core particle (\fref{fig:intro:nucleosome-top-view}
+    and \ref{fig:intro:nucleosome-side-view}).
 
     \begin{figure}
       \centering
@@ -323,14 +324,14 @@
       H3 K4 di-methylation and H3 K27 tri-methylation are well known
       markers for gene activation and silencing respectively.
       Similarly,
-      phosphorylation of serene 139 in histone variant H2AX
+      phosphorylation of serine 139 in histone variant H2AX
       is involved
       in the recruitment of DNA repair-related proteins
       \citep{our-H2AX-review}.
 
     \subsubsection{Histone variants}
 
-      Each of the histones protein types is encoded by a family
+      Each of the histone protein types is encoded by a family
       of genes in most genomes,
       resulting in several slightly different proteins.
       These are grouped into two classes, canonical isoforms
@@ -345,7 +346,7 @@
       and perform a variety of specialised functions.  For example, the
       H2A variant H2AX has a longer C-terminal tail with unique locations
       for post-translational modifications involved in the DNA damage
-      response.  CENP-A is a H3 variant that
+      response \citep{our-H2AX-review}.  CENP-A is a H3 variant that
       forms a nucleosome with altered biophysical properties
       and has a unique N-terminal
       tail that is involved in centromere identity \citep{black2011-cenpa}.
@@ -418,7 +419,7 @@
       %% put this into a table.. However, this ``table'' is longer
       %% than a single so we must use afterpage + captionof.
       \afterpage{%
-        \captionofIntro{table}{Historical perspective of chromatin
+        \captionofIntro{table}{Historical perspective of nucleosome
           structure}{}%
         \label{tab:chromatin-discoveries-timeline}%
         \begin{shaded}%
@@ -553,7 +554,7 @@
 
           \item[\cite{richmond-1kx5-19ansgtrom}]
             Crystal structure of the nucleosome solved at
-            \SI{1.9}{\angstrom} resolution of \SI{1.9}{\angstrom}, the
+            \SI{1.9}{\angstrom} resolution, the
             highest to date, showing details on the interactions
             between the DNA double helix sequence and histone octamer.
           \end{description}
@@ -638,7 +639,7 @@
   choosing fluorophores with different emission wavelengths multiple
   molecules can be simultaneously identified.
 
-  In a typical widefield microscope configured for such experiment,
+  In a typical widefield microscope configured for such experiments,
   light in the excitation wavelengths is selected by an optical
   filter, the excitation filter, from a wide-spectrum and
   high-intensity light source.  The excitation light is then reflected
@@ -1092,7 +1093,7 @@
   long time frame FRAP measurements.  In \Cref{ch:kill-frap} we detail our
   step-wise approach to solving these issues.
 
-  Through this studies, we developed many software components and
+  Through these studies, we developed many software components and
   strove to improve existing tools that would be available to all
   researchers.  In \Cref{ch:software} we describe the multiple tools
   created and improved, all of which have been released under a free
