@@ -11,7 +11,7 @@
     The canonical core histone gene symbols are divided into 3 parts:
     HIST cluster, histone type, and identifier letter
     for the order relative to other histone genes of the same type in
-    the cluster (\fref{subfig:nomenclature-coding-canonical}).
+    the same cluster (\fref{subfig:nomenclature-coding-canonical}).
     For example, \textit{HIST1H2BD} is nominally the fourth H2B coding gene in the HIST1 cluster.
     Identifiers are ordered by their genomic coordinates starting at
     the telomere of the short arm \citep{Marzluff02}.
@@ -25,9 +25,9 @@
         \begin{minipage}{0.34\textwidth}
           \centering
           \LARGE{%
-            \colorbox{red!60}{\strut HIST1}%
-            \colorbox{green!60}{\strut H2B}%
-            \colorbox{blue!40}{\strut D}%
+            \colorbox{red!60}{\strut \textit{HIST1}}%
+            \colorbox{green!60}{\strut \textit{H2B}}%
+            \colorbox{blue!40}{\strut \textit{D}}%
           }
 
           \scriptsize{%
@@ -42,10 +42,10 @@
         \begin{minipage}{0.41\textwidth}
           \centering
           \LARGE{%
-            \colorbox{red!60}{\strut HIST2}%
-            \colorbox{green!60}{\strut H3}%
-            \colorbox{yellow!60}{\strut PS}%
-            \colorbox{blue!40}{\strut 2}%
+            \colorbox{red!60}{\strut \textit{HIST2}}%
+            \colorbox{green!60}{\strut \textit{H3}}%
+            \colorbox{yellow!60}{\strut \textit{PS}}%
+            \colorbox{blue!40}{\strut \textit{2}}%
           }
 
           \scriptsize{%
@@ -62,9 +62,9 @@
         \begin{minipage}{0.25\textwidth}
           \centering
           \LARGE{%
-            \colorbox{red!60}{\strut H2A}%
-            \colorbox{green!60}{\strut F}%
-            \colorbox{blue!40}{\strut X}%
+            \colorbox{red!60}{\strut \textit{H2A}}%
+            \colorbox{green!60}{\strut \textit{F}}%
+            \colorbox{blue!40}{\strut \textit{X}}%
           }
 
           \scriptsize{%
@@ -101,11 +101,11 @@
     Several new histone genes have been uncovered since the original
     naming (\tref{tab:difference-from-Marzluff02})
     and this required additional nomenclature exceptions.
-    For example, new H2A encoding genes were identified in both human
-    and mouse HIST2 cluster preceding \textit{HIST2H2AA}
-    leading to the renaming of \textit{HIST2H2AA} to \textit{HIST2H2AA3}
+    For example, new H2A encoding genes were identified in human
+    and mouse HIST2 clusters preceding \textit{HIST2H2AA}/\textit{Hist2h2aa}.
+    This led to the renaming of the gene to \textit{HIST2H2AA3}/\textit{Hist2h2aa3}
     and the addition of a new human gene as \textit{HIST2H2AA4}.
-    There are no human orthologs of mouse \textit{Hist2h2aa1} and \textit{Hist2h2aa2}.
+    There are no human orthologs of the new mouse \textit{Hist2h2aa1} and \textit{Hist2h2aa2}.
 
     Furthermore, no distinction was originally made between
     pseudogenes and functional coding genes,
@@ -121,12 +121,13 @@
     However, the pseudogenes named in the original classification retain their symbols without PS.
     This means that the absence of a PS suffix does not indicate a functional gene,
     and that there is no positional information in the gene symbols of most pseudogenes.
+    Recently, some pseudogenes have also been shown to be functional histone variants \citep{TaguchiKurumizaka2017}.
 
   \subsection{Histone gene clustering}
     The human canonical core histone genes are located in clusters HIST1 to HIST\NumberOfClusters{},
     named in order of decreasing histone gene count (\tref{tab:histone-gene-count}).
     HIST1 is the major histone gene cluster at locus~\HISTOneLocus{}
-    with \CoreCodingGenesInHISTOne{} functional core histone genes plus all canonical H1 histones,
+    with \CoreCodingGenesInHISTOne{}~functional core histone genes plus all canonical H1 histones,
     representing \FPround{\result}{\PercentageGenesInHISTOne}{0} \SI{\result}{\percent}
     of all canonical core histone genes.
     HIST2 at locus \HISTTwoLocus{} contains \CoreCodingGenesInHISTTwo{}~coding genes,
@@ -147,13 +148,15 @@
     HIST1 is located towards the distal end of the major histocompatibility complex (MHC)
     in the extended class~I region \citep{MHC-I-transcript, MHC-complete-sequencing-1999}
     and it has even been suggested that this proximity
-    may suppresses recombination \citep{MHC-repressed-by-HIST}.
+    may suppress recombination due to the observed
+    local linkage disequilibrium \citep{MHC-repressed-by-HIST}.
     In contrast, HIST2 may be prone to deletions and frequent rearrangements
     \citep{HISTTwo-prone-deletion-discovery, HISTTwo-prone-deletion-focus}
 
     The functional significance of histone gene clustering remains to be demonstrated.
-    It has been suggested that clustering may facilitate coordinate regulation \citep{Eirinlopez2009,close-regulators},
-    but interpreting such a functional relationship with genome organisation
+    It has been suggested that clustering may facilitate coordinate regulation
+    \citep{Eirinlopez2009,close-regulators},
+    so interpreting such a functional relationship with genome organisation
     requires an accurate catalogue of the histone genes and their individual roles.
 
     Conversely, progress in understanding histone gene function
@@ -163,57 +166,55 @@
     and separated from other cluster members a number of non-histone genes.
     Although the two genes have been assigned canonical histone gene names,
     the \textit{HIST1H2BA} gene in fact encodes the most divergent canonical H2B protein
-    which is also known as TH2, TH2B, or hTSH2B and considered to be
-    a testes-specific histone protein \citep{Zalensky2002,LiAusio2005,ShinagawaIshii2014}.
+    which is also known as TH2/TH2B/hTSH2B and considered to be
+    a testes-specific histone protein \citep{Zalensky2002,LiAusio2005,Shinagawa2014}.
     Immediately adjacent is \textit{HIST1H2AA} encoding
     a H2A protein isoform of similarly high variation.
     The syntenic rat orthologues of \textit{HIST1H2AA} and \textit{HIST1H2BA}
     are divergently transcribed specifically in testes \citep{HuhChae1991},
-    and the mouse orthologues H2AL1/TH2a and TH2B have been shown to participate in gametogenesis \citep{GovinCaron2007}
+    and the mouse orthologues H2AL1/TH2a and TH2B have been shown
+    to participate in gametogenesis \citep{GovinCaron2007}
     as well as to enhance stem cell reprogramming \citep{ShinagawaIshii2014,PadavattanKumarevel2015}.
     It is therefore possible that \textit{HIST1H2AA} and \textit{HIST1H2BA}
     are undergoing sub-functionalisation and could be reclassified
-    as histone variants H2A.L and H2B.1 \citep{Talbert2012}.
-    This would in turn lead to a recalculation of the length of the HIST1 cluster.
+    as variant genes encoding histone proteins H2A.L and H2B.1 \citep{Talbert2012}.
+    This would in turn require gene renaming and a recalculation of the length of the HIST1 cluster.
 
-    A similar case may exist for the small HIST3 cluster \SI{80}{\mega\bp} downstream of HIST2.
+    A similar case of updates in definition may apply
+    for the small HIST3 cluster \SI{80}{\mega\bp} downstream of HIST2.
     HIST3 contains protein coding genes \textit{HIST3H2A}, \textit{HIST3H2BB}, and \textit{HIST3H3}.
     \textit{HIST3H3} encodes testes-specific H3T/H3.4
-    that has distinctive biochemical properties \citep{WittExpCellRes1996,KurumizakaCOSB2013},
+    that has distinctive biochemical properties
+    and appears to be a histone variant \citep{WittExpCellRes1996,KurumizakaCOSB2013},
     while the proteins encoded by \textit{HIST3H2A} and \textit{HIST3H2BB}
     are amongst the most divergent canonical histones of their types.
 
     The examples of the \textit{HIST1H2AA} and \textit{HIST1H2BA} pair
-    and the HIST3 cluster illustrate
-    the evolving nature of the human canonical histone complement
-    and the need for a dynamic approach to classification.
+    and the HIST3 cluster illustrate the evolving nature of the human canonical histone complement.
+    This demonstrates the need for a dynamic approach to classification and presentation.
 
   \subsection{Histone gene sequences}
     Despite the high conservation of canonical core histone protein sequences,
     the coding regions of these genes exhibit considerable variation
     (\fref{fig:h2a-histone-gene-variation},~\ref{fig:h2b-histone-gene-variation},
     ~\ref{fig:h3-histone-gene-variation}, and~\ref{fig:h4-histone-gene-variation}).
-    These differences are largely located in the third base position of codons
-    and reflect the very high ratio of synonymous to non-synonymous
-    substitutions (\tref{tab:histone-gene-differences}).
 
+    These differences are largely located in the third base position of codons.
     The mean number of synonymous substitutions per site ($d_S$)
     in the sets of histone gene type isoforms is
     \FPround{\result}{\MeanHTwoAdS}{1} \result{} for H2A,
     \FPround{\result}{\MeanHTwoBdS}{1} \result{} for H2B,
     \FPround{\result}{\MeanHThreedS}{1} \result{} for H3,
-    and \FPround{\result}{\MeanHFourdS}{1} \result{} for H4.
+    and \FPround{\result}{\MeanHFourdS}{1} \result{} for H4 (\tref{tab:histone-gene-differences}).
     This is consistent with observations that
     synonymous codon divergence far exceeds non-synonymous variation
     for histone genes across eukaryotes \citep{Piontkivska2002, Rooney2002}.
     It supports a hypothesis that histone protein sequence conservation
     results from birth and death evolution through strong selective pressure
-    at the protein level rather than
-    sequence homogenisation based on clustering \citep{NeiRooney2005}.
-
+    at the protein level \citep{NeiRooney2005}.
     Despite the level of synonymous substitution,
     codon usage is strongly biased towards the most frequently used
-    human codons for most amino acids \trefp{tab:histone-gene-codonusage}.
+    human codons for most amino acids (\tref{tab:histone-gene-codonusage}).
     This suggests that histone translation may be sensitive to tRNA abundance.
 
   \subsection{Histone variant genes}
@@ -221,7 +222,7 @@
     are listed in \tref{tab:variant-catalogue} for completeness.
     Histone variant gene families comprise only one or a few copies
     dispersed across the genome outside the canonical histone clusters.
-    For example the three H3.3 variant encoding genes are located
+    For example, the three H3.3 variant encoding genes are located
     on chromosomes 1, 12, and 17, far removed from other histone genes.
 
     Most variant gene symbols have a separate 3 part nomenclature
