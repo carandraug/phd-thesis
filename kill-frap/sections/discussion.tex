@@ -317,14 +317,24 @@
 
     Fluorescence Correlation Spectroscopy (FCS) is a fluorescent
     microscopy technique providing estimates of dynamic parameters by
-    using fluorescence fluctuations in a femtolitre volume.  A
-    variation of FCS named Raster Scan Image Correlation Spectroscopy
-    (RICS) has recently been developed that uses larger image regions
-    such as an entire cell nuclei, and accounts for the spatial
-    variation of dynamics \citep{digman2005rics}.  This technique
+    using fluorescence fluctuations in a femtolitre volume.
+    More spatiotemporal dynamics can be obtained by observing the
+    fluorescence fluctuations while moving the measurement volume
+    across the sample, a technique named Spatio-Temporal Image
+    Correlation Spectroscopy (STICS) \citep{hebert2005spatiotemporal}.
+    One other variation of FCS is Raster Scan Image Correlation
+    Spectroscopy (RICS) which is similar to STICS but can be performed
+    on a standard confocal microscope \citep{digman2005rics}.  In both
+    cases, image regions that may span the entire cell nuclei may be
+    observed and populations with different dynamics localised within
+    it.  Such techniques
     could potentially provide not only a method to compare core
     histone mutations \textit{in vivo} but also their effect in
     different chromatin domains.
+    However, their implementation is still difficult, from the
+    optimisation of scanning parameters to the complex data
+    processing, and there are not many papers on the literature
+    reporting their use outside the laboratory that developed them.
 
     Overall, the current period of rapid technological advances in
     cell biology research means that new techniques such as RICS and
